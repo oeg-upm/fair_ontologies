@@ -15,37 +15,65 @@
  */
 package entities;
 
+import com.google.gson.annotations.Expose;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 
 public abstract class Check {
-    private String id;
-    private String categoryId;
-    private String status;
-    private float score;
-    private String explanation;
-    private ArrayList<String> affectedElements;
-    /*
-    Example:
-    "id":"SOME ID",
-    "category_id":"Findable",
-    "principle_id": "F1.1",
-    "status":"error",
-    "Status_score": 0.6,
-    "explanation":"this is a text explaining the result",
-    "affected_elements":["URI1","URI2"]
-    },
+    /**
+     * Note: some of these do not follow camelcase to show nice JSON
      */
+    @Expose (serialize = true)
+    protected String id;
+    @Expose (serialize = true)
+    protected String principle_id;
+    @Expose (serialize = true)
+    protected String category_id;
+    @Expose (serialize = true)
+    protected String status = "unchecked";
+    @Expose (serialize = true)
+    protected float score;
+    @Expose (serialize = true)
+    protected String explanation;
+    @Expose (serialize = true)
+    protected ArrayList<String> affected_Elements;
+    protected OWLOntology ontology;
+    protected String ontology_URI;
+    protected int total_passed_tests;
+    @Expose (serialize = true)
+    protected int total_tests_run; // in case a check does more than one assessment
 
-    public String getCategoryId() {
-        return categoryId;
+    public Check(Ontology o){
+        this.ontology = o.getOntologyModel();
+        this.ontology_URI = o.getOntologyURI();
+        score = 0;
+        total_passed_tests = 0;
+    }
+
+    public String getOntology_URI() {
+        return ontology_URI;
+    }
+
+    public String getPrinciple_id() {
+        return principle_id;
+    }
+
+    public OWLOntology getOntology() {
+        return ontology;
+    }
+
+    public String getCategory_id() {
+        return category_id;
     }
 
     public float getScore() {
         return score;
     }
 
-    public ArrayList<String> getAffectedElements() {
-        return affectedElements;
+    public ArrayList<String> getAffected_Elements() {
+        return affected_Elements;
     }
 
     public String getExplanation() {
@@ -60,16 +88,16 @@ public abstract class Check {
         return id;
     }
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory_id(String category_id) {
+        this.category_id = category_id;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public void setAffectedElements(ArrayList<String> affectedElements) {
-        this.affectedElements = affectedElements;
+    public void setAffected_Elements(ArrayList<String> affected_Elements) {
+        this.affected_Elements = affected_Elements;
     }
 
     public void setExplanation(String explanation) {
@@ -84,10 +112,19 @@ public abstract class Check {
         this.score = score;
     }
 
+    public int getTotal_tests_run() {
+        return total_tests_run;
+    }
+
+    public int getTotal_passed_tests() {
+        return total_passed_tests;
+    }
+
     /**
      * Method to be extended by the different checks to perform the appropriate validation or test
      */
     public void check(){
-
+        LoggerFactory.getLogger(Check.class).info("Checking "+this.id);
     }
+
 }

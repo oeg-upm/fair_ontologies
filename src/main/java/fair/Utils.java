@@ -1,5 +1,7 @@
 package fair;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.FileDocumentSource;
@@ -11,6 +13,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
@@ -27,10 +30,10 @@ public class Utils {
      * @param isFromFile boolean to indicate whether the ontology is from file or from URI.
      * @throws java.lang.Exception
      */
-    public static OWLOntology loadModelToDocument(String pathOrURI,boolean isFromFile) throws Exception {
+    public static OWLOntology loadModelToDocument(String pathOrURI,boolean isFromFile, String downloadFolder) throws Exception {
         String ontologyPath = pathOrURI;
         if (!isFromFile) {
-            ontologyPath = "Ontology";
+            ontologyPath = downloadFolder + File.separator + "ontology";
             downloadOntology(pathOrURI, ontologyPath);
         }
         logger.info("Loading ontology ");
@@ -53,40 +56,78 @@ public class Utils {
         for (String serialization : Constants.POSSIBLE_VOCAB_SERIALIZATIONS) {
             logger.info("Attempting to download vocabulary in " + serialization);
             try {
-                URL url = new URL(uri);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
-                connection.setInstanceFollowRedirects(true);
-                connection.setRequestProperty("Accept", serialization);
-                int status = connection.getResponseCode();
-                boolean redirect = false;
-                if (status != HttpURLConnection.HTTP_OK) {
-                    if (status == HttpURLConnection.HTTP_MOVED_TEMP || status == HttpURLConnection.HTTP_MOVED_PERM
-                            || status == HttpURLConnection.HTTP_SEE_OTHER)
-                        redirect = true;
-                }
-                // there are some vocabularies with multiple redirections:
-                // 301 -> 303 -> owl
-                while (redirect) {
-                    String newUrl = connection.getHeaderField("Location");
-                    connection = (HttpURLConnection) new URL(newUrl).openConnection();
-                    connection.setRequestProperty("Accept", serialization);
-                    status = connection.getResponseCode();
-                    if (status != HttpURLConnection.HTTP_MOVED_TEMP && status != HttpURLConnection.HTTP_MOVED_PERM
-                            && status != HttpURLConnection.HTTP_SEE_OTHER)
-                        redirect = false;
-                }
+                HttpURLConnection connection = doNegotiation(uri,serialization);
                 InputStream in = (InputStream) connection.getInputStream();
                 Files.copy(in, Paths.get(downloadPath), StandardCopyOption.REPLACE_EXISTING);
                 in.close();
-                break; // if the vocabulary is downloaded, then we don't download it for the other
-                // serializations
+                logger.info("Vocabulary in "+serialization+" downloaded successfully " +
+                        "(not downloading other serializations)");
+                break;
             } catch (Exception e) {
                 final String message = "Failed to download vocabulary in RDF format [" + serialization +"]: ";
                 logger.error(message + e.toString());
                 throw new RuntimeException(message, e);
             }
         }
+    }
+
+    public static String getValueAsLiteralOrURI(OWLAnnotationValue v) {
+        try {
+            return v.asIRI().get().getIRIString();
+        } catch (Exception e) {
+            // instead of a resource, it was added as a String
+            return v.asLiteral().get().getLiteral();
+        }
+    }
+
+    public static Document loadOntologyHTML(String uri){
+        try {
+            HttpURLConnection connection = doNegotiation(uri,Constants.TEXT_HTML);
+            InputStream in = (InputStream) connection.getInputStream();
+            //Files.copy(in, Paths.get(downloadPath), StandardCopyOption.REPLACE_EXISTING);
+            Document doc = Jsoup.parse(in, "UTF-8", "http://example.com/");
+            in.close();
+            logger.info("Vocabulary in HTML parsed successfully.");
+            return doc;
+        } catch (Exception e) {
+            final String message = "Failed to download vocabulary in HTML.";
+            logger.error(message + e.toString());
+            throw new RuntimeException(message, e);
+        }
+    }
+
+    /**
+     * Method that given a URI and a content type, it will retrieve the content from that type
+     * @param uri
+     * @param serialization
+     * @return
+     * @throws Exception
+     */
+    private static HttpURLConnection doNegotiation(String uri, String serialization) throws Exception{
+        URL url = new URL(uri);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setInstanceFollowRedirects(true);
+        connection.setRequestProperty("Accept", serialization);
+        int status = connection.getResponseCode();
+        boolean redirect = false;
+        if (status != HttpURLConnection.HTTP_OK) {
+            if (status == HttpURLConnection.HTTP_MOVED_TEMP || status == HttpURLConnection.HTTP_MOVED_PERM
+                    || status == HttpURLConnection.HTTP_SEE_OTHER)
+                redirect = true;
+        }
+        // there are some vocabularies with multiple redirections:
+        // 301 -> 303 -> owl
+        while (redirect) {
+            String newUrl = connection.getHeaderField("Location");
+            connection = (HttpURLConnection) new URL(newUrl).openConnection();
+            connection.setRequestProperty("Accept", serialization);
+            status = connection.getResponseCode();
+            if (status != HttpURLConnection.HTTP_MOVED_TEMP && status != HttpURLConnection.HTTP_MOVED_PERM
+                    && status != HttpURLConnection.HTTP_SEE_OTHER)
+                redirect = false;
+        }
+        return connection;
     }
 
     /**

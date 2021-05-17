@@ -16,29 +16,47 @@
 
 package fair;
 
-import entities.A1;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import entities.Check;
-import org.semanticweb.owlapi.model.OWLOntology;
+import entities.checks.CheckContentNegotiation;
+import entities.checks.CheckPersistentURIs;
+import entities.Ontology;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+
+//import serialization.InterfaceAdapter;
 
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
 
     private boolean isFromFile;
-    private OWLOntology o;
     private ArrayList<Check> checks;
+    private Path tmpFolder;
+    private Ontology ontology;
 
-    public FOOPS(OWLOntology o, boolean isFromFile){
-        this.o = o;
+    public FOOPS(String o, boolean isFromFile){
         this.isFromFile = isFromFile;
-
+        tmpFolder = null;
+        try {
+            tmpFolder = Files.createTempDirectory(Path.of("."), "foops");
+        }catch(Exception e){
+            logger.error("Could not create temporary folder. Exiting");
+            return;
+        }
+        this.ontology = new Ontology(o, isFromFile, tmpFolder);
         //TO DO: initialize all checks here.
-        A1 a1 = new A1();
+        CheckPersistentURIs f1 = new CheckPersistentURIs(ontology);
+        CheckContentNegotiation a1 = new CheckContentNegotiation(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
+        checks.add(f1);
     }
 
     /**
@@ -48,11 +66,38 @@ public class FOOPS {
         checks.forEach(check -> check.check());
     }
 
+    private float getTotalScore(){
+        float totalNum = 0, totalDenom = 0;
+        for (Check check : checks) {
+            totalNum += check.getTotal_passed_tests();
+            totalDenom += check.getTotal_tests_run();
+        }
+        return totalNum/totalDenom;
+    }
+
     /**
      * This method writes the results as a JSON file
      */
     private void exportJSON(String path){
-        // TO DO
+        String out = "{\n\"ontology_URI\": \""+this.ontology.getOntologyURI()+"\",\n" +
+                "\"ontology_title\": \""+this.ontology.getTitle()+"\",\n" +
+                "\"overall_score\":"+this.getTotalScore()+",\n" +
+                "\"checks\":";
+        Gson gson = new GsonBuilder().
+                excludeFieldsWithoutExposeAnnotation().
+                setPrettyPrinting().
+                create();
+        String jsonChecks = gson.toJson(checks);
+        out += jsonChecks +"\n}";
+        System.out.println(out);
+    }
+
+    public void removeTemporaryFolders(){
+        try {
+            FileUtils.deleteDirectory(new File(this.tmpFolder.toString()));
+        }catch(Exception e){
+            logger.error("Could not delete tmp folder");
+        }
     }
 
     public static void main(String[] args){
@@ -88,15 +133,19 @@ public class FOOPS {
         if(outPath.isEmpty()){
             outPath = Constants.DEFAULT_OUT_PATH;
         }
+        FOOPS f = null;
         try {
-            OWLOntology onto = Utils.loadModelToDocument(ontology, isFromFile);
-            FOOPS f = new FOOPS(onto, isFromFile);
+            f = new FOOPS(ontology, isFromFile);
             f.fairTest();
             f.exportJSON(outPath);
 
         }catch(Exception e){
-            logger.error("Could not load your ontology. Are you sure it is accessible?");
+            logger.error("Error!");
             e.printStackTrace();
+        }finally{
+            if (f != null){
+                f.removeTemporaryFolders();
+            }
         }
     }
 }
