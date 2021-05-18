@@ -20,7 +20,7 @@ public class CheckPersistentURIs extends Check {
         if (this.ontology_URI.contains("w3id.org") ||
                 this.ontology_URI.contains("doi.org") ||
                 this.ontology_URI.contains("purl.org") ||
-                this.ontology_URI.contains("www.w3.org/")){
+                this.ontology_URI.contains("www.w3.org")){
             this.status = Constants.OK;
             this.explanation = "URI is w3id, purl or a W3C URL";
             this.total_passed_tests +=1;
@@ -28,7 +28,6 @@ public class CheckPersistentURIs extends Check {
             this.status = Constants.ERROR;
             this.explanation = "URI is not using a persistent id (purl, w3id, etc.)";
         }
-        this.score = total_passed_tests / total_tests_run;
     }
 
 }

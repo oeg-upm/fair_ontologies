@@ -34,13 +34,14 @@ public abstract class Check {
     @Expose (serialize = true)
     protected String status = "unchecked";
     @Expose (serialize = true)
-    protected float score;
-    @Expose (serialize = true)
     protected String explanation;
     @Expose (serialize = true)
     protected ArrayList<String> affected_Elements;
+    @Expose (serialize = true)
+    protected String description;
     protected OWLOntology ontology;
     protected String ontology_URI;
+    @Expose (serialize = true)
     protected int total_passed_tests;
     @Expose (serialize = true)
     protected int total_tests_run; // in case a check does more than one assessment
@@ -48,8 +49,11 @@ public abstract class Check {
     public Check(Ontology o){
         this.ontology = o.getOntologyModel();
         this.ontology_URI = o.getOntologyURI();
-        score = 0;
         total_passed_tests = 0;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getOntology_URI() {
@@ -66,10 +70,6 @@ public abstract class Check {
 
     public String getCategory_id() {
         return category_id;
-    }
-
-    public float getScore() {
-        return score;
     }
 
     public ArrayList<String> getAffected_Elements() {
@@ -106,10 +106,6 @@ public abstract class Check {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public void setScore(float score) {
-        this.score = score;
     }
 
     public int getTotal_tests_run() {

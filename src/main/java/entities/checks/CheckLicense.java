@@ -8,7 +8,7 @@ public class CheckLicense extends Check {
         super(o);
     }
     /**
-     * Checks the license. And Open license!!
+     * Checks whether a license exists
      *
      * TO DO
      */

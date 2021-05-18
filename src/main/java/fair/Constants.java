@@ -34,7 +34,9 @@ public class Constants {
     /* Explanations */
     public static String OK_TEST = "All tests have passed successfully";
 
-    /* Metadata*/
+    /* Check descriptions */
+
+    public static final String CN1_DESC = "Check if the ontology URI is published following the right content negotiation for RDF and HTML";
 
     /**
      * Constants for loading metadata properties from the ontology

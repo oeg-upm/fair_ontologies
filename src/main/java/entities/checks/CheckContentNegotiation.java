@@ -18,7 +18,9 @@ public class CheckContentNegotiation extends Check {
         this.category_id = Constants.ACCESSIBLE;
         this.principle_id ="A1";
         this.total_tests_run = 2;
+        this.description = Constants.CN1_DESC;
     }
+
 
     @Override
     public void check() {
@@ -39,7 +41,6 @@ public class CheckContentNegotiation extends Check {
             this.explanation = "Ontology not available in RDF or HTML";
             this.status = Constants.ERROR;
         }
-        this.score = total_passed_tests / total_tests_run;
     }
 
 }
