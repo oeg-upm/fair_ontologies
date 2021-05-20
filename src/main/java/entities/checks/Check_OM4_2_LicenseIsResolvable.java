@@ -17,6 +17,11 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
+import fair.Utils;
+import org.slf4j.LoggerFactory;
+
+import java.net.HttpURLConnection;
 
 /**
  * Given an ontology, this check verifies if its license is resolvable.
@@ -26,5 +31,31 @@ public class Check_OM4_2_LicenseIsResolvable extends Check {
 
     public Check_OM4_2_LicenseIsResolvable(Ontology o) {
         super(o);
+        this.description = Constants.OM4_2_DESC;
+        this.id = Constants.OM4_2;
+        this.category_id = Constants.REUSABLE;
+        this.principle_id ="R1.1";
     }
+
+    @Override
+    public void check() {
+        super.check();
+        String license = this.ontology.getLicense();
+        if (license !=null && !"".equals(license)){
+            if(Utils.isLicenseResolvable(license)){
+                this.status = Constants.OK;
+                total_passed_tests += 1;
+                this.explanation = Constants.OM4_2_EXPLANATION_OK;
+            }else{
+                this.status = Constants.ERROR;
+                this.explanation = Constants.OM4_2_EXPLANATION_ERROR;
+            }
+        }else{
+            this.status = Constants.ERROR;
+            this.explanation = Constants.OM4_1_EXPLANATION_ERROR;
+        }
+
+    }
+
+
 }

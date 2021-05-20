@@ -16,6 +16,7 @@
 
 package fair;
 
+import entities.Check;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.semanticweb.owlapi.model.*;
@@ -114,17 +115,19 @@ public class Utils {
 
     /**
      * Method that given a URI and a content type, it will retrieve the content from that type
-     * @param uri
-     * @param serialization
+     * @param uri URI of the resource to fetch
+     * @param serialization serialization to fetch. If null, it will fetch content by default
      * @return
      * @throws Exception
      */
-    private static HttpURLConnection doNegotiation(String uri, String serialization) throws Exception{
+    public static HttpURLConnection doNegotiation(String uri, String serialization) throws Exception{
         URL url = new URL(uri);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setInstanceFollowRedirects(true);
-        connection.setRequestProperty("Accept", serialization);
+        if(serialization!=null) {
+            connection.setRequestProperty("Accept", serialization);
+        }
         int status = connection.getResponseCode();
         boolean redirect = false;
         if (status != HttpURLConnection.HTTP_OK) {
@@ -137,7 +140,9 @@ public class Utils {
         while (redirect) {
             String newUrl = connection.getHeaderField("Location");
             connection = (HttpURLConnection) new URL(newUrl).openConnection();
-            connection.setRequestProperty("Accept", serialization);
+            if(serialization!=null) {
+                connection.setRequestProperty("Accept", serialization);
+            }
             status = connection.getResponseCode();
             if (status != HttpURLConnection.HTTP_MOVED_TEMP && status != HttpURLConnection.HTTP_MOVED_PERM
                     && status != HttpURLConnection.HTTP_SEE_OTHER)
@@ -169,5 +174,22 @@ public class Utils {
                 }
             }
         }
+    }
+
+    public static boolean isLicenseResolvable(String licenseURI){
+        try {
+            HttpURLConnection connection = Utils.doNegotiation(licenseURI, null);
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
+                return true;
+            }
+            if (connection.getResponseCode() > 400 ){
+                logger.error("Return code for license is" +connection.getResponseCode());
+                return false;
+            }
+        }catch(Exception e){
+            logger.error(e.getMessage());
+            return false;
+        }
+        return false;
     }
 }

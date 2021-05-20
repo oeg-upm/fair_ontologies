@@ -76,7 +76,7 @@ public class Constants {
     public static final String OM4_1_EXPLANATION_ERROR = "License not found";
 
     //license_resolvable
-    public static final String OM_4_2 = "OM4.2";
+    public static final String OM4_2 = "OM4.2";
     public static final String OM4_2_DESC = "Check to see if the license is resolvable";
     public static final String OM4_2_EXPLANATION_OK = "License could be resolved";
     public static final String OM4_2_EXPLANATION_ERROR = "The license used could not be resolved";
