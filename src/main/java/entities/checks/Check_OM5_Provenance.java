@@ -13,26 +13,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
 
-public class CheckLicense extends Check {
-    public CheckLicense(Ontology o) {
+public class Check_OM5_Provenance extends Check {
+    public Check_OM5_Provenance(Ontology o) {
         super(o);
     }
-    /**
-     * Checks whether a license exists
-     *
-     * TO DO
-     */
-
-
-    public void check() {
-        /**
-         * TO DO
-         */
-    }
-
 }

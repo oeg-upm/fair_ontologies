@@ -13,14 +13,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
 
-public class CheckProvenance extends Check {
-    public CheckProvenance(Ontology o) {
+public class Check_OM1_MinimumMetadata extends Check {
+
+    public Check_OM1_MinimumMetadata(Ontology o) {
         super(o);
     }
 }

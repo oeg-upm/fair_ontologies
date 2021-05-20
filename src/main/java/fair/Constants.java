@@ -22,45 +22,83 @@ public class Constants {
     public static final String TEXT_HTML = "text/html";
     public static final String DEFAULT_OUT_PATH = "validation.json";
     public static final String HELP_TEXT ="java -jar fair_ontologies-version-jar-with-dependencies.jar [OPTIONS]\n"+
-            "    -ontFile PATH  [required (unless -ontURI is used)]: Load a local ontology file (from PATH) to document.\n "
+            "    -ontFile PATH  [required (unless -ontURI is used)]: Load a local ontology file (from PATH) " +
+            "to document.\n "
             + "        This option is incompatible with -ontURI\n" +
             "    -ontURI  URI   [required (unless -ontFile is used)]: Load an ontology to document from its URI.\n"
             + "        This option is incompatible with -ontFile\n" ;
 
     /*Internal ids of checks and their explanations and descriptions*/
     // CN1: Content negotiation
-    public static String CN1 = "CN1";
-    public static final String CN1_DESC = "Checks if the ontology URI is published following the right content negotiation for RDF and HTML";
+    public static final String CN1 = "CN1";
+    public static final String CN1_DESC = "Checks if the ontology URI is published following the right content " +
+            "negotiation for RDF and HTML";
     public static final String CN1_DESC_EXPLANATION_OK = "Ontology available in: ";
     public static final String CN1_DESC_EXPLANATION_ERROR = "Ontology not available in RDF or HTML";
 
     //DOC1: HTML doc
-    public static String DOC1 = "DOC1";
+    public static final String DOC1 = "DOC1";
     public static final String DOC1_DESC = "Check if the ontology has an HTML documentation";
     public static final String DOC1_EXPLANATION_OK = "Ontology available in HTML";
     public static final String DOC1_EXPLANATION_ERROR = "Ontology not available in HTML";
 
     // PURL1: Use of persistent URIs
-    public static String PURL1 = "PURL1";
-    public static String PURL1_DESC = " Check if the ontology uses a persistent URL";
-    public static final String PURL1_EXPLANATION_OK = "Ontology URI is w3id, purl or a W3C URL";
-    public static final String PURL1_EXPLANATION_ERROR = "Ontology URI is not using a persistent id (purl, w3id, etc.)";
+    public static final String PURL1 = "PURL1";
+    public static final String PURL1_DESC = " Check if the ontology uses a persistent URL";
+    public static final String PURL1_EXPLANATION_OK = "Ontology URI is persistent (w3id, purl, DOI, or a W3C URL)";
+    public static final String PURL1_EXPLANATION_ERROR = "Ontology URI is not using a persistent id. " +
+            "We checked w3id, purl, DOI and W3C";
 
     // Ontology metadata
-    public static String ONTO_METADATA = "OM1";
+    //minimum
+    public static final String OM1 = "OM1";
+    public static final String OM1_DESC = "Check to see is the following  minimum metadata [title, description, " +
+            "license, version iri, creator, creationDate, namespace URI] are present";
+    public static final String OM1_EXPLANATION_OK = "All minimum metadata is present";
+    public static final String OM1_EXPLANATION_ERROR = "The following minimum metadata was not found: ";
+
+    //recommended
+    public static final String OM_2 = "OM2";
+    public static final String OM2_DESC = "Check to see if the following recommended metadata [] are present";
+    public static final String OM2_EXPLANATION_OK = "All recommended metadata is present";
+    public static final String OM2_EXPLANATION_ERROR = "The following recommended metadata was not found: ";
+
+    //optional
+    public static final String OM3 = "OM3";
+    public static final String OM3_DESC = "Check to see if the following optional metadata [] are found";
+    public static final String OM3_EXPLANATION_OK = "All optional metadata is present";
+    public static final String OM3_EXPLANATION_ERROR = "The following recommended metadata was not found";
+
+    //license
+    public static final String OM4_1 = "OM4.1";
+    public static final String OM4_1_DESC = "Check to see if there is a license associated with the ontology";
+    public static final String OM4_1_EXPLANATION_OK = "A license was found";
+    public static final String OM4_1_EXPLANATION_ERROR = "License not found";
+
+    //license_resolvable
+    public static final String OM_4_2 = "OM4.2";
+    public static final String OM4_2_DESC = "Check to see if the license is resolvable";
+    public static final String OM4_2_EXPLANATION_OK = "License could be resolved";
+    public static final String OM4_2_EXPLANATION_ERROR = "The license used could not be resolved";
+
+    //provenance
+    public static final String OM_5 = "OM5";
+    public static final String OM5_DESC = "";
+    public static final String OM5_EXPLANATION_OK = "";
+    public static final String OM5_EXPLANATION_ERROR = "";
 
     /* FAIR Categories*/
-    public static String FINDABLE = "Findable";
-    public static String ACCESSIBLE = "Accessible";
-    public static String INTEROPERABLE = "Interoperable";
-    public static String REUSABLE = "Reusable";
+    public static final String FINDABLE = "Findable";
+    public static final String ACCESSIBLE = "Accessible";
+    public static final String INTEROPERABLE = "Interoperable";
+    public static final String REUSABLE = "Reusable";
 
     /* Status texts*/
-    public static String OK = "ok";
-    public static String ERROR = "error";
+    public static final String OK = "ok";
+    public static final String ERROR = "error";
 
     /* Explanations for all */
-    public static String OK_TEST = "All tests have passed successfully";
+    public static final String OK_TEST = "All tests have passed successfully";
 
     /**
      * Constants for loading metadata properties from the ontology

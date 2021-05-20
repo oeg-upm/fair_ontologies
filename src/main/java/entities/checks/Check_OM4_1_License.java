@@ -18,13 +18,21 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 
-/**
- * Given an ontology, this check verifies if its license is resolvable.
- */
-
-public class CheckLicenseIsResolvable extends Check {
-
-    public CheckLicenseIsResolvable(Ontology o) {
+public class Check_OM4_1_License extends Check {
+    public Check_OM4_1_License(Ontology o) {
         super(o);
     }
+    /**
+     * Checks whether a license exists
+     *
+     * TO DO
+     */
+
+
+    public void check() {
+        /**
+         * TO DO
+         */
+    }
+
 }

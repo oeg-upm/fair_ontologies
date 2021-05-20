@@ -19,8 +19,8 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 
-public class CheckRecommendedMetadata extends Check {
-    public CheckRecommendedMetadata(Ontology o) {
+public class Check_OM2_RecommendedMetadata extends Check {
+    public Check_OM2_RecommendedMetadata(Ontology o) {
         super(o);
     }
     /**

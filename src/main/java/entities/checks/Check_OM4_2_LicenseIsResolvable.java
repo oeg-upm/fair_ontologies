@@ -18,13 +18,13 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 
-public class CheckOptionalMetadata extends Check {
-    public CheckOptionalMetadata(Ontology o) {
+/**
+ * Given an ontology, this check verifies if its license is resolvable.
+ */
+
+public class Check_OM4_2_LicenseIsResolvable extends Check {
+
+    public Check_OM4_2_LicenseIsResolvable(Ontology o) {
         super(o);
     }
-    /**
-     * This check verifies whether the detected metadata is the optional one
-     *
-     * TO DO
-     */
 }

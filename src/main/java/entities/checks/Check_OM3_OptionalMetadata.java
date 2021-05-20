@@ -18,9 +18,13 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 
-public class CheckMinimumMetadata extends Check {
-
-    public CheckMinimumMetadata(Ontology o) {
+public class Check_OM3_OptionalMetadata extends Check {
+    public Check_OM3_OptionalMetadata(Ontology o) {
         super(o);
     }
+    /**
+     * This check verifies whether the detected metadata is the optional one
+     *
+     * TO DO
+     */
 }
