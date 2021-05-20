@@ -27,11 +27,25 @@ public class Constants {
             "    -ontURI  URI   [required (unless -ontFile is used)]: Load an ontology to document from its URI.\n"
             + "        This option is incompatible with -ontFile\n" ;
 
-    /*Internal ids of checks*/
-    // Content negotiation
+    /*Internal ids of checks and their explanations and descriptions*/
+    // CN1: Content negotiation
     public static String CN1 = "CN1";
-    // Persitent URIs
-    public static String PURL = "PURL1";
+    public static final String CN1_DESC = "Checks if the ontology URI is published following the right content negotiation for RDF and HTML";
+    public static final String CN1_DESC_EXPLANATION_OK = "Ontology available in: ";
+    public static final String CN1_DESC_EXPLANATION_ERROR = "Ontology not available in RDF or HTML";
+
+    //DOC1: HTML doc
+    public static String DOC1 = "DOC1";
+    public static final String DOC1_DESC = "Check if the ontology has an HTML documentation";
+    public static final String DOC1_EXPLANATION_OK = "Ontology available in HTML";
+    public static final String DOC1_EXPLANATION_ERROR = "Ontology not available in HTML";
+
+    // PURL1: Use of persistent URIs
+    public static String PURL1 = "PURL1";
+    public static String PURL1_DESC = " Check if the ontology uses a persistent URL";
+    public static final String PURL1_EXPLANATION_OK = "Ontology URI is w3id, purl or a W3C URL";
+    public static final String PURL1_EXPLANATION_ERROR = "Ontology URI is not using a persistent id (purl, w3id, etc.)";
+
     // Ontology metadata
     public static String ONTO_METADATA = "OM1";
 
@@ -45,12 +59,8 @@ public class Constants {
     public static String OK = "ok";
     public static String ERROR = "error";
 
-    /* Explanations */
+    /* Explanations for all */
     public static String OK_TEST = "All tests have passed successfully";
-
-    /* Check descriptions */
-
-    public static final String CN1_DESC = "Check if the ontology URI is published following the right content negotiation for RDF and HTML";
 
     /**
      * Constants for loading metadata properties from the ontology

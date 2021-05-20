@@ -13,37 +13,41 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package entities.checks;
 
+import com.google.gson.annotations.Expose;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
+import org.jsoup.nodes.Document;
 
-public class CheckPersistentURIs extends Check {
-    public CheckPersistentURIs(Ontology o){
+/**
+ * This check verifies if there is an HTML documentation of the ontology
+ */
+
+public class Check_DOC1_HTMLDoc extends Check {
+    @Expose(serialize = false)
+    private Document htmlDoc;
+
+    public Check_DOC1_HTMLDoc(Ontology o) {
         super(o);
-        this.category_id = Constants.FINDABLE;
-        this.principle_id = "F1";
-        this.id = Constants.PURL;
-        this.total_tests_run = 1;
+        this.htmlDoc = o.getHtmlDocumentation();
+        this.id = Constants.DOC1;
+        this.category_id = Constants.REUSABLE;
+        this.principle_id ="R1";
+        this.description = Constants.DOC1_DESC;
     }
 
     @Override
     public void check() {
         super.check();
-        //Note: test could be enhanced so it checks for http[s] + any of the URLs below
-        if (this.ontology_URI.contains("w3id.org") ||
-                this.ontology_URI.contains("doi.org") ||
-                this.ontology_URI.contains("purl.org") ||
-                this.ontology_URI.contains("www.w3.org")){
+        if (htmlDoc != null){
+            total_passed_tests += 1;
+            this.explanation = Constants.DOC1_EXPLANATION_OK;
             this.status = Constants.OK;
-            this.explanation = "URI is w3id, purl or a W3C URL";
-            this.total_passed_tests +=1;
         }else{
+            this.explanation = Constants.DOC1_EXPLANATION_ERROR;
             this.status = Constants.ERROR;
-            this.explanation = "URI is not using a persistent id (purl, w3id, etc.)";
         }
     }
-
 }

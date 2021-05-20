@@ -13,48 +13,36 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 package entities.checks;
 
-import com.google.gson.annotations.Expose;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-import org.jsoup.nodes.Document;
 
-public class CheckContentNegotiation extends Check {
-    @Expose(serialize = false)
-    private Document htmlDoc;
-
-
-    public CheckContentNegotiation(Ontology o){
+public class Check_PURL1_PersistentURIs extends Check {
+    public Check_PURL1_PersistentURIs(Ontology o){
         super(o);
-        this.htmlDoc = o.getHtmlDocumentation();
-        this.id = Constants.CN1;
-        this.category_id = Constants.ACCESSIBLE;
-        this.principle_id ="A1";
-        this.total_tests_run = 2;
-        this.description = Constants.CN1_DESC;
+        this.category_id = Constants.FINDABLE;
+        this.principle_id = "F1";
+        this.id = Constants.PURL1;
+        this.description = Constants.PURL1_DESC;
     }
-
 
     @Override
     public void check() {
         super.check();
-        String exp = "";
-        if (htmlDoc != null){
-            exp = "HTML, ";
-            total_passed_tests += 1;
-        }
-        if (this.ontology != null){
-            exp += "RDF";
-            total_passed_tests += 1;
-        }
-        if (!"".equals(exp)){
-            this.explanation = "Ontology available in: " +exp;
+        //Note: test could be enhanced so it checks for http[s] + any of the URLs below
+        if (this.ontology_URI.contains("w3id.org") ||
+                this.ontology_URI.contains("doi.org") ||
+                this.ontology_URI.contains("purl.org") ||
+                this.ontology_URI.contains("www.w3.org")){
             this.status = Constants.OK;
+            this.explanation = Constants.PURL1_EXPLANATION_OK;
+            this.total_passed_tests +=1;
         }else{
-            this.explanation = "Ontology not available in RDF or HTML";
             this.status = Constants.ERROR;
+            this.explanation = Constants.PURL1_EXPLANATION_ERROR;
         }
     }
 

@@ -19,8 +19,9 @@ package fair;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entities.Check;
-import entities.checks.CheckContentNegotiation;
-import entities.checks.CheckPersistentURIs;
+import entities.checks.Check_CN1_ContentNegotiation;
+import entities.checks.Check_DOC1_HTMLDoc;
+import entities.checks.Check_PURL1_PersistentURIs;
 import entities.Ontology;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -52,11 +53,13 @@ public class FOOPS {
         }
         this.ontology = new Ontology(o, isFromFile, tmpFolder);
         //TO DO: initialize all checks here.
-        CheckPersistentURIs f1 = new CheckPersistentURIs(ontology);
-        CheckContentNegotiation a1 = new CheckContentNegotiation(ontology);
+        Check_PURL1_PersistentURIs f1 = new Check_PURL1_PersistentURIs(ontology);
+        Check_CN1_ContentNegotiation a1 = new Check_CN1_ContentNegotiation(ontology);
+        Check_DOC1_HTMLDoc d1 = new Check_DOC1_HTMLDoc(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
         checks.add(f1);
+        checks.add(d1);
     }
 
     /**

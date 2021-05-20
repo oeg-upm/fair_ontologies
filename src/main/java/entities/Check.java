@@ -51,6 +51,7 @@ public abstract class Check {
         this.ontology = o.getOntologyModel();
         this.ontology_URI = o.getOntologyURI();
         total_passed_tests = 0;
+        total_tests_run = 1; //by default
     }
 
     public String getDescription() {
