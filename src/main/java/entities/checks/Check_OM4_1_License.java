@@ -17,22 +17,36 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
+
+/**
+ * Checks whether a license is associated with the ontology (several properties are tested)
+ *
+ */
 
 public class Check_OM4_1_License extends Check {
     public Check_OM4_1_License(Ontology o) {
         super(o);
+        this.description = Constants.OM4_1_DESC;
+        this.id = Constants.OM4_1;
+        this.category_id = Constants.REUSABLE;
+        this.principle_id ="R1.1";
     }
-    /**
-     * Checks whether a license exists
-     *
-     * TO DO
-     */
+
 
 
     public void check() {
-        /**
-         * TO DO
-         */
+        String license = this.ontology.getLicense();
+        if (license !=null && !"".equals(license)){
+            this.status = Constants.OK;
+            this.explanation = Constants.OM4_1_EXPLANATION_OK;
+            this.explanation += " "+license;
+            this.total_passed_tests += 1;
+        }
+        else{
+            this.status = Constants.ERROR;
+            this.explanation = Constants.OM4_1_EXPLANATION_ERROR;
+        }
     }
 
 }

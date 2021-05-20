@@ -40,7 +40,7 @@ public abstract class Check {
     protected ArrayList<String> affected_Elements;
     @Expose (serialize = true)
     protected String description;
-    protected OWLOntology ontology;
+    protected Ontology ontology;
     protected String ontology_URI;
     @Expose (serialize = true)
     protected int total_passed_tests;
@@ -48,7 +48,7 @@ public abstract class Check {
     protected int total_tests_run; // in case a check does more than one assessment
 
     public Check(Ontology o){
-        this.ontology = o.getOntologyModel();
+        this.ontology = o;
         this.ontology_URI = o.getOntologyURI();
         total_passed_tests = 0;
         total_tests_run = 1; //by default
@@ -66,7 +66,7 @@ public abstract class Check {
         return principle_id;
     }
 
-    public OWLOntology getOntology() {
+    public Ontology getOntology() {
         return ontology;
     }
 

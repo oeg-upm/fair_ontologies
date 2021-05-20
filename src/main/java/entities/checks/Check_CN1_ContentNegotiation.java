@@ -22,13 +22,10 @@ import fair.Constants;
 import org.jsoup.nodes.Document;
 
 public class Check_CN1_ContentNegotiation extends Check {
-    @Expose(serialize = false)
-    private Document htmlDoc;
 
 
     public Check_CN1_ContentNegotiation(Ontology o){
         super(o);
-        this.htmlDoc = o.getHtmlDocumentation();
         this.id = Constants.CN1;
         this.category_id = Constants.ACCESSIBLE;
         this.principle_id ="A1";
@@ -41,11 +38,11 @@ public class Check_CN1_ContentNegotiation extends Check {
     public void check() {
         super.check();
         String exp = "";
-        if (htmlDoc != null){
+        if (this.ontology.getHtmlDocumentation() != null){
             exp = "HTML, ";
             total_passed_tests += 1;
         }
-        if (this.ontology != null){
+        if (this.ontology.getOntologyModel() != null){
             exp += "RDF";
             total_passed_tests += 1;
         }

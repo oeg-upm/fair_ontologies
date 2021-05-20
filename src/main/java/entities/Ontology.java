@@ -266,4 +266,68 @@ public class Ontology {
     public String getTitle() {
         return title;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public ArrayList<String> getAuthors() {
+        return authors;
+    }
+
+    public ArrayList<String> getContributors() {
+        return contributors;
+    }
+
+    public String getAbstractText() {
+        return abstractText;
+    }
+
+    public String getBackwardCompatibility() {
+        return backwardCompatibility;
+    }
+
+    public String getCitation() {
+        return citation;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public String getDoi() {
+        return doi;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public String getNamespacePrefix() {
+        return namespacePrefix;
+    }
+
+    public String getVersionInfo() {
+        return versionInfo;
+    }
+
+    public String getPreviousVersion() {
+        return previousVersion;
+    }
+
+    public String getVersionIRI() {
+        return versionIRI;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
 }
