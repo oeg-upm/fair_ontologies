@@ -2,8 +2,6 @@
 ## Eclipse
 #################
 
-.Ontology
-
 *.pydevproject
 .project
 .metadata
