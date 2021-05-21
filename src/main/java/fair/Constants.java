@@ -16,6 +16,8 @@
 
 package fair;
 
+import java.util.ArrayList;
+
 public class Constants {
     public static final String[] POSSIBLE_VOCAB_SERIALIZATIONS = { "application/rdf+xml", "text/turtle", "text/n3",
             "application/ld+json" };
@@ -54,8 +56,7 @@ public class Constants {
     public static final String OM1 = "OM1";
     public static final String OM1_DESC = "Check to see is the following  minimum metadata [title, description, " +
             "license, version iri, creator, creationDate, namespace URI] are present";
-    public static final String OM1_EXPLANATION_OK = "All minimum metadata is present";
-    public static final String OM1_EXPLANATION_ERROR = "The following minimum metadata was not found: ";
+    public static final String OM1_EXPLANATION = "The following metadata was not found: ";
 
     //recommended
     public static final String OM_2 = "OM2";
@@ -165,7 +166,7 @@ public class Constants {
     public static final String PROP_PROV_ATTRIBUTED_TO = NS_PROV + "wasAttributedTo";
 
     public static final String PROP_VANN_PREFIX = NS_VANN + "preferredNamespacePrefix";
-    public static final String PROP_VANN_URI = NS_VANN + "preferredNamespaceURI";
+    public static final String PROP_VANN_URI = NS_VANN + "preferredNamespaceUri";
 
     public static final String PROP_SKOS_NOTE = NS_SKOS + "note";
 
@@ -175,5 +176,37 @@ public class Constants {
     public static final String PROP_PAV_CONTRIBUTED_BY = NS_PAV + "contributedBy";
 
     public static final String PROP_CC_LICENSE = "http://creativecommons.org/ns#license";
+
+    /*metadata names*/
+    public static final String FOOPS_TITLE = "title";
+    public static final String FOOPS_DESCRIPTION = "description";
+    public static final String FOOPS_LICENSE = "license";
+    public static final String FOOPS_VERSION_IRI = "version iri";
+    public static final String FOOPS_AUTHOR = "author";
+    public static final String FOOPS_NS_URI = "namespace URI";
+
+    public static final String FOOPS_NS_PREFIX = "namespace prefix";
+    public static final String FOOPS_VERSION_INFO = "version info";
+    public static final String FOOPS_CONTRIBUTOR = "contributor";
+    public static final String FOOPS_STATUS = "status";
+    public static final String FOOPS_PREVIOUS_VERSION = "previous version";
+    public static final String FOOPS_CREATION_DATE = "creation date";
+    public static final String FOOPS_B_COMPATIBILITY = "backwards compatibility";
+    public static final String FOOPS_PUBLISHER = "publisher";
+    public static final String FOOPS_CITATION = "citation";
+    public static final String FOOPS_DOI = "doi";
+    //to add in metadata
+    public static final String FOOPS_LOGO = "logo";
+
+    //minimum metadata (using local names to avoid problems)
+    public static final String[] MINIMUM_METADATA = {FOOPS_TITLE, FOOPS_DESCRIPTION, FOOPS_LICENSE, FOOPS_VERSION_IRI,
+    FOOPS_AUTHOR, FOOPS_NS_URI};
+
+    //to do
+    public static final String[] RECOMMENDED_METADATA = {};
+
+    //to do
+    public static final String[] OPTIONAL_METADATA = {};
+
 
 }

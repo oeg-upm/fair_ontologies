@@ -53,6 +53,7 @@ public class Ontology {
     private String citation;
     private String doi;
     private String logo;
+    private ArrayList<String> supportedMetadata;
 
     /**
      *
@@ -61,6 +62,7 @@ public class Ontology {
      * @param tmpFolder temporary folder where to store the downloaded ontology
      */
     public Ontology(String o, boolean isFromFile, Path tmpFolder){
+        supportedMetadata = new ArrayList<>();
         //Download ontology (any serialization)
         try {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
@@ -91,6 +93,7 @@ public class Ontology {
         }
         try {
             this.versionIRI = this.ontologyModel.getOntologyID().getVersionIRI().get().toString();
+            this.supportedMetadata.add(Constants.FOOPS_VERSION_IRI);
         } catch (Exception e) {
             logger.info("No version IRI detected");
         }
@@ -128,6 +131,7 @@ public class Ontology {
                 try {
 //                    valueLanguage = a.getValue().asLiteral().get().getLang();
                     this.title = a.getValue().asLiteral().get().getLiteral();
+                    this.supportedMetadata.add(Constants.FOOPS_TITLE);
                 } catch (Exception e) {
                     logger.error("Error while getting ontology title. No literal provided");
                 }
@@ -142,6 +146,7 @@ public class Ontology {
                 try {
 //                    valueLanguage = a.getValue().asLiteral().get().getLang();
                     this.abstractText = a.getValue().asLiteral().get().getLiteral();
+                    this.supportedMetadata.add(Constants.FOOPS_DESCRIPTION);
                 } catch (Exception e) {
                     logger.error("Error while getting ontology abstract. No literal provided");
                 }
@@ -152,20 +157,24 @@ public class Ontology {
             case Constants.PROP_OWL_PRIOR_VERSION:
             case Constants.PROP_PAV_PREVIOUS_VERSION:
                 this.previousVersion = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_PREVIOUS_VERSION);
                 break;
             case Constants.PROP_OWL_VERSION_INFO:
             case Constants.PROP_SCHEMA_SCHEMA_VERSION:
                 try {
                     this.versionInfo = a.getValue().asLiteral().get().getLiteral();
+                    this.supportedMetadata.add(Constants.FOOPS_VERSION_INFO);
                 } catch (Exception e) {
                     logger.error("Error while getting ontology abstract. No literal provided");
                 }
                 break;
             case Constants.PROP_VANN_PREFIX:
                 this.namespacePrefix = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_NS_PREFIX);
                 break;
             case Constants.PROP_VANN_URI:
                 value = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_NS_URI);
                 if (!this.ontologyURI.equals(value)) {
                     logger.error("Ontology NS URI declared and annotated is not the same!");
                 }
@@ -176,6 +185,7 @@ public class Ontology {
             case Constants.PROP_CC_LICENSE:
                 try {
                     this.license = Utils.getValueAsLiteralOrURI(a.getValue());
+                    this.supportedMetadata.add(Constants.FOOPS_LICENSE);
                 } catch (Exception e) {
                     logger.error("Could not retrieve license. Please avoid using blank nodes...");
                 }
@@ -200,6 +210,7 @@ public class Ontology {
                         case Constants.PROP_SCHEMA_CONTRIBUTOR:
                         case Constants.PROP_PAV_CONTRIBUTED_BY:
                             this.contributors.add(value);
+                            this.supportedMetadata.add(Constants.FOOPS_CONTRIBUTOR);
                             break;
                         case Constants.PROP_DC_CREATOR:
                         case Constants.PROP_DCTERMS_CREATOR:
@@ -207,9 +218,11 @@ public class Ontology {
                         case Constants.PROP_PROV_ATTRIBUTED_TO:
                         case Constants.PROP_SCHEMA_CREATOR:
                             this.authors.add(value);
+                            this.supportedMetadata.add(Constants.FOOPS_AUTHOR);
                             break;
                         default:
                             this.publisher = value;
+                            this.supportedMetadata.add(Constants.FOOPS_PUBLISHER);
                             break;
                     }
                 } catch (Exception e) {
@@ -221,6 +234,7 @@ public class Ontology {
             case Constants.PROP_PROV_GENERATED_AT_TIME:
             case Constants.PROP_PAV_CREATED_ON:
                 this.creationDate = a.getValue().asLiteral().get().getLiteral();
+                this.supportedMetadata.add(Constants.FOOPS_CREATION_DATE);
                 break;
 //            case Constants.PROP_DCTERMS_MODIFIED:
 //            case Constants.PROP_SCHEMA_DATE_MODIFIED:
@@ -230,19 +244,23 @@ public class Ontology {
             case Constants.PROP_DCTERMS_BIBLIOGRAPHIC_CIT:
             case Constants.PROP_SCHEMA_CITATION:
                 this.citation = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_CITATION);
                 break;
             case Constants.PROP_BIBO_DOI:
                 this.doi = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_DOI);
                 break;
             case Constants.PROP_BIBO_STATUS:
                 try {
                     this.status = a.getValue().asLiteral().get().getLiteral();
+                    this.supportedMetadata.add(Constants.FOOPS_STATUS);
                 } catch (Exception e) {
                     logger.error("Error while getting the status. No literal provided");
                 }
                 break;
             case Constants.PROP_OWL_BACKWARDS_COMPATIBLE:
                 this.backwardCompatibility = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_B_COMPATIBILITY);
                 break;
 //            case Constants.PROP_OWL_INCOMPATIBLE:
 //                value = Utils.getValueAsLiteralOrURI(a.getValue());
@@ -329,5 +347,9 @@ public class Ontology {
 
     public String getPublisher() {
         return publisher;
+    }
+
+    public ArrayList<String> getSupportedMetadata() {
+        return supportedMetadata;
     }
 }

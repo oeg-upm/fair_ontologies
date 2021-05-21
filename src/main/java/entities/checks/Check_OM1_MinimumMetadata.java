@@ -17,10 +17,45 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
+import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
+import java.util.Set;
+
+/**
+ * Thi Class checks if minimum metadata is present:
+ * title, description, license, versioniri, creator, creationDate, nsURI.
+ */
 
 public class Check_OM1_MinimumMetadata extends Check {
 
     public Check_OM1_MinimumMetadata(Ontology o) {
         super(o);
+        this.category_id = Constants.FINDABLE;
+        this.id = Constants.OM1;
+        this.description = Constants.OM1_DESC;
+        this.principle_id = "F2";
+        this.total_tests_run = 6;
+    }
+
+    @Override
+    public void check() {
+        super.check();
+        String exp = "";
+        for (String m:Constants.MINIMUM_METADATA){
+            if(!this.ontology.getSupportedMetadata().contains(m)){
+                exp += m+", ";
+            }else{
+                total_passed_tests += 1;
+            }
+        }
+        //remove last comma
+        if("".equals(exp)){
+            explanation = "All metadata found!";
+        }else {
+            explanation = Constants.OM1_EXPLANATION + exp.substring(0, exp.length() - 2);
+        }
+
     }
 }
