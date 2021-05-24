@@ -44,7 +44,14 @@ public class Constants {
     public static final String DOC1_EXPLANATION_OK = "Ontology available in HTML";
     public static final String DOC1_EXPLANATION_ERROR = "Ontology not available in HTML";
 
-    // PURL1: Use of persistent URIs
+    //RDF1: Check if there is aRDF serialization of an ontology
+    public static final String RDF1 = "RDF1";
+    public static final String RDF1_DESC = "Check if the ontology has an RDF serialization";
+    public static final String RDF1_EXPLANATION_OK = "Ontology available in RDF";
+    public static final String RDF1_EXPLANATION_ERROR = "Ontology not available in RDF (RDF/XML, Turtle, JSON-LD or N3)";
+
+
+    //PURL1: Use of persistent URIs
     public static final String PURL1 = "PURL1";
     public static final String PURL1_DESC = " Check if the ontology uses a persistent URL";
     public static final String PURL1_EXPLANATION_OK = "Ontology URI is persistent (w3id, purl, DOI, or a W3C URL)";
@@ -59,11 +66,10 @@ public class Constants {
     public static final String OM1_EXPLANATION = "The following metadata was not found: ";
 
     //recommended
-    public static final String OM_2 = "OM2";
-    public static final String OM2_DESC = "Check to see if the following recommended metadata [] are present";
-    public static final String OM2_EXPLANATION_OK = "All recommended metadata is present";
-    public static final String OM2_EXPLANATION_ERROR = "The following recommended metadata was not found: ";
-
+    public static final String OM2 = "OM2";
+    public static final String OM2_DESC = "Check to see if the following recommended metadata [NS Prefix, version info, " +
+            "contributor, creation date, citation] are present";
+    public static final String OM2_EXPLANATION = OM1_EXPLANATION;
     //optional
     public static final String OM3 = "OM3";
     public static final String OM3_DESC = "Check to see if the following optional metadata [] are found";
@@ -200,13 +206,14 @@ public class Constants {
 
     //minimum metadata (using local names to avoid problems)
     public static final String[] MINIMUM_METADATA = {FOOPS_TITLE, FOOPS_DESCRIPTION, FOOPS_LICENSE, FOOPS_VERSION_IRI,
-    FOOPS_AUTHOR, FOOPS_NS_URI};
+            FOOPS_AUTHOR, FOOPS_NS_URI};
+
+    public static final String[] RECOMMENDED_METADATA = {FOOPS_NS_PREFIX, FOOPS_VERSION_INFO, FOOPS_CONTRIBUTOR,
+            FOOPS_CREATION_DATE, FOOPS_CITATION};
 
     //to do
-    public static final String[] RECOMMENDED_METADATA = {};
-
-    //to do
-    public static final String[] OPTIONAL_METADATA = {};
+    //missing: modified, source, issued, publisher, status, logo,
+    public static final String[] OPTIONAL_METADATA = {FOOPS_DOI, FOOPS_PREVIOUS_VERSION, FOOPS_PUBLISHER};
 
 
 }

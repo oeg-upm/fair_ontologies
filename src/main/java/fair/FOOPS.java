@@ -54,14 +54,18 @@ public class FOOPS {
         Check_PURL1_PersistentURIs f1 = new Check_PURL1_PersistentURIs(ontology);
         Check_CN1_ContentNegotiation a1 = new Check_CN1_ContentNegotiation(ontology);
         Check_DOC1_HTMLDoc d1 = new Check_DOC1_HTMLDoc(ontology);
+        Check_RDF1_RDFAvailability rdf1 = new Check_RDF1_RDFAvailability(ontology);
         Check_OM1_MinimumMetadata om1 = new Check_OM1_MinimumMetadata(ontology);
+        Check_OM2_RecommendedMetadata om2 = new Check_OM2_RecommendedMetadata(ontology);
         Check_OM4_1_License om41 = new Check_OM4_1_License(ontology);
         Check_OM4_2_LicenseIsResolvable om42 = new Check_OM4_2_LicenseIsResolvable(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
         checks.add(f1);
         checks.add(d1);
+        checks.add(rdf1);
         checks.add(om1);
+        checks.add(om2);
         checks.add(om41);
         checks.add(om42);
     }

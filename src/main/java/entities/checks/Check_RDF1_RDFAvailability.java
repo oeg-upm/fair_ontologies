@@ -18,13 +18,31 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
 /**
  * Given an ontology, this checks whether an RDF representation is available
  */
 
-public class CheckRDF extends Check {
-    public CheckRDF(Ontology o) {
+public class Check_RDF1_RDFAvailability extends Check {
+    public Check_RDF1_RDFAvailability(Ontology o) {
         super(o);
+        this.id = Constants.RDF1;
+        this.category_id = Constants.INTEROPERABLE;
+        this.principle_id ="I1";
+        this.description = Constants.RDF1_DESC;
+    }
+
+    @Override
+    public void check() {
+        super.check();
+        if (this.ontology.getOntologyModel() != null){
+            total_passed_tests += 1;
+            this.explanation = Constants.RDF1_EXPLANATION_OK;
+            this.status = Constants.OK;
+        }else{
+            this.explanation = Constants.RDF1_EXPLANATION_ERROR;
+            this.status = Constants.ERROR;
+        }
     }
 }

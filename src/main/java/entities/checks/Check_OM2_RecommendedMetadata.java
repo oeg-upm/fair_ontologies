@@ -18,14 +18,38 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
 public class Check_OM2_RecommendedMetadata extends Check {
     public Check_OM2_RecommendedMetadata(Ontology o) {
         super(o);
+        this.category_id = Constants.FINDABLE;
+        this.id = Constants.OM2;
+        this.description = Constants.OM2_DESC;
+        this.principle_id = "F2";
+        this.total_tests_run = Constants.RECOMMENDED_METADATA.length;
     }
     /**
      * This check verifies whether the detected metadata is the recommended one
-     *
-     * TO DO
      */
+
+    @Override
+    public void check() {
+        super.check();
+        String exp = "";
+        for (String m: Constants.RECOMMENDED_METADATA){
+            if(!this.ontology.getSupportedMetadata().contains(m)){
+                exp += m+", ";
+            }else{
+                total_passed_tests += 1;
+            }
+        }
+        //remove last comma
+        if("".equals(exp)){
+            explanation = "All recommended metadata found!";
+        }else {
+            explanation = Constants.OM2_EXPLANATION + exp.substring(0, exp.length() - 2);
+        }
+
+    }
 }

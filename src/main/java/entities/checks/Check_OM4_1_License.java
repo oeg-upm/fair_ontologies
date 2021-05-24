@@ -21,7 +21,6 @@ import fair.Constants;
 
 /**
  * Checks whether a license is associated with the ontology (several properties are tested)
- *
  */
 
 public class Check_OM4_1_License extends Check {
