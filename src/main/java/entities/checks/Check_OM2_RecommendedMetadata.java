@@ -47,7 +47,9 @@ public class Check_OM2_RecommendedMetadata extends Check {
         //remove last comma
         if("".equals(exp)){
             explanation = "All recommended metadata found!";
+            this.status = Constants.OK;
         }else {
+            this.status = Constants.ERROR;
             explanation = Constants.OM2_EXPLANATION + exp.substring(0, exp.length() - 2);
         }
 

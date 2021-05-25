@@ -53,7 +53,9 @@ public class Check_OM1_MinimumMetadata extends Check {
         //remove last comma
         if("".equals(exp)){
             explanation = "All metadata found!";
+            this.status = Constants.OK;
         }else {
+            this.status = Constants.ERROR;
             explanation = Constants.OM1_EXPLANATION + exp.substring(0, exp.length() - 2);
         }
 
