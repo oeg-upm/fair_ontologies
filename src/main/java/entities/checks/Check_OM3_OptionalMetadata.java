@@ -17,14 +17,40 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
 public class Check_OM3_OptionalMetadata extends Check {
     public Check_OM3_OptionalMetadata(Ontology o) {
         super(o);
+        this.category_id = Constants.FINDABLE;
+        this.id = Constants.OM3;
+        this.description = Constants.OM3_DESC;
+        this.principle_id = "F2";
+        this.total_tests_run = Constants.OPTIONAL_METADATA.length;
     }
     /**
      * This check verifies whether the detected metadata is the optional one
-     *
-     * TO DO
      */
+
+    @Override
+    public void check() {
+        super.check();
+        String exp = "";
+        for (String m: Constants.OPTIONAL_METADATA){
+            if(!this.ontology.getSupportedMetadata().contains(m)){
+                exp += m+", ";
+            }else{
+                total_passed_tests += 1;
+            }
+        }
+        //remove last comma
+        if("".equals(exp)){
+            explanation = "All optional metadata found!";
+            this.status = Constants.OK;
+        }else {
+            this.status = Constants.ERROR;
+            explanation = Constants.OM3_EXPLANATION + exp.substring(0, exp.length() - 2);
+        }
+
+    }
 }

@@ -70,11 +70,12 @@ public class Constants {
     public static final String OM2_DESC = "Check to see if the following recommended metadata [NS Prefix, version info, " +
             "contributor, creation date, citation] are present";
     public static final String OM2_EXPLANATION = OM1_EXPLANATION;
+
     //optional
     public static final String OM3 = "OM3";
-    public static final String OM3_DESC = "Check to see if the following optional metadata [] are found";
-    public static final String OM3_EXPLANATION_OK = "All optional metadata is present";
-    public static final String OM3_EXPLANATION_ERROR = "The following recommended metadata was not found";
+    public static final String OM3_DESC = "Check to see if the following optional metadata [doi, previous version," +
+            "publisher, logo, backwards compatibility, status, modified, source, issued date] are found";
+    public static final String OM3_EXPLANATION = OM1_EXPLANATION;
 
     //license
     public static final String OM4_1 = "OM4.1";
@@ -123,6 +124,9 @@ public class Constants {
     public static final String NS_BIBO = "http://purl.org/ontology/bibo/";
     public static final String NS_SKOS = "http://www.w3.org/2004/02/skos/core#";
     public static final String NS_PAV = "http://purl.org/pav/";
+    public static final String NS_FOAF = "http://xmlns.com/foaf/0.1/";
+
+    public static final String PROP_FOAF_LOGO = NS_FOAF + "logo";
 
     public static final String PROP_RDFS_LABEL = NS_RDFS + "label";
     public static final String PROP_RDFS_COMMENT = NS_RDFS + "comment";
@@ -135,8 +139,9 @@ public class Constants {
     public static final String PROP_SCHEMA_CITATION = NS_SCHEMA + "citation";
     public static final String PROP_SCHEMA_DATE_CREATED = NS_SCHEMA + "dateCreated";
     public static final String PROP_SCHEMA_DATE_MODIFIED = NS_SCHEMA + "dateModified";
-    public static final String PROP_SCHEMA_PUBLISER = NS_SCHEMA + "publisher";
+    public static final String PROP_SCHEMA_PUBLISHER = NS_SCHEMA + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION = NS_SCHEMA + "schemaVersion";
+    public static final String PROP_SCHEMA_SCHEMA_LOGO = NS_SCHEMA + "logo";
 
     public static final String PROP_OWL_VERSION_INFO = NS_OWL + "versionInfo";
     public static final String PROP_OWL_PRIOR_VERSION = NS_OWL + "priorVersion";
@@ -151,6 +156,7 @@ public class Constants {
     public static final String PROP_DC_REPLACES = NS_DC + "replaces";
     public static final String PROP_DC_CONTRIBUTOR = NS_DC + "contributor";
     public static final String PROP_DC_PUBLISHER = NS_DC + "publisher";
+    public static final String PROP_DC_SOURCE = NS_DC + "source";
 
     public static final String PROP_DCTERMS_REPLACES = NS_DCTERMS + "replaces";
     public static final String PROP_DCTERMS_DESCRIPTION = NS_DCTERMS + "description";
@@ -163,6 +169,8 @@ public class Constants {
     public static final String PROP_DCTERMS_CREATED = NS_DCTERMS + "created";
     public static final String PROP_DCTERMS_MODIFIED = NS_DCTERMS + "modified";
     public static final String PROP_DCTERMS_BIBLIOGRAPHIC_CIT = NS_DCTERMS + "bibliographicCitation";
+    public static final String PROP_DCTERMS_ISSUED = NS_DCTERMS + "issued";
+    public static final String PROP_DCTERMS_SOURCE = NS_DCTERMS + "source";
 
     public static final String PROP_BIBO_DOI = NS_BIBO + "doi";
     public static final String PROP_BIBO_STATUS = NS_BIBO + "status";
@@ -201,19 +209,22 @@ public class Constants {
     public static final String FOOPS_PUBLISHER = "publisher";
     public static final String FOOPS_CITATION = "citation";
     public static final String FOOPS_DOI = "doi";
-    //to add in metadata
-    public static final String FOOPS_LOGO = "logo";
 
-    //minimum metadata (using local names to avoid problems)
+    public static final String FOOPS_LOGO = "logo";
+    public static final String FOOPS_MODIFIED = "modified";
+    public static final String FOOPS_SOURCE = "source";
+    public static final String FOOPS_ISSUED = "issued";
+
+
+    // metadata (using local names to avoid problems)
     public static final String[] MINIMUM_METADATA = {FOOPS_TITLE, FOOPS_DESCRIPTION, FOOPS_LICENSE, FOOPS_VERSION_IRI,
             FOOPS_AUTHOR, FOOPS_NS_URI};
 
     public static final String[] RECOMMENDED_METADATA = {FOOPS_NS_PREFIX, FOOPS_VERSION_INFO, FOOPS_CONTRIBUTOR,
             FOOPS_CREATION_DATE, FOOPS_CITATION};
 
-    //to do
-    //missing: modified, source, issued, publisher, status, logo,
-    public static final String[] OPTIONAL_METADATA = {FOOPS_DOI, FOOPS_PREVIOUS_VERSION, FOOPS_PUBLISHER};
+    public static final String[] OPTIONAL_METADATA = {FOOPS_DOI, FOOPS_PREVIOUS_VERSION, FOOPS_PUBLISHER, FOOPS_LOGO,
+            FOOPS_B_COMPATIBILITY, FOOPS_STATUS, FOOPS_MODIFIED, FOOPS_SOURCE, FOOPS_ISSUED};
 
 
 }
