@@ -19,9 +19,6 @@ import entities.Check;
 import entities.Ontology;
 import fair.Constants;
 import fair.Utils;
-import org.slf4j.LoggerFactory;
-
-import java.net.HttpURLConnection;
 
 /**
  * Given an ontology, this check verifies if its license is resolvable.

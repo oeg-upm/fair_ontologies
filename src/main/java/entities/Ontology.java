@@ -325,10 +325,6 @@ public class Ontology {
         return contributors;
     }
 
-//    public String getAbstractText() {
-//        return abstractText;
-//    }
-
     public String getBackwardCompatibility() {
         return backwardCompatibility;
     }

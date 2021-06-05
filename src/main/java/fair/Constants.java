@@ -90,10 +90,19 @@ public class Constants {
     public static final String OM4_2_EXPLANATION_ERROR = "The license used could not be resolved";
 
     //provenance
-    public static final String OM_5 = "OM5";
-    public static final String OM5_DESC = "";
-    public static final String OM5_EXPLANATION_OK = "";
-    public static final String OM5_EXPLANATION_ERROR = "";
+    public static final String OM5_1 = "OM5_1";
+    public static final String OM5_1_DESC = "Check to see if basic provenance is available: [author, creation date]";
+    public static final String OM5_1_EXPLANATION = "The following provenance information was not found: ";
+
+    public static final String OM5_2 = "OM5_2";
+    public static final String OM5_2_DESC = "Check to see if detailed provenance information is available: [author, " +
+            "creation date, issued date, publisher";
+    public static final String OM5_2_EXPLANATION= OM5_1_EXPLANATION;
+
+    public static final String OM5_3 = "OM5_1";
+    public static final String OM5_3_DESC = "Checking if a standard provenance ontology (DC, PROV) is used";
+    public static final String OM5_3_EXPLANATION_OK = "A standard provenance ontology is used";
+    public static final String OM5_3_EXPLANATION_ERROR = "No standard provenance ontology is user";
 
     /* FAIR Categories*/
     public static final String FINDABLE = "Findable";
@@ -225,6 +234,13 @@ public class Constants {
 
     public static final String[] OPTIONAL_METADATA = {FOOPS_DOI, FOOPS_PREVIOUS_VERSION, FOOPS_PUBLISHER, FOOPS_LOGO,
             FOOPS_B_COMPATIBILITY, FOOPS_STATUS, FOOPS_MODIFIED, FOOPS_SOURCE, FOOPS_ISSUED};
+
+    public static final String[] PROVENANCE_METADATA_BASIC = {FOOPS_CREATION_DATE, FOOPS_AUTHOR};
+
+    public static final String[] PROVENANCE_METADATA_OPTIONAL = {FOOPS_CONTRIBUTOR, FOOPS_PREVIOUS_VERSION};
+
+    public static final String[] PROVENANCE_METADATA_DETAILED = {FOOPS_CREATION_DATE, FOOPS_AUTHOR, FOOPS_ISSUED,
+            FOOPS_PUBLISHER};
 
 
 }

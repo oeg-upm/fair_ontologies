@@ -15,11 +15,9 @@
  */
 package entities.checks;
 
-import com.google.gson.annotations.Expose;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-import org.jsoup.nodes.Document;
 
 public class Check_CN1_ContentNegotiation extends Check {
 
