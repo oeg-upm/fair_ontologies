@@ -50,8 +50,8 @@ public class FOOPS {
             return;
         }
         this.ontology = new Ontology(o, isFromFile, tmpFolder);
-        //TO DO: initialize all checks here.
         Check_PURL1_PersistentURIs f1 = new Check_PURL1_PersistentURIs(ontology);
+        Check_URI1_URIResolvable uri1 = new Check_URI1_URIResolvable(ontology);
         Check_CN1_ContentNegotiation a1 = new Check_CN1_ContentNegotiation(ontology);
         Check_DOC1_HTMLDoc d1 = new Check_DOC1_HTMLDoc(ontology);
         Check_RDF1_RDFAvailability rdf1 = new Check_RDF1_RDFAvailability(ontology);
@@ -65,6 +65,7 @@ public class FOOPS {
         checks = new ArrayList<>();
         checks.add(a1);
         checks.add(f1);
+        checks.add(uri1);
         checks.add(d1);
         checks.add(rdf1);
         checks.add(om1); checks.add(om2); checks.add(om3);

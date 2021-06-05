@@ -22,10 +22,10 @@ import fair.Constants;
 public class Check_OM3_OptionalMetadata extends Check {
     public Check_OM3_OptionalMetadata(Ontology o) {
         super(o);
-        this.category_id = Constants.FINDABLE;
+        this.category_id = Constants.REUSABLE;
         this.id = Constants.OM3;
         this.description = Constants.OM3_DESC;
-        this.principle_id = "F2";
+        this.principle_id = "R1";
         this.total_tests_run = Constants.OPTIONAL_METADATA.length;
     }
     /**

@@ -21,7 +21,7 @@ import entities.Ontology;
 
 public class CheckPrefix extends Check {
     /**
-     * TO DO: Check if the previx of the ontology exists (findable)
+     * TO DO: Check if the prefix of the ontology exists (findable)
      */
 
     public CheckPrefix(Ontology o){

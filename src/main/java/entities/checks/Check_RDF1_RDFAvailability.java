@@ -29,7 +29,7 @@ public class Check_RDF1_RDFAvailability extends Check {
         super(o);
         this.id = Constants.RDF1;
         this.category_id = Constants.INTEROPERABLE;
-        this.principle_id ="I1";
+        this.principle_id ="I1, A1";
         this.description = Constants.RDF1_DESC;
     }
 

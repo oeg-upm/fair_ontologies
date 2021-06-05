@@ -16,12 +16,13 @@
 
 package fair;
 
-import entities.Check;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.FileDocumentSource;
+import org.semanticweb.owlapi.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,12 +31,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Utils {
 

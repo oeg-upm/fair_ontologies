@@ -58,6 +58,11 @@ public class Constants {
     public static final String PURL1_EXPLANATION_ERROR = "Ontology URI is not using a persistent id. " +
             "We checked w3id, purl, DOI and W3C";
 
+    public static final String URI1 = "URL1";
+    public static final String URI1_DESC = "Check if the ontology URI (used within the ontology) is resolvable";
+    public static final String URI1_EXPLANATION_OK = "Ontology URL is resolvable";
+    public static final String URI1_EXPLANATION_ERROR = "Ontology URL is not resolvable";
+
     // Ontology metadata
     //minimum
     public static final String OM1 = "OM1";
@@ -96,13 +101,9 @@ public class Constants {
 
     public static final String OM5_2 = "OM5_2";
     public static final String OM5_2_DESC = "Check to see if detailed provenance information is available: [author, " +
-            "creation date, issued date, publisher";
+            "creation date, issued date, publisher]";
     public static final String OM5_2_EXPLANATION= OM5_1_EXPLANATION;
 
-    public static final String OM5_3 = "OM5_1";
-    public static final String OM5_3_DESC = "Checking if a standard provenance ontology (DC, PROV) is used";
-    public static final String OM5_3_EXPLANATION_OK = "A standard provenance ontology is used";
-    public static final String OM5_3_EXPLANATION_ERROR = "No standard provenance ontology is user";
 
     /* FAIR Categories*/
     public static final String FINDABLE = "Findable";
