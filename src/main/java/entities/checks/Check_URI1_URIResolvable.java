@@ -7,9 +7,6 @@ import fair.Utils;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 /**
  * Why this test? You could have loaded an ontology through a file, which is not resolvable.

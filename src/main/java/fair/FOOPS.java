@@ -62,6 +62,7 @@ public class FOOPS {
         Check_OM4_2_LicenseIsResolvable om42 = new Check_OM4_2_LicenseIsResolvable(ontology);
         Check_OM5_1_ProvenanceMetadataBasic om51 = new Check_OM5_1_ProvenanceMetadataBasic(ontology);
         Check_OM5_2_ProvenanceMetadataFull om52 = new Check_OM5_2_ProvenanceMetadataFull(ontology);
+        Check_FIND1_Prefix find1 = new Check_FIND1_Prefix(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
         checks.add(f1);
@@ -71,6 +72,7 @@ public class FOOPS {
         checks.add(om1); checks.add(om2); checks.add(om3);
         checks.add(om41); checks.add(om42);
         checks.add(om51); checks.add(om52);
+        checks.add(find1);
     }
 
     /**

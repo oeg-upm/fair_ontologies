@@ -18,18 +18,31 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
-public class CheckPrefix extends Check {
+public class Check_FIND1_Prefix extends Check {
     /**
      * TO DO: Check if the prefix of the ontology exists (findable)
      */
 
-    public CheckPrefix(Ontology o){
+    public Check_FIND1_Prefix(Ontology o){
         super(o);
+        this.id = Constants.FIND1;
+        this.description = Constants.FIND1_DESC;
+        this.category_id = Constants.FINDABLE;
+        this.principle_id = "F3";
     }
 
     @Override
     public void check() {
-
+        String prefix = this.ontology.getNamespacePrefix();
+        if( prefix != null && !"".equals(prefix)){
+            this.total_passed_tests++;
+            this.status = Constants.OK;
+            this.explanation = Constants.FIND1_EXPLANATION_OK+ ": "+prefix;
+        }else{
+            this.status = Constants.ERROR;
+            this.explanation = Constants.FIND1_EXPLANATION_ERROR;
+        }
     }
 }
