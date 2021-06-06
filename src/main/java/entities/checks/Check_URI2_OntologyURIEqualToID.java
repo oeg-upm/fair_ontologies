@@ -17,20 +17,36 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
 /**
  * This Check verifies whether the ontology URI used to load the ontology equals the ontology URI.
  * For example, something like https://w3id.org/blah could resolve to a file with different id.
- * This is not a great practice
+ * (which is not a good practice)
  */
 
-public class CheckOntologyURIEqualToPersistenID extends Check {
-    public CheckOntologyURIEqualToPersistenID(Ontology o) {
+public class Check_URI2_OntologyURIEqualToID extends Check {
+    private final String originalURI;
+
+    public Check_URI2_OntologyURIEqualToID(Ontology o, String originalURI) {
         super(o);
+        this.id = Constants.URI2;
+        this.category_id = Constants.FINDABLE;
+        this.principle_id ="F1";
+        this.description = Constants.URI2_DESC;
+        this.originalURI = originalURI;
     }
 
     @Override
     public void check() {
         super.check();
+        if (this.ontology.getOntologyURI().equals(this.originalURI)){
+            this.total_passed_tests ++;
+            status = Constants.OK;
+            explanation = Constants.URI2_EXPLANATION_OK;
+        }else{
+            status = Constants.ERROR;
+            explanation = Constants.URI2_EXPLANATION_ERROR;
+        }
     }
 }

@@ -24,6 +24,7 @@ public class Check_URI1_URIResolvable extends Check {
 
     @Override
     public void check() {
+        super.check();
         // need to check (again) if the ontology resolves, but this time we do not download it
         for (String serialization : Constants.POSSIBLE_VOCAB_SERIALIZATIONS) {
             try {

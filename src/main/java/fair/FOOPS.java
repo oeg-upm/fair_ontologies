@@ -30,7 +30,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-//import serialization.InterfaceAdapter;
 
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
@@ -73,6 +72,11 @@ public class FOOPS {
         checks.add(om41); checks.add(om42);
         checks.add(om51); checks.add(om52);
         checks.add(find1);
+        //only add this check if ontology was loaded through it URI
+        if(!isFromFile){
+            Check_URI2_OntologyURIEqualToID uri2 = new Check_URI2_OntologyURIEqualToID(ontology, o);
+            checks.add(uri2);
+        }
     }
 
     /**

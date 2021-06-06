@@ -35,6 +35,7 @@ public class Check_FIND1_Prefix extends Check {
 
     @Override
     public void check() {
+        super.check();
         String prefix = this.ontology.getNamespacePrefix();
         if( prefix != null && !"".equals(prefix)){
             this.total_passed_tests++;

@@ -58,14 +58,18 @@ public class Constants {
     public static final String PURL1_EXPLANATION_ERROR = "Ontology URI is not using a persistent id. " +
             "We checked w3id, purl, DOI and W3C";
 
-    //URL1: URI is resolvable
-    public static final String URI1 = "URL1";
+    //URI1: URI is resolvable
+    public static final String URI1 = "URI1";
     public static final String URI1_DESC = "Check if the ontology URI (used within the ontology) is resolvable";
     public static final String URI1_EXPLANATION_OK = "Ontology URL is resolvable";
     public static final String URI1_EXPLANATION_ERROR = "Ontology URL is not resolvable";
 
-    //URL2: Ontology URI is the URI used (only if URI was used initially)
-    // TO DO
+    //URI2: Ontology URI is the URI used (only if ontology was loaded through URI)
+    public static final String URI2 = "URI2";
+    public static final String URI2_DESC = "Check if the ontology URI is equal to the ontology ID";
+    public static final String URI2_EXPLANATION_OK = "Ontology URI is equal to ontology id";
+    public static final String URI2_EXPLANATION_ERROR = "Ontology URI is different from ontology ID. Your ontology" +
+            "URI (e.g., its w3id) should be the same as the one used within the ontology itself";
 
 
     // Ontology metadata
@@ -110,7 +114,7 @@ public class Constants {
     public static final String OM5_2_EXPLANATION= OM5_1_EXPLANATION;
 
     //Findability
-    public static final String FIND1 = "OM5_2";
+    public static final String FIND1 = "FIND_1";
     public static final String FIND1_DESC = "Check to see if the ontology prefix is available";
     public static final String FIND1_EXPLANATION_OK= "Prefix declaration found in the ontology";
     public static final String FIND1_EXPLANATION_ERROR= "Prefix declaration not found in the ontology";

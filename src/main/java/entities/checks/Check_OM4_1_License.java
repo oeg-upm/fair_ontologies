@@ -35,6 +35,7 @@ public class Check_OM4_1_License extends Check {
 
 
     public void check() {
+        super.check();
         String license = this.ontology.getLicense();
         if (license !=null && !"".equals(license)){
             this.status = Constants.OK;
