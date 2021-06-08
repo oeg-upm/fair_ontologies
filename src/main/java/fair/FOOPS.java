@@ -79,10 +79,14 @@ public class FOOPS {
         }
     }
 
+    public Path getTmpFolder() {
+        return tmpFolder;
+    }
+
     /**
      * Method for passing all the checks.
      */
-    private void fairTest(){
+    public void fairTest(){
         checks.forEach(check -> check.check());
     }
 
@@ -99,7 +103,7 @@ public class FOOPS {
     /**
      * This method writes the results as a JSON file
      */
-    private void exportJSON(String path){
+    public String exportJSON(){
         String out = "{\n\"ontology_URI\": \""+this.ontology.getOntologyURI()+"\",\n" +
                 "\"ontology_title\": \""+this.ontology.getTitle()+"\",\n" +
                 "\"overall_score\":"+this.getTotalScore()+",\n" +
@@ -110,7 +114,8 @@ public class FOOPS {
                 create();
         String jsonChecks = gson.toJson(checks);
         out += jsonChecks +"\n}";
-        System.out.println(out);
+//        System.out.println(out);
+        return out;
     }
 
     public void removeTemporaryFolders(){
@@ -158,7 +163,7 @@ public class FOOPS {
         try {
             f = new FOOPS(ontology, isFromFile);
             f.fairTest();
-            f.exportJSON(outPath);
+            f.exportJSON();
 
         }catch(Exception e){
             logger.error("Error!");

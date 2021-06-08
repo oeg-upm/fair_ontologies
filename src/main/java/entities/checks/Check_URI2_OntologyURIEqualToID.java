@@ -40,13 +40,22 @@ public class Check_URI2_OntologyURIEqualToID extends Check {
     @Override
     public void check() {
         super.check();
-        if (this.ontology.getOntologyURI().equals(this.originalURI)){
+        String originalOntology = this.ontology.getOntologyURI();
+        if(originalOntology.endsWith("/") || originalOntology.endsWith("#")){
+            originalOntology = originalOntology.substring(0, originalOntology.length()-1);
+        }
+        String originalURI = this.originalURI;
+        if (originalURI.endsWith("/") || originalURI.endsWith("#")){
+            originalURI = originalURI.substring(0, originalURI.length()-1);
+        }
+        if (originalOntology.equals(originalURI)){
             this.total_passed_tests ++;
             status = Constants.OK;
             explanation = Constants.URI2_EXPLANATION_OK;
         }else{
             status = Constants.ERROR;
-            explanation = Constants.URI2_EXPLANATION_ERROR;
+            explanation = Constants.URI2_EXPLANATION_ERROR + ". Ontology URI: "+ originalOntology
+                    +". Provided URI: " + originalURI;
         }
     }
 }
