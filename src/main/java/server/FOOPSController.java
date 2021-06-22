@@ -7,10 +7,7 @@ import fair.FOOPS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.File;
@@ -21,6 +18,7 @@ import java.nio.file.Path;
 public class FOOPSController {
     Logger logger = LoggerFactory.getLogger(FOOPSController.class);
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/assessOntology")
     public String assessGET() {
         return "Please send a POST request. Example: " +
@@ -34,6 +32,7 @@ public class FOOPSController {
      * @param body String body with the JSON to parse as a request.
      * @return JSON response obtained by FOOPS
      */
+    @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntology", consumes = "application/json", produces = "application/json")
     public String assessPOST(@RequestBody String body) {
         Response r = null;

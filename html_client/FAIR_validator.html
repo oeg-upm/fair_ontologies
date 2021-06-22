@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./FAIR_validator.css" />
+
+
+    <!-- Javascript -->
+    <script src="./FAIR_validator.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#loader').hide();
+        $('#run_button').click(function(){
+          $('#loader').show();
+          $('#run_button').hide();
+          $.ajax({
+              url:"http://localhost:8080/assessOntology",
+              type:"POST",
+              //data:"{ \"ontologyUri\": \"http://xmlns.com/foaf/0.1/\"}",
+              data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
+              contentType:"application/json; charset=utf-8",
+              success: function(data, status){
+                $('#loader').hide();
+                $('#run_button').show();
+                //alert("YEEE" + data)
+                run(data)
+                //alert("Data: " + data + "\nStatus: " + status);
+              }
+          }).fail(function (jqXHR, textStatus, error) {
+              // Handle error here
+              alert('ERROR' + error);
+          });
+      });
+    });
+    </script>
+
+    <title>FAIR for OOPS!</title>
+</head>
+
+
+<body>
+    <div class="container">
+
+        <!-- Cabecera -->
+        <div class="row mt-5">
+            <span class="texto1">FAIR for OOPS!</span>
+        </div>
+        <div class="row mt-2">
+            <span class="texto2">Enter the ontology: </span>
+        </div>
+
+        <!-- Ontology input -->
+        <div class="row mt-3">
+            <div class="caja caja-input">
+                <div class="col-12">
+
+                    <!-- Encabezados seleccionable -->
+                    <div class="row selectores">
+                        <!-- URI -->
+                        <div class="col-4 selector selector-izq center active" onclick="openInput(event, 'URI')">
+                            <span class="texto3"> URI </span>
+                        </div>
+                        <!-- Codigo -->
+                        <div class="col-4 selector center" onclick="openInput(event, 'Code')">
+                            <span class="texto3"> Code </span>
+                        </div>
+                        <!-- Archivo -->
+                        <div class="col-4 selector selector-der center" onclick="openInput(event, 'File')">
+                            <span class="texto3"> File </span>
+                        </div>
+                    </div>
+
+                    <!-- Input de URI-->
+                    <div id="URI" class="row selector-content mt-3" style="display: flex">
+                        <div class="col-2 d-flex align-items-center">
+                            <span class="texto4">Enter URI: </span>
+                        </div>
+                        <div class="col-10">
+                            <input id="URI_input" class="input-1" placeholder="Enter URI...">
+                        </div>
+                    </div>
+                    <!-- Input del código -->
+                    <div id="Code" class="row selector-content mt-3" style="display: none">
+                        <div class="col-12 center">
+                            <textarea id="Code_input" class="input-2" placeholder="Enter Ontology Code..."></textarea>
+                        </div>
+                    </div>
+                    <!-- Input del archivo -->
+                    <div id="File" class="row selector-content mt-3" style="display: none">
+                        <div class="col-12">
+                            <input id="File_input" class="input-1" type="file" placeholder="Drag and drop the file to upload here">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boton RUN -->
+        <div class="row justify-content-center mt-4">
+            <button class="run px-5" id="run_button">RUN</button>
+            <div id='loader'><img src="https://media.giphy.com/media/MITM2xu1LmiQ/giphy.gif"/></div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div id="test-results" style="display: none;" class="row mb-5">
+
+            <!-- INFO -->
+            <div class="row mt-3 ml-0 w-100">
+                <div class="col-12 caja">
+                    <div class="row my-3">
+                        <div class="col-2 d-flex align-items-center">
+                            <span class="texto4">
+                             Title:
+                            </span>
+                        </div>
+                        <div class="col-10">
+                            <div class="caja-texto pl-2">
+                                <span class="texto4" id="title">
+                                default
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-2 d-flex align-items-center">
+                            <span class="texto4">
+                             URI:
+                            </span>
+                        </div>
+                        <div class="col-10">
+                            <div class="caja-texto pl-2">
+                                <span class="texto4" id="URI-title">
+                                default
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-2 d-flex align-items-center">
+                            <span class="texto4">
+                            License:
+                            </span>
+                        </div>
+                        <div class="col-10">
+                            <div class="caja-texto pl-2">
+                                <span class="texto4">
+                                W3C
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAFICAS -->
+            <div id="graphics" class="row">
+
+            </div>
+
+            <!-- Findable -->
+            <div class="row w-100 mt-3 ml-0 pb-2 caja">
+                <div class="row w-100 pl-3 pt-2">
+                    <div class="col-10">
+                        <span class="texto-category">
+                            Findable
+                        </span>
+                    </div>
+                    <div class="col-2 d-flex align-items-center justify-content-end">
+                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Findable-checks')">
+                    </div>
+                </div>
+                <div id="Findable-checks" class="col-12 p-0">
+                    <!-- Aqui van todos los checks-->
+                </div>
+            </div>
+
+            <!-- Accessible -->
+            <div class="row w-100 mt-3 ml-0 pb-2 caja">
+                <div class="row w-100 pl-3 pt-2">
+                    <div class="col-10">
+                        <span class="texto-category">
+                            Accessible
+                        </span>
+                    </div>
+                    <div class="col-2 d-flex align-items-center justify-content-end">
+                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Accessible-checks')">
+                    </div>
+                </div>
+                <div id="Accessible-checks" class="col-12 p-0">
+                    <!-- Aqui van todos los checks-->
+                </div>
+            </div>
+
+            <!-- Interoperable -->
+            <div class="row w-100 mt-3 ml-0 pb-2 caja">
+                <div class="row w-100 pl-3 pt-2">
+                    <div class="col-10">
+                        <span class="texto-category">
+                            Interoperable
+                        </span>
+                    </div>
+                    <div class="col-2 d-flex align-items-center justify-content-end">
+                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Interoperable-checks')">
+                    </div>
+                </div>
+                <div id="Interoperable-checks" class="col-12 p-0">
+                    <!-- Aqui van todos los checks-->
+                </div>
+            </div>
+
+            <!-- Reusable -->
+            <div class="row w-100 mt-3 ml-0 pb-2 caja">
+                <div class="row w-100 pl-3 pt-2">
+                    <div class="col-10">
+                        <span class="texto-category">
+                            Reusable
+                        </span>
+                    </div>
+                    <div class="col-2 d-flex align-items-center justify-content-end">
+                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Reusable-checks')">
+                    </div>
+                </div>
+                <div id="Reusable-checks" class="col-12 p-0">
+                    <!-- Aqui van todos los checks-->
+                </div>
+            </div>
+
+        </div>
+        <div id="error" style="display: none">
+            Error al introducir la ontología
+        </div>
+
+
+</body>
+
+</html>
