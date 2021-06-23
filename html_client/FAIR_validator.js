@@ -1,5 +1,6 @@
 var typeInputSelected = "URI";
 
+
 function openInput(evt, elem) {
 
   hideTabContent()
@@ -35,8 +36,8 @@ function showSelector(evt,elem){
 }
 
 function run(object) {
-  //result = getResults();
-  result = object
+  result = getResults();
+  //result = object
 
   if(result != "Error"){
     loadResults();
@@ -146,8 +147,8 @@ function getSpiderGraphHTML(result){
     fill="#fff" stroke-width="1" stroke="black" />
     <line x1="22" y1="50" x2="91" y2="50" stroke-width="1" stroke="black"></line>
     <line x1="57" y1="15" x2="57" y2="85" stroke-width="1" stroke="black"></line>
-    <path  fill="#428BCA4A" stroke-linecap="round" stroke-width="1" stroke="#27AE60" d="`+getSpiderDraw(points,category_results)+`"/>
-    <text x="10" y="50" text-anchor="end" dy="7" font-size="10">Rehusable</text>
+    <path  fill="#428BCA4A" stroke-linecap="round" stroke-width="1" stroke="#8499B3" d="`+getSpiderDraw(points,category_results)+`"/>
+    <text x="10" y="50" text-anchor="end" dy="7" font-size="10">Reusable</text>
     <text x="57" y="0" text-anchor="middle" dy="7" font-size="10">Findable</text>
     <text x="95" y="50" text-anchor="start" dy="7" font-size="10">Accessible</text>
     <text x="57" y="90" text-anchor="middle"  dy="7" font-size="10">Interoperable</text>
@@ -184,7 +185,21 @@ function getRadialScoreHTML(score, size){
   graphic_value = total * score
   stroke = total - graphic_value
 
-  return `
+  if (score == 1){
+          return `
+  <svg height="100" width="100" transform="scale(`+size+`,`+size+`)">
+    <circle cx="50" cy="50" r="45" fill="#FBFBFB"/>
+    <path fill="none" stroke-linecap="round" stroke-width="5" stroke="#84B399"
+          stroke-dasharray="`+ graphic_value +`,`+ stroke +`"
+          d="M50 10
+            a 40 40 0 0 1 0 80
+            a 40 40 0 0 1 0 -80"/>
+    <text x="50" y="50" text-anchor="middle" dy="7" font-size="20">`+Math.round(score*100)+`%</text>
+  </svg>
+    `
+  }
+    
+      return `
   <svg height="100" width="100" transform="scale(`+size+`,`+size+`)">
     <circle cx="50" cy="50" r="45" fill="#FBFBFB"/>
     <path fill="none" stroke-linecap="round" stroke-width="5" stroke="#E65A28"
@@ -194,6 +209,7 @@ function getRadialScoreHTML(score, size){
             a 40 40 0 0 1 0 -80"/>
     <text x="50" y="50" text-anchor="middle" dy="7" font-size="20">`+Math.round(score*100)+`%</text>
   </svg>
+
   `
 }
 
@@ -343,7 +359,7 @@ function loadPrinciples(principles, checks_div) {
 function loadChecks(checks, checks_div) {
   for (let i = 0; i < checks.length; i++) {
     var check = document.createElement("div");
-    check.className = "p-3";
+    check.className = "p-3 caja-check";
     check.innerHTML = getCheckHTML(checks[i]);
     checks_div.appendChild(check);
   }

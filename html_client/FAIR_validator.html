@@ -23,7 +23,7 @@
         $('#run_button').click(function(){
           $('#loader').show();
           $('#run_button').hide();
-          $.ajax({
+         /* $.ajax({
               url:"http://localhost:8080/assessOntology",
               type:"POST",
               data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
@@ -37,7 +37,8 @@
               $('#loader').hide();
               $('#run_button').show();
               alert('Error when contacting the server!' );              
-          });
+          }); */
+        run("hola");
       });
     });
     </script>
@@ -114,7 +115,7 @@
 
             <!-- INFO -->
             <div class="row mt-3 ml-0 w-100">
-                <div class="col-12 caja">
+                <div class="col-12 caja caja-info">
                     <div class="row my-3">
                         <div class="col-2 d-flex align-items-center">
                             <span class="texto4">
@@ -177,7 +178,7 @@
                         <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Findable-checks')">
                     </div>
                 </div>
-                <div id="Findable-checks" class="col-12 p-0">
+                <div id="Findable-checks" class="col-12 p-0 caja-principles">
                     <!-- Aqui van todos los checks-->
                 </div>
             </div>
@@ -194,7 +195,7 @@
                         <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Accessible-checks')">
                     </div>
                 </div>
-                <div id="Accessible-checks" class="col-12 p-0">
+                <div id="Accessible-checks" class="col-12 p-0 caja-principles">
                     <!-- Aqui van todos los checks-->
                 </div>
             </div>
@@ -211,7 +212,7 @@
                         <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Interoperable-checks')">
                     </div>
                 </div>
-                <div id="Interoperable-checks" class="col-12 p-0">
+                <div id="Interoperable-checks" class="col-12 p-0 caja-principles">
                     <!-- Aqui van todos los checks-->
                 </div>
             </div>
@@ -228,14 +229,14 @@
                         <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Reusable-checks')">
                     </div>
                 </div>
-                <div id="Reusable-checks" class="col-12 p-0">
+                <div id="Reusable-checks" class="col-12 p-0 caja-principles">
                     <!-- Aqui van todos los checks-->
                 </div>
             </div>
 
         </div>
         <div id="error" style="display: none">
-            Error al introducir la ontología
+            Error when entering the ontology.
         </div>
 
 
