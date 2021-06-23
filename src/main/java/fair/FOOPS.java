@@ -64,6 +64,7 @@ public class FOOPS {
         Check_OM5_1_ProvenanceMetadataBasic om51 = new Check_OM5_1_ProvenanceMetadataBasic(ontology);
         Check_OM5_2_ProvenanceMetadataFull om52 = new Check_OM5_2_ProvenanceMetadataFull(ontology);
         Check_FIND1_Prefix find1 = new Check_FIND1_Prefix(ontology);
+        Check_FIND2_PrefixInRegistry find2 = new Check_FIND2_PrefixInRegistry(ontology);
         Check_HTTP1_AccessProtocol http1 = new Check_HTTP1_AccessProtocol(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
@@ -74,7 +75,7 @@ public class FOOPS {
         checks.add(om1); checks.add(om2); checks.add(om3);
         checks.add(om41); checks.add(om42);
         checks.add(om51); checks.add(om52);
-        checks.add(find1);
+        checks.add(find1); checks.add(find2);
         checks.add(http1);
         //only add this check if ontology was loaded through it URI
         if(!isFromFile){

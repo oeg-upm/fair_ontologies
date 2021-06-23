@@ -121,6 +121,12 @@ public class Constants {
     public static final String FIND1_EXPLANATION_OK= "Prefix declaration found in the ontology";
     public static final String FIND1_EXPLANATION_ERROR= "Prefix declaration not found in the ontology";
 
+    public static final String FIND2 = "FIND_2";
+    public static final String FIND2_DESC = "Check to see if the ontology prefix and ns can be found in prefix.cc registry";
+    public static final String FIND2_EXPLANATION_OK= "Prefix declaration found in prefix.cc with correct namespace";
+    public static final String FIND2_EXPLANATION_OK_ALMOST= "Prefix declaration found in prefix.cc, but with incorrect namespace";
+    public static final String FIND2_EXPLANATION_ERROR= "Prefix declaration not found in prefix.cc";
+
     //Access protocol
     public static final String HTTP1 = "HTTP_1";
     public static final String HTTP1_DESC = "Check to see if the ontology uses an open protocol (HTTP or HTTPS)";
