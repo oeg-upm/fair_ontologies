@@ -48,6 +48,11 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
 
     @Override
     public void check() {
+        super.check();
+        if (!this.status.equals("unchecked")){
+            //this check has already been checked, return
+            return;
+        }
         String ontoURI = this.ontology_URI;
         // remove trailing slash/hash for making comparisons easier.
         if (ontoURI.endsWith("/") || ontoURI.endsWith("#")){

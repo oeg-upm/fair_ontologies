@@ -37,6 +37,7 @@ public class Check_HTTP1_AccessProtocol extends Check {
      * Very dumb check: that an open communications protocol is used (HTTP(S)))
      */
     public void check() {
+        super.check();
         try {
             if (this.ontology_URI.startsWith("http")) {
                 this.status = Constants.OK;

@@ -54,6 +54,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
 
     @Override
     public void check() {
+        super.check();
         String ontoPrefix = this.ontology.getNamespacePrefix();
         String ontoURI = this.ontology_URI;
         //remove trailing slash/hash for making comparisons easier.

@@ -138,6 +138,13 @@ public class Constants {
     public static final String FIND3_EXPLANATION_OK= "Ontology namespace found in";
     public static final String FIND3_EXPLANATION_ERROR= "Ontology not found in a public registry";
 
+    public static final String FIND3_BIS = "FIND_3_BIS";
+    public static final String FIND3_BIS_DESC = "This check aims to check if metadata are accessible even when the " +
+            "ontology is no longer available. Since the metadata is usually included in the ontology, this check " +
+            "verifies whether the ontology is registered in a public metadata registry (LOV)";
+    public static final String FIND3_BIS_EXPLANATION_OK= "Ontology namespace found in";
+    public static final String FIND3_BIS_EXPLANATION_ERROR= "Ontology not found in a public registry";
+
     //Access protocol
     public static final String HTTP1 = "HTTP_1";
     public static final String HTTP1_DESC = "Check to see if the ontology uses an open protocol (HTTP or HTTPS)";
