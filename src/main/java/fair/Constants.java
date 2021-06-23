@@ -12,6 +12,8 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
+ *
+ * Author: Daniel Garijo and Maria Poveda
  */
 
 package fair;
@@ -118,6 +120,12 @@ public class Constants {
     public static final String FIND1_DESC = "Check to see if the ontology prefix is available";
     public static final String FIND1_EXPLANATION_OK= "Prefix declaration found in the ontology";
     public static final String FIND1_EXPLANATION_ERROR= "Prefix declaration not found in the ontology";
+
+    //Access protocol
+    public static final String HTTP1 = "HTTP_1";
+    public static final String HTTP1_DESC = "Check to see if the ontology uses an open protocol (HTTP or HTTPS)";
+    public static final String HTTP1_EXPLANATION_OK= "The ontology uses an open protocol";
+    public static final String HTTP1_EXPLANATION_ERROR= "The ontology does not use an open protocol";
 
 
     /* FAIR Categories*/

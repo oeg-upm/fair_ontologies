@@ -12,14 +12,14 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
+ *
+ * Author: Daniel Garijo and Maria Poveda
  */
 package entities.checks;
 
-import com.google.gson.annotations.Expose;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-import org.jsoup.nodes.Document;
 
 /**
  * This check verifies if there is an HTML documentation of the ontology

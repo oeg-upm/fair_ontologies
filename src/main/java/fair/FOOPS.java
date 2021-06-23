@@ -12,6 +12,8 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
+ *
+ * Author: Daniel Garijo and Maria Poveda
  */
 
 package fair;
@@ -62,6 +64,7 @@ public class FOOPS {
         Check_OM5_1_ProvenanceMetadataBasic om51 = new Check_OM5_1_ProvenanceMetadataBasic(ontology);
         Check_OM5_2_ProvenanceMetadataFull om52 = new Check_OM5_2_ProvenanceMetadataFull(ontology);
         Check_FIND1_Prefix find1 = new Check_FIND1_Prefix(ontology);
+        Check_HTTP1_AccessProtocol http1 = new Check_HTTP1_AccessProtocol(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
         checks.add(f1);
@@ -72,6 +75,7 @@ public class FOOPS {
         checks.add(om41); checks.add(om42);
         checks.add(om51); checks.add(om52);
         checks.add(find1);
+        checks.add(http1);
         //only add this check if ontology was loaded through it URI
         if(!isFromFile){
             Check_URI2_OntologyURIEqualToID uri2 = new Check_URI2_OntologyURIEqualToID(ontology, o);

@@ -12,16 +12,14 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
+ *
+ * Author: Daniel Garijo and Maria Poveda
  */
 package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-import org.slf4j.LoggerFactory;
-
-import java.util.Arrays;
-import java.util.Set;
 
 /**
  * Thi Class checks if minimum metadata is present:

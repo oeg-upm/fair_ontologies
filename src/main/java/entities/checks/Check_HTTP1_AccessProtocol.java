@@ -15,37 +15,40 @@
  *
  * Author: Daniel Garijo and Maria Poveda
  */
-
 package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
 
-public class Check_PURL1_PersistentURIs extends Check {
-    public Check_PURL1_PersistentURIs(Ontology o){
+public class Check_HTTP1_AccessProtocol extends Check {
+
+
+    public Check_HTTP1_AccessProtocol(Ontology o) {
         super(o);
-        this.category_id = Constants.FINDABLE;
-        this.principle_id = "F1";
-        this.id = Constants.PURL1;
-        this.description = Constants.PURL1_DESC;
+        this.id = Constants.HTTP1;
+        this.description = Constants.HTTP1_DESC;
+        this.category_id = Constants.ACCESSIBLE;
+        this.principle_id = "A1.1";
     }
 
     @Override
+    /**
+     * Very dumb check: that an open communications protocol is used (HTTP(S)))
+     */
     public void check() {
-        super.check();
-        //Note: test could be enhanced so it checks for http[s] + any of the URLs below
-        if (this.ontology_URI.contains("w3id.org") ||
-                this.ontology_URI.contains("doi.org") ||
-                this.ontology_URI.contains("purl.org") ||
-                this.ontology_URI.contains("www.w3.org")){
-            this.status = Constants.OK;
-            this.explanation = Constants.PURL1_EXPLANATION_OK;
-            this.total_passed_tests +=1;
-        }else{
+        try {
+            if (this.ontology_URI.startsWith("http")) {
+                this.status = Constants.OK;
+                this.explanation = Constants.HTTP1_EXPLANATION_OK;
+                this.total_passed_tests ++;
+            }else{
+                this.status = Constants.ERROR;
+                this.explanation = Constants.HTTP1_EXPLANATION_ERROR;
+            }
+        }catch(Exception e){
             this.status = Constants.ERROR;
-            this.explanation = Constants.PURL1_EXPLANATION_ERROR;
+            this.explanation = Constants.HTTP1_EXPLANATION_ERROR;
         }
     }
-
 }
