@@ -66,7 +66,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             return;
         }
         try {
-            URL url = new URL("http://prefix.cc/"+ontoPrefix+".file.json");
+            URL url = new URL(Constants.PREFIX_CC+ontoPrefix+".file.json");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             InputStream in = (InputStream) connection.getInputStream();
@@ -86,7 +86,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                         this.explanation = Constants.FIND2_EXPLANATION_OK;
                     }else{
                         this.status = Constants.ERROR;
-                        this.explanation = "Prefix is in prefix.cc but namespace does not correspond to the ontology ns. Found: "+ns;
+                        this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST+". Prefix found: "+ns;
                     }
                 }else {
                     this.status = Constants.ERROR;
@@ -100,7 +100,9 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             in.close();
         }catch(Exception e){
             this.status = Constants.ERROR;
-            this.explanation = "Error when accessing prefix.cc";
+            this.explanation = "Error when retrieving prefix from prefix.cc";
         }
+        //here if there is an error, we can call LOV API with the prefix:
+        // example: https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/info?vocab=PREFIX
     }
 }

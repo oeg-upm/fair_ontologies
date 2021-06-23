@@ -56,6 +56,7 @@ public class Utils {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         OWLOntologyLoaderConfiguration loadingConfig = new OWLOntologyLoaderConfiguration();
         loadingConfig = loadingConfig.setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT);
+        logger.info("Parsing type: "+loadingConfig.isStrict());
         return manager.loadOntologyFromOntologyDocument(new FileDocumentSource(new File(ontologyPath)), loadingConfig);
     }
 

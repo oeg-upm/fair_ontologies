@@ -73,7 +73,10 @@ public class Ontology {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
             this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
         }catch(Exception e){
-            logger.error("Could not obtain ontology");
+            logger.error("Could not load the ontology");
+            if(!isFromFile){
+                ontologyURI = o.strip();
+            }
         }
         //Download HTML of the onto (if available)
         try{

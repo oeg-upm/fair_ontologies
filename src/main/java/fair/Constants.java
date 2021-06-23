@@ -32,6 +32,12 @@ public class Constants {
             "    -ontURI  URI   [required (unless -ontFile is used)]: Load an ontology to document from its URI.\n"
             + "        This option is incompatible with -ontFile\n" ;
 
+    // registries
+    public static final String LOV_ALL_VOCABS = "https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/list";
+    public static final String PREFIX_CC = "http://prefix.cc/";
+
+    //to do: ontobee (http://www.ontobee.org/sparql), bioportal,
+
     /*Internal ids of checks and their explanations and descriptions*/
     // CN1: Content negotiation
     public static final String CN1 = "CN1";
@@ -126,6 +132,11 @@ public class Constants {
     public static final String FIND2_EXPLANATION_OK= "Prefix declaration found in prefix.cc with correct namespace";
     public static final String FIND2_EXPLANATION_OK_ALMOST= "Prefix declaration found in prefix.cc, but with incorrect namespace";
     public static final String FIND2_EXPLANATION_ERROR= "Prefix declaration not found in prefix.cc";
+
+    public static final String FIND3 = "FIND_3";
+    public static final String FIND3_DESC = "Check to see if the ontology can be found in a public registry (LOV)";
+    public static final String FIND3_EXPLANATION_OK= "Ontology namespace found in";
+    public static final String FIND3_EXPLANATION_ERROR= "Ontology not found in a public registry";
 
     //Access protocol
     public static final String HTTP1 = "HTTP_1";
