@@ -26,19 +26,17 @@
           $.ajax({
               url:"http://localhost:8080/assessOntology",
               type:"POST",
-              //data:"{ \"ontologyUri\": \"http://xmlns.com/foaf/0.1/\"}",
               data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
               contentType:"application/json; charset=utf-8",
               success: function(data, status){
                 $('#loader').hide();
                 $('#run_button').show();
-                //alert("YEEE" + data)
                 run(data)
-                //alert("Data: " + data + "\nStatus: " + status);
               }
           }).fail(function (jqXHR, textStatus, error) {
-              // Handle error here
-              alert('ERROR' + error);
+              $('#loader').hide();
+              $('#run_button').show();
+              alert('Error when contacting the server!' );              
           });
       });
     });
