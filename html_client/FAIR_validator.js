@@ -326,7 +326,7 @@ function loadInfo(result) {
 function loadCategory(category, result) {
 
   var checks_div = document.getElementById(category + "-checks");
-  checks_div.innerHTML = getLineHTML();
+  checks_div.innerHTML = getLineHTMLNoLine();
 
   checks = getCategoryChecks(category, result);
 
@@ -334,12 +334,21 @@ function loadCategory(category, result) {
 }
 
 function getLineHTML(){
-  return `
+return `
   <div class="row w-100 mx-0" style="display: block; height: 0px; margin-top: -10px;">
-    <hr color="#000000">
+     <hr color="#000000">
   </div>
   `
 }
+
+
+function getLineHTMLNoLine(){
+return `
+  <div class="row w-100 mx-0" style="display: block; height: 0px; margin-top: -10px;">
+  </div>
+  `
+}
+
 
 function getCategoryChecks(category, result) {
   var checks = result.checks.filter((check) => check.category_id == category);
