@@ -69,6 +69,7 @@ public class FOOPS {
         Check_FIND3_BIS_MetadataAccessible find3_bis = new Check_FIND3_BIS_MetadataAccessible(ontology,find3);
         Check_HTTP1_AccessProtocol http1 = new Check_HTTP1_AccessProtocol(ontology);
         Check_VOC1_VocabReuseMetadata voc1 = new Check_VOC1_VocabReuseMetadata((ontology));
+        Check_VOC2_VocabReuse voc2 = new Check_VOC2_VocabReuse((ontology));
         checks = new ArrayList<>();
 //        checks.add(a1);
 //        checks.add(f1);
@@ -80,7 +81,7 @@ public class FOOPS {
 //        checks.add(om51); checks.add(om52);
 //        checks.add(find1); checks.add(find2);checks.add(find3);checks.add(find3_bis);
 //        checks.add(http1);
-        checks.add(voc1);
+        checks.add(voc1); checks.add(voc2);
         //only add this check if ontology was loaded through it URI
         if(!isFromFile){
             Check_URI2_OntologyURIEqualToID uri2 = new Check_URI2_OntologyURIEqualToID(ontology, o);

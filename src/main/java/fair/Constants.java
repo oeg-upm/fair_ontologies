@@ -145,25 +145,26 @@ public class Constants {
 
     //Access protocol
     public static final String HTTP1 = "HTTP_1";
-    public static final String HTTP1_DESC = "Ontology uses an open protocol (HTTP or HTTPS)";
+    public static final String HTTP1_DESC = "The ontology uses an open protocol (HTTP or HTTPS)";
     public static final String HTTP1_EXPLANATION_OK= "The ontology uses an open protocol";
     public static final String HTTP1_EXPLANATION_ERROR= "The ontology does not use an open protocol";
 
     //reuse
     public static final String VOC1 = "VOC_1";
-    public static final String VOC1_DESC = "Ontology reuses other vocabularies for declaring metadata terms";
-    public static final String VOC1_EXPLANATION_OK= "Ontology reuses existing vocabularies for declaring metadata: ";
-    public static final String VOC1_EXPLANATION_ERROR= "The ontology does not reuse vocabularies for common metadata";
+    public static final String VOC1_DESC = "The ontology reuses other vocabularies for declaring metadata terms";
+    public static final String VOC1_EXPLANATION_OK = "Ontology reuses existing vocabularies for declaring metadata: ";
+    public static final String VOC1_EXPLANATION_ERROR = "The ontology does not reuse vocabularies for common metadata";
 
     public static final String VOC2 = "VOC_2";
-    public static final String VOC2_DESC = "Ontology reuses other vocabularies (besides RDF, OWL and RDFS)";
-    public static final String VOC2_EXPLANATION_OK= "The ontology reuses existing vocabularies: ";
-    public static final String VOC2_EXPLANATION_ERROR= "The ontology does not reuse other vocabularies";
+    public static final String VOC2_DESC = "The ontology imports/extends other vocabularies (besides RDF, OWL and RDFS)";
+    public static final String VOC2_EXPLANATION_OK_IMPORT = "The ontology imports the following vocabularies: ";
+    public static final String VOC2_EXPLANATION_OK_EXTEND = "The ontology reuses/extends existing vocabularies: ";
+    public static final String VOC2_EXPLANATION_ERROR = "The ontology does not import/extend other vocabularies";
 
     public static final String VOC3 = "VOC3";
     public static final String VOC3_DESC = "All ontology terms have labels";
-    public static final String VOC3_EXPLANATION_OK= "Labels found for all ontology terms";
-    public static final String VOC3_EXPLANATION_ERROR= "Labels found for "; // percentage
+    public static final String VOC3_EXPLANATION_OK = "Labels found for all ontology terms";
+    public static final String VOC3_EXPLANATION_ERROR = "Labels found for "; // percentage
 
     public static final String VOC4 = "VOC4";
     public static final String VOC4_DESC = "All ontology terms have descriptions";
