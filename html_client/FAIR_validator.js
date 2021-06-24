@@ -315,6 +315,77 @@ function getResults() {
     }
 }
 
+function getPrincipleDescription (principle){
+
+  switch( principle ) {
+    case "F1": 
+      return "(meta)data are assigned a globally unique and persistent identifier";
+      break;
+
+    case "F2": 
+      return "data are described with rich metadata (defined by R1 below)";
+      break;
+
+    case "F3": 
+      return "metadata clearly and explicitly include the identifier of the data it describes";
+      break;   
+
+    case "F4": 
+      return "(meta)data are registered or indexed in a searchable resource";
+      break;
+
+    case "A1": 
+      return "(meta)data are retrievable by their identifier using a standardized communications protocol";
+      break;
+
+    case "A1.1": 
+      return "the protocol is open, free, and universally implementable";
+      break;
+
+    case "A1.2": 
+      return "the protocol allows for an authentication and authorization procedure, where necessary";
+      break;
+
+    case "A2": 
+      return "metadata are accessible, even when the data are no longer available";
+      break;
+
+    case "I1": 
+      return "(meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation";
+      break;
+
+    case "I2": 
+      return "(meta)data use vocabularies that follow FAIR principles";
+      break;
+
+    case "I3": 
+      return "(meta)data include qualified references to other (meta)data";
+      break;
+
+    case "R1": 
+      return "meta(data) are richly described with a plurality of accurate and relevant attributes";
+      break;
+
+    case "R1.1": 
+      return "(meta)data are released with a clear and accessible data usage license";
+      break;
+
+    case "R1.2": 
+      return "(meta)data are associated with detailed provenance";
+      break;
+
+    case "R1.3": 
+      return "(meta)data meet domain-relevant community standards";
+      break;
+
+
+      default:
+      return "I DON'T HAVE THAT PRINCIPLE";
+  }
+  return "I DON'T HAVE THAT PRINCIPLE";
+
+}
+
 function loadInfo(result) {
   var title = document.querySelector("#title");
   title.textContent = result.ontology_title
@@ -451,12 +522,13 @@ function getAffectedURIsHTML(URIs){
 }
 
 function getPrincipleHTML(text) {
+  // console.log("his is the text: " + text);
   return (
     `
     <div class="row my-3 pl-3">
       <span class="texto-principle pl-3">` +
-    text +
-    `</span>
+    text + `: `+ getPrincipleDescription (text) +
+    ` </span>
     </div>
   `
   );
