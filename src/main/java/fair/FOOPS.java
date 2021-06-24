@@ -71,16 +71,16 @@ public class FOOPS {
         Check_VOC1_VocabReuseMetadata voc1 = new Check_VOC1_VocabReuseMetadata((ontology));
         Check_VOC2_VocabReuse voc2 = new Check_VOC2_VocabReuse((ontology));
         checks = new ArrayList<>();
-//        checks.add(a1);
-//        checks.add(f1);
-//        checks.add(uri1);
-//        checks.add(d1);
-//        checks.add(rdf1);
-//        checks.add(om1); checks.add(om2); checks.add(om3);
-//        checks.add(om41); checks.add(om42);
-//        checks.add(om51); checks.add(om52);
-//        checks.add(find1); checks.add(find2);checks.add(find3);checks.add(find3_bis);
-//        checks.add(http1);
+        checks.add(a1);
+        checks.add(f1);
+        checks.add(uri1);
+        checks.add(d1);
+        checks.add(rdf1);
+        checks.add(om1); checks.add(om2); checks.add(om3);
+        checks.add(om41); checks.add(om42);
+        checks.add(om51); checks.add(om52);
+        checks.add(find1); checks.add(find2);checks.add(find3);checks.add(find3_bis);
+        checks.add(http1);
         checks.add(voc1); checks.add(voc2);
         //only add this check if ontology was loaded through it URI
         if(!isFromFile){
