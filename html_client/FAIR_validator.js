@@ -488,6 +488,45 @@ function getCheckHTML(check_info) {
       <div class="row m-0" id="`+check_info.id+`">
       `+ getLineHTML() +`
         <div class="row mx-0 mt-2 w-100">
+          <dl>
+              <dt>Description</dt>
+              <dd>  `
+                + check_info.description + `
+              </dd>
+              <dt>Explanation</dt>
+              <dd>  `
+                + check_info.explanation + `
+              </dd>
+          </dl> 
+        </div>
+        `+ affected_URIs_HTML +`
+      </div>
+    </div>
+  `
+  );
+
+/*
+  return (
+    `
+    <div class="col-12 p-0 caja-blanca mt-2">
+      <div class="row mt-2 mx-0">
+        <div class="col-8">
+          <span class="texto-check">
+            `+ check_info.id +`
+          </span>
+        </div>
+        <div class="col-2">
+          <div style="position: absolute; top:-30px;">
+        `+getRadialScoreHTML(check_info.total_passed_tests/check_info.total_tests_run, 0.5)+`
+          </div>
+        </div>
+        <div class="col-2 d-flex align-items-center justify-content-end">
+          <img src="assets/up-arrow.svg" onclick="arrowClicked(event, '`+check_info.id+`')">
+        </div>
+      </div>
+      <div class="row m-0" id="`+check_info.id+`">
+      `+ getLineHTML() +`
+        <div class="row mx-0 mt-2 w-100">
           <p class="texto-affected pl-3"> Description: </p>
         </div>
         <div class="row m-0 w-100">
@@ -508,6 +547,7 @@ function getCheckHTML(check_info) {
     </div>
   `
   );
+*/
 }
 
 function getAffectedURIsHTML(URIs){
