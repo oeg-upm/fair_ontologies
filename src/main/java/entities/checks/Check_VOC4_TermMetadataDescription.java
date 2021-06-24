@@ -15,17 +15,35 @@
  *
  * Author: Daniel Garijo and Maria Poveda
  */
+
 package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
 /**
- * Given an ontology, this check inspects its namespaces to verify other vocabs are extended/used.
- * Note that some will have to be ignored (e.g., the metadata ones)
+ * Given an ontology, this check will verify whether all terms are correctly annotated with label and description
+ * (reusability)
+ *
+ * TO DO
  */
-public class CheckNamespaces extends Check {
-    public CheckNamespaces(Ontology o) {
+
+public class Check_VOC4_TermMetadataDescription extends Check {
+    public Check_VOC4_TermMetadataDescription(Ontology o) {
         super(o);
+        this.id = Constants.VOC4;
+        this.category_id = Constants.REUSABLE;
+        this.principle_id ="R1";
+        this.description = Constants.VOC4_DESC;
     }
+
+    @Override
+    public void check(){
+        super.check();
+        /**
+         * to do
+         */
+    }
+
 }

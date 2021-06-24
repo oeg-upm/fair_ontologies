@@ -20,6 +20,7 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
 /**
  * Given an ontology, this check will verify whether all terms are correctly annotated with label and description
@@ -28,9 +29,21 @@ import entities.Ontology;
  * TO DO
  */
 
-public class CheckTermMetadata extends Check {
-    public CheckTermMetadata(Ontology o) {
+public class Check_VOC3_TermMetadataLabel extends Check {
+    public Check_VOC3_TermMetadataLabel(Ontology o) {
         super(o);
+        this.id = Constants.VOC3;
+        this.category_id = Constants.REUSABLE;
+        this.principle_id ="R1";
+        this.description = Constants.VOC3_DESC;
+    }
+
+    @Override
+    public void check(){
+        super.check();
+        /**
+         * to do
+         */
     }
 
 }

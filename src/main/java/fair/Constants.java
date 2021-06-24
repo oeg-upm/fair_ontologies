@@ -41,40 +41,40 @@ public class Constants {
     /*Internal ids of checks and their explanations and descriptions*/
     // CN1: Content negotiation
     public static final String CN1 = "CN1";
-    public static final String CN1_DESC = "Checks if the ontology URI is published following the right content " +
+    public static final String CN1_DESC = "The ontology URI is published following the right content " +
             "negotiation for RDF and HTML";
     public static final String CN1_DESC_EXPLANATION_OK = "Ontology available in: ";
     public static final String CN1_DESC_EXPLANATION_ERROR = "Ontology not available in RDF or HTML";
 
     //DOC1: HTML doc
     public static final String DOC1 = "DOC1";
-    public static final String DOC1_DESC = "Check if the ontology has an HTML documentation";
+    public static final String DOC1_DESC = "The ontology has an HTML documentation";
     public static final String DOC1_EXPLANATION_OK = "Ontology available in HTML";
     public static final String DOC1_EXPLANATION_ERROR = "Ontology not available in HTML";
 
     //RDF1: Check if there is aRDF serialization of an ontology
     public static final String RDF1 = "RDF1";
-    public static final String RDF1_DESC = "Check if the ontology has an RDF serialization";
+    public static final String RDF1_DESC = "The ontology has an RDF serialization";
     public static final String RDF1_EXPLANATION_OK = "Ontology available in RDF";
     public static final String RDF1_EXPLANATION_ERROR = "Ontology not available in RDF (RDF/XML, Turtle, JSON-LD or N3)";
 
 
     //PURL1: Use of persistent URIs
     public static final String PURL1 = "PURL1";
-    public static final String PURL1_DESC = " Check if the ontology uses a persistent URL";
+    public static final String PURL1_DESC = " The ontology has a persistent URL";
     public static final String PURL1_EXPLANATION_OK = "Ontology URI is persistent (w3id, purl, DOI, or a W3C URL)";
     public static final String PURL1_EXPLANATION_ERROR = "Ontology URI is not using a persistent id. " +
             "We checked w3id, purl, DOI and W3C";
 
     //URI1: URI is resolvable
     public static final String URI1 = "URI1";
-    public static final String URI1_DESC = "Check if the ontology URI (used within the ontology) is resolvable";
+    public static final String URI1_DESC = "The ontology URI (used within the ontology) is resolvable";
     public static final String URI1_EXPLANATION_OK = "Ontology URL is resolvable";
     public static final String URI1_EXPLANATION_ERROR = "Ontology URL is not resolvable";
 
     //URI2: Ontology URI is the URI used (only if ontology was loaded through URI)
     public static final String URI2 = "URI2";
-    public static final String URI2_DESC = "Check if the ontology URI is equal to the ontology ID";
+    public static final String URI2_DESC = "The ontology URI is equal to the ontology ID";
     public static final String URI2_EXPLANATION_OK = "Ontology URI is equal to ontology id";
     public static final String URI2_EXPLANATION_ERROR = "Ontology URI is different from ontology ID. Your ontology" +
             "URI (e.g., its w3id) should be the same as the one used within the ontology itself";
@@ -83,73 +83,93 @@ public class Constants {
     // Ontology metadata
     //minimum
     public static final String OM1 = "OM1";
-    public static final String OM1_DESC = "Check to see is the following  minimum metadata [title, description, " +
-            "license, version iri, creator, creationDate, namespace URI] are present";
+    public static final String OM1_DESC = "The following  minimum metadata [title, description, " +
+            "license, version iri, creator, creationDate, namespace URI] are present in the ontology";
     public static final String OM1_EXPLANATION = "The following metadata was not found: ";
 
     //recommended
     public static final String OM2 = "OM2";
-    public static final String OM2_DESC = "Check to see if the following recommended metadata [NS Prefix, version info, " +
-            "contributor, creation date, citation] are present";
+    public static final String OM2_DESC = "The following recommended metadata [NS Prefix, version info, " +
+            "contributor, creation date, citation] are present in the ontology";
     public static final String OM2_EXPLANATION = OM1_EXPLANATION;
 
     //optional
     public static final String OM3 = "OM3";
-    public static final String OM3_DESC = "Check to see if the following optional metadata [doi, previous version," +
-            "publisher, logo, backwards compatibility, status, modified, source, issued date] are found";
+    public static final String OM3_DESC = "The following optional metadata [doi, previous version," +
+            "publisher, logo, backwards compatibility, status, modified, source, issued date] are present in the ontology";
     public static final String OM3_EXPLANATION = OM1_EXPLANATION;
 
     //license
     public static final String OM4_1 = "OM4.1";
-    public static final String OM4_1_DESC = "Check to see if there is a license associated with the ontology";
+    public static final String OM4_1_DESC = "A license associated with the ontology";
     public static final String OM4_1_EXPLANATION_OK = "A license was found";
     public static final String OM4_1_EXPLANATION_ERROR = "License not found";
 
     //license_resolvable
     public static final String OM4_2 = "OM4.2";
-    public static final String OM4_2_DESC = "Check to see if the license is resolvable";
+    public static final String OM4_2_DESC = "The ontology license is resolvable";
     public static final String OM4_2_EXPLANATION_OK = "License could be resolved";
     public static final String OM4_2_EXPLANATION_ERROR = "The license used could not be resolved";
 
     //provenance
     public static final String OM5_1 = "OM5_1";
-    public static final String OM5_1_DESC = "Check to see if basic provenance is available: [author, creation date]";
+    public static final String OM5_1_DESC = "Basic provenance is available for the ontology: [author, creation date]";
     public static final String OM5_1_EXPLANATION = "The following provenance information was not found: ";
 
     public static final String OM5_2 = "OM5_2";
-    public static final String OM5_2_DESC = "Check to see if detailed provenance information is available: " +
+    public static final String OM5_2_DESC = "Detailed provenance information is available for the ontology: " +
             "[issued date, publisher]";
     public static final String OM5_2_EXPLANATION= OM5_1_EXPLANATION;
 
     //Findability
     public static final String FIND1 = "FIND_1";
-    public static final String FIND1_DESC = "Check to see if the ontology prefix is available";
+    public static final String FIND1_DESC = "An ontology prefix is available";
     public static final String FIND1_EXPLANATION_OK= "Prefix declaration found in the ontology";
     public static final String FIND1_EXPLANATION_ERROR= "Prefix declaration not found in the ontology";
 
     public static final String FIND2 = "FIND_2";
-    public static final String FIND2_DESC = "Check to see if the ontology prefix and ns can be found in prefix.cc registry";
+    public static final String FIND2_DESC = "The ontology prefix and namespace URI can be found in prefix.cc registry";
     public static final String FIND2_EXPLANATION_OK= "Prefix declaration found in prefix.cc with correct namespace";
     public static final String FIND2_EXPLANATION_OK_ALMOST= "Prefix declaration found in prefix.cc, but with incorrect namespace";
     public static final String FIND2_EXPLANATION_ERROR= "Prefix declaration not found in prefix.cc";
 
     public static final String FIND3 = "FIND_3";
-    public static final String FIND3_DESC = "Check to see if the ontology can be found in a public registry (LOV)";
+    public static final String FIND3_DESC = "The ontology can be found in a public registry (LOV)";
     public static final String FIND3_EXPLANATION_OK= "Ontology namespace found in";
     public static final String FIND3_EXPLANATION_ERROR= "Ontology not found in a public registry";
 
     public static final String FIND3_BIS = "FIND_3_BIS";
-    public static final String FIND3_BIS_DESC = "This check aims to check if metadata are accessible even when the " +
+    public static final String FIND3_BIS_DESC = "Metadata are accessible even when the " +
             "ontology is no longer available. Since the metadata is usually included in the ontology, this check " +
             "verifies whether the ontology is registered in a public metadata registry (LOV)";
-    public static final String FIND3_BIS_EXPLANATION_OK= "Ontology namespace found in";
-    public static final String FIND3_BIS_EXPLANATION_ERROR= "Ontology not found in a public registry";
 
     //Access protocol
     public static final String HTTP1 = "HTTP_1";
-    public static final String HTTP1_DESC = "Check to see if the ontology uses an open protocol (HTTP or HTTPS)";
+    public static final String HTTP1_DESC = "Ontology uses an open protocol (HTTP or HTTPS)";
     public static final String HTTP1_EXPLANATION_OK= "The ontology uses an open protocol";
     public static final String HTTP1_EXPLANATION_ERROR= "The ontology does not use an open protocol";
+
+    //reuse
+    public static final String VOC1 = "VOC_1";
+    public static final String VOC1_DESC = "Ontology reuses other vocabularies for declaring metadata terms";
+    public static final String VOC1_EXPLANATION_OK= "Ontology reuses existing vocabularies for declaring metadata: ";
+    public static final String VOC1_EXPLANATION_ERROR= "The ontology does not reuse vocabularies for common metadata";
+
+    public static final String VOC2 = "VOC_2";
+    public static final String VOC2_DESC = "Ontology reuses other vocabularies (besides RDF, OWL and RDFS)";
+    public static final String VOC2_EXPLANATION_OK= "The ontology reuses existing vocabularies: ";
+    public static final String VOC2_EXPLANATION_ERROR= "The ontology does not reuse other vocabularies";
+
+    public static final String VOC3 = "VOC3";
+    public static final String VOC3_DESC = "All ontology terms have labels";
+    public static final String VOC3_EXPLANATION_OK= "Labels found for all ontology terms";
+    public static final String VOC3_EXPLANATION_ERROR= "Labels found for "; // percentage
+
+    public static final String VOC4 = "VOC4";
+    public static final String VOC4_DESC = "All ontology terms have descriptions";
+    public static final String VOC4_EXPLANATION_OK= "Descriptions found for all ontology terms";
+    public static final String VOC4_EXPLANATION_ERROR= "Descriptions found for "; // percentage
+
 
 
     /* FAIR Categories*/
@@ -182,6 +202,9 @@ public class Constants {
     public static final String NS_SKOS = "http://www.w3.org/2004/02/skos/core#";
     public static final String NS_PAV = "http://purl.org/pav/";
     public static final String NS_FOAF = "http://xmlns.com/foaf/0.1/";
+
+    public static final String[] VOCS_REUSE_METADATA = {NS_DC, NS_SCHEMA, NS_DCTERMS, NS_VANN, NS_PROV,
+            NS_BIBO, NS_PAV, NS_FOAF, NS_RDFS, NS_OWL };
 
     public static final String PROP_FOAF_LOGO = NS_FOAF + "logo";
 

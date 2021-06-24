@@ -68,17 +68,19 @@ public class FOOPS {
         Check_FIND3_FindOntologyInRegistry find3 = new Check_FIND3_FindOntologyInRegistry(ontology);
         Check_FIND3_BIS_MetadataAccessible find3_bis = new Check_FIND3_BIS_MetadataAccessible(ontology,find3);
         Check_HTTP1_AccessProtocol http1 = new Check_HTTP1_AccessProtocol(ontology);
+        Check_VOC1_VocabReuseMetadata voc1 = new Check_VOC1_VocabReuseMetadata((ontology));
         checks = new ArrayList<>();
-        checks.add(a1);
-        checks.add(f1);
-        checks.add(uri1);
-        checks.add(d1);
-        checks.add(rdf1);
-        checks.add(om1); checks.add(om2); checks.add(om3);
-        checks.add(om41); checks.add(om42);
-        checks.add(om51); checks.add(om52);
-        checks.add(find1); checks.add(find2);checks.add(find3);checks.add(find3_bis);
-        checks.add(http1);
+//        checks.add(a1);
+//        checks.add(f1);
+//        checks.add(uri1);
+//        checks.add(d1);
+//        checks.add(rdf1);
+//        checks.add(om1); checks.add(om2); checks.add(om3);
+//        checks.add(om41); checks.add(om42);
+//        checks.add(om51); checks.add(om52);
+//        checks.add(find1); checks.add(find2);checks.add(find3);checks.add(find3_bis);
+//        checks.add(http1);
+        checks.add(voc1);
         //only add this check if ontology was loaded through it URI
         if(!isFromFile){
             Check_URI2_OntologyURIEqualToID uri2 = new Check_URI2_OntologyURIEqualToID(ontology, o);
