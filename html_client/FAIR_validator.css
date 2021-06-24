@@ -27,8 +27,7 @@ input::placeholder {
   line-height: 42px;
   letter-spacing: 0em;
   text-align: left;
-
-  color: #428bca;
+  color: #8499B3;
 }
 
 .texto2 {
@@ -83,8 +82,6 @@ input::placeholder {
   font-weight: normal;
   font-size: 28px;
   line-height: 42px;
-  text-decoration-line: underline;
-
   color: #000000;
 }
 
@@ -92,9 +89,9 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 48px;
+  font-size: 36px;
   line-height: 56px;
-
+  text-align: center;
   color: #000000;
 }
 
@@ -104,7 +101,6 @@ input::placeholder {
   font-weight: normal;
   font-size: 20px;
   line-height: 28px;
-
   color: #000000;
 }
 
@@ -114,7 +110,6 @@ input::placeholder {
   font-weight: 500;
   font-size: 26px;
   line-height: 28px;
-
   color: #000000;
 }
 
@@ -137,7 +132,20 @@ input::placeholder {
 }
 
 .caja-input {
-  height: 300px;
+  height: 150px;
+}
+
+
+.caja-info {
+  background: #C9E1FF;
+}
+
+.caja-check {
+  margin-top: -30px !important;
+}
+
+.caja-principles {
+  background: #FFE6D6;
 }
 
 .caja-texto {
@@ -196,8 +204,8 @@ input::placeholder {
 
 .input-2 {
   width: 100%;
-  height: 194px;
-  border: 1px solid #000000;
+  height: 50px;
+  border: 1px solid #000000; 
   border-radius: 10px;
   padding: 10px;
 }
@@ -205,14 +213,12 @@ input::placeholder {
 /* BOTONES */
 
 .run {
-  background: #428bca;
+  background: #8499B3;
   border-radius: 10px;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
   line-height: 42px;
-
   color: #ffffff;
 }
