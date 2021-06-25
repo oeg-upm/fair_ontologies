@@ -114,8 +114,15 @@ public class FOOPS {
      * This method writes the results as a JSON file
      */
     public String exportJSON(){
+        String license = "";
+        if (this.ontology.getLicense()!=null && !"".equals(ontology.getLicense())){
+            license = "\"ontology_license\": \""+this.ontology.getLicense()+"\",\n";
+        }else{
+            license = "\"ontology_license\": \"unknown\",\n";
+        }
         String out = "{\n\"ontology_URI\": \""+this.ontology.getOntologyURI()+"\",\n" +
                 "\"ontology_title\": \""+this.ontology.getTitle()+"\",\n" +
+                license +
                 "\"overall_score\":"+this.getTotalScore()+",\n" +
                 "\"checks\":";
         Gson gson = new GsonBuilder().
