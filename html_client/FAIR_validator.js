@@ -629,3 +629,7 @@ function hideContent(id) {
   var resultBlock = document.querySelector("#"+id);
   resultBlock.style.display = "none";
 }
+
+function example1(uri){
+  document.getElementById("URI_input").value=uri;
+  }
