@@ -25,3 +25,11 @@ java -jar -Dserver.port=PORT fair_ontologies-0.0.1.jar
 
 Where PORT is the port you want to run the server
 
+to test the installation, just do a curl command:
+
+```
+curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json;charset=UTF-8" -H "Content-Type: application/json;charset=UTF-8" -d "{ \"ontologyUri\": \"https://w3id.org/okn/o/sd\"}"
+```
+
+As a result, you should see a JSON in your console
+
