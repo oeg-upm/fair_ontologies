@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
  * Given an ontology, this check inspects its namespaces to verify other vocabs are extended/used.
  */
 public class Check_VOC2_VocabReuse extends Check {
-    private ArrayList<String> reusedVocabs;
 
     public Check_VOC2_VocabReuse(Ontology o) {
         super(o);
@@ -40,7 +39,6 @@ public class Check_VOC2_VocabReuse extends Check {
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I2";
         this.description = Constants.VOC2_DESC;
-        reusedVocabs = new ArrayList<>();
     }
 
     @Override
@@ -52,8 +50,7 @@ public class Check_VOC2_VocabReuse extends Check {
          * - If not, check if things are extended.
          */
         //first, if there are imports, we are done.
-        List<OWLImportsDeclaration> imports = this.ontology.getOntologyModel().importsDeclarations().
-                collect(Collectors.toList());
+        List<OWLImportsDeclaration> imports = this.ontology.getImportedVocabularies();
         if (imports.size()>0) {
             String vocs = "";
             for (OWLImportsDeclaration imp:imports){
@@ -64,9 +61,7 @@ public class Check_VOC2_VocabReuse extends Check {
             status = Constants.OK;
             explanation = Constants.VOC2_EXPLANATION_OK_IMPORT+" "+vocs + ".";
         }else {
-            this.getOntology().getOntologyModel().classesInSignature().forEach(a -> checkTermNamespaces(a));
-            this.getOntology().getOntologyModel().objectPropertiesInSignature().forEach(a-> checkTermNamespaces(a));
-            this.getOntology().getOntologyModel().dataPropertiesInSignature().forEach(a-> checkTermNamespaces(a));
+            ArrayList<String> reusedVocabs = this.ontology.getReusedVocabularies();
             //check if other vocabularies are extended
             if(reusedVocabs.size()>0){
                 this.total_passed_tests++;
@@ -85,14 +80,6 @@ public class Check_VOC2_VocabReuse extends Check {
 
     }
 
-    private void checkTermNamespaces(OWLNamedObject a){
-        String termNS = a.getIRI().getNamespace();
-        if(termNS.equals(Constants.NS_OWL)) return; //We ignore OWL reuse.
-        if(!termNS.contains(this.ontology_URI)){
-            if (!reusedVocabs.contains(termNS)) {
-                this.reusedVocabs.add(termNS);
-            }
-        }
-    }
+
 
 }

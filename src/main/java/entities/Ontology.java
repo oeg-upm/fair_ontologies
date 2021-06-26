@@ -21,13 +21,15 @@ package entities;
 import fair.Constants;
 import fair.Utils;
 import org.jsoup.nodes.Document;
-import org.semanticweb.owlapi.model.OWLAnnotation;
-import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.search.EntitySearcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Ontology {
     private OWLOntology ontologyModel;
@@ -54,11 +56,14 @@ public class Ontology {
     private String publisher;
     private String citation;
     private String doi;
-
-
-
     private String logo;
     private ArrayList<String> supportedMetadata;
+    private ArrayList<String> reusedMetadataVocabularies;
+    private ArrayList<String> reusedVocabularies;
+    List<OWLImportsDeclaration> importedVocabularies;
+    private ArrayList<String> termsWithLabel;
+    private ArrayList<String> terms; // all terms
+    private ArrayList<String> termsWithDescription;
 
     /**
      *
@@ -68,6 +73,11 @@ public class Ontology {
      */
     public Ontology(String o, boolean isFromFile, Path tmpFolder){
         supportedMetadata = new ArrayList<>();
+        reusedMetadataVocabularies = new ArrayList<>();
+        reusedVocabularies = new ArrayList<>();
+        termsWithLabel = new ArrayList<>();
+        termsWithDescription = new ArrayList<>();
+        terms = new ArrayList<>();
         //Download ontology (any serialization)
         try {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
@@ -88,6 +98,7 @@ public class Ontology {
             htmlDocumentation = null;
         }
         this.getOntologyMetadata();
+        this.getOntologyCoverage();
     }
 
     /**
@@ -291,10 +302,72 @@ public class Ontology {
                 this.issuedDate = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_ISSUED);
                 break;
-//            case Constants.PROP_OWL_INCOMPATIBLE:
-//                value = Utils.getValueAsLiteralOrURI(a.getValue());
-//                mainOntologyMetadata.setIncompatibleWith(value);
-//                break;
+        }
+    }
+
+    /**
+     * Method to extract the coverage of the ontology:
+     * - Reused vocabularies
+     * - Imported vocabularies
+     * - Terms with no label
+     * - Terms with no description
+     * Since this iterates over all terms of the ontology, we do it once in this method
+     */
+    private void getOntologyCoverage(){
+        //metadata vocabularies
+        this.ontologyModel.annotations().forEach(a -> checkNamespaces(a));
+        //imports
+        this.importedVocabularies = this.ontologyModel.importsDeclarations().collect(Collectors.toList());
+        //vocabulary reuse
+        logger.info("Extracting namespaces, labels, descriptions");
+        this.ontologyModel.classesInSignature().forEach(a -> checkTermCoverage(a));
+        this.ontologyModel.objectPropertiesInSignature().forEach(a-> checkTermCoverage(a));
+        this.ontologyModel.dataPropertiesInSignature().forEach(a-> checkTermCoverage(a));
+    }
+
+    /**
+     * This method checks if the metadata vocabularies used in the annotations of the ontologies match our white list
+     * @param a annotation to analize
+     */
+    private void checkNamespaces(OWLAnnotation a){
+        for (String vocab: Constants.VOCS_REUSE_METADATA){
+            if (a.getProperty().getIRI().getIRIString().contains(vocab)){
+                if(!reusedMetadataVocabularies.contains(vocab)) {
+                    reusedMetadataVocabularies.add(vocab);
+                }
+            }
+        }
+    }
+
+    /**
+     * This method checks whether the ontology is reusing a vocabulary or not
+     * @param a named object to analyze.
+     */
+    private void checkTermCoverage(OWLNamedObject a){
+        String termNS = a.getIRI().getNamespace();
+        if(termNS.equals(Constants.NS_OWL)) return; //We ignore OWL reuse.
+        if(!termNS.contains(this.ontologyURI)) {
+            if (!this.reusedVocabularies.contains(termNS)) {
+                this.reusedVocabularies.add(termNS);
+            }
+        }else{
+            //get label/def coverage for the ontology URI considered
+            terms.add(a.getIRI().getIRIString());
+            OWLAnnotationProperty label = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getRDFSLabel();
+            EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), label).forEach(ann -> {
+                OWLAnnotationValue val = ann.getValue();
+                if(val instanceof OWLLiteral) {
+                    //System.out.println(" label " + ((OWLLiteral) val).getLiteral());
+                    this.termsWithLabel.add(((OWLLiteral) val).getLiteral());
+                }
+            });
+            OWLAnnotationProperty description = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getRDFSComment();
+            EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), description).forEach(ann -> {
+                OWLAnnotationValue val = ann.getValue();
+                if (val instanceof OWLLiteral) {
+                    this.termsWithDescription.add(((OWLLiteral) val).getLiteral());
+                }
+            });
         }
     }
 
@@ -388,5 +461,29 @@ public class Ontology {
 
     public ArrayList<String> getSupportedMetadata() {
         return supportedMetadata;
+    }
+
+    public ArrayList<String> getReusedMetadataVocabularies() {
+        return reusedMetadataVocabularies;
+    }
+
+    public List<OWLImportsDeclaration> getImportedVocabularies() {
+        return importedVocabularies;
+    }
+
+    public ArrayList<String> getReusedVocabularies() {
+        return reusedVocabularies;
+    }
+
+    public ArrayList<String> getTermsWithLabel() {
+        return termsWithLabel;
+    }
+
+    public ArrayList<String> getTermsWithDescription() {
+        return termsWithDescription;
+    }
+
+    public ArrayList<String> getTerms() {
+        return terms;
     }
 }

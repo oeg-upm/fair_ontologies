@@ -42,9 +42,16 @@ public class Check_VOC4_TermMetadataDescription extends Check {
     @Override
     public void check(){
         super.check();
-        /**
-         * to do
-         */
+        this.total_passed_tests = ontology.getTermsWithDescription().size();
+        this.total_tests_run = ontology.getTerms().size();
+        if(ontology.getTerms().size() == ontology.getTermsWithDescription().size()){
+            this.status = Constants.ERROR;
+            this.explanation = Constants.VOC4_EXPLANATION_OK;
+        }else{
+            this.status = Constants.ERROR;
+            this.explanation = Constants.VOC4_EXPLANATION_ERROR + ontology.getTermsWithDescription().size() + " out of "+
+                    ontology.getTerms().size() +" terms";
+        }
     }
 
 }

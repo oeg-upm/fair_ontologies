@@ -21,6 +21,8 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
+import org.apache.tomcat.util.bcel.Const;
+import org.springframework.web.servlet.resource.EncodedResourceResolver;
 
 /**
  * Given an ontology, this check will verify whether all terms are correctly annotated with label and description
@@ -42,9 +44,17 @@ public class Check_VOC3_TermMetadataLabel extends Check {
     @Override
     public void check(){
         super.check();
-        /**
-         * to do
-         */
+        this.total_passed_tests = ontology.getTermsWithLabel().size();
+        this.total_tests_run = ontology.getTerms().size();
+        if(ontology.getTerms().size() == ontology.getTermsWithLabel().size()){
+            this.status = Constants.ERROR;
+            this.explanation = Constants.VOC3_EXPLANATION_OK;
+        }else{
+            this.status = Constants.ERROR;
+            this.explanation = Constants.VOC3_EXPLANATION_ERROR + ontology.getTermsWithLabel().size() + " out of "+
+                    ontology.getTerms().size() +" terms";
+        }
+
     }
 
 }

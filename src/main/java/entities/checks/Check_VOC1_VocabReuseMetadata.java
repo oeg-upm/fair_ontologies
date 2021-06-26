@@ -29,7 +29,6 @@ import java.util.ArrayList;
  * annotations).
  */
 public class Check_VOC1_VocabReuseMetadata extends Check {
-    private ArrayList<String> reusedVocabularies;
     public Check_VOC1_VocabReuseMetadata(Ontology o) {
         super(o);
         this.id = Constants.VOC1;
@@ -37,13 +36,12 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I2";
         this.description = Constants.VOC1_DESC;
-        reusedVocabularies = new ArrayList<>();
     }
 
     @Override
     public void check(){
         super.check();
-        this.ontology.getOntologyModel().annotations().forEach(a -> checkNamespaces(a));
+        ArrayList<String> reusedVocabularies = ontology.getReusedVocabularies();
         if(reusedVocabularies.size()>0){
             this.total_passed_tests++;
             status = Constants.OK;
@@ -59,13 +57,5 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
         }
     }
 
-    private void checkNamespaces(OWLAnnotation a){
-        for (String vocab: Constants.VOCS_REUSE_METADATA){
-            if (a.getProperty().getIRI().getIRIString().contains(vocab)){
-                if(!reusedVocabularies.contains(vocab)) {
-                    reusedVocabularies.add(vocab);
-                }
-            }
-        }
-    }
+
 }
