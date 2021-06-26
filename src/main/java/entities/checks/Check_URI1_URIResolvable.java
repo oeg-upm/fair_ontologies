@@ -35,6 +35,7 @@ public class Check_URI1_URIResolvable extends Check {
     public Check_URI1_URIResolvable(Ontology o){
         super(o);
         this.id = Constants.URI1;
+        this.title = Constants.URI1_TITLE;
         this.category_id = Constants.FINDABLE;
         this.principle_id ="F1";
         this.description = Constants.URI1_DESC;

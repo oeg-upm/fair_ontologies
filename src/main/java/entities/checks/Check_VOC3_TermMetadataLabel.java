@@ -33,6 +33,7 @@ public class Check_VOC3_TermMetadataLabel extends Check {
     public Check_VOC3_TermMetadataLabel(Ontology o) {
         super(o);
         this.id = Constants.VOC3;
+        this.title = Constants.VOC3_TITLE;
         this.category_id = Constants.REUSABLE;
         this.principle_id ="R1";
         this.description = Constants.VOC3_DESC;

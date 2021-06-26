@@ -30,6 +30,7 @@ public class Check_OM4_1_License extends Check {
         super(o);
         this.description = Constants.OM4_1_DESC;
         this.id = Constants.OM4_1;
+        this.title = Constants.OM4_1_TITLE;
         this.category_id = Constants.REUSABLE;
         this.principle_id ="R1.1";
     }

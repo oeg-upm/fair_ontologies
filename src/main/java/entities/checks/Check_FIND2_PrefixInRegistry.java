@@ -45,6 +45,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
     public Check_FIND2_PrefixInRegistry(Ontology o) {
         super(o);
         this.id = Constants.FIND2;
+        this.title = Constants.FIND2_TITLE;
         this.description = Constants.FIND2_DESC;
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F4";

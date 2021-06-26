@@ -30,6 +30,7 @@ public class Check_RDF1_RDFAvailability extends Check {
     public Check_RDF1_RDFAvailability(Ontology o) {
         super(o);
         this.id = Constants.RDF1;
+        this.title = Constants.RDF1_TITLE;
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I1, A1";
         this.description = Constants.RDF1_DESC;

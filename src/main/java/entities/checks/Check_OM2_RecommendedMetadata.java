@@ -27,6 +27,7 @@ public class Check_OM2_RecommendedMetadata extends Check {
         super(o);
         this.category_id = Constants.REUSABLE;
         this.id = Constants.OM2;
+        this.title = Constants.OM2_TITLE;
         this.description = Constants.OM2_DESC;
         this.principle_id = "R1";
         this.total_tests_run = Constants.RECOMMENDED_METADATA.length;

@@ -28,6 +28,7 @@ public class Check_PURL1_PersistentURIs extends Check {
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F1";
         this.id = Constants.PURL1;
+        this.title = Constants.PURL1_TITLE;
         this.description = Constants.PURL1_DESC;
     }
 

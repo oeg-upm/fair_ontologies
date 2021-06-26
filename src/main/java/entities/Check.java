@@ -37,6 +37,8 @@ public abstract class Check {
     @Expose (serialize = true)
     protected String status = "unchecked";
     @Expose (serialize = true)
+    protected String title;
+    @Expose (serialize = true)
     protected String explanation;
     @Expose (serialize = true)
     protected ArrayList<String> affected_Elements;

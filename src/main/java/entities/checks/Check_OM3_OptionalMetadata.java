@@ -26,6 +26,7 @@ public class Check_OM3_OptionalMetadata extends Check {
         super(o);
         this.category_id = Constants.REUSABLE;
         this.id = Constants.OM3;
+        this.title = Constants.OM3_TITLE;
         this.description = Constants.OM3_DESC;
         this.principle_id = "R1";
         this.total_tests_run = Constants.OPTIONAL_METADATA.length;

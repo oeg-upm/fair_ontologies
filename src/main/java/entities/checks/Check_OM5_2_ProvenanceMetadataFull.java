@@ -26,6 +26,7 @@ public class Check_OM5_2_ProvenanceMetadataFull extends Check {
         super(o);
         this.category_id = Constants.REUSABLE;
         this.id = Constants.OM5_2;
+        this.title = Constants.OM5_2_TITLE;
         this.description = Constants.OM5_2_DESC;
         this.principle_id = "R1.2";
         this.total_tests_run = Constants.PROVENANCE_METADATA_DETAILED.length;

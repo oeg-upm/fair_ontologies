@@ -32,6 +32,7 @@ public class Check_OM4_2_LicenseIsResolvable extends Check {
         super(o);
         this.description = Constants.OM4_2_DESC;
         this.id = Constants.OM4_2;
+        this.title = Constants.OM4_2_TITLE;
         this.category_id = Constants.REUSABLE;
         this.principle_id ="R1.1";
     }

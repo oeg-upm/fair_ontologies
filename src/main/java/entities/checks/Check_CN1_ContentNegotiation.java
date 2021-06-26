@@ -27,6 +27,7 @@ public class Check_CN1_ContentNegotiation extends Check {
     public Check_CN1_ContentNegotiation(Ontology o){
         super(o);
         this.id = Constants.CN1;
+        this.title = Constants.CN1_TITLE;
         this.category_id = Constants.ACCESSIBLE;
         this.principle_id ="A1";
         this.total_tests_run = 2;

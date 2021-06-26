@@ -32,6 +32,7 @@ public class Check_OM1_MinimumMetadata extends Check {
         super(o);
         this.category_id = Constants.FINDABLE;
         this.id = Constants.OM1;
+        this.title = Constants.OM1_TITLE;
         this.description = Constants.OM1_DESC;
         this.principle_id = "F2";
         this.total_tests_run = Constants.MINIMUM_METADATA.length;
@@ -50,11 +51,11 @@ public class Check_OM1_MinimumMetadata extends Check {
         }
         //remove last comma
         if("".equals(exp)){
-            explanation = "All metadata found!";
+            explanation = Constants.OM1_EXPLANATION_OK;
             this.status = Constants.OK;
         }else {
             this.status = Constants.ERROR;
-            explanation = Constants.OM1_EXPLANATION + exp.substring(0, exp.length() - 2);
+            explanation = Constants.OM1_EXPLANATION_ERROR + exp.substring(0, exp.length() - 2);
         }
 
     }

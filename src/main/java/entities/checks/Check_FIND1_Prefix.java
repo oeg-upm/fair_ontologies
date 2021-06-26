@@ -30,6 +30,7 @@ public class Check_FIND1_Prefix extends Check {
     public Check_FIND1_Prefix(Ontology o){
         super(o);
         this.id = Constants.FIND1;
+        this.title = Constants.FIND1_TITLE;
         this.description = Constants.FIND1_DESC;
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F3";

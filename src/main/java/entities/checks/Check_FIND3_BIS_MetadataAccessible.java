@@ -21,6 +21,7 @@ public class Check_FIND3_BIS_MetadataAccessible extends Check {
         super(o);
         this.find = find3;
         this.id = Constants.FIND3_BIS;
+        this.title = Constants.FIND3_BIS_TITLE;
         this.description = Constants.FIND3_BIS_DESC;
         this.principle_id = "A2";
         this.category_id = Constants.ACCESSIBLE;

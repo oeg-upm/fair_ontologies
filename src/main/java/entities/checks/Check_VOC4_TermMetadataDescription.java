@@ -33,6 +33,7 @@ public class Check_VOC4_TermMetadataDescription extends Check {
     public Check_VOC4_TermMetadataDescription(Ontology o) {
         super(o);
         this.id = Constants.VOC4;
+        this.id = Constants.VOC4_TITLE;
         this.category_id = Constants.REUSABLE;
         this.principle_id ="R1";
         this.description = Constants.VOC4_DESC;
