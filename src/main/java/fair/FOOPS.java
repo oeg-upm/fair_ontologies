@@ -72,6 +72,7 @@ public class FOOPS {
         Check_VOC2_VocabReuse voc2 = new Check_VOC2_VocabReuse(ontology);
         Check_VOC3_TermMetadataLabel voc3 = new Check_VOC3_TermMetadataLabel(ontology);
         Check_VOC4_TermMetadataDescription voc4 = new Check_VOC4_TermMetadataDescription(ontology);
+        Check_VER1_VersionIRI ver1 = new Check_VER1_VersionIRI(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
         checks.add(f1);
@@ -84,6 +85,7 @@ public class FOOPS {
         checks.add(find1); checks.add(find2); checks.add(find3); checks.add(find3_bis);
         checks.add(http1);
         checks.add(voc1); checks.add(voc2); checks.add(voc3); checks.add(voc4);
+        checks.add(ver1);
         //only add this check if ontology was loaded through it URI
         if(!isFromFile){
             Check_URI2_OntologyURIEqualToID uri2 = new Check_URI2_OntologyURIEqualToID(ontology, o);

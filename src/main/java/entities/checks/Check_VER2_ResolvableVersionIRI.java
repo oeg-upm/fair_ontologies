@@ -20,13 +20,14 @@ package entities.checks;
 
 import entities.Check;
 import entities.Ontology;
+import fair.Constants;
 
 /**
- * Very simple check: if the ontology uses a URI, it is successful.
- * We expect most ontologies to pass this test.
+ * This check verifies if the ontology uses version IRI and if that IRI is resolvable
  */
-public class CheckURI extends Check {
-    public CheckURI(Ontology o) {
+public class Check_VER2_ResolvableVersionIRI extends Check {
+    public Check_VER2_ResolvableVersionIRI(Ontology o) {
         super(o);
+        this.category_id = Constants.FINDABLE;
     }
 }

@@ -203,7 +203,19 @@ public class Constants {
     public static final String VOC4_EXPLANATION_OK= "Descriptions found for all ontology terms";
     public static final String VOC4_EXPLANATION_ERROR= "Descriptions found for "; // percentage
 
+    //version IRI tests
+    public static final String VER1 = "VER1";
+    public static final String VER1_TITLE = "Version IRI";
+    public static final String VER1_DESC = "This check verifies if there is an id for this ontology version, and " +
+            "whether the id is unique (i.e., different from the ontology URI)";
+    public static final String VER1_EXPLANATION_OK= "Version IRI defined, IRI is different from ontology URI";
+    public static final String VER1_EXPLANATION_ERROR= "Version IRI "; // to complete on whether it's found or duplicate
 
+    public static final String VER2 = "VER2";
+    public static final String VER2_TITLE = "Version IRI resolves";
+    public static final String VER2_DESC = "This check verifies if the version IRI returns an RDF document";
+    public static final String VER2_EXPLANATION_OK= "Version IRI resolves";
+    public static final String VER2_EXPLANATION_ERROR= "Version IRI could not be resolved";
 
     /* FAIR Categories*/
     public static final String FINDABLE = "Findable";
