@@ -19,22 +19,17 @@
 package entities.checks;
 
 
-
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
+import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import org.apache.commons.io.IOUtils;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 /**
  * This check verifies whether the ontology can be found in prefix.cc or not.
@@ -71,7 +66,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             URL url = new URL(Constants.PREFIX_CC+ontoPrefix+".file.json");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            InputStream in = (InputStream) connection.getInputStream();
+            InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
             IOUtils.copy(in, writer, "UTF-8");
             try {
@@ -82,7 +77,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                         ns = ns.substring(0, ns.length()-1);
                     }
                     this.total_passed_tests ++;
-                    if (ns.equals(this.ontology.getOntologyURI())){
+                    if (ns.equals(ontoURI)){
                         this.total_passed_tests++;
                         this.status = Constants.OK;
                         this.explanation = Constants.FIND2_EXPLANATION_OK;

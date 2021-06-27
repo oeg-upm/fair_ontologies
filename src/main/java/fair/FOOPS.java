@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -36,13 +37,11 @@ import java.util.ArrayList;
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
 
-    private boolean isFromFile;
     private ArrayList<Check> checks;
     private Path tmpFolder;
     private Ontology ontology;
 
     public FOOPS(String o, boolean isFromFile){
-        this.isFromFile = isFromFile;
         tmpFolder = null;
         try {
             tmpFolder = Files.createTempDirectory(Path.of("."), "foops");
@@ -73,6 +72,7 @@ public class FOOPS {
         Check_VOC3_TermMetadataLabel voc3 = new Check_VOC3_TermMetadataLabel(ontology);
         Check_VOC4_TermMetadataDescription voc4 = new Check_VOC4_TermMetadataDescription(ontology);
         Check_VER1_VersionIRI ver1 = new Check_VER1_VersionIRI(ontology);
+        Check_VER2_ResolvableVersionIRI ver2 = new Check_VER2_ResolvableVersionIRI(ontology);
         checks = new ArrayList<>();
         checks.add(a1);
         checks.add(f1);
@@ -85,7 +85,7 @@ public class FOOPS {
         checks.add(find1); checks.add(find2); checks.add(find3); checks.add(find3_bis);
         checks.add(http1);
         checks.add(voc1); checks.add(voc2); checks.add(voc3); checks.add(voc4);
-        checks.add(ver1);
+        checks.add(ver1); checks.add(ver2);
         //only add this check if ontology was loaded through it URI
         if(!isFromFile){
             Check_URI2_OntologyURIEqualToID uri2 = new Check_URI2_OntologyURIEqualToID(ontology, o);
@@ -93,15 +93,12 @@ public class FOOPS {
         }
     }
 
-    public Path getTmpFolder() {
-        return tmpFolder;
-    }
 
     /**
      * Method for passing all the checks.
      */
     public void fairTest(){
-        checks.forEach(check -> check.check());
+        checks.forEach(Check::check);
     }
 
     private float getTotalScore(){
@@ -118,7 +115,7 @@ public class FOOPS {
      * This method writes the results as a JSON file
      */
     public String exportJSON(){
-        String license = "";
+        String license;
         if (this.ontology.getLicense()!=null && !"".equals(ontology.getLicense())){
             license = "\"ontology_license\": \""+this.ontology.getLicense()+"\",\n";
         }else{
@@ -146,6 +143,7 @@ public class FOOPS {
             logger.error("Could not delete tmp folder");
         }
     }
+
 
     public static void main(String[] args){
         logger.info("\n\n--FAIR ontologies: validation tests--\n");
@@ -184,11 +182,10 @@ public class FOOPS {
         try {
             f = new FOOPS(ontology, isFromFile);
             f.fairTest();
-            f.exportJSON();
-
+            PrintWriter out = new PrintWriter(outPath);
+            out.println(f.exportJSON());
         }catch(Exception e){
-            logger.error("Error!");
-            e.printStackTrace();
+            logger.error("Error! "+ e.getMessage());
         }finally{
             if (f != null){
                 f.removeTemporaryFolders();

@@ -21,14 +21,10 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-import org.apache.tomcat.util.bcel.Const;
-import org.springframework.web.servlet.resource.EncodedResourceResolver;
 
 /**
  * Given an ontology, this check will verify whether all terms are correctly annotated with label and description
  * (reusability)
- *
- * TO DO
  */
 
 public class Check_VOC3_TermMetadataLabel extends Check {

@@ -48,7 +48,7 @@ public class Check_URI1_URIResolvable extends Check {
         for (String serialization : Constants.POSSIBLE_VOCAB_SERIALIZATIONS) {
             try {
                 HttpURLConnection connection = Utils.doNegotiation(this.ontology_URI,serialization);
-                InputStream in = (InputStream) connection.getInputStream();
+                InputStream in = connection.getInputStream();
                 in.close();
                 explanation = Constants.URI1_EXPLANATION_OK + " in "+serialization;
                 status = Constants.OK;

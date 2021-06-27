@@ -38,16 +38,16 @@ public class Check_OM3_OptionalMetadata extends Check {
     @Override
     public void check() {
         super.check();
-        String exp = "";
+        StringBuilder exp = new StringBuilder();
         for (String m: Constants.OPTIONAL_METADATA){
             if(!this.ontology.getSupportedMetadata().contains(m)){
-                exp += m+", ";
+                exp.append(m).append(", ");
             }else{
                 total_passed_tests += 1;
             }
         }
         //remove last comma
-        if("".equals(exp)){
+        if("".equals(exp.toString())){
             explanation = "All optional metadata found!";
             this.status = Constants.OK;
         }else {

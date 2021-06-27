@@ -42,7 +42,7 @@ public class Check_OM4_2_LicenseIsResolvable extends Check {
         super.check();
         String license = this.ontology.getLicense();
         if (license !=null && !"".equals(license)){
-            if(Utils.isLicenseResolvable(license)){
+            if(Utils.isURIResolvable(license)){
                 this.status = Constants.OK;
                 total_passed_tests += 1;
                 this.explanation = Constants.OM4_2_EXPLANATION_OK;

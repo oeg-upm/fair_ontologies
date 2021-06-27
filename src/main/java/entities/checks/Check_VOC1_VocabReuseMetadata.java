@@ -32,7 +32,7 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
     public Check_VOC1_VocabReuseMetadata(Ontology o) {
         super(o);
         this.id = Constants.VOC1;
-        this.title = Constants.VOC2_TITLE;
+        this.title = Constants.VOC1_TITLE;
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I2";
         this.description = Constants.VOC1_DESC;

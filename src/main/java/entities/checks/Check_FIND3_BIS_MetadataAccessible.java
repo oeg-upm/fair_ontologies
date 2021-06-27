@@ -8,14 +8,8 @@ public class Check_FIND3_BIS_MetadataAccessible extends Check {
 
     Check_FIND3_FindOntologyInRegistry find;
 
-    public Check_FIND3_BIS_MetadataAccessible(Ontology o) {
-        super(o);
-    }
-
     /**
-     * This check is essentially the same as FIND3, but in accessible.
-     * @param o
-     * @param find3
+     * This check is essentially the same as FIND3, but in accessible category.
      */
     public Check_FIND3_BIS_MetadataAccessible(Ontology o, Check_FIND3_FindOntologyInRegistry find3) {
         super(o);

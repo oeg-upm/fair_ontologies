@@ -141,13 +141,13 @@ public class Constants {
     public static final String OM5_2_EXPLANATION= OM5_1_EXPLANATION;
 
     //Findability
-    public static final String FIND1 = "FIND_1";
+    public static final String FIND1 = "FIND1";
     public static final String FIND1_TITLE = "Ontology prefix";
     public static final String FIND1_DESC = "This check verifies if an ontology prefix is available";
     public static final String FIND1_EXPLANATION_OK= "Prefix declaration found in the ontology";
     public static final String FIND1_EXPLANATION_ERROR= "Prefix declaration not found in the ontology";
 
-    public static final String FIND2 = "FIND_2";
+    public static final String FIND2 = "FIND2";
     public static final String FIND2_TITLE = "Prefix is in registry";
     public static final String FIND2_DESC = "This check verifies if the ontology prefix and namespace URI can be " +
             "found in prefix.cc registry";
@@ -155,7 +155,7 @@ public class Constants {
     public static final String FIND2_EXPLANATION_OK_ALMOST= "Prefix declaration found in prefix.cc, but with incorrect namespace";
     public static final String FIND2_EXPLANATION_ERROR= "Prefix declaration not found in prefix.cc";
 
-    public static final String FIND3 = "FIND_3";
+    public static final String FIND3 = "FIND3";
     public static final String FIND3_TITLE = "Ontology in metadata registry";
     public static final String FIND3_DESC = "This check verifies if the ontology can be found in a public registry (LOV)";
     public static final String FIND3_EXPLANATION_OK= "Ontology namespace found in";
@@ -168,7 +168,7 @@ public class Constants {
             "verifies whether the ontology is registered in a public metadata registry (LOV)";
 
     //Access protocol
-    public static final String HTTP1 = "HTTP_1";
+    public static final String HTTP1 = "HTTP1";
     public static final String HTTP_1_TITLE = "Open protocol";
     public static final String HTTP1_DESC = "This check verifies if the ontology uses an open " +
             "protocol (HTTP or HTTPS)";
@@ -176,14 +176,14 @@ public class Constants {
     public static final String HTTP1_EXPLANATION_ERROR= "The ontology does not use an open protocol";
 
     //reuse
-    public static final String VOC1 = "VOC_1";
-    public static final String VOC_TITLE = "Vocabulary reuse (metadata)";
+    public static final String VOC1 = "VOC1";
+    public static final String VOC1_TITLE = "Vocabulary reuse (metadata)";
     public static final String VOC1_DESC = "This check verifies if the ontology reuses other vocabularies for " +
             "declaring metadata terms";
     public static final String VOC1_EXPLANATION_OK = "Ontology reuses existing vocabularies for declaring metadata: ";
     public static final String VOC1_EXPLANATION_ERROR = "The ontology does not reuse vocabularies for common metadata";
 
-    public static final String VOC2 = "VOC_2";
+    public static final String VOC2 = "VOC2";
     public static final String VOC2_TITLE = "Vocabulary reuse";
     public static final String VOC2_DESC = "This check verifies if the ontology imports/extends other vocabularies " +
             "(besides RDF, OWL and RDFS)";
@@ -193,13 +193,15 @@ public class Constants {
 
     public static final String VOC3 = "VOC3";
     public static final String VOC3_TITLE = "Documentation: labels";
-    public static final String VOC3_DESC = "This check verifies the extent to which all ontology terms have labels";
+    public static final String VOC3_DESC = "This check verifies the extent to which all ontology terms have " +
+            "labels (rdfs:label)";
     public static final String VOC3_EXPLANATION_OK = "Labels found for all ontology terms";
     public static final String VOC3_EXPLANATION_ERROR = "Labels found for "; // percentage
 
     public static final String VOC4 = "VOC4";
     public static final String VOC4_TITLE = "Documentation: definitions";
-    public static final String VOC4_DESC = "This check verifies whether all ontology terms have descriptions";
+    public static final String VOC4_DESC = "This check verifies whether all ontology terms have " +
+            "descriptions (rdfs:comment)";
     public static final String VOC4_EXPLANATION_OK= "Descriptions found for all ontology terms";
     public static final String VOC4_EXPLANATION_ERROR= "Descriptions found for "; // percentage
 
@@ -213,8 +215,10 @@ public class Constants {
 
     public static final String VER2 = "VER2";
     public static final String VER2_TITLE = "Version IRI resolves";
-    public static final String VER2_DESC = "This check verifies if the version IRI returns an RDF document";
+    public static final String VER2_DESC = "This check verifies if the version IRI resolves";
     public static final String VER2_EXPLANATION_OK= "Version IRI resolves";
+    public static final String VER2_EXPLANATION_ERROR_NOT_AVAILABLE= "Version IRI is not available, " +
+            "so it could not be resolved";
     public static final String VER2_EXPLANATION_ERROR= "Version IRI could not be resolved";
 
     /* FAIR Categories*/

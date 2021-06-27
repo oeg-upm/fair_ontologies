@@ -36,29 +36,29 @@ public class Check_OM5_1_ProvenanceMetadataBasic extends Check {
     @Override
     public void check() {
         super.check();
-        String exp = "";
+        StringBuilder exp = new StringBuilder();
         for (String m : Constants.PROVENANCE_METADATA_BASIC) {
             if (!this.ontology.getSupportedMetadata().contains(m)) {
-                exp += m + ", ";
+                exp.append(m).append(", ");
             } else {
                 total_passed_tests += 1;
             }
         }
-        String optional = "";
+        StringBuilder optional = new StringBuilder();
         for (String m : Constants.PROVENANCE_METADATA_OPTIONAL) {
             if (!this.ontology.getSupportedMetadata().contains(m)) {
-                optional += m + ", ";
+                optional.append(m).append(", ");
             }
         }
         //remove last comma
-        if ("".equals(exp)) {
+        if ("".equals(exp.toString())) {
             explanation = "All basic provenance metadata found!";
             this.status = Constants.OK;
         } else {
             this.status = Constants.ERROR;
             explanation = Constants.OM5_1_EXPLANATION + exp.substring(0, exp.length() - 2);
         }
-        if (!"".equals(optional)){
+        if (!"".equals(optional.toString())){
             explanation += "\n Warning: We could not find the following provenance metadata: "+
                     optional.substring(0,optional.length() -2) + "Please consider adding them if appropriate.";
         }

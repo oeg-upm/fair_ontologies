@@ -33,10 +33,10 @@ public class Check_HTTP1_AccessProtocol extends Check {
         this.principle_id = "A1.1";
     }
 
-    @Override
     /**
      * Very dumb check: that an open communications protocol is used (HTTP(S)))
      */
+    @Override
     public void check() {
         super.check();
         try {

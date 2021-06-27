@@ -176,9 +176,15 @@ public class Utils {
         }
     }
 
-    public static boolean isLicenseResolvable(String licenseURI){
+    /**
+     * This method checks if the target URI resolves to something.
+     * It does not check what is the response in detail, just that something is returned.
+     * @param uri URI to resolve
+     * @return true if resolves successfully.
+     */
+    public static boolean isURIResolvable(String uri){
         try {
-            HttpURLConnection connection = Utils.doNegotiation(licenseURI, null);
+            HttpURLConnection connection = Utils.doNegotiation(uri, null);
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
                 return true;
             }

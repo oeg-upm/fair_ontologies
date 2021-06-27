@@ -41,16 +41,16 @@ public class Check_OM1_MinimumMetadata extends Check {
     @Override
     public void check() {
         super.check();
-        String exp = "";
+        StringBuilder exp = new StringBuilder();
         for (String m:Constants.MINIMUM_METADATA){
             if(!this.ontology.getSupportedMetadata().contains(m)){
-                exp += m+", ";
+                exp.append(m).append(", ");
             }else{
                 total_passed_tests += 1;
             }
         }
         //remove last comma
-        if("".equals(exp)){
+        if("".equals(exp.toString())){
             explanation = Constants.OM1_EXPLANATION_OK;
             this.status = Constants.OK;
         }else {

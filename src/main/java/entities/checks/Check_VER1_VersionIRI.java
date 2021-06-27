@@ -41,7 +41,7 @@ public class Check_VER1_VersionIRI extends Check {
     public void check() {
         super.check();
         String versionIRI = this.ontology.getVersionIRI();
-        String explanation = "";
+        String explanation;
         if (versionIRI!=null && !"".equals(versionIRI)){
             this.total_passed_tests++;
             if (!versionIRI.equals(this.ontology_URI)){

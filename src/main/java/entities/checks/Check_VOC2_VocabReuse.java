@@ -20,12 +20,10 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-import org.apache.tomcat.util.bcel.Const;
-import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Given an ontology, this check inspects its namespaces to verify other vocabs are extended/used.
@@ -44,19 +42,14 @@ public class Check_VOC2_VocabReuse extends Check {
     @Override
     public void check(){
         super.check();
-        /**
-         * to do:
-         * - Check if things are imported.
-         * - If not, check if things are extended.
-         */
         //first, if there are imports, we are done.
         List<OWLImportsDeclaration> imports = this.ontology.getImportedVocabularies();
         if (imports.size()>0) {
-            String vocs = "";
+            StringBuilder vocs = new StringBuilder();
             for (OWLImportsDeclaration imp:imports){
-                vocs += imp.getIRI().getIRIString() + ", ";
+                vocs.append(imp.getIRI().getIRIString()).append(", ");
             }
-            vocs = vocs.substring(0, vocs.length()-2);
+            vocs = new StringBuilder(vocs.substring(0, vocs.length() - 2));
             total_passed_tests ++;
             status = Constants.OK;
             explanation = Constants.VOC2_EXPLANATION_OK_IMPORT+" "+vocs + ".";
@@ -66,11 +59,11 @@ public class Check_VOC2_VocabReuse extends Check {
             if(reusedVocabs.size()>0){
                 this.total_passed_tests++;
                 status = Constants.OK;
-                String vocs = "";
+                StringBuilder vocs = new StringBuilder();
                 for (String v : reusedVocabs){
-                    vocs += v + ", ";
+                    vocs.append(v).append(", ");
                 }
-                vocs = vocs.substring(0, vocs.length()-2);
+                vocs = new StringBuilder(vocs.substring(0, vocs.length() - 2));
                 explanation = Constants.VOC2_EXPLANATION_OK_EXTEND + vocs;
             }else{
                 status = Constants.ERROR;

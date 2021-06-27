@@ -59,16 +59,11 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
         if (ontoURI.endsWith("/") || ontoURI.endsWith("#")){
             ontoURI = ontoURI.substring(0, ontoURI.length()-1);
         }
-//        if ("".equals(ontoPrefix) || ontoPrefix == null){
-//            this.status = Constants.ERROR;
-//            this.explanation = "No prefix declared in the ontology";
-//            return;
-//        }
         try {
             URL url = new URL(Constants.LOV_ALL_VOCABS);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            InputStream in = (InputStream) connection.getInputStream();
+            InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
             IOUtils.copy(in, writer, "UTF-8");
             try {
