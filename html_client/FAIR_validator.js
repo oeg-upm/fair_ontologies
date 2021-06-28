@@ -478,7 +478,7 @@ function getCheckHTML(check_info) {
       <div class="row mt-2 mx-0">
         <div class="col-8">
           <span class="texto-check">
-            `+ check_info.id +`
+            `+ check_info.id +": "+ check_info.title+` 
           </span>
         </div>
         <div class="col-2">
