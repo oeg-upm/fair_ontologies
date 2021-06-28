@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -23,8 +24,8 @@
         $('#run_button').click(function(){
           $('#loader').show();
           $('#run_button').hide();
-         /* $.ajax({
-              url:"http://localhost:8080/assessOntology",
+          $.ajax({
+              url:"https://foops.linkeddata.es/assessOntology",
               type:"POST",
               data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
               contentType:"application/json; charset=utf-8",
@@ -36,24 +37,50 @@
           }).fail(function (jqXHR, textStatus, error) {
               $('#loader').hide();
               $('#run_button').show();
-              alert('Error when contacting the server!' );              
-          }); */
-        run("hola");
+              alert('Error when contacting the server!' );
+          });
       });
     });
     </script>
 
-    <title>FAIR for OOPS!</title>
+    <title>OOPS! for FAIR </title>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="d-flex flex-grow-1">
+          <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+          <a class="texto1 navbar-brand d-none d-lg-inline-block" href="#">
+              FOOPS!: Ontology Pitfall Scanner for FAIR (Beta)
+          </a>
+          <!--<a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+              <img src="//placehold.it/40?text=LOGO" alt="logo">
+          </a>-->
+          <div class="w-100 text-right">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+          </div>
+      </div>
+      <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+          <ul class="navbar-nav ml-auto flex-nowrap">
+              <li class="nav-item">
+                  <a href="#" class="nav-link m-2 menu-item nav-active">Validator</a>
+              </li>
+              <li class="nav-item">
+                  <a href="about.html" class="nav-link m-2 menu-item">About</a>
+              </li>
+
+          </ul>
+      </div>
+    </nav>
 </head>
 
 
 <body>
     <div class="container">
 
-        <!-- Cabecera -->
+        <!-- Cabecera
         <div class="row mt-5">
             <span class="texto1">FAIR for OOPS!</span>
-        </div>
+        </div>-->
        <!--   <div class="row mt-2">
             <span class="texto2">Enter the ontology: </span>
         </div> -->
@@ -69,14 +96,14 @@
                         <div class="col-4 selector selector-izq center active" onclick="openInput(event, 'URI')">
                             <span class="texto3"> URI </span>
                         </div>
-                        <!-- Codigo -->
+                        <!-- Codigo
                         <div class="col-4 selector center" onclick="openInput(event, 'Code')">
                             <span class="texto3"> Code </span>
-                        </div>
-                        <!-- Archivo -->
+                        </div>-->
+                        <!-- Archivo
                         <div class="col-4 selector selector-der center" onclick="openInput(event, 'File')">
                             <span class="texto3"> File </span>
-                        </div>
+                        </div>-->
                     </div>
 
                     <!-- Input de URI-->
@@ -87,23 +114,25 @@
                         </div>
                         <div id="example" class="col-12 texto6">
                             <br>
-                            <p onclick="example1('https://w3id.org/okn/o/sd')">
-                                Example: https://w3id.org/okn/o/sd (click here to enter this ontology)
+                            <p onclick="example1('https://w3id.org/example')">
+                                Example: https://w3id.org/example (click <a href="#">here</a> to enter this ontology)
                             </p>
                         </div>
                     </div>
-                    <!-- Input del código -->
+                    <!-- Input del código (commented until implemented)
                     <div id="Code" class="row selector-content mt-3" style="display: none">
                         <div class="col-12 center">
                             <textarea id="Code_input" class="input-2" placeholder="Paste here your ontology code. Please note that if you enter the ontology URI instead of the code there are more checks that we can do for you. For example, to test whether Content Negotiation is used for serving the ontology."></textarea>
                         </div>
                     </div>
-                    <!-- Input del archivo -->
+                    -->
+                    <!-- Input del archivo (commented until implemented)
                     <div id="File" class="row selector-content mt-3" style="display: none">
                         <div class="col-12">
                             <input id="File_input" class="input-1" type="file" placeholder="Drag and drop the file to upload here">
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
@@ -111,7 +140,10 @@
         <!-- Boton RUN -->
         <div class="row justify-content-center mt-4">
             <button class="run px-5" id="run_button">RUN</button>
-            <div id='loader'><img src="https://media.giphy.com/media/MITM2xu1LmiQ/giphy.gif"/></div>
+            <div id='loader'>
+              <p>Please be patient. Response may vary depending on ontology size. </p>
+              <img src="https://media.giphy.com/media/MITM2xu1LmiQ/giphy.gif"/>
+            </div>
         </div>
 
         <!-- RESULTADOS -->

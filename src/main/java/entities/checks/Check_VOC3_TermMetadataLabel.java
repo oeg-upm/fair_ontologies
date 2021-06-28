@@ -43,7 +43,7 @@ public class Check_VOC3_TermMetadataLabel extends Check {
         this.total_passed_tests = ontology.getTermsWithLabel().size();
         this.total_tests_run = ontology.getTerms().size();
         if(ontology.getTerms().size() == ontology.getTermsWithLabel().size()){
-            this.status = Constants.ERROR;
+            this.status = Constants.OK;
             this.explanation = Constants.VOC3_EXPLANATION_OK;
         }else{
             this.status = Constants.ERROR;

@@ -41,7 +41,7 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
     @Override
     public void check(){
         super.check();
-        ArrayList<String> reusedVocabularies = ontology.getReusedVocabularies();
+        ArrayList<String> reusedVocabularies = ontology.getReusedMetadataVocabularies();
         if(reusedVocabularies.size()>0){
             this.total_passed_tests++;
             status = Constants.OK;
