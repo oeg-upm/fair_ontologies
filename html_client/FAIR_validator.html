@@ -81,17 +81,21 @@
 
                     <!-- Input de URI-->
                     <div id="URI" class="row selector-content mt-3" style="display: flex">
-                        <div class="col-2 d-flex align-items-center">
-                            <span class="texto4">Enter URI: </span>
-                        </div>
-                        <div class="col-10">
+
+                        <div class="col-12 center">
                             <input id="URI_input" class="input-1" placeholder="Enter URI...">
+                        </div>
+                        <div id="example" class="col-12 texto6">
+                            <br>
+                            <p onclick="example1('https://w3id.org/okn/o/sd')">
+                                Example: https://w3id.org/okn/o/sd (click here to enter this ontology)
+                            </p>
                         </div>
                     </div>
                     <!-- Input del código -->
                     <div id="Code" class="row selector-content mt-3" style="display: none">
                         <div class="col-12 center">
-                            <textarea id="Code_input" class="input-2" placeholder="Enter Ontology Code..."></textarea>
+                            <textarea id="Code_input" class="input-2" placeholder="Paste here your ontology code. Please note that if you enter the ontology URI instead of the code there are more checks that we can do for you. For example, to test whether Content Negotiation is used for serving the ontology."></textarea>
                         </div>
                     </div>
                     <!-- Input del archivo -->
@@ -117,12 +121,12 @@
             <div class="row mt-3 ml-0 w-100">
                 <div class="col-12 caja caja-info">
                     <div class="row my-3">
-                        <div class="col-2 d-flex align-items-center">
+                        <div class="col-1 d-flex align-items-center">
                             <span class="texto4">
                              Title:
                             </span>
                         </div>
-                        <div class="col-10">
+                        <div class="col-11">
                             <div class="caja-texto pl-2">
                                 <span class="texto4" id="title">
                                 default
@@ -131,12 +135,12 @@
                         </div>
                     </div>
                     <div class="row my-3">
-                        <div class="col-2 d-flex align-items-center">
+                        <div class="col-1 d-flex align-items-center">
                             <span class="texto4">
                              URI:
                             </span>
                         </div>
-                        <div class="col-10">
+                        <div class="col-11">
                             <div class="caja-texto pl-2">
                                 <span class="texto4" id="URI-title">
                                 default
@@ -145,14 +149,14 @@
                         </div>
                     </div>
                     <div class="row my-3">
-                        <div class="col-2 d-flex align-items-center">
+                        <div class="col-1 d-flex align-items-center">
                             <span class="texto4">
                             License:
                             </span>
                         </div>
-                        <div class="col-10">
+                        <div class="col-11">
                             <div class="caja-texto pl-2">
-                                <span class="texto4">
+                                <span class="texto4" id="license">
                                 W3C
                                 </span>
                             </div>

@@ -226,8 +226,9 @@ function getResults() {
   // Aqui iría la llamada al backend
 
   return {
-    "ontology_URI": "https://w3id.org/okn/o/sd",
-    "ontology_title": "The Software Description Ontology",
+    "ontology_URI": "la uri https://w3id.org/okn/o/sd",
+    "ontology_title": " probando The Software Description Ontology",
+    "ontology_license": " la licencia",
     "overall_score":0.8888889,
     "checks":[
       {
@@ -392,6 +393,9 @@ function loadInfo(result) {
 
   var URI = document.querySelector("#URI-title");
   URI.textContent = result.ontology_URI
+
+  var license = document.querySelector("#license");
+  license.textContent = result.ontology_license
 }
 
 function loadCategory(category, result) {
@@ -625,3 +629,7 @@ function hideContent(id) {
   var resultBlock = document.querySelector("#"+id);
   resultBlock.style.display = "none";
 }
+
+function example1(uri){
+  document.getElementById("URI_input").value=uri;
+  }
