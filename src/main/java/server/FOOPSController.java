@@ -39,7 +39,8 @@ public class FOOPSController {
     @GetMapping("/assessOntology")
     public String assessGET() {
         return "Please send a POST request. Example: " +
-                "curl -X POST \"http://localhost:8080/assessOntology\" -H \"accept: application/json;charset=UTF-8\" " +
+                "curl -X POST \"https://foops.linkeddata.es/assessOntology\" -H \"accept: application/json;" +
+                "charset=UTF-8\" " +
                 "-H \"Content-Type: application/json;charset=UTF-8\" -d " +
                 "\"{ \"ontURI\": \"https://w3id.org/okn/o/sd#\"}\"";
     }
@@ -63,7 +64,9 @@ public class FOOPSController {
                     f = new FOOPS(r.getOntologyUri(), false);
                 }
             }catch(Exception e){
-                logger.error("Error ");
+                logger.error("Error "+ e.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
             }
             try{ //is there content?
             if (f == null && body!=null && !"".equals(body)){
