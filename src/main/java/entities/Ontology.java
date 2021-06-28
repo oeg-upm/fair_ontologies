@@ -97,8 +97,12 @@ public class Ontology {
             logger.error("Could not load ontology in HTML");
             htmlDocumentation = null;
         }
-        this.getOntologyMetadata();
-        this.getOntologyCoverage();
+        try {
+            this.getOntologyMetadata();
+            this.getOntologyCoverage();
+        }catch(Exception e){
+            logger.error("Error when extracting metadata or annotations");
+        }
     }
 
     /**
@@ -194,7 +198,7 @@ public class Ontology {
                 value = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_NS_URI);
                 if (!this.ontologyURI.equals(value)) {
-                    logger.error("Ontology NS URI declared and annotated is not the same!");
+                    logger.warn("Ontology NS URI declared and annotated is not the same!");
                 }
                 break;
             case Constants.PROP_DCTERMS_LICENSE:

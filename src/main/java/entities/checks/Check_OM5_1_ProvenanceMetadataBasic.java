@@ -60,7 +60,7 @@ public class Check_OM5_1_ProvenanceMetadataBasic extends Check {
         }
         if (!"".equals(optional.toString())){
             explanation += "\n Warning: We could not find the following provenance metadata: "+
-                    optional.substring(0,optional.length() -2) + "Please consider adding them if appropriate.";
+                    optional.substring(0,optional.length() -2) + ". Please consider adding them if appropriate.";
         }
 
     }

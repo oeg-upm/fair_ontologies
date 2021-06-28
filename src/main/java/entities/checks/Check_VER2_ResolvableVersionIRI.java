@@ -40,19 +40,24 @@ public class Check_VER2_ResolvableVersionIRI extends Check {
     @Override
     public void check() {
         super.check();
-        String versionIRI = this.ontology.getVersionIRI();
-        if (versionIRI !=null && !"".equals(versionIRI)){
-            if(Utils.isURIResolvable(versionIRI)){
-                this.status = Constants.OK;
-                total_passed_tests += 1;
-                this.explanation = Constants.VER2_EXPLANATION_OK;
-            }else{
+        try {
+            String versionIRI = this.ontology.getVersionIRI();
+            if (versionIRI != null && !"".equals(versionIRI)) {
+                if (Utils.isURIResolvable(versionIRI)) {
+                    this.status = Constants.OK;
+                    total_passed_tests += 1;
+                    this.explanation = Constants.VER2_EXPLANATION_OK;
+                } else {
+                    this.status = Constants.ERROR;
+                    this.explanation = Constants.VER2_EXPLANATION_ERROR;
+                }
+            } else {
                 this.status = Constants.ERROR;
-                this.explanation = Constants.VER2_EXPLANATION_ERROR;
+                this.explanation = Constants.VER2_EXPLANATION_ERROR_NOT_AVAILABLE;
             }
-        }else{
-            this.status = Constants.ERROR;
-            this.explanation = Constants.VER2_EXPLANATION_ERROR_NOT_AVAILABLE;
+        }catch(Exception e){
+            status = Constants.ERROR;
+            explanation = Constants.ERROR_METADATA;
         }
     }
 }

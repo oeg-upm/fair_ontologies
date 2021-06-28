@@ -98,7 +98,12 @@ public class FOOPS {
      * Method for passing all the checks.
      */
     public void fairTest(){
-        checks.forEach(Check::check);
+        try {
+            checks.forEach(Check::check);
+        }catch(Exception e){
+            logger.error("Error with check");
+        }
+
     }
 
     private float getTotalScore(){
@@ -115,14 +120,19 @@ public class FOOPS {
      * This method writes the results as a JSON file
      */
     public String exportJSON(){
-        String license;
+        String license, title;
         if (this.ontology.getLicense()!=null && !"".equals(ontology.getLicense())){
             license = "\"ontology_license\": \""+this.ontology.getLicense()+"\",\n";
         }else{
             license = "\"ontology_license\": \"unknown\",\n";
         }
+        if (this.ontology.getTitle()!=null && !"".equals(ontology.getTitle())){
+            title = "\"ontology_title\": \""+this.ontology.getTitle()+"\",\n";
+        }else{
+            title = "\"ontology_title\": \"unknown\",\n";
+        }
         String out = "{\n\"ontology_URI\": \""+this.ontology.getOntologyURI()+"\",\n" +
-                "\"ontology_title\": \""+this.ontology.getTitle()+"\",\n" +
+                title +
                 license +
                 "\"overall_score\":"+this.getTotalScore()+",\n" +
                 "\"checks\":";

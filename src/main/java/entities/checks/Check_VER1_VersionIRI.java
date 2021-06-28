@@ -40,23 +40,27 @@ public class Check_VER1_VersionIRI extends Check {
     @Override
     public void check() {
         super.check();
-        String versionIRI = this.ontology.getVersionIRI();
-        String explanation;
-        if (versionIRI!=null && !"".equals(versionIRI)){
-            this.total_passed_tests++;
-            if (!versionIRI.equals(this.ontology_URI)){
-                this.total_passed_tests ++;
-                this.status = Constants.OK;
-                this.explanation = Constants.VER1_EXPLANATION_OK;
-                return;
+        try {
+            String versionIRI = this.ontology.getVersionIRI();
+            String explanation;
+            if (versionIRI != null && !"".equals(versionIRI)) {
+                this.total_passed_tests++;
+                if (!versionIRI.equals(this.ontology_URI)) {
+                    this.total_passed_tests++;
+                    this.status = Constants.OK;
+                    this.explanation = Constants.VER1_EXPLANATION_OK;
+                    return;
+                } else {
+                    explanation = " defined but equal to ontology id";
+                }
+            } else {
+                explanation = " not defined";
             }
-            else{
-                explanation = " defined but equal to ontology id";
-            }
-        }else{
-            explanation = " not defined";
+            this.status = Constants.ERROR;
+            this.explanation = Constants.VER1_EXPLANATION_ERROR + explanation;
+        }catch(Exception e){
+            status = Constants.ERROR;
+            explanation = Constants.ERROR_METADATA;
         }
-        this.status = Constants.ERROR;
-        this.explanation = Constants.VER1_EXPLANATION_ERROR + explanation;
     }
 }

@@ -42,33 +42,38 @@ public class Check_VOC2_VocabReuse extends Check {
     @Override
     public void check(){
         super.check();
-        //first, if there are imports, we are done.
-        List<OWLImportsDeclaration> imports = this.ontology.getImportedVocabularies();
-        if (imports.size()>0) {
-            StringBuilder vocs = new StringBuilder();
-            for (OWLImportsDeclaration imp:imports){
-                vocs.append(imp.getIRI().getIRIString()).append(", ");
-            }
-            vocs = new StringBuilder(vocs.substring(0, vocs.length() - 2));
-            total_passed_tests ++;
-            status = Constants.OK;
-            explanation = Constants.VOC2_EXPLANATION_OK_IMPORT+" "+vocs + ".";
-        }else {
-            ArrayList<String> reusedVocabs = this.ontology.getReusedVocabularies();
-            //check if other vocabularies are extended
-            if(reusedVocabs.size()>0){
-                this.total_passed_tests++;
-                status = Constants.OK;
+        try{
+            //first, if there are imports, we are done.
+            List<OWLImportsDeclaration> imports = this.ontology.getImportedVocabularies();
+            if (imports.size()>0) {
                 StringBuilder vocs = new StringBuilder();
-                for (String v : reusedVocabs){
-                    vocs.append(v).append(", ");
+                for (OWLImportsDeclaration imp:imports){
+                    vocs.append(imp.getIRI().getIRIString()).append(", ");
                 }
                 vocs = new StringBuilder(vocs.substring(0, vocs.length() - 2));
-                explanation = Constants.VOC2_EXPLANATION_OK_EXTEND + vocs;
-            }else{
-                status = Constants.ERROR;
-                explanation = Constants.VOC2_EXPLANATION_ERROR;
+                total_passed_tests ++;
+                status = Constants.OK;
+                explanation = Constants.VOC2_EXPLANATION_OK_IMPORT+" "+vocs + ".";
+            }else {
+                ArrayList<String> reusedVocabs = this.ontology.getReusedVocabularies();
+                //check if other vocabularies are extended
+                if (reusedVocabs.size() > 0) {
+                    this.total_passed_tests++;
+                    status = Constants.OK;
+                    StringBuilder vocs = new StringBuilder();
+                    for (String v : reusedVocabs) {
+                        vocs.append(v).append(", ");
+                    }
+                    vocs = new StringBuilder(vocs.substring(0, vocs.length() - 2));
+                    explanation = Constants.VOC2_EXPLANATION_OK_EXTEND + vocs;
+                } else {
+                    status = Constants.ERROR;
+                    explanation = Constants.ERROR_METADATA;
+                }
             }
+        }catch(Exception e){
+            status = Constants.ERROR;
+            explanation = Constants.VOC2_EXPLANATION_ERROR;
         }
 
     }

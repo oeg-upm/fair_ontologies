@@ -40,15 +40,27 @@ public class Check_VOC3_TermMetadataLabel extends Check {
     @Override
     public void check(){
         super.check();
-        this.total_passed_tests = ontology.getTermsWithLabel().size();
-        this.total_tests_run = ontology.getTerms().size();
-        if(ontology.getTerms().size() == ontology.getTermsWithLabel().size()){
-            this.status = Constants.OK;
-            this.explanation = Constants.VOC3_EXPLANATION_OK;
-        }else{
-            this.status = Constants.ERROR;
-            this.explanation = Constants.VOC3_EXPLANATION_ERROR + ontology.getTermsWithLabel().size() + " out of "+
-                    ontology.getTerms().size() +" terms";
+        try {
+            this.total_passed_tests = ontology.getTermsWithLabel().size();
+            this.total_tests_run = ontology.getTerms().size();
+            if (ontology.getTerms().size() == 0){
+                this.status = Constants.ERROR;
+                this.explanation = "No ontology terms found";
+                this.total_tests_run ++;
+                return;
+            }
+            if (ontology.getTerms().size() == ontology.getTermsWithLabel().size()) {
+                this.status = Constants.OK;
+                this.explanation = Constants.VOC3_EXPLANATION_OK;
+            } else {
+                this.status = Constants.ERROR;
+                this.explanation = Constants.VOC3_EXPLANATION_ERROR + ontology.getTermsWithLabel().size() + " out of " +
+                        ontology.getTerms().size() + " terms";
+            }
+        }catch(Exception e){
+            status = Constants.ERROR;
+            explanation = Constants.ERROR_METADATA;
+            this.total_tests_run = 1;
         }
 
     }

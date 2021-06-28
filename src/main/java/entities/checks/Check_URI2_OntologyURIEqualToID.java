@@ -44,22 +44,27 @@ public class Check_URI2_OntologyURIEqualToID extends Check {
     @Override
     public void check() {
         super.check();
-        String originalOntology = this.ontology.getOntologyURI().strip();
-        if(originalOntology.endsWith("/") || originalOntology.endsWith("#")){
-            originalOntology = originalOntology.substring(0, originalOntology.length()-1);
-        }
-        String originalURI = this.originalURI.strip();
-        if (originalURI.endsWith("/") || originalURI.endsWith("#")){
-            originalURI = originalURI.substring(0, originalURI.length()-1);
-        }
-        if (originalOntology.equals(originalURI)){
-            this.total_passed_tests ++;
-            status = Constants.OK;
-            explanation = Constants.URI2_EXPLANATION_OK;
-        }else{
+        try {
+            String originalOntology = this.ontology.getOntologyURI().strip();
+            if (originalOntology.endsWith("/") || originalOntology.endsWith("#")) {
+                originalOntology = originalOntology.substring(0, originalOntology.length() - 1);
+            }
+            String originalURI = this.originalURI.strip();
+            if (originalURI.endsWith("/") || originalURI.endsWith("#")) {
+                originalURI = originalURI.substring(0, originalURI.length() - 1);
+            }
+            if (originalOntology.equals(originalURI)) {
+                this.total_passed_tests++;
+                status = Constants.OK;
+                explanation = Constants.URI2_EXPLANATION_OK;
+            } else {
+                status = Constants.ERROR;
+                explanation = Constants.URI2_EXPLANATION_ERROR + ". Ontology URI: " + originalOntology
+                        + ". Provided URI: " + originalURI;
+            }
+        }catch(Exception e){
             status = Constants.ERROR;
-            explanation = Constants.URI2_EXPLANATION_ERROR + ". Ontology URI: "+ originalOntology
-                    +". Provided URI: " + originalURI;
+            explanation = Constants.ERROR_METADATA;
         }
     }
 }

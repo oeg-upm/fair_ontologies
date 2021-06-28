@@ -57,7 +57,6 @@ public class Check_URI1_URIResolvable extends Check {
             } catch (Exception e) {
                 //continue
             }
-
         }
         status = Constants.ERROR;
         explanation = Constants.URI1_EXPLANATION_ERROR;
