@@ -195,14 +195,14 @@ public class Constants {
     public static final String VOC3 = "VOC3";
     public static final String VOC3_TITLE = "Documentation: labels";
     public static final String VOC3_DESC = "This check verifies the extent to which all ontology terms have " +
-            "labels (rdfs:label)";
+            "labels (rdfs:label in OWL vocabularies, skos:prefLabel in SKOS vocabularies)";
     public static final String VOC3_EXPLANATION_OK = "Labels found for all ontology terms";
     public static final String VOC3_EXPLANATION_ERROR = "Labels found for "; // percentage
 
     public static final String VOC4 = "VOC4";
     public static final String VOC4_TITLE = "Documentation: definitions";
     public static final String VOC4_DESC = "This check verifies whether all ontology terms have " +
-            "descriptions (rdfs:comment)";
+            "descriptions (rdfs:comment in OWL vocabularies, skos:definition in SKOS vocabularies)";
     public static final String VOC4_EXPLANATION_OK= "Descriptions found for all ontology terms";
     public static final String VOC4_EXPLANATION_ERROR= "Descriptions found for "; // percentage
 

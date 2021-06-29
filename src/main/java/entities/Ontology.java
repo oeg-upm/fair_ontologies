@@ -58,13 +58,14 @@ public class Ontology {
     private String citation;
     private String doi;
     private String logo;
-    private ArrayList<String> supportedMetadata;
-    private ArrayList<String> reusedMetadataVocabularies;
-    private ArrayList<String> reusedVocabularies;
+    private final ArrayList<String> supportedMetadata;
+    private final ArrayList<String> reusedMetadataVocabularies;
+    private final ArrayList<String> reusedVocabularies;
     List<OWLImportsDeclaration> importedVocabularies;
-    private ArrayList<String> termsWithLabel;
-    private ArrayList<String> terms; // all terms
-    private ArrayList<String> termsWithDescription;
+    private final ArrayList<String> termsWithLabel;
+    private final ArrayList<String> terms; // all terms
+    private final ArrayList<String> termsWithDescription;
+    private boolean isSKOS = false;
 
     /**
      *
@@ -84,15 +85,29 @@ public class Ontology {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
             this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
         }catch(Exception e){
-            logger.error("Could not load the ontology");
-            if(!isFromFile){
-                ontologyURI = o.strip();
+            if(ontologyURI == null && ontologyModel !=null){
+                logger.error("Could load the ontology, but no owl:Ontology declared!");
+                //check if this is a SKOS vocabulary: skos:ConceptScheme
+                List<OWLIndividual> cs = EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass("http://www.w3.org/2004/02/skos/core#ConceptScheme"), ontologyModel).collect(Collectors.toList());
+                if(!cs.isEmpty()){
+                    //we retrieve the first concept scheme
+                    if(cs.size()>1){
+                        logger.warn("More than one concept scheme detected! Running foops only for the first one detected");
+                    }
+                    this.ontologyURI = cs.get(0).toStringID();//this is a little brittle.
+                    this.isSKOS = true;
+                }
+            }
+            else{
+                logger.error("Could not load the ontology");
+                if(!isFromFile){
+                    ontologyURI = o.strip();
+                }
             }
         }
         //Download HTML of the onto (if available)
         try{
             htmlDocumentation = Utils.loadOntologyHTML(ontologyURI);
-            //, tmpFolder.toString() + File.separator+ "ontology.html");
         }
         catch(Exception e){
             logger.error("Could not load ontology in HTML");
@@ -115,39 +130,28 @@ public class Ontology {
             logger.error("No ontology loaded! Metadata cannot be extracted");
             return;
         }
-        try {
-            this.versionIRI = this.ontologyModel.getOntologyID().getVersionIRI().get().toString();
-            this.supportedMetadata.add(Constants.FOOPS_VERSION_IRI);
-        } catch (Exception e) {
-            logger.info("No version IRI detected");
-        }
         this.authors = new ArrayList<>();
         this.contributors = new ArrayList<>();
         this.title = "Title unavailable";
-        this.ontologyModel.annotations().forEach(a -> completeMetadata(a));
-        /*if (isUseLicensius()) {
-            String licName;
-            String lic = GetLicense.getFirstLicenseFound(mainOntologyMetadata.getNamespaceURI());
-            if (!lic.isEmpty() && !lic.equals("unknown")) {
-                mainOntologyMetadata.getLicense().setUrl(lic);
-                licName = GetLicense.getTitle(lic);
-                mainOntologyMetadata.getLicense().setName(licName);
+        if (isSKOS){
+            //get annotations on the onto URI.
+            OWLIndividual cs = EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass("http://www.w3.org/2004/02/skos/core#ConceptScheme"), ontologyModel).collect(Collectors.toList()).get(0);
+            EntitySearcher.getAnnotations((OWLEntity) cs, this.getOntologyModel()).forEach(this::completeMetadata);
+        }else {
+            try {
+                this.versionIRI = this.ontologyModel.getOntologyID().getVersionIRI().get().toString();
+                this.supportedMetadata.add(Constants.FOOPS_VERSION_IRI);
+            } catch (Exception e) {
+                logger.info("No version IRI detected");
             }
-        }*/
+            this.ontologyModel.annotations().forEach(this::completeMetadata);
+        }
     }
 
     private void completeMetadata(OWLAnnotation a) {
         String propertyName = a.getProperty().getIRI().getIRIString();
         String value;
         switch (propertyName) {
-//            case Constants.PROP_RDFS_LABEL:
-//                try {
-//                    valueLanguage = a.getValue().asLiteral().get().getLang();
-//                    value = a.getValue().asLiteral().get().getLiteral();
-//                } catch (Exception e) {
-//                    logger.error("Error while getting ontology label. No literal provided");
-//                }
-//                break;
             case Constants.PROP_DC_TITLE:
             case Constants.PROP_DCTERMS_TITLE:
             case Constants.PROP_SCHEMA_NAME:
@@ -167,7 +171,6 @@ public class Ontology {
             case Constants.PROP_RDFS_COMMENT:
             case Constants.PROP_SKOS_NOTE:
                 try {
-//                    valueLanguage = a.getValue().asLiteral().get().getLang();
                     this.description = a.getValue().asLiteral().get().getLiteral();
                     this.supportedMetadata.add(Constants.FOOPS_DESCRIPTION);
                 } catch (Exception e) {
@@ -327,19 +330,40 @@ public class Ontology {
      */
     private void getOntologyCoverage(){
         //metadata vocabularies
-        this.ontologyModel.annotations().forEach(a -> checkNamespaces(a));
+        this.ontologyModel.annotations().forEach(this::checkNamespaces);
         //imports
         this.importedVocabularies = this.ontologyModel.importsDeclarations().collect(Collectors.toList());
         //vocabulary reuse
         logger.info("Extracting namespaces, labels, descriptions");
-        this.ontologyModel.classesInSignature().forEach(a -> checkTermCoverage(a));
-        this.ontologyModel.objectPropertiesInSignature().forEach(a-> checkTermCoverage(a));
-        this.ontologyModel.dataPropertiesInSignature().forEach(a-> checkTermCoverage(a));
+        if(isSKOS) {
+            //extract only for skos:Concept
+            EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass("http://www.w3.org/2004/02/skos/core#Concept"), ontologyModel).forEach(a-> {
+                this.terms.add(a.toStringID());
+                OWLAnnotationProperty skosLabel = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty("http://www.w3.org/2004/02/skos/core#prefLabel");
+                EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosLabel).forEach(ann -> {
+                    OWLAnnotationValue val = ann.getValue();
+                    if(val instanceof OWLLiteral) {
+                        this.termsWithLabel.add(a.toStringID());
+                    }
+                });
+                OWLAnnotationProperty skosDescription = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty("http://www.w3.org/2004/02/skos/core#definition");
+                EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosDescription).forEach(ann -> {
+                    OWLAnnotationValue val = ann.getValue();
+                    if(val instanceof OWLLiteral) {
+                        this.termsWithDescription.add(a.toStringID());
+                    }
+                });
+            });
+        }else{
+            this.ontologyModel.classesInSignature().forEach(this::checkTermCoverage);
+            this.ontologyModel.objectPropertiesInSignature().forEach(this::checkTermCoverage);
+            this.ontologyModel.dataPropertiesInSignature().forEach(this::checkTermCoverage);
+        }
     }
 
     /**
      * This method checks if the metadata vocabularies used in the annotations of the ontologies match our white list
-     * @param a annotation to analize
+     * @param a annotation to analyze
      */
     private void checkNamespaces(OWLAnnotation a){
         for (String vocab: Constants.VOCS_REUSE_METADATA){
@@ -369,8 +393,6 @@ public class Ontology {
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), label).forEach(ann -> {
                 OWLAnnotationValue val = ann.getValue();
                 if(val instanceof OWLLiteral) {
-                    //System.out.println(" label " + ((OWLLiteral) val).getLiteral());
-                    //this.termsWithLabel.add(((OWLLiteral) val).getLiteral());
                     this.termsWithLabel.add(a.getIRI().getIRIString());
                 }
             });
@@ -378,7 +400,6 @@ public class Ontology {
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), description).forEach(ann -> {
                 OWLAnnotationValue val = ann.getValue();
                 if (val instanceof OWLLiteral) {
-                    // this.termsWithDescription.add(((OWLLiteral) val).getLiteral());
                     this.termsWithDescription.add(a.getIRI().getIRIString());
                 }
             });
@@ -409,30 +430,6 @@ public class Ontology {
         return status;
     }
 
-    public ArrayList<String> getAuthors() {
-        return authors;
-    }
-
-    public ArrayList<String> getContributors() {
-        return contributors;
-    }
-
-    public String getBackwardCompatibility() {
-        return backwardCompatibility;
-    }
-
-    public String getCitation() {
-        return citation;
-    }
-
-    public String getCreationDate() {
-        return creationDate;
-    }
-
-    public String getDoi() {
-        return doi;
-    }
-
     public String getLicense() {
         return license;
     }
@@ -441,40 +438,12 @@ public class Ontology {
         return rights;
     }
 
-    public String getLogo() {
-        return logo;
-    }
-
     public String getNamespacePrefix() {
         return namespacePrefix;
     }
 
-    public String getVersionInfo() {
-        return versionInfo;
-    }
-
-    public String getPreviousVersion() {
-        return previousVersion;
-    }
-
     public String getVersionIRI() {
         return versionIRI;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public String getIssuedDate() {
-        return issuedDate;
-    }
-
-    public String getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public String getSource() {
-        return source;
     }
 
     public ArrayList<String> getSupportedMetadata() {
