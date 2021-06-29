@@ -235,6 +235,7 @@ public class Constants {
     public static final String ERROR = "error";
 
     public static final String ERROR_METADATA = "Metadata could not be loaded";
+    public static final String ERROR_VOC = "Imported/rused vocabularies could not be loaded";
 
     /* Explanations for all */
     public static final String OK_TEST = "All tests have passed successfully";

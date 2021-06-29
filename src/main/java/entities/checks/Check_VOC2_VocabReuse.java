@@ -68,7 +68,7 @@ public class Check_VOC2_VocabReuse extends Check {
                     explanation = Constants.VOC2_EXPLANATION_OK_EXTEND + vocs;
                 } else {
                     status = Constants.ERROR;
-                    explanation = Constants.ERROR_METADATA;
+                    explanation = Constants.ERROR_VOC;
                 }
             }
         }catch(Exception e){
