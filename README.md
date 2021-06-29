@@ -2,7 +2,7 @@
 
 Authors: Daniel Garijo and María Poveda
 
-Disclaimer: This is work in progress.
+Application to validate whether a vocabulary (OWL or SKOS) conforms with the FAIR data principles.
 
 The client application has been integrated from the work in https://github.com/jacobomata/FairValidator. The client would not have been possible without the work from @jacobomata
 
