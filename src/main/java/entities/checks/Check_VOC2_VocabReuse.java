@@ -20,6 +20,7 @@ package entities.checks;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
+import org.apache.tomcat.util.bcel.Const;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 
 import java.util.ArrayList;
@@ -45,27 +46,21 @@ public class Check_VOC2_VocabReuse extends Check {
         try{
             //first, if there are imports, we are done.
             List<OWLImportsDeclaration> imports = this.ontology.getImportedVocabularies();
+            this.reference_resources = new ArrayList<>();
             if (imports.size()>0) {
-                StringBuilder vocs = new StringBuilder();
                 for (OWLImportsDeclaration imp:imports){
-                    vocs.append(imp.getIRI().getIRIString()).append(", ");
+                    reference_resources.add(imp.getIRI().getIRIString());
                 }
-                vocs = new StringBuilder(vocs.substring(0, vocs.length() - 2));
                 total_passed_tests ++;
                 status = Constants.OK;
-                explanation = Constants.VOC2_EXPLANATION_OK_IMPORT+" "+vocs + ".";
+                explanation = Constants.VOC2_EXPLANATION_OK_IMPORT;
             }else {
-                ArrayList<String> reusedVocabs = this.ontology.getReusedVocabularies();
+                reference_resources = this.ontology.getReusedVocabularies();
                 //check if other vocabularies are extended
-                if (reusedVocabs.size() > 0) {
+                if (reference_resources.size() > 0) {
                     this.total_passed_tests++;
                     status = Constants.OK;
-                    StringBuilder vocs = new StringBuilder();
-                    for (String v : reusedVocabs) {
-                        vocs.append(v).append(", ");
-                    }
-                    vocs = new StringBuilder(vocs.substring(0, vocs.length() - 2));
-                    explanation = Constants.VOC2_EXPLANATION_OK_EXTEND + vocs;
+                    explanation = Constants.VOC2_EXPLANATION_OK_EXTEND;
                 } else {
                     status = Constants.ERROR;
                     explanation = Constants.ERROR_VOC;
@@ -75,7 +70,16 @@ public class Check_VOC2_VocabReuse extends Check {
             status = Constants.ERROR;
             explanation = Constants.VOC2_EXPLANATION_ERROR;
         }
-
+        //to avoid returning empty lists
+        if(reference_resources.size() == 0){
+            reference_resources = null;
+        }else{
+            for(String f : Constants.FOUNDATIONAL_ONTOLOGIES){
+                if (reference_resources.contains(f)){
+                    explanation += ". Foundational ontologies extended. Nicely done!";
+                }
+            }
+        }
     }
 
 

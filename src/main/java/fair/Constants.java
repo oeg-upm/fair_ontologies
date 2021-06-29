@@ -183,7 +183,7 @@ public class Constants {
     public static final String VOC1_TITLE = "Vocabulary reuse (metadata)";
     public static final String VOC1_DESC = "This check verifies if the ontology reuses other vocabularies for " +
             "declaring metadata terms";
-    public static final String VOC1_EXPLANATION_OK = "Ontology reuses existing vocabularies for declaring metadata: ";
+    public static final String VOC1_EXPLANATION_OK = "Ontology reuses existing vocabularies for declaring metadata. ";
     public static final String VOC1_EXPLANATION_ERROR = "The ontology does not reuse vocabularies for common metadata";
 
     public static final String VOC2 = "VOC2";
@@ -191,7 +191,7 @@ public class Constants {
     public static final String VOC2_DESC = "This check verifies if the ontology imports/extends other vocabularies " +
             "(besides RDF, OWL and RDFS)";
     public static final String VOC2_EXPLANATION_OK_IMPORT = "The ontology imports the following vocabularies: ";
-    public static final String VOC2_EXPLANATION_OK_EXTEND = "The ontology reuses/extends existing vocabularies: ";
+    public static final String VOC2_EXPLANATION_OK_EXTEND = "The ontology reuses/extends existing vocabularies ";
     public static final String VOC2_EXPLANATION_ERROR = "The ontology does not import/extend other vocabularies";
 
     public static final String VOC3 = "VOC3";
@@ -235,10 +235,7 @@ public class Constants {
     public static final String ERROR = "error";
 
     public static final String ERROR_METADATA = "Metadata could not be loaded";
-    public static final String ERROR_VOC = "Imported/rused vocabularies could not be loaded";
-
-    /* Explanations for all */
-    public static final String OK_TEST = "All tests have passed successfully";
+    public static final String ERROR_VOC = "Could not find any imported/reused vocabularies";
 
     /**
      * Constants for loading metadata properties from the ontology
