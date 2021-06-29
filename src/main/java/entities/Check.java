@@ -50,6 +50,8 @@ public abstract class Check {
     protected int total_passed_tests;
     @Expose (serialize = true)
     protected int total_tests_run; // in case a check does more than one assessment
+    @Expose (serialize = true)
+    protected ArrayList<String> reference_resources; //any other URI we may want to return.
 
     public Check(Ontology o){
         this.ontology = o;

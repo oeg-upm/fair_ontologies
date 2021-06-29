@@ -41,19 +41,19 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
     @Override
     public void check(){
         super.check();
-        ArrayList<String> reusedVocabularies = ontology.getReusedMetadataVocabularies();
-        if(reusedVocabularies.size()>0){
+        this.reference_resources = new ArrayList<>();
+        reference_resources = ontology.getReusedMetadataVocabularies();
+        if(reference_resources.size()>0){
             this.total_passed_tests++;
             status = Constants.OK;
-            String vocs = "";
-            for (String v : reusedVocabularies){
-                vocs += v + ", ";
-            }
-            vocs = vocs.substring(0, vocs.length()-2);
-            explanation = Constants.VOC1_EXPLANATION_OK + vocs;
+            explanation = Constants.VOC1_EXPLANATION_OK;
         }else{
             status = Constants.ERROR;
             explanation = Constants.VOC1_EXPLANATION_ERROR;
+        }
+        //to avoid returning empty lists
+        if(reference_resources.size() == 0){
+            reference_resources = null;
         }
     }
 
