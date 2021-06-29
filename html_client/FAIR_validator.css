@@ -132,6 +132,16 @@ input::placeholder {
   color: #428bca;
 }
 
+.texto-menu {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #8499B3;
+}
+
 /* CAJAS */
 .caja {
   width: 100%;
