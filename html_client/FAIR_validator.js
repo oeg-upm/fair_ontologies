@@ -93,12 +93,25 @@ function getAverageChecks(checks){
 
 
 // MARIA ESTA CON ESTO PARA RECUERAR EL TOTAL Y LOS PASADOS
-function getAverageChecks(checks){
-  total = 0
+function getPassedChecks(checks){
+
+  var passedChecks = 0
+  var totalChecks = 0
+
+
   for(let i = 0; i < checks.length; i++){
-    total += checks[i].total_passed_tests/checks[i].total_tests_run
+    passedChecks += checks[i].total_passed_tests/checks[i].total_tests_run;
+    totalChecks = i+1;
   }
-  return total/checks.length
+
+  // console.log("Passed vale: " + passedChecks);
+  // console.log("Total vale: " + totalChecks);
+
+   if (passedChecks % 1 != 0) {
+       passedChecks = passedChecks.toFixed(2);
+   };
+
+  return `(` + passedChecks + `/` + totalChecks+ `)`
 }
 
 
@@ -150,17 +163,40 @@ function getSpiderGraphHTML(result){
     }
   }
 
+  expFindable = getPassedChecks(checks['Findable']); 
+  // console.log("esto es lo que he calculado de findable: " + expFindable);
+
+  expAccessible = getPassedChecks(checks['Accessible']); 
+  // console.log("esto es lo que he calculado de Accessible: " + expAccessible);
+
+  expInteroperable = getPassedChecks(checks['Interoperable']); 
+  // console.log("esto es lo que he calculado de Interoperable: " + expInteroperable);
+
+  expReusable = getPassedChecks(checks['Reusable']); 
+   // console.log("esto es lo que he calculado de Reusable: " + expReusable);
+
+
+  loadCategory("Findable", result);
+
+  loadCategory("Accessible", result);
+
+  loadCategory("Interoperable", result);
+
+  loadCategory("Reusable", result);
+
+
+
   return `
-  <svg height="200" width="130" viewBox="-50 0 200 100" transform="scale(2.5,2.5)">
+  <svg height="200" width="250" viewBox="-120 0 300 100" transform="scale(1.8,1.8)">
     <rect x="50" y="-30" transform="rotate(45)" width="50" height="50"
     fill="#fff" stroke-width="1" stroke="black" />
     <line x1="22" y1="50" x2="91" y2="50" stroke-width="1" stroke="black"></line>
     <line x1="57" y1="15" x2="57" y2="85" stroke-width="1" stroke="black"></line>
     <path  fill="#428BCA4A" stroke-linecap="round" stroke-width="1" stroke="#8499B3" d="`+getSpiderDraw(points,category_results)+`"/>
-    <text x="10" y="50" text-anchor="end" dy="7" font-size="10">Reusable</text>
-    <text x="57" y="0" text-anchor="middle" dy="7" font-size="10">Findable</text>
-    <text x="95" y="50" text-anchor="start" dy="7" font-size="10">Accessible</text>
-    <text x="57" y="90" text-anchor="middle"  dy="7" font-size="10">Interoperable</text>
+    <text x="10" y="50" text-anchor="end" dy="7" font-size="10">Reusable `+ expReusable +` </text>
+    <text x="57" y="0" text-anchor="middle" dy="7" font-size="10">Findable `+ expFindable +` </text>
+    <text x="95" y="50" text-anchor="start" dy="7" font-size="10">Accessible `+ expAccessible +` </text>
+    <text x="57" y="90" text-anchor="middle"  dy="7" font-size="10">Interoperable `+ expInteroperable +` </text>
   </svg>
   `
 }
@@ -186,6 +222,7 @@ function getSpiderPoint(center, maximum, score){
 }
 
 function getSpiderDraw(points, category_results){
+  // console.log(category_results.Reusable)
   return `M `+getSpiderPoint(points.center, points.reusable, category_results.Reusable)+` L `+getSpiderPoint(points.center, points.findable, category_results.Findable)+` L `+getSpiderPoint(points.center, points.accesible, category_results.Accessible)+` L `+getSpiderPoint(points.center, points.interoperable, category_results.Interoperable)+` L `+getSpiderPoint(points.center, points.reusable, category_results.Reusable)
 }
 

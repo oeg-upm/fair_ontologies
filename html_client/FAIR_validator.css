@@ -128,7 +128,7 @@ input::placeholder {
   font-weight: normal;
   font-size: 20px;
   line-height: 23px;
-
+  margin-bottom: 0.3rem;
   color: #428bca;
 }
 
