@@ -366,5 +366,14 @@ public class Constants {
 
     public static final String[] PROVENANCE_METADATA_DETAILED = {FOOPS_ISSUED, FOOPS_PUBLISHER};
 
-
+    public static final String[] FOUNDATIONAL_ONTOLOGIES = {
+            "http://www.ifomis.org/bfo/1.1#",
+            "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl",
+            "http://emmo.info/emmo/top#",
+            "http://sw.cyc.com/2006/07/27/cyc/",
+            "http://www.onto-med.de/ontologies/gfo.owl#",
+            "http://www.onto-med.de/ontologies/gfo-basic.owl#",
+            "https://schema.org/",
+            "http://www.hozo.jp/owl/YAMATO20210604.miz.owl#"
+    };
 }
