@@ -92,6 +92,16 @@ function getAverageChecks(checks){
 }
 
 
+// MARIA ESTA CON ESTO PARA RECUERAR EL TOTAL Y LOS PASADOS
+function getAverageChecks(checks){
+  total = 0
+  for(let i = 0; i < checks.length; i++){
+    total += checks[i].total_passed_tests/checks[i].total_tests_run
+  }
+  return total/checks.length
+}
+
+
 function loadGrafics(result){
   var graphics = document.querySelector("#graphics");
 
