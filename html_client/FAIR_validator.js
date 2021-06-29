@@ -163,16 +163,16 @@ function getSpiderGraphHTML(result){
     }
   }
 
-  expFindable = getPassedChecks(checks['Findable']); 
+  expFindable = getPassedChecks(checks['Findable']);
   // console.log("esto es lo que he calculado de findable: " + expFindable);
 
-  expAccessible = getPassedChecks(checks['Accessible']); 
+  expAccessible = getPassedChecks(checks['Accessible']);
   // console.log("esto es lo que he calculado de Accessible: " + expAccessible);
 
-  expInteroperable = getPassedChecks(checks['Interoperable']); 
+  expInteroperable = getPassedChecks(checks['Interoperable']);
   // console.log("esto es lo que he calculado de Interoperable: " + expInteroperable);
 
-  expReusable = getPassedChecks(checks['Reusable']); 
+  expReusable = getPassedChecks(checks['Reusable']);
    // console.log("esto es lo que he calculado de Reusable: " + expReusable);
 
 
@@ -500,6 +500,17 @@ function loadChecks(checks, checks_div) {
 function getCheckHTML(check_info) {
 
   affected_URIs_HTML = ``
+  reference_URIs_HTML = ``
+
+  if("reference_resources" in check_info){
+    reference_URIs_HTML =
+    `<div class="col-12">
+      <div class="row">
+        <p class="texto-affected pl-3"> Imported/Reused URIs: </p>
+      </div>`
+      + getAffectedURIsHTML(check_info.reference_resources) +
+      `</div>`
+  }
 
   if("affected_elements" in check_info){
     affected_URIs_HTML = `
@@ -525,7 +536,7 @@ function getCheckHTML(check_info) {
       <div class="row mt-2 mx-0">
         <div class="col-8">
           <span class="texto-check">
-            `+ check_info.id +": "+ check_info.title+` 
+            `+ check_info.id +": "+ check_info.title+`
           </span>
         </div>
         <div class="col-2">
@@ -552,6 +563,7 @@ function getCheckHTML(check_info) {
           </dl>
         </div>
         `+ affected_URIs_HTML +`
+        `+ reference_URIs_HTML +`
       </div>
     </div>
   `
