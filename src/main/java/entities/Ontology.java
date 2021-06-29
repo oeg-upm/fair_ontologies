@@ -135,7 +135,8 @@ public class Ontology {
         this.title = "Title unavailable";
         if (isSKOS){
             //get annotations on the onto URI.
-            OWLIndividual cs = EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass("http://www.w3.org/2004/02/skos/core#ConceptScheme"), ontologyModel).collect(Collectors.toList()).get(0);
+            OWLIndividual cs = EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().
+                    getOWLClass(Constants.SKOS_CONCEPT_SCHEME), ontologyModel).collect(Collectors.toList()).get(0);
             EntitySearcher.getAnnotations((OWLEntity) cs, this.getOntologyModel()).forEach(this::completeMetadata);
         }else {
             try {
@@ -337,16 +338,16 @@ public class Ontology {
         logger.info("Extracting namespaces, labels, descriptions");
         if(isSKOS) {
             //extract only for skos:Concept
-            EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass("http://www.w3.org/2004/02/skos/core#Concept"), ontologyModel).forEach(a-> {
+            EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass(Constants.SKOS_CONCEPT), ontologyModel).forEach(a-> {
                 this.terms.add(a.toStringID());
-                OWLAnnotationProperty skosLabel = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty("http://www.w3.org/2004/02/skos/core#prefLabel");
+                OWLAnnotationProperty skosLabel = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty(Constants.PROP_SKOS_PREF_LABEL);
                 EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosLabel).forEach(ann -> {
                     OWLAnnotationValue val = ann.getValue();
                     if(val instanceof OWLLiteral) {
                         this.termsWithLabel.add(a.toStringID());
                     }
                 });
-                OWLAnnotationProperty skosDescription = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty("http://www.w3.org/2004/02/skos/core#definition");
+                OWLAnnotationProperty skosDescription = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty(Constants.PROP_SKOS_PREF_DEFINITION);
                 EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosDescription).forEach(ann -> {
                     OWLAnnotationValue val = ann.getValue();
                     if(val instanceof OWLLiteral) {

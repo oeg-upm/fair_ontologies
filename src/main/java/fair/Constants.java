@@ -261,6 +261,12 @@ public class Constants {
     public static final String[] VOCS_REUSE_METADATA = {NS_DC, NS_SCHEMA, NS_DCTERMS, NS_VANN, NS_PROV,
             NS_BIBO, NS_PAV, NS_FOAF, NS_RDFS, NS_OWL };
 
+
+    public static final String SKOS_CONCEPT = NS_SKOS + "Concept";
+    public static final String SKOS_CONCEPT_SCHEME = NS_SKOS +  "ConceptScheme";
+    public static final String PROP_SKOS_PREF_LABEL = NS_SKOS +  "prefLabel";
+    public static final String PROP_SKOS_PREF_DEFINITION = NS_SKOS +  "definition";
+
     public static final String PROP_FOAF_LOGO = NS_FOAF + "logo";
 
     public static final String PROP_RDFS_LABEL = NS_RDFS + "label";
