@@ -22,6 +22,8 @@ import entities.Check;
 import entities.Ontology;
 import fair.Constants;
 
+import java.util.ArrayList;
+
 /**
  * Given an ontology, this check will verify whether all terms are correctly annotated with label and description
  * (reusability)
@@ -55,7 +57,13 @@ public class Check_VOC3_TermMetadataLabel extends Check {
             } else {
                 this.status = Constants.ERROR;
                 this.explanation = Constants.VOC3_EXPLANATION_ERROR + ontology.getTermsWithLabel().size() + " out of " +
-                        ontology.getTerms().size() + " terms";
+                        ontology.getTerms().size() + " terms. ";
+                affected_elements = new ArrayList<>();
+                for (String term:ontology.getTerms()){
+                    if (!ontology.getTermsWithLabel().contains(term)){
+                        affected_elements.add(term);
+                    }
+                }
             }
         }catch(Exception e){
             status = Constants.ERROR;

@@ -46,10 +46,19 @@ public class Check_OM4_1_License extends Check {
             this.explanation += " "+license;
             this.total_passed_tests += 1;
         }
-        else{
-            this.status = Constants.ERROR;
-            this.explanation = Constants.OM4_1_EXPLANATION_ERROR;
+        else {
+            String rights = this.ontology.getRights();
+            if (rights!= null && !rights.equals("")){
+                this.status = Constants.OK;
+                this.explanation = Constants.OM4_1_EXPLANATION_OK_RIGHTS;
+                this.explanation += " "+license;
+                this.total_passed_tests += 1;
+            }else{
+                this.status = Constants.ERROR;
+                this.explanation = Constants.OM4_1_EXPLANATION_ERROR;
+            }
         }
+
     }
 
 }

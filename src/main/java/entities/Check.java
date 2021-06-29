@@ -41,7 +41,7 @@ public abstract class Check {
     @Expose (serialize = true)
     protected String explanation;
     @Expose (serialize = true)
-    protected ArrayList<String> affected_Elements;
+    protected ArrayList<String> affected_elements;
     @Expose (serialize = true)
     protected String description;
     protected Ontology ontology;
@@ -79,7 +79,7 @@ public abstract class Check {
     }
 
     public ArrayList<String> getAffected_Elements() {
-        return affected_Elements;
+        return affected_elements;
     }
 
     public String getExplanation() {
@@ -102,8 +102,8 @@ public abstract class Check {
         this.status = status;
     }
 
-    public void setAffected_Elements(ArrayList<String> affected_Elements) {
-        this.affected_Elements = affected_Elements;
+    public void setAffected_elements(ArrayList<String> affected_Elements) {
+        this.affected_elements = affected_elements;
     }
 
     public void setExplanation(String explanation) {

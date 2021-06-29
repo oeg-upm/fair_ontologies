@@ -22,6 +22,8 @@ import entities.Check;
 import entities.Ontology;
 import fair.Constants;
 
+import java.util.ArrayList;
+
 /**
  * Given an ontology, this check will verify whether all terms are correctly annotated with label and description
  * (reusability)
@@ -58,6 +60,12 @@ public class Check_VOC4_TermMetadataDescription extends Check {
                 this.status = Constants.ERROR;
                 this.explanation = Constants.VOC4_EXPLANATION_ERROR + ontology.getTermsWithDescription().size() + " out of " +
                         ontology.getTerms().size() + " terms";
+                affected_elements = new ArrayList<>();
+                for (String term:ontology.getTerms()){
+                    if (!ontology.getTermsWithDescription().contains(term)){
+                        affected_elements.add(term);
+                    }
+                }
             }
         }catch(Exception e){
             status = Constants.ERROR;

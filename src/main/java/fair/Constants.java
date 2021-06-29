@@ -118,7 +118,8 @@ public class Constants {
     public static final String OM4_1_TITLE = "License availability";
     public static final String OM4_1_DESC = "This check verifies if a license associated with the ontology";
     public static final String OM4_1_EXPLANATION_OK = "A license was found";
-    public static final String OM4_1_EXPLANATION_ERROR = "License not found";
+    public static final String OM4_1_EXPLANATION_OK_RIGHTS = "A license was found, but we found a rights statement";
+    public static final String OM4_1_EXPLANATION_ERROR = "License or rights not found";
 
     //license_resolvable
     public static final String OM4_2 = "OM4.2";
@@ -253,6 +254,7 @@ public class Constants {
     public static final String NS_SKOS = "http://www.w3.org/2004/02/skos/core#";
     public static final String NS_PAV = "http://purl.org/pav/";
     public static final String NS_FOAF = "http://xmlns.com/foaf/0.1/";
+    public static final String NS_CC = "http://creativecommons.org/ns#";
 
     public static final String[] VOCS_REUSE_METADATA = {NS_DC, NS_SCHEMA, NS_DCTERMS, NS_VANN, NS_PROV,
             NS_BIBO, NS_PAV, NS_FOAF, NS_RDFS, NS_OWL };
@@ -320,12 +322,13 @@ public class Constants {
     public static final String PROP_PAV_PREVIOUS_VERSION = NS_PAV + "previousVersion";
     public static final String PROP_PAV_CONTRIBUTED_BY = NS_PAV + "contributedBy";
 
-    public static final String PROP_CC_LICENSE = "http://creativecommons.org/ns#license";
+    public static final String PROP_CC_LICENSE = NS_CC + "license";
 
     /*metadata names*/
     public static final String FOOPS_TITLE = "title";
     public static final String FOOPS_DESCRIPTION = "description";
     public static final String FOOPS_LICENSE = "license";
+    public static final String FOOPS_RIGHTS = "rights";
     public static final String FOOPS_VERSION_IRI = "version iri";
     public static final String FOOPS_AUTHOR = "author";
     public static final String FOOPS_NS_URI = "namespace URI";

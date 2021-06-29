@@ -46,6 +46,7 @@ public class Ontology {
     private ArrayList<String> authors;
     private ArrayList<String> contributors;
     private String license;
+    private String rights;
     private String status;
     private String previousVersion;
     private String creationDate;
@@ -202,7 +203,6 @@ public class Ontology {
                 }
                 break;
             case Constants.PROP_DCTERMS_LICENSE:
-            case Constants.PROP_DC_RIGHTS:
             case Constants.PROP_SCHEMA_LICENSE:
             case Constants.PROP_CC_LICENSE:
                 try {
@@ -210,6 +210,14 @@ public class Ontology {
                     this.supportedMetadata.add(Constants.FOOPS_LICENSE);
                 } catch (Exception e) {
                     logger.error("Could not retrieve license. Please avoid using blank nodes...");
+                }
+                break;
+            case Constants.PROP_DC_RIGHTS:
+                try {
+                    this.rights = Utils.getValueAsLiteralOrURI(a.getValue());
+                    this.supportedMetadata.add(Constants.FOOPS_RIGHTS);
+                } catch (Exception e) {
+                    logger.error("Could not retrieve rights. Please avoid using blank nodes...");
                 }
                 break;
             case Constants.PROP_DC_CONTRIBUTOR:
@@ -362,14 +370,16 @@ public class Ontology {
                 OWLAnnotationValue val = ann.getValue();
                 if(val instanceof OWLLiteral) {
                     //System.out.println(" label " + ((OWLLiteral) val).getLiteral());
-                    this.termsWithLabel.add(((OWLLiteral) val).getLiteral());
+                    //this.termsWithLabel.add(((OWLLiteral) val).getLiteral());
+                    this.termsWithLabel.add(a.getIRI().getIRIString());
                 }
             });
             OWLAnnotationProperty description = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getRDFSComment();
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), description).forEach(ann -> {
                 OWLAnnotationValue val = ann.getValue();
                 if (val instanceof OWLLiteral) {
-                    this.termsWithDescription.add(((OWLLiteral) val).getLiteral());
+                    // this.termsWithDescription.add(((OWLLiteral) val).getLiteral());
+                    this.termsWithDescription.add(a.getIRI().getIRIString());
                 }
             });
         }
@@ -425,6 +435,10 @@ public class Ontology {
 
     public String getLicense() {
         return license;
+    }
+
+    public String getRights() {
+        return rights;
     }
 
     public String getLogo() {
