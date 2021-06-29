@@ -19,6 +19,8 @@
 package entities.checks;
 
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import entities.Check;
@@ -62,8 +64,33 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             this.explanation = "No prefix declared in the ontology";
             return;
         }
+        // Prefix.cc
+        getPrefix(Constants.PREFIX_CC+ontoPrefix+".file.json", ontoPrefix, ontoURI);
+        int total_passed_test_aux = 0;
+        String explanation_aux = "";
+        // LOV
+        if(this.status.equals(Constants.ERROR)){
+            total_passed_test_aux = total_passed_tests;
+            explanation_aux = explanation;
+            total_passed_tests = 0;
+            explanation = "";
+            getPrefix(Constants.LOV_PREFIX_VOCAB + ontoPrefix, "nsp", ontoURI);
+        }
+        if (this.status.equals(Constants.ERROR) && total_passed_test_aux > 0){
+            total_passed_tests = total_passed_test_aux;
+            explanation = explanation_aux;
+        }
+    }
+
+    private void getPrefix(String urlAPI, String fieldToRetrieveNs, String ontoURI){
         try {
-            URL url = new URL(Constants.PREFIX_CC+ontoPrefix+".file.json");
+            URL url = new URL(urlAPI);
+            String platform;
+            if (urlAPI.contains("prefix.cc")){
+                platform = "prefic.cc";
+            }else{
+                platform = "LOV";
+            }
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             InputStream in = connection.getInputStream();
@@ -71,7 +98,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             IOUtils.copy(in, writer, "UTF-8");
             try {
                 JsonObject jsonObjectAlt = JsonParser.parseString(writer.toString()).getAsJsonObject();
-                String ns = jsonObjectAlt.getAsJsonObject().get(ontoPrefix).getAsString();
+                String ns = jsonObjectAlt.getAsJsonObject().get(fieldToRetrieveNs).getAsString();
                 if (ns != null && !"".equals(ns)){
                     if (ns.endsWith("/") || ns.endsWith("#")){
                         ns = ns.substring(0, ns.length()-1);
@@ -80,10 +107,10 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                     if (ns.equals(ontoURI)){
                         this.total_passed_tests++;
                         this.status = Constants.OK;
-                        this.explanation = Constants.FIND2_EXPLANATION_OK;
+                        this.explanation = Constants.FIND2_EXPLANATION_OK + " (in "+platform+")";
                     }else{
                         this.status = Constants.ERROR;
-                        this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST+". Prefix found: "+ns;
+                        this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST+". Prefix found in "+platform+": "+ns;
                     }
                 }else {
                     this.status = Constants.ERROR;
@@ -97,9 +124,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             in.close();
         }catch(Exception e){
             this.status = Constants.ERROR;
-            this.explanation = "Error when retrieving prefix from prefix.cc";
+            this.explanation = "Error when retrieving prefix";
         }
-        //here if there is an error, we can call LOV API with the prefix:
-        // example: https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/info?vocab=PREFIX
     }
 }

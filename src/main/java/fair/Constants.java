@@ -32,6 +32,7 @@ public class Constants {
 
     // registries
     public static final String LOV_ALL_VOCABS = "https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/list";
+    public static final String LOV_PREFIX_VOCAB = "https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/info?vocab=";
     public static final String PREFIX_CC = "http://prefix.cc/";
 
     //to do: ontobee (http://www.ontobee.org/sparql), bioportal,
@@ -150,11 +151,12 @@ public class Constants {
 
     public static final String FIND2 = "FIND2";
     public static final String FIND2_TITLE = "Prefix is in registry";
-    public static final String FIND2_DESC = "This check verifies if the ontology prefix and namespace URI can be " +
-            "found in prefix.cc registry";
-    public static final String FIND2_EXPLANATION_OK= "Prefix declaration found in prefix.cc with correct namespace";
-    public static final String FIND2_EXPLANATION_OK_ALMOST= "Prefix declaration found in prefix.cc, but with incorrect namespace";
-    public static final String FIND2_EXPLANATION_ERROR= "Prefix declaration not found in prefix.cc";
+    public static final String FIND2_DESC = "This check verifies if the ontology prefix can be " +
+            "found in prefix.cc or LOV registries. This check also verifies if the prefix resolves to the same namespace" +
+            "prefix found in the ontology.";
+    public static final String FIND2_EXPLANATION_OK= "Prefix declaration found with correct namespace";
+    public static final String FIND2_EXPLANATION_OK_ALMOST= "Prefix declaration found, but with incorrect namespace";
+    public static final String FIND2_EXPLANATION_ERROR= "Prefix declaration not found in prefix.cc or LOV";
 
     public static final String FIND3 = "FIND3";
     public static final String FIND3_TITLE = "Ontology in metadata registry";
