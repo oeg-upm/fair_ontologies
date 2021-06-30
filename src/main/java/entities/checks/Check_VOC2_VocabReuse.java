@@ -75,8 +75,14 @@ public class Check_VOC2_VocabReuse extends Check {
             reference_resources = null;
         }else{
             for(String f : Constants.FOUNDATIONAL_ONTOLOGIES){
-                if (reference_resources.contains(f)){
+                ArrayList<String> imported = null;
+                if(!ontology.getImportedVocabularies().isEmpty()){
+                    imported = reference_resources;
+                }
+                ArrayList<String> reused = ontology.getReusedVocabularies();
+                if ((imported!= null && imported.contains(f)) || reused.contains(f)){
                     explanation += ". Foundational ontologies extended. Nicely done!";
+                    break;
                 }
             }
         }

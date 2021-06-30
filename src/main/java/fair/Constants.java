@@ -191,8 +191,8 @@ public class Constants {
     public static final String VOC2_DESC = "This check verifies if the ontology imports/extends other vocabularies " +
             "(besides RDF, OWL and RDFS)";
     public static final String VOC2_EXPLANATION_OK_IMPORT = "The ontology imports the following vocabularies: ";
-    public static final String VOC2_EXPLANATION_OK_EXTEND = "The ontology reuses/extends existing vocabularies ";
-    public static final String VOC2_EXPLANATION_ERROR = "The ontology does not import/extend other vocabularies";
+    public static final String VOC2_EXPLANATION_OK_EXTEND = "The ontology reuses/extends existing vocabularies.";
+    public static final String VOC2_EXPLANATION_ERROR = "The ontology does not import/extend other vocabularies.";
 
     public static final String VOC3 = "VOC3";
     public static final String VOC3_TITLE = "Documentation: labels";
@@ -380,6 +380,7 @@ public class Constants {
             "http://www.onto-med.de/ontologies/gfo.owl#",
             "http://www.onto-med.de/ontologies/gfo-basic.owl#",
             "https://schema.org/",
+            "http://schema.org/",
             "http://www.hozo.jp/owl/YAMATO20210604.miz.owl#"
     };
 }
