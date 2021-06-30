@@ -21,10 +21,10 @@ input::placeholder {
 /* TEXTOS */
 .texto1 {
   font-family: Roboto;
-  font-size: 36px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 400;
-  line-height: 42px;
+  line-height: 40px;
   letter-spacing: 0em;
   text-align: left;
   color: #8499B3;
@@ -44,7 +44,7 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 28px;
 }
 
@@ -88,8 +88,8 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 26px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 38px;
   color: #000000;
 }
 
@@ -97,8 +97,8 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 32px;
-  line-height: 56px;
+  font-size: 30px;
+  line-height: 44px;
   text-align: center;
   color: #000000;
 }
@@ -107,8 +107,8 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 22px;
   color: #000000;
   padding-top: 0px !important;
 }
@@ -191,7 +191,7 @@ input::placeholder {
 /* SELECTORES */
 
 .selectores {
-  height: 63px;
+  height: 56px;
 }
 
 .selector {
@@ -244,8 +244,8 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 30px;
+  line-height: 40px;
   color: #ffffff;
 }
 
