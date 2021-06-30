@@ -389,19 +389,27 @@ public class Ontology {
             }
         }else{
             //get label/def coverage for the ontology URI considered
-            terms.add(a.getIRI().getIRIString());
+            String termIRI = a.getIRI().getIRIString();
+            if(!terms.contains(termIRI)) { // to avoid duplicates
+                terms.add(termIRI);
+            }
             OWLAnnotationProperty label = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getRDFSLabel();
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), label).forEach(ann -> {
                 OWLAnnotationValue val = ann.getValue();
                 if(val instanceof OWLLiteral) {
-                    this.termsWithLabel.add(a.getIRI().getIRIString());
+                    if(!termsWithLabel.contains(termIRI)) {
+                        this.termsWithLabel.add(termIRI);
+                    }
                 }
             });
-            OWLAnnotationProperty description = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getRDFSComment();
+            OWLAnnotationProperty description = ontologyModel.getOWLOntologyManager().getOWLDataFactory().
+                    getRDFSComment();
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), description).forEach(ann -> {
                 OWLAnnotationValue val = ann.getValue();
                 if (val instanceof OWLLiteral) {
-                    this.termsWithDescription.add(a.getIRI().getIRIString());
+                    if(!termsWithDescription.contains(termIRI)) {
+                        this.termsWithDescription.add(termIRI);
+                    }
                 }
             });
         }
