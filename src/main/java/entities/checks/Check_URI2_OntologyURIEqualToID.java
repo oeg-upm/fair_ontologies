@@ -53,14 +53,19 @@ public class Check_URI2_OntologyURIEqualToID extends Check {
             if (originalURI.endsWith("/") || originalURI.endsWith("#")) {
                 originalURI = originalURI.substring(0, originalURI.length() - 1);
             }
-            if (originalOntology.equals(originalURI)) {
-                this.total_passed_tests++;
-                status = Constants.OK;
-                explanation = Constants.URI2_EXPLANATION_OK;
-            } else {
+            if(ontology.isSKOS() || ontology.getOntologyModel() != null) {
+                if (originalOntology.equals(originalURI)) {
+                    this.total_passed_tests++;
+                    status = Constants.OK;
+                    explanation = Constants.URI2_EXPLANATION_OK;
+                } else {
+                    status = Constants.ERROR;
+                    explanation = Constants.URI2_EXPLANATION_ERROR + ". Ontology URI: " + originalOntology
+                            + ". Provided URI: " + originalURI;
+                }
+            }else{
                 status = Constants.ERROR;
-                explanation = Constants.URI2_EXPLANATION_ERROR + ". Ontology URI: " + originalOntology
-                        + ". Provided URI: " + originalURI;
+                explanation = Constants.URI2_EXPLANATION_ERROR_LOAD ;
             }
         }catch(Exception e){
             status = Constants.ERROR;

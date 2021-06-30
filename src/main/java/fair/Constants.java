@@ -83,6 +83,8 @@ public class Constants {
     public static final String URI2_TITLE = "Consistent ontology IDs";
     public static final String URI2_DESC = "This check verifies if the ontology URI is equal to the ontology ID";
     public static final String URI2_EXPLANATION_OK = "Ontology URI is equal to ontology id";
+    public static final String URI2_EXPLANATION_ERROR_LOAD = "The ontology could not be loaded, so an ontology ID " +
+            "was not found.";
     public static final String URI2_EXPLANATION_ERROR = "Ontology URI is different from ontology ID. Your ontology" +
             "URI (e.g., its w3id) should be the same as the one used within the ontology itself";
 

@@ -482,4 +482,8 @@ public class Ontology {
     public ArrayList<String> getTerms() {
         return terms;
     }
+
+    public boolean isSKOS() {
+        return isSKOS;
+    }
 }
