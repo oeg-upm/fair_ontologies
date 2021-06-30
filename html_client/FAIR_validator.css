@@ -138,8 +138,7 @@ input::placeholder {
   font-weight: normal;
   font-size: 20px;
   line-height: 23px;
-
-  color: #8499B3;
+  color: #556273;
 }
 
 /* CAJAS */
@@ -298,4 +297,19 @@ input::placeholder {
 
 #myBtn:hover {
   background-color: #C9E1FF; /* Add a dark-grey background on hover */
+}
+
+
+body{ height:100vh; margin:0; }
+
+footer{ min-height:30px; }
+
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
+}
+
+footer{
+  margin-top:auto; 
 }
