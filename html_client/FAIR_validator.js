@@ -372,7 +372,7 @@ function getPrincipleDescription (principle){
       break;
 
     case "F2":
-      return "data are described with rich metadata (defined by R1 below)";
+      return "data are described with rich metadata (defined by <a href=\"#R1\">R1</a> below)";
       break;
 
     case "F3":
@@ -630,7 +630,7 @@ function getPrincipleHTML(text) {
   return (
     `
     <div class="row my-3 pl-3">
-      <span class="texto-principle pl-3">` +
+      <span id="` + text + `"class="texto-principle pl-3">` +
     text + `: `+ getPrincipleDescription (text) +
     ` </span>
     </div>
