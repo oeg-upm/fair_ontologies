@@ -103,17 +103,18 @@ public class Constants {
     public static final String OM2 = "OM2";
     public static final String OM2_TITLE = "Recommended metadata";
     public static final String OM2_DESC = "This check verifies if the following recommended metadata " +
-            "[NS Prefix, version info, " +
-            "contributor, creation date, citation] are present in the ontology";
+            "[NS Prefix, version info, creation date, citation] are present in the ontology. " +
+            "It also checks if [contributor] is "  +
+            "present, but with no penalty (as no all ontologies may have a contributor)";
     public static final String OM2_EXPLANATION = OM1_EXPLANATION_ERROR;
 
     //optional
     public static final String OM3 = "OM3";
-    public static final String OM3_TITLE = "Optional metadata";
-    public static final String OM3_DESC = "This check verifies if the following optional metadata " +
-            "[doi, previous version," +
-            "publisher, logo, backwards compatibility, status, modified, source, issued date] " +
-            "are present in the ontology";
+    public static final String OM3_TITLE = "Detailed metadata";
+    public static final String OM3_DESC = "This check verifies if the following detailed metadata " +
+            "[doi, publisher, logo, status, source, issued date] " +
+            "are present in the ontology. It also checks if [previous version, backward compatibility, modified] are " +
+            "present, but with no penalty (as no all ontologies may have, e.g., a previous version)";
     public static final String OM3_EXPLANATION = OM1_EXPLANATION_ERROR;
 
     //license
@@ -135,7 +136,8 @@ public class Constants {
     public static final String OM5_1 = "OM5_1";
     public static final String OM5_1_TITLE = "Basic provenance metadata";
     public static final String OM5_1_DESC = "This check verifies if basic provenance is available for the ontology: " +
-            "[author, creation date]";
+            "[author, creation date]. This check also verifies whether [contributor, previous version] are present" +
+            ", but with no penalty (as no all ontologies may have a previous version or a contributor)";
     public static final String OM5_1_EXPLANATION = "The following provenance information was not found: ";
 
     public static final String OM5_2 = "OM5_2";
@@ -362,11 +364,16 @@ public class Constants {
     public static final String[] MINIMUM_METADATA = {FOOPS_TITLE, FOOPS_DESCRIPTION, FOOPS_LICENSE, FOOPS_VERSION_IRI,
             FOOPS_AUTHOR, FOOPS_NS_URI};
 
-    public static final String[] RECOMMENDED_METADATA = {FOOPS_NS_PREFIX, FOOPS_VERSION_INFO, FOOPS_CONTRIBUTOR,
+    public static final String[] RECOMMENDED_METADATA = {FOOPS_NS_PREFIX, FOOPS_VERSION_INFO,
             FOOPS_CREATION_DATE, FOOPS_CITATION};
 
-    public static final String[] OPTIONAL_METADATA = {FOOPS_DOI, FOOPS_PREVIOUS_VERSION, FOOPS_PUBLISHER, FOOPS_LOGO,
-            FOOPS_B_COMPATIBILITY, FOOPS_STATUS, FOOPS_MODIFIED, FOOPS_SOURCE, FOOPS_ISSUED};
+    public static final String[] RECOMMENDED_METADATA_OPTIONAL = {FOOPS_CONTRIBUTOR};
+
+    public static final String[] DETAILED_METADATA = {FOOPS_DOI , FOOPS_PUBLISHER, FOOPS_LOGO, FOOPS_STATUS,
+            FOOPS_SOURCE, FOOPS_ISSUED};
+
+    public static final String[] DETAILED_METADATA_OPTIONAL = {FOOPS_PREVIOUS_VERSION, FOOPS_B_COMPATIBILITY,
+            FOOPS_MODIFIED,};
 
     public static final String[] PROVENANCE_METADATA_BASIC = {FOOPS_CREATION_DATE, FOOPS_AUTHOR};
 

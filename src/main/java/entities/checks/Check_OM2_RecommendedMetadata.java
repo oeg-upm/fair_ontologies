@@ -56,5 +56,16 @@ public class Check_OM2_RecommendedMetadata extends Check {
             explanation = Constants.OM2_EXPLANATION + exp.substring(0, exp.length() - 2);
         }
 
+        StringBuilder optional = new StringBuilder();
+        for (String m : Constants.RECOMMENDED_METADATA_OPTIONAL) {
+            if (!this.ontology.getSupportedMetadata().contains(m)) {
+                optional.append(m).append(", ");
+            }
+        }
+        if (!"".equals(optional.toString())){
+            explanation += ". Warning: The following OPTIONAL recommended metadata could not be found: "+
+                    optional.substring(0,optional.length() -2) + ". Please consider adding them if appropriate.";
+        }
+
     }
 }

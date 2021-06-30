@@ -56,10 +56,5 @@ public class Check_OM5_2_ProvenanceMetadataFull extends Check {
             this.status = Constants.ERROR;
             explanation = Constants.OM5_2_EXPLANATION + exp.substring(0, exp.length() - 2);
         }
-        if (!"".equals(optional.toString())){
-            explanation += ". Warning: We could not find the following provenance metadata: "+
-                    optional.substring(0,optional.length() -2) + " Please consider adding them (if appropriate).";
-        }
-
     }
 }

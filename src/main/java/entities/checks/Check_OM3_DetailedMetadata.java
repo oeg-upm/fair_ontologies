@@ -21,15 +21,15 @@ import entities.Check;
 import entities.Ontology;
 import fair.Constants;
 
-public class Check_OM3_OptionalMetadata extends Check {
-    public Check_OM3_OptionalMetadata(Ontology o) {
+public class Check_OM3_DetailedMetadata extends Check {
+    public Check_OM3_DetailedMetadata(Ontology o) {
         super(o);
         this.category_id = Constants.REUSABLE;
         this.id = Constants.OM3;
         this.title = Constants.OM3_TITLE;
         this.description = Constants.OM3_DESC;
         this.principle_id = "R1";
-        this.total_tests_run = Constants.OPTIONAL_METADATA.length;
+        this.total_tests_run = Constants.DETAILED_METADATA.length;
     }
     /**
      * This check verifies whether the detected metadata is the optional one
@@ -39,7 +39,7 @@ public class Check_OM3_OptionalMetadata extends Check {
     public void check() {
         super.check();
         StringBuilder exp = new StringBuilder();
-        for (String m: Constants.OPTIONAL_METADATA){
+        for (String m: Constants.DETAILED_METADATA){
             if(!this.ontology.getSupportedMetadata().contains(m)){
                 exp.append(m).append(", ");
             }else{
@@ -53,6 +53,17 @@ public class Check_OM3_OptionalMetadata extends Check {
         }else {
             this.status = Constants.ERROR;
             explanation = Constants.OM3_EXPLANATION + exp.substring(0, exp.length() - 2);
+        }
+
+        StringBuilder optional = new StringBuilder();
+        for (String m : Constants.DETAILED_METADATA_OPTIONAL) {
+            if (!this.ontology.getSupportedMetadata().contains(m)) {
+                optional.append(m).append(", ");
+            }
+        }
+        if (!"".equals(optional.toString())){
+            explanation += ". Warning: The following OPTIONAL detailed metadata could not be found: "+
+                    optional.substring(0,optional.length() -2) + ". Please consider adding them if appropriate.";
         }
 
     }

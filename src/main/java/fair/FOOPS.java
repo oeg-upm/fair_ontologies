@@ -57,7 +57,7 @@ public class FOOPS {
         Check_RDF1_RDFAvailability rdf1 = new Check_RDF1_RDFAvailability(ontology);
         Check_OM1_MinimumMetadata om1 = new Check_OM1_MinimumMetadata(ontology);
         Check_OM2_RecommendedMetadata om2 = new Check_OM2_RecommendedMetadata(ontology);
-        Check_OM3_OptionalMetadata om3 = new Check_OM3_OptionalMetadata(ontology);
+        Check_OM3_DetailedMetadata om3 = new Check_OM3_DetailedMetadata(ontology);
         Check_OM4_1_License om41 = new Check_OM4_1_License(ontology);
         Check_OM4_2_LicenseIsResolvable om42 = new Check_OM4_2_LicenseIsResolvable(ontology);
         Check_OM5_1_ProvenanceMetadataBasic om51 = new Check_OM5_1_ProvenanceMetadataBasic(ontology);
