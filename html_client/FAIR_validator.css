@@ -79,7 +79,7 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 48px;
   color: #000000;
 }
@@ -117,7 +117,7 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 28px;
   color: #000000;
 }
@@ -126,7 +126,7 @@ input::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 23px;
   margin-bottom: 0.3rem;
   color: #428bca;
@@ -186,6 +186,13 @@ input::placeholder {
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+
+.caja-affected {
+  padding-left: 35px;
+  margin-top: -20px;
+  padding-bottom: 10px;
 }
 
 /* SELECTORES */

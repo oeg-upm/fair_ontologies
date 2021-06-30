@@ -504,9 +504,9 @@ function getCheckHTML(check_info) {
 
   if("reference_resources" in check_info){
     reference_URIs_HTML =
-    `<div class="col-12">
+    `<div class="col-12 caja-affected">
       <div class="row">
-        <p class="texto-affected pl-3"> Imported/Reused URIs: </p>
+        <p class="texto-affected pl-3 "> Imported/Reused URIs: </p>
       </div>`
       + getAffectedURIsHTML(check_info.reference_resources) +
       `</div>`
@@ -519,7 +519,7 @@ function getCheckHTML(check_info) {
       + check_info.explanation +
       `</p>
     </div>
-    <div class="col-12">
+    <div class="col-12 caja-affected">
       <div class="row">
         <p class="texto-affected pl-3"> Affected URIs: </p>
       </div>
