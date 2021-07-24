@@ -624,7 +624,7 @@ function getAffectedURIsHTML(URIs){
   var html = ``;
 
   for (let i = 0; i < URIs.length; i++) {
-    html += `<p class="texto-URI"> - `+ URIs[i] + `</p>`;
+    html += `<p class="texto-URI"> - <a href="` + URIs[i] + `" target="_blank">` + URIs[i] + `</a> </p>`;
   }
 
   return html;
