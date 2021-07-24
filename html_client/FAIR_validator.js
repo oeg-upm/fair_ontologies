@@ -117,16 +117,22 @@ function getPassedChecks(checks){
 
 function loadGrafics(result){
   var graphics = document.querySelector("#graphics");
+  var graphicScore = document.querySelector("#graphicScore");
+  var graphicSpider = document.querySelector("#graphicSpider");
 
-  graphics.innerHTML = `
-    <div class="col-6 d-flex align-items-center justify-content-center">`
-    + getRadialScoreHTML(result.overall_score, 1.6) +
-    `
-    </div>
-    <div class="col-6 d-flex align-items-center justify-content-center pt-4">`
-    + getSpiderGraphHTML(result) + `
-    </div>
-  `
+  graphicScore.innerHTML = getRadialScoreHTML(result.overall_score, 1.6); 
+  graphicSpider.innerHTML = getSpiderGraphHTML(result);
+
+
+  //   graphics.innerHTML = `
+  //     <div class="col-6 d-flex align-items-center justify-content-center">`
+  //     + getRadialScoreHTML(result.overall_score, 1.6) +
+  //     `
+  //     </div>
+  //     <div class="col-6 d-flex align-items-center justify-content-center pt-4">`
+   //    + getSpiderGraphHTML(result) + `
+   //    </div>
+   //  `
 }
 
 function getSpiderGraphHTML(result){
@@ -187,9 +193,8 @@ function getSpiderGraphHTML(result){
 
 
   return `
-  <svg height="200" width="250" viewBox="-120 0 300 100" transform="scale(1.8,1.8)">
-    <rect x="50" y="-30" transform="rotate(45)" width="50" height="50"
-    fill="#fff" stroke-width="1" stroke="black" />
+  <svg  height="200" width="250" viewBox="-120 0 300 100" transform="scale(1.8,1.8)">  
+  <rect x="50" y="-30" transform="rotate(45)" width="50" height="50" fill="#fff" stroke-width="1" stroke="black" />
     <line x1="22" y1="50" x2="91" y2="50" stroke-width="1" stroke="black"></line>
     <line x1="57" y1="15" x2="57" y2="85" stroke-width="1" stroke="black"></line>
     <path  fill="#428BCA4A" stroke-linecap="round" stroke-width="1" stroke="#8499B3" d="`+getSpiderDraw(points,category_results)+`"/>
@@ -693,3 +698,6 @@ function hideContent(id) {
 function example1(uri){
   document.getElementById("URI_input").value=uri;
   }
+
+
+

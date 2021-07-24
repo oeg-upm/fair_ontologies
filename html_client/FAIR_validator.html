@@ -171,6 +171,12 @@
             </div>
         </div>
 
+
+
+
+
+
+
         <!-- RESULTADOS -->
         <div id="test-results" style="display: none;" class="row mb-5">
 
@@ -222,9 +228,17 @@
                 </div>
             </div>
 
+
             <!-- GRAFICAS -->
             <div id="graphics" class="row">
-
+                <div id="graphicScore" class="col-6 d-flex align-items-center justify-content-center">
+                </div>
+                <div id="graphicSpider" pointer-events="all" class="col-6 d-flex align-items-center justify-content-center pt-4">
+                </div>
+                <div id="radarPopup">
+                    <h4>Radar chart score</h4>
+                        <p>Sum of (Passed tests/tests) for all checks  in a  dimension/Number of checks</p>
+                </div>
             </div>
 
             <!-- Findable -->
@@ -351,6 +365,24 @@ function topFunction() {
 }
 </script>
 
+<script>
+var radar = document.getElementById("graphicSpider");
+var radarPopup = document.getElementById("radarPopup");
+
+radar.addEventListener("mouseover", showPopup);
+radar.addEventListener("mouseout", hidePopup);
+
+function showPopup(evt) {
+  var iconPos = radar.getBoundingClientRect();
+  radarPopup.style.left = (iconPos.left - 10) + "px";
+  radarPopup.style.top = (window.scrollY + iconPos.top - 40) + "px";
+  radarPopup.style.display = "block";
+}
+
+function hidePopup(evt) {
+  radarPopup.style.display = "none";
+}
+</script>
 
 
 </body>
