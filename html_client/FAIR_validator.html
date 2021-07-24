@@ -36,21 +36,30 @@
         $('#run_button').click(function(){
           $('#loader').show();
           $('#run_button').hide();
-          $.ajax({
-              url:"https://foops.linkeddata.es/assessOntology",
-              type:"POST",
-              data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
-              contentType:"application/json; charset=utf-8",
-              success: function(data, status){
+          
+          if ($('#URI_input').val() != ""){
+           // console.log('the value is not null');
+            $.ajax({
+                url:"https://foops.linkeddata.es/assessOntology",
+                type:"POST",
+                data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
+                contentType:"application/json; charset=utf-8",
+                success: function(data, status){
+                    $('#loader').hide();
+                    $('#run_button').show();
+                    run(data)
+                }
+            }).fail(function (jqXHR, textStatus, error) {
                 $('#loader').hide();
                 $('#run_button').show();
-                run(data)
-              }
-          }).fail(function (jqXHR, textStatus, error) {
-              $('#loader').hide();
-              $('#run_button').show();
-              alert('Error when contacting the server!' );
-          });
+                alert('Error when contacting the server!' );
+            });
+          }
+          else{
+                 $('#loader').hide();
+                $('#run_button').show();
+                alert('Please enter an URI!' );           
+          }
       });
     });
     </script>
