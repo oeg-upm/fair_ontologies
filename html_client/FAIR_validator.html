@@ -231,7 +231,11 @@
 
             <!-- GRAFICAS -->
             <div id="graphics" class="row">
-                <div id="graphicScore" class="col-6 d-flex align-items-center justify-content-center">
+                <div id="graphicScore" pointer-events="all" class="col-6 d-flex align-items-center justify-content-center">
+                </div>
+                <div id="scorePopup">
+                    <h4>Overall score</h4>
+                        <p>Percentage of passed tests</p>
                 </div>
                 <div id="graphicSpider" pointer-events="all" class="col-6 d-flex align-items-center justify-content-center pt-4">
                 </div>
@@ -369,18 +373,32 @@ function topFunction() {
 var radar = document.getElementById("graphicSpider");
 var radarPopup = document.getElementById("radarPopup");
 
-radar.addEventListener("mouseover", showPopup);
+var score = document.getElementById("graphicScore");
+var scorePopup = document.getElementById("scorePopup");
+
+radar.addEventListener("mouseover", showPopupSpider);
 radar.addEventListener("mouseout", hidePopup);
 
-function showPopup(evt) {
+score.addEventListener("mouseover", showPopupScore);
+score.addEventListener("mouseout", hidePopup);
+
+function showPopupSpider(evt) {
   var iconPos = radar.getBoundingClientRect();
   radarPopup.style.left = (iconPos.left - 10) + "px";
   radarPopup.style.top = (window.scrollY + iconPos.top - 40) + "px";
   radarPopup.style.display = "block";
 }
 
+function showPopupScore(evt) {
+  var iconPos = score.getBoundingClientRect();
+  scorePopup.style.left = (iconPos.right - 220) + "px";
+  scorePopup.style.top = (window.scrollY + iconPos.top - 40) + "px";
+  scorePopup.style.display = "block";
+}
+
 function hidePopup(evt) {
   radarPopup.style.display = "none";
+  scorePopup.style.display = "none";
 }
 </script>
 
