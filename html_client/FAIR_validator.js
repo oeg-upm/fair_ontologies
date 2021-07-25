@@ -499,6 +499,7 @@ function loadChecks(checks, checks_div) {
     check.className = "p-3 caja-check";
     check.innerHTML = getCheckHTML(checks[i]);
     checks_div.appendChild(check);
+    
   }
 }
 
@@ -508,28 +509,29 @@ function getCheckHTML(check_info) {
   reference_URIs_HTML = ``
 
   if("reference_resources" in check_info){
+    // console.log("FOUND AFFECTED URIS FOR: " + check_info.id + "  " + check_info.principle_id);
     reference_URIs_HTML =
     `<div class="col-12 caja-affected">
       <div class="row">
         <p class="texto-affected pl-3 "> Imported/Reused URIs: </p>
       </div>`
-      + getAffectedURIsHTML(check_info.reference_resources) +
+      + getAffectedURIsHTML(check_info.reference_resources, check_info.principle_id, check_info.id) +
       `</div>`
   }
 
   if("affected_elements" in check_info){
+    // console.log("FOUND AFFECTED URIS FOR: " + check_info.id + "  " + check_info.principle_id);
     affected_URIs_HTML = `
     <div class="row m-0">
-      <p class="texto-explanation pt-3 pl-3">`
-      + check_info.explanation +
-      `</p>
+      <p class="texto-explanation pt-3 pl-3">
+      </p>
     </div>
     <div class="col-12 caja-affected">
       <div class="row">
         <p class="texto-affected pl-3"> Affected URIs: </p>
       </div>
       `
-      + getAffectedURIsHTML(check_info.affected_elements) +
+      + getAffectedURIsHTML(check_info.affected_elements, check_info.principle_id, check_info.id) +
       `
     </div>
     `
@@ -619,13 +621,34 @@ function getCheckHTML(check_info) {
 */
 }
 
-function getAffectedURIsHTML(URIs){
+function getAffectedURIsHTML(URIs, principle_id, check_id){
 
   var html = ``;
 
   for (let i = 0; i < URIs.length; i++) {
     html += `<p class="texto-URI"> - <a href="` + URIs[i] + `" target="_blank">` + URIs[i] + `</a> </p>`;
+
+    if (i == 4 && URIs.length > 9){
+      html += `<div class="collapse" id="block-id-` + principle_id + check_id +`">`;
+    }
+  
   }
+
+    if (URIs.length > 9){
+      html += `</div>
+          <p>
+            <!-- aria-expanded attribute is mandatory -->
+            <!-- bootstrap changes it to true/false on toggle -->
+            <a href="#block-id-` + principle_id + check_id +`" class="btn btn-primary btn-sm" data-toggle="collapse" aria-expanded="false" aria-controls="block-id-` + principle_id + check_id +`">
+              <span class="collapsed">
+                Show more
+              </span>
+              <span class="expanded">
+                Show Less
+              </span>
+            </a>
+          </p>`;
+    }
 
   return html;
 }

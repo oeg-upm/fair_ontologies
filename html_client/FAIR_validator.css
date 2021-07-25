@@ -361,3 +361,9 @@ footer{
   left: -6px;
   top: 80px;
 }
+
+
+[aria-expanded="false"] > .expanded,
+[aria-expanded="true"] > .collapsed {
+  display: none;
+}
