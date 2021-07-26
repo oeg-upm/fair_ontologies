@@ -1,0 +1,304 @@
+{
+"ontology_URI": "https://w3id.org/okn/o/sdm",
+"ontology_title": "The Software Description Ontology for Models",
+"ontology_license": "http://creativecommons.org/licenses/by/2.0/",
+"overall_score":0.7794872,
+"checks":[
+  {
+    "id": "CN1",
+    "principle_id": "A1",
+    "category_id": "Accessible",
+    "status": "ok",
+    "title": "Content negotiation for RDF and HTML",
+    "explanation": "Ontology available in: HTML, RDF",
+    "description": "This check verifies of the ontology URI is published following the right content negotiation for RDF and HTML",
+    "total_passed_tests": 2,
+    "total_tests_run": 2
+  },
+  {
+    "id": "PURL1",
+    "principle_id": "F1",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Persistent URL",
+    "explanation": "Ontology URI is persistent",
+    "description": " This check verifies if the ontology has a persistent URL (w3id, purl, DOI, or a W3C URL)",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "URI1",
+    "principle_id": "F1",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Ontology URI is resolvable",
+    "explanation": "Ontology URL is resolvable in application/rdf+xml",
+    "description": "This check verifies if the ontology URI found within the ontology document is resolvable",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "DOC1",
+    "principle_id": "R1",
+    "category_id": "Reusable",
+    "status": "ok",
+    "title": "HTML availability",
+    "explanation": "Ontology available in HTML",
+    "description": "This check verifies if the ontology has an HTML documentation",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "RDF1",
+    "principle_id": "I1",
+    "category_id": "Interoperable",
+    "status": "ok",
+    "title": "RDF Availability",
+    "explanation": "Ontology available in RDF",
+    "description": "This check verifies if the ontology has an RDF serialization (ttl, n3, rdf/xml, json-ld)",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "OM1",
+    "principle_id": "F2",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Minimum metadata",
+    "explanation": "All the minimum metadata were found!",
+    "description": "This check verifies if the The following  minimum metadata [title, description, license, version iri, creator, creationDate, namespace URI] are present in the ontology",
+    "total_passed_tests": 6,
+    "total_tests_run": 6
+  },
+  {
+    "id": "OM2",
+    "principle_id": "R1",
+    "category_id": "Reusable",
+    "status": "error",
+    "title": "Recommended metadata",
+    "explanation": "The following metadata was not found: creation date, citation",
+    "description": "This check verifies if the following recommended metadata [NS Prefix, version info, creation date, citation] are present in the ontology. It also checks if [contributor] is present, but with no penalty (as no all ontologies may have a contributor)",
+    "total_passed_tests": 2,
+    "total_tests_run": 4
+  },
+  {
+    "id": "OM3",
+    "principle_id": "R1",
+    "category_id": "Reusable",
+    "status": "error",
+    "title": "Detailed metadata",
+    "explanation": "The following metadata was not found: doi, publisher, logo, status, source, issued. Warning: The following OPTIONAL detailed metadata could not be found: backwards compatibility, modified. Please consider adding them if appropriate.",
+    "description": "This check verifies if the following detailed metadata [doi, publisher, logo, status, source, issued date] are present in the ontology. It also checks if [previous version, backward compatibility, modified] are present, but with no penalty (as no all ontologies may have, e.g., a previous version)",
+    "total_passed_tests": 0,
+    "total_tests_run": 6
+  },
+  {
+    "id": "OM4.1",
+    "principle_id": "R1.1",
+    "category_id": "Reusable",
+    "status": "ok",
+    "title": "License availability",
+    "explanation": "A license was found http://creativecommons.org/licenses/by/2.0/",
+    "description": "This check verifies if a license associated with the ontology",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "OM4.2",
+    "principle_id": "R1.1",
+    "category_id": "Reusable",
+    "status": "ok",
+    "title": "License is resolvable",
+    "explanation": "License could be resolved",
+    "description": "This check verifies if the ontology license is resolvable",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "OM5_1",
+    "principle_id": "R1.2",
+    "category_id": "Reusable",
+    "status": "error",
+    "title": "Basic provenance metadata",
+    "explanation": "The following provenance information was not found: creation date",
+    "description": "This check verifies if basic provenance is available for the ontology: [author, creation date]. This check also verifies whether [contributor, previous version] are present, but with no penalty (as no all ontologies may have a previous version or a contributor)",
+    "total_passed_tests": 1,
+    "total_tests_run": 2
+  },
+  {
+    "id": "OM5_2",
+    "principle_id": "R1.2",
+    "category_id": "Reusable",
+    "status": "error",
+    "title": "Detailed provenance metadata",
+    "explanation": "The following provenance information was not found: issued, publisher",
+    "description": "This check verifies if detailed provenance information is available for the ontology: [issued date, publisher]",
+    "total_passed_tests": 0,
+    "total_tests_run": 2
+  },
+  {
+    "id": "FIND1",
+    "principle_id": "F3",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Ontology prefix",
+    "explanation": "Prefix declaration found in the ontology: sdm",
+    "description": "This check verifies if an ontology prefix is available",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "FIND2",
+    "principle_id": "F4",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Prefix is in registry",
+    "explanation": "Prefix declaration found with correct namespace (in prefic.cc)",
+    "description": "This check verifies if the ontology prefix can be found in prefix.cc or LOV registries. This check also verifies if the prefix resolves to the same namespaceprefix found in the ontology.",
+    "total_passed_tests": 2,
+    "total_tests_run": 2
+  },
+  {
+    "id": "FIND3",
+    "principle_id": "F4",
+    "category_id": "Findable",
+    "status": "error",
+    "title": "Ontology in metadata registry",
+    "explanation": "Ontology not found in a public registry",
+    "description": "This check verifies if the ontology can be found in a public registry (LOV)",
+    "total_passed_tests": 0,
+    "total_tests_run": 1
+  },
+  {
+    "id": "FIND_3_BIS",
+    "principle_id": "A2",
+    "category_id": "Accessible",
+    "status": "error",
+    "title": "Metadata are accessible, even when ontology is not",
+    "explanation": "Ontology not found in a public registry",
+    "description": "Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this check verifies whether the ontology is registered in a public metadata registry (LOV)",
+    "total_passed_tests": 0,
+    "total_tests_run": 1
+  },
+  {
+    "id": "HTTP1",
+    "principle_id": "A1.1",
+    "category_id": "Accessible",
+    "status": "ok",
+    "title": "Open protocol",
+    "explanation": "The ontology uses an open protocol",
+    "description": "This check verifies if the ontology uses an open protocol (HTTP or HTTPS)",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "VOC1",
+    "principle_id": "I2",
+    "category_id": "Interoperable",
+    "status": "ok",
+    "title": "Vocabulary reuse (metadata)",
+    "explanation": "Ontology reuses existing vocabularies for declaring metadata. ",
+    "description": "This check verifies if the ontology reuses other vocabularies for declaring metadata terms",
+    "total_passed_tests": 1,
+    "total_tests_run": 1,
+    "reference_resources": [
+      "http://purl.org/dc/elements/1.1/",
+      "http://purl.org/dc/terms/",
+      "http://purl.org/vocab/vann/",
+      "http://www.w3.org/2002/07/owl#"
+    ]
+  },
+  {
+    "id": "VOC2",
+    "principle_id": "I2",
+    "category_id": "Interoperable",
+    "status": "ok",
+    "title": "Vocabulary reuse",
+    "explanation": "The ontology imports the following vocabularies: . Foundational ontologies extended. Nicely done!",
+    "description": "This check verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS)",
+    "total_passed_tests": 1,
+    "total_tests_run": 1,
+    "reference_resources": [
+      "https://w3id.org/okn/o/sd/1.8.0"
+    ]
+  },
+  {
+    "id": "VOC3",
+    "principle_id": "R1",
+    "category_id": "Reusable",
+    "status": "error",
+    "title": "Documentation: labels",
+    "explanation": "Labels found for 55 out of 65 terms. ",
+    "affected_elements": [
+      "https://w3id.org/okn/o/sdm#Category",
+      "https://w3id.org/okn/o/sdm#Constraint",
+      "https://w3id.org/okn/o/sdm#Process",
+      "https://w3id.org/okn/o/sdm#SpatialResolution",
+      "https://w3id.org/okn/o/sdm#hasConstraint",
+      "https://w3id.org/okn/o/sdm#hasRegion",
+      "https://w3id.org/okn/o/sdm#hasVariable",
+      "https://w3id.org/okn/o/sdm#box",
+      "https://w3id.org/okn/o/sdm#hasMaximumValue",
+      "https://w3id.org/okn/o/sdm#hasMinimumValue"
+    ],
+    "description": "This check verifies the extent to which all ontology terms have labels (rdfs:label in OWL vocabularies, skos:prefLabel in SKOS vocabularies)",
+    "total_passed_tests": 55,
+    "total_tests_run": 65
+  },
+  {
+    "id": "VOC4",
+    "principle_id": "R1",
+    "category_id": "Reusable",
+    "status": "error",
+    "title": "Documentation: definitions",
+    "explanation": "Descriptions found for 56 out of 65 terms",
+    "affected_elements": [
+      "https://w3id.org/okn/o/sdm#Category",
+      "https://w3id.org/okn/o/sdm#Constraint",
+      "https://w3id.org/okn/o/sdm#Process",
+      "https://w3id.org/okn/o/sdm#SpatialResolution",
+      "https://w3id.org/okn/o/sdm#hasConstraint",
+      "https://w3id.org/okn/o/sdm#hasVariable",
+      "https://w3id.org/okn/o/sdm#box",
+      "https://w3id.org/okn/o/sdm#hasMaximumValue",
+      "https://w3id.org/okn/o/sdm#hasMinimumValue"
+    ],
+    "description": "This check verifies whether all ontology terms have descriptions (rdfs:comment in OWL vocabularies, skos:definition in SKOS vocabularies)",
+    "total_passed_tests": 56,
+    "total_tests_run": 65
+  },
+  {
+    "id": "VER1",
+    "principle_id": "F1",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Version IRI",
+    "explanation": "Version IRI defined, IRI is different from ontology URI",
+    "description": "This check verifies if there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI)",
+    "total_passed_tests": 2,
+    "total_tests_run": 2
+  },
+  {
+    "id": "VER2",
+    "principle_id": "F1",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Version IRI resolves",
+    "explanation": "Version IRI resolves",
+    "description": "This check verifies if the version IRI resolves",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  },
+  {
+    "id": "URI2",
+    "principle_id": "F1",
+    "category_id": "Findable",
+    "status": "ok",
+    "title": "Consistent ontology IDs",
+    "explanation": "Ontology URI is equal to ontology id",
+    "description": "This check verifies if the ontology URI is equal to the ontology ID",
+    "total_passed_tests": 1,
+    "total_tests_run": 1
+  }
+]
+}

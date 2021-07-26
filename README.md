@@ -31,5 +31,5 @@ to test the installation, just do a curl command:
 curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json;charset=UTF-8" -H "Content-Type: application/json;charset=UTF-8" -d "{ \"ontologyUri\": \"https://w3id.org/okn/o/sd\"}"
 ```
 
-As a result, you should see a JSON in your console
+As a result, you should see a JSON in your console, such as the one in sample.json.
 
