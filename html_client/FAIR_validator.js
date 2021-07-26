@@ -114,14 +114,39 @@ function getPassedChecks(checks){
   return `(` + passedChecks + `/` + totalChecks+ `)`
 }
 
+function getAbsolutePassedChecks(checks){
+
+  var passedChecks = 0
+
+
+  for(let i = 0; i < checks.length; i++){
+    passedChecks += checks[i].total_passed_tests;
+  }
+
+  // console.log("Passed vale: " + passedChecks);
+  // console.log("Total vale: " + totalChecks);
+
+
+  return passedChecks 
+}
+
 
 function loadGrafics(result){
   var graphics = document.querySelector("#graphics");
   var graphicScore = document.querySelector("#graphicScore");
   var graphicSpider = document.querySelector("#graphicSpider");
+  var popupScore = document.querySelector("#scorePopup");
+  var passedChecks = 0;
 
   graphicScore.innerHTML = getRadialScoreHTML(result.overall_score, 1.6); 
   graphicSpider.innerHTML = getSpiderGraphHTML(result);
+  
+ // checks = groupBy(result.checks, "category_id")
+ // passedChecks = getAbsolutePassedChecks(checks['Findable']) + getAbsolutePassedChecks(checks['Accessible']) + getAbsolutePassedChecks(checks['Interoperable']) + getAbsolutePassedChecks(checks['Reusable']);
+
+
+  //popupScore.innerHTML = `<h4>Overall score</h4>
+  //                      <p>Percentage of passed tests (` + passedChecks + `/24)</p> `;
 
 
   //   graphics.innerHTML = `
