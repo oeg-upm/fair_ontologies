@@ -194,6 +194,7 @@ public class FOOPS {
             f.fairTest();
             PrintWriter out = new PrintWriter(outPath);
             out.println(f.exportJSON());
+            out.close();
         }catch(Exception e){
             logger.error("Error! "+ e.getMessage());
         }finally{
