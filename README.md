@@ -1,5 +1,7 @@
 # OEG FAIR Ontologies Validator
 
+<img src="html_client/assets/foopsLogo.png" alt="logo" width="200"/>
+
 Authors: Daniel Garijo and María Poveda, with contributions from Jacobo Mata.
 
 FOOPS! is an application for validating whether a vocabulary (OWL or SKOS) conforms with the FAIR data principles.
