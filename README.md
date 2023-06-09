@@ -1,4 +1,4 @@
-# OEG FAIR Ontologies Validator
+# OEG FAIR Ontologies Validator (FOOPS!)
 
 <img src="html_client/assets/foopsLogo.png" alt="logo" width="200"/>
 
