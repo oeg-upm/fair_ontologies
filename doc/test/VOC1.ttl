@@ -1,0 +1,39 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://www.w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+
+<https://w3id.org/foops/test/VOC1> a ftr:Test ;
+	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
+	dcterms:title "Vocabulary reuse (metadata)"@en ;
+	rdfs:label "VOC1";
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	ftr:indicator <https://w3id.org/fair/principles/terms/I2> ;
+	dcterms:description """ This check verifies if the ontology reuses other vocabularies for declaring metadata terms """^^xsd:string ; # Falta explicar PASS y FAIL
+	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:identifier <https://w3id.org/foops/test/VOC1> ;
+	dcat:keyword "Vocabulary reuse metadata"@en , "Test"@en , "Interoperable"@en ;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/VOC1> ;
+	doap:repository <https://w3id.org/foops/repository> .
+<https://orcid.org/0000-0003-0454-7145> a vcard:Kind;
+	vcard:fn "Daniel Garijo" ;
+	vcard:hasEmail <mailto:dgarijo@upm.es> .
+<https://orcid.org/0000-0003-3587-0367> a vcard:Kind;
+	vcard:fn "Maria Poveda" ;
+	vcard:hasEmail <mailto:m.poveda@upm.es> .
+<https://w3id.org/fair/principles/terms/I2> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "I2"@en ;
+	dcterms:description "(meta)data use vocabularies that follow FAIR principles"@en .
+<https://oeg.fi.upm.es> a foaf:Organization .
+<https://w3id.org/foops/repository>
+foaf:homePage <https://github.com/oeg-upm/fair_ontologies> .
+<https://w3id.org/foops/metric/VOC1> a dqv:Metric .
+
