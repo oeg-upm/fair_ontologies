@@ -8,32 +8,32 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
-<https://w3id.org/foops/test/FIND2> a ftr:Test ;
+<https://w3id.org/foops/test/OM4.1> a ftr:Test ;
 	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Prefix is in registry"@en ;
-	rdfs:label "FIND2";
+	dcterms:title "License availability"@en ;
+	rdfs:label "OM4.1";
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
-	ftr:indicator <https://w3id.org/fair/principles/terms/F4> ;
-	dcterms:description """ This check verifies if the ontology prefix can be found in prefix.cc or LOV registries. This check also verifies if the prefix resolves to the same namespaceprefix found in the ontology. """^^xsd:string ; # Falta explicar PASS y FAIL
+	ftr:indicator <https://w3id.org/fair/principles/terms/R1.1> ;
+	dcterms:description """ This check verifies if a license associated with the ontology """^^xsd:string ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/FIND2> ;
-	dcat:keyword "Prefix registry"@en , "Test"@en , "Findable"@en ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/FIND2> ;
+	dcterms:identifier <https://w3id.org/foops/test/OM4.1> ;
+	dcat:keyword "License availability"@en , "Test"@en , "Reusable"@en ;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/OM4.1> ;
 	doap:repository <https://w3id.org/foops/repository> .
-<https://orcid.org/0000-0003-0454-7145> a dcat:Kind;
+<https://orcid.org/0000-0003-0454-7145> a vcard:Kind;
 	vcard:fn "Daniel Garijo" ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .
-<https://orcid.org/0000-0003-3587-0367> a dcat:Kind;
+<https://orcid.org/0000-0003-3587-0367> a vcard:Kind;
 	vcard:fn "Maria Poveda" ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
-<https://w3id.org/fair/principles/terms/F4> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
-	rdfs:label "F4"@en ;
-	dcterms:description "(meta)data are registered or indexed in a searchable resource"@en .
+<https://w3id.org/fair/principles/terms/R1.1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "R1.1"@en ;
+	dcterms:description "(meta)data are released with a clear and accessible data usage license"@en .
 <https://oeg.fi.upm.es> a foaf:Organization .
 <https://w3id.org/foops/repository>
 foaf:homePage <https://github.com/oeg-upm/fair_ontologies> .
-<https://w3id.org/foops/metric/FIND2> a dqv:Metric .
+<https://w3id.org/foops/metric/OM4.1> a dqv:Metric .
 

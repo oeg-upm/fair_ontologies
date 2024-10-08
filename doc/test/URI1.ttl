@@ -23,10 +23,10 @@
 	dcat:keyword "URI resolvable"@en , "Test"@en , , "Resolvable"@en;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/URI1> ;
 	doap:repository <https://w3id.org/foops/repository> .
-<https://orcid.org/0000-0003-0454-7145> a dcat:Kind;
+<https://orcid.org/0000-0003-0454-7145> a vcard:Kind;
 	vcard:fn "Daniel Garijo" ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .
-<https://orcid.org/0000-0003-3587-0367> a dcat:Kind;
+<https://orcid.org/0000-0003-3587-0367> a vcard:Kind;
 	vcard:fn "Maria Poveda" ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
 <https://w3id.org/fair/principles/terms/F1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
