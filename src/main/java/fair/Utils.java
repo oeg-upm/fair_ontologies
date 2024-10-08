@@ -60,6 +60,20 @@ public class Utils {
         return manager.loadOntologyFromOntologyDocument(new FileDocumentSource(new File(ontologyPath)), loadingConfig);
     }
 
+    public static void addAnnotationToOntology(OWLDataFactory df, OWLOntology o,IRI ontoURI, String propertyURI, String value){
+        OWLAnnotationProperty predicate = df.getOWLAnnotationProperty(IRI.create(propertyURI));
+        OWLAnnotation annotation = null;
+        if (value.contains("http") && !(propertyURI.equals(Constants.PROP_VANN_URI) || propertyURI.equals(Constants.PROP_SCHEMA_LICENSE))){
+            OWLAnnotationValue v = IRI.create(value);
+            annotation = df.getOWLAnnotation(predicate, v);
+        }else {
+            OWLLiteral v = df.getOWLLiteral(value);
+            annotation = df.getOWLAnnotation(predicate, v);
+        }
+        OWLAxiom axiom = df.getOWLAnnotationAssertionAxiom(ontoURI, annotation);
+        o.addAxiom(axiom);
+    }
+
     /**
      * Method that will download an ontology given its URI, doing content
      * negotiation The ontology will be downloaded in the first serialization

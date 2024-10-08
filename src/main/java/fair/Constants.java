@@ -259,9 +259,10 @@ public class Constants {
     public static final String NS_PAV = "http://purl.org/pav/";
     public static final String NS_FOAF = "http://xmlns.com/foaf/0.1/";
     public static final String NS_CC = "http://creativecommons.org/ns#";
+    public static final String NS_DOAP = "http://usefulinc.com/ns/doap#";
 
     public static final String[] VOCS_REUSE_METADATA = {NS_DC, NS_SCHEMA, NS_DCTERMS, NS_VANN, NS_PROV,
-            NS_BIBO, NS_PAV, NS_FOAF, NS_RDFS, NS_OWL };
+            NS_BIBO, NS_PAV, NS_FOAF, NS_RDFS, NS_OWL, NS_DOAP };
 
 
     public static final String SKOS_CONCEPT = NS_SKOS + "Concept";
@@ -270,6 +271,21 @@ public class Constants {
     public static final String PROP_SKOS_PREF_DEFINITION = NS_SKOS +  "definition";
 
     public static final String PROP_FOAF_LOGO = NS_FOAF + "logo";
+    public static final String PROP_FOAF_MAKER = NS_FOAF + "maker";
+    public static final String PROP_FOAF_DEPICTION = NS_FOAF + "depiction";
+    public static final String PROP_FOAF_HOME_PAGE = NS_FOAF + "homePage";
+
+    public static final String PROP_DOAP_SHORT_DESC = NS_DOAP + "shortdesc";
+    public static final String PROP_DOAP_DESCRIPTION = NS_DOAP + "description";
+    public static final String PROP_DOAP_MAINTAINER = NS_DOAP + "maintainer";
+    public static final String PROP_DOAP_DEVELOPER = NS_DOAP + "developer";
+    public static final String PROP_DOAP_DOCUMENTER = NS_DOAP + "documenter";
+    public static final String PROP_DOAP_TRANSLATOR = NS_DOAP + "translator";
+    public static final String PROP_DOAP_TESTER = NS_DOAP + "tester";
+    public static final String PROP_DOAP_HELPER = NS_DOAP + "helper";
+    public static final String PROP_DOAP_LICENSE = NS_DOAP + "license";
+    public static final String PROP_DOAP_NAME = NS_DOAP + "name";
+    public static final String PROP_DOAP_CREATED = NS_DOAP + "created";
 
     public static final String PROP_RDFS_LABEL = NS_RDFS + "label";
     public static final String PROP_RDFS_COMMENT = NS_RDFS + "comment";
@@ -287,6 +303,8 @@ public class Constants {
     public static final String PROP_SCHEMA_SCHEMA_LOGO = NS_SCHEMA + "logo";
 
     public static final String PROP_OWL_VERSION_INFO = NS_OWL + "versionInfo";
+
+    public static final String PROP_OWL_VERSION_IRI = NS_OWL + "versionIRI";
     public static final String PROP_OWL_PRIOR_VERSION = NS_OWL + "priorVersion";
     public static final String PROP_OWL_BACKWARDS_COMPATIBLE = NS_OWL + "backwardCompatibleWith";
     public static final String PROP_OWL_INCOMPATIBLE = NS_OWL + "incompatibleWith";
@@ -328,6 +346,7 @@ public class Constants {
     public static final String PROP_SKOS_NOTE = NS_SKOS + "note";
 
     public static final String PROP_PAV_CREATED_BY = NS_PAV + "createdBy";
+    public static final String PROP_PAV_AUTHORED_BY = NS_PAV + "authoredBy";
     public static final String PROP_PAV_CREATED_ON = NS_PAV + "createdOn";
     public static final String PROP_PAV_PREVIOUS_VERSION = NS_PAV + "previousVersion";
     public static final String PROP_PAV_CONTRIBUTED_BY = NS_PAV + "contributedBy";
@@ -342,7 +361,6 @@ public class Constants {
     public static final String FOOPS_VERSION_IRI = "version iri";
     public static final String FOOPS_AUTHOR = "author";
     public static final String FOOPS_NS_URI = "namespace URI";
-
     public static final String FOOPS_NS_PREFIX = "namespace prefix";
     public static final String FOOPS_VERSION_INFO = "version info";
     public static final String FOOPS_CONTRIBUTOR = "contributor";
@@ -353,11 +371,11 @@ public class Constants {
     public static final String FOOPS_PUBLISHER = "publisher";
     public static final String FOOPS_CITATION = "citation";
     public static final String FOOPS_DOI = "doi";
-
     public static final String FOOPS_LOGO = "logo";
     public static final String FOOPS_MODIFIED = "modified";
     public static final String FOOPS_SOURCE = "source";
     public static final String FOOPS_ISSUED = "issued";
+    public static final String FOOPS_NAME = "name";
 
 
     // metadata (using local names to avoid problems)

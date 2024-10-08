@@ -40,6 +40,7 @@ public class Ontology {
     private String ontologyURI;
     private String namespacePrefix;
     private String title;
+    private String name;
     private String description;
     private String versionIRI;
     private String versionInfo;
@@ -170,6 +171,8 @@ public class Ontology {
             case Constants.PROP_DC_DESCRIPTION:
             case Constants.PROP_SCHEMA_DESCRIPTION:
             case Constants.PROP_RDFS_COMMENT:
+            case Constants.PROP_DOAP_DESCRIPTION:
+            case Constants.PROP_DOAP_SHORT_DESC:
             case Constants.PROP_SKOS_NOTE:
                 try {
                     this.description = a.getValue().asLiteral().get().getLiteral();
@@ -208,7 +211,9 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_LICENSE:
             case Constants.PROP_SCHEMA_LICENSE:
+            case Constants.PROP_DOAP_LICENSE:
             case Constants.PROP_CC_LICENSE:
+                //add rights.
                 try {
                     this.license = Utils.getValueAsLiteralOrURI(a.getValue());
                     this.supportedMetadata.add(Constants.FOOPS_LICENSE);
@@ -232,16 +237,27 @@ public class Ontology {
             case Constants.PROP_DCTERMS_CREATOR:
             case Constants.PROP_SCHEMA_CREATOR:
             case Constants.PROP_PAV_CREATED_BY:
+            case Constants.PROP_PAV_AUTHORED_BY:
+            case Constants.PROP_FOAF_MAKER:
             case Constants.PROP_PROV_ATTRIBUTED_TO:
             case Constants.PROP_DC_PUBLISHER:
             case Constants.PROP_DCTERMS_PUBLISHER:
             case Constants.PROP_SCHEMA_PUBLISHER:
+            case Constants.PROP_DOAP_DOCUMENTER:
+            case Constants.PROP_DOAP_MAINTAINER:
+            case Constants.PROP_DOAP_DEVELOPER:
+            case Constants.PROP_DOAP_HELPER:
+            case Constants.PROP_DOAP_TRANSLATOR:
                 try {
                     value = Utils.getValueAsLiteralOrURI(a.getValue());
                     switch (propertyName) {
                         case Constants.PROP_DC_CONTRIBUTOR:
                         case Constants.PROP_DCTERMS_CONTRIBUTOR:
                         case Constants.PROP_SCHEMA_CONTRIBUTOR:
+                        case Constants.PROP_DOAP_DOCUMENTER:
+                        case Constants.PROP_DOAP_MAINTAINER:
+                        case Constants.PROP_DOAP_HELPER:
+                        case Constants.PROP_DOAP_TRANSLATOR:
                         case Constants.PROP_PAV_CONTRIBUTED_BY:
                             this.contributors.add(value);
                             this.supportedMetadata.add(Constants.FOOPS_CONTRIBUTOR);
@@ -249,8 +265,11 @@ public class Ontology {
                         case Constants.PROP_DC_CREATOR:
                         case Constants.PROP_DCTERMS_CREATOR:
                         case Constants.PROP_PAV_CREATED_BY:
+                        case Constants.PROP_PAV_AUTHORED_BY:
+                        case Constants.PROP_FOAF_MAKER:
                         case Constants.PROP_PROV_ATTRIBUTED_TO:
                         case Constants.PROP_SCHEMA_CREATOR:
+                        case Constants.PROP_DOAP_DEVELOPER:
                             this.authors.add(value);
                             this.supportedMetadata.add(Constants.FOOPS_AUTHOR);
                             break;
@@ -265,6 +284,7 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_CREATED:
             case Constants.PROP_SCHEMA_DATE_CREATED:
+            case Constants.PROP_DOAP_CREATED:
             case Constants.PROP_PROV_GENERATED_AT_TIME:
             case Constants.PROP_PAV_CREATED_ON:
                 try {
@@ -317,6 +337,11 @@ public class Ontology {
             case Constants.PROP_DCTERMS_ISSUED:
                 this.issuedDate = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_ISSUED);
+                break;
+            case Constants.PROP_RDFS_LABEL:
+            case Constants.PROP_DOAP_NAME:
+                this.name = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_NAME);
                 break;
         }
     }
@@ -485,5 +510,61 @@ public class Ontology {
 
     public boolean isSKOS() {
         return isSKOS;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getVersionInfo() {
+        return versionInfo;
+    }
+
+    public String getPreviousVersion() {
+        return previousVersion;
+    }
+
+    public String getBackwardCompatibility() {
+        return backwardCompatibility;
+    }
+
+    public String getCitation() {
+        return citation;
+    }
+
+    public ArrayList<String> getAuthors() {
+        return authors;
+    }
+
+    public ArrayList<String> getContributors() {
+        return contributors;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public String getIssuedDate() {
+        return issuedDate;
+    }
+
+    public String getDoi() {
+        return doi;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public String getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public String getSource() {
+        return source;
     }
 }

@@ -24,10 +24,15 @@ import entities.Check;
 import entities.checks.*;
 import entities.Ontology;
 import org.apache.commons.io.FileUtils;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.formats.TurtleDocumentFormat;
+import org.semanticweb.owlapi.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -146,6 +151,105 @@ public class FOOPS {
         return out;
     }
 
+    /**
+     * This function will export a summary of the ontology metadata we were able to find.
+     * The metadata is normalized (i.e., equivalent properties may be used). Normalization
+     * is made according to MOD 2.0 (subsetting the vocabulary)
+     * @param outPath: path where the summary will be written to.
+     */
+    public void exportNormalizedMetadataToRDF(String outPath){
+        // Create a mini model where the main entity is the ontology to describe
+        try {
+            OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+            logger.info("Saving ontology metadata summary to file ");
+            IRI ontoURI = IRI.create(this.ontology.getOntologyURI());
+
+            OWLOntology onto = manager.createOntology(ontoURI);
+            OWLDataFactory df = manager.getOWLDataFactory();
+            // add annotations for each of the properties for which we have a value.
+            // all elements get normalized with the selected metadata below
+            if (this.ontology.getDescription()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_DESCRIPTION,ontology.getDescription());
+            }
+            if(this.ontology.getTitle()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_NAME,ontology.getTitle());
+            }
+            if(this.ontology.getName()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_RDFS_LABEL,ontology.getName());
+            }
+            if(this.ontology.getSupportedMetadata().contains(Constants.FOOPS_NS_URI)){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_VANN_URI, ontology.getOntologyURI());
+            }
+            if(this.ontology.getVersionIRI()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_OWL_VERSION_IRI, ontology.getVersionIRI());
+            }
+            if(this.ontology.getVersionInfo()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_OWL_VERSION_INFO, ontology.getVersionInfo());
+            }
+            if(this.ontology.getNamespacePrefix()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_VANN_PREFIX, ontology.getNamespacePrefix());
+            }
+            if(this.ontology.getLicense()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_LICENSE, ontology.getLicense());
+            }
+            if(this.ontology.getRights()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_DC_RIGHTS, ontology.getRights());
+            }
+            if(this.ontology.getStatus()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_BIBO_STATUS, ontology.getStatus());
+            }
+            if(this.ontology.getPreviousVersion()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_OWL_PRIOR_VERSION, ontology.getPreviousVersion());
+            }
+            if(this.ontology.getCreationDate()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_DATE_CREATED, ontology.getCreationDate());
+            }
+            if(this.ontology.getModifiedDate()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_DATE_MODIFIED, ontology.getModifiedDate());
+            }
+            if(this.ontology.getIssuedDate()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_DCTERMS_ISSUED, ontology.getIssuedDate());
+            }
+            if(this.ontology.getSource()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_DCTERMS_SOURCE, ontology.getSource());
+            }
+            if(this.ontology.getBackwardCompatibility()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_OWL_BACKWARDS_COMPATIBLE, ontology.getBackwardCompatibility());
+            }
+            if(this.ontology.getCitation()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_CITATION, ontology.getCitation());
+            }
+            if(this.ontology.getDoi()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_BIBO_DOI, ontology.getDoi());
+            }
+            if(this.ontology.getLogo()!=null){
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_SCHEMA_LOGO, ontology.getLogo());
+            }
+            if(this.ontology.getAuthors()!=null && !this.ontology.getAuthors().isEmpty()){
+                for(String author: this.ontology.getAuthors()) {
+                    Utils.addAnnotationToOntology(df, onto, ontoURI, Constants.PROP_SCHEMA_CREATOR, author);
+                }
+            }
+            if(this.ontology.getContributors()!=null && !this.ontology.getContributors().isEmpty()){
+                for(String author: this.ontology.getContributors()) {
+                    Utils.addAnnotationToOntology(df, onto, ontoURI, Constants.PROP_SCHEMA_CONTRIBUTOR, author);
+                }
+            }
+
+            try (FileOutputStream stream = new FileOutputStream(outPath)) {
+                onto.saveOntology(new TurtleDocumentFormat(),stream);
+            } catch (IOException | OWLOntologyStorageException e) {
+                logger.error("Error saving the ontology metadata summary to output file");
+            }
+
+        }
+        catch(Exception e){
+            logger.error("Error when producing the summary " + e.getMessage());
+        }
+
+
+    }
+
     public void removeTemporaryFolders(){
         try {
             FileUtils.deleteDirectory(new File(this.tmpFolder.toString()));
@@ -195,6 +299,7 @@ public class FOOPS {
             PrintWriter out = new PrintWriter(outPath);
             out.println(f.exportJSON());
             out.close();
+//            f.exportNormalizedMetadataToRDF("test.ttl");
         }catch(Exception e){
             logger.error("Error! "+ e.getMessage());
         }finally{
