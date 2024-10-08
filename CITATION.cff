@@ -14,9 +14,9 @@ preferred-citation:
     - family-names: Garijo
       given-names: Daniel
     - family-names: Poveda-Villalón
-    given-names: María
+      given-names: María
     - family-names: Corcho
-    given-names: Oscar
+      given-names: Oscar
   title: "FOOPS!: An Ontology Pitfall Scanner for the FAIR Principles"
   type: article
   year: 2021
