@@ -34,8 +34,8 @@
     vcard:hasEmail <mailto:m.poveda@upm.es> .
 
 <https://w3id.org/fair/principles/terms/A1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
-rdfs:label "A1"@en ;
-        dcterms:description "(meta)data are retrievable by their identifier using a standardized communications protocol"@en .
+    rdfs:label "A1"@en ;
+    dcterms:description "(meta)data are retrievable by their identifier using a standardized communications protocol"@en .
 
 <https://oeg.fi.upm.es> a foaf:Organization .
 
