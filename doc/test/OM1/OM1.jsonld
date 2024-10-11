@@ -1,8 +1,10 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
         ]
     },
     {
@@ -90,25 +92,21 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/fair/principles/terms/F2",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Kind"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Daniel Garijo"
+                "@language": "en",
+                "@value": "data are described with rich metadata (defined by R1 below)"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@language": "en",
+                "@value": "F2"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/OM1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -128,28 +126,30 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
+        "@id": "https://w3id.org/foops/metric/OM1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
-        "@id": "https://w3id.org/fair/principles/terms/F2",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "http://xmlns.com/foaf/0.1/Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Kind"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@language": "en",
-                "@value": "data are described with rich metadata (defined by R1 below)"
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@language": "en",
-                "@value": "F2"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     }
