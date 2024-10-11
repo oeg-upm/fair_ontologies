@@ -14,7 +14,7 @@ Our [ISWC 2021 demo paper](html_client/assets/iswc_2021_demo.pdf) (**best demo a
     year         = 2021,
     booktitle    = {International Semantic Web Conference (ISWC) 2021: Posters, Demos, and Industry Tracks},
     publisher    = {CEUR-WS.org},
-    series       = {{CEUR} Workshop Proceedings},
+    series       = {CEUR Workshop Proceedings},
     volume       = 2980,
     url          = {http://ceur-ws.org/Vol-2980/paper321.pdf}
 }
