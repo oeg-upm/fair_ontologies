@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+    </head>
+    <body>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <style>
+            .row {
+              margin-bottom: 10px;
+            }
+            .well {
+              margin: 0px;
+              padding: 10px 0; 
+              padding-left: 10px;
+            }
+            .tag_div {
+                border-right: 10px solid white; 
+            }
+        </style>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"> 
+                    <button type="button" class="btn btn-primary" onclick="history.back();" style="position: absolute; top: 10px; right: 10px;">Back</button>
+                    <h1 class="miClase text-center">URI1</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 well" style="font-size: 18px;">  This check verifies if the ontology URI found within the ontology document is resolvable. The test will PASS if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"> 
+                    <h4 class="miClase text-left">TEST INFORMATION</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
+                <div class="col-md-9 well"> Ontology URI is resolvable </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
+                 <div class="col-md-9 well"><a href="https://w3id.org/foops/test/URI1" target="_blank">https://w3id.org/foops/test/URI1</a></div>
+                <!-- <div class="col-md-9 well"><a href="https://w3id.org/foops/test/URI1" target="_blank">https://w3id.org/foops/test/URI1</a></div> -->
+            </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>License</strong></div>
+                <div class="col-md-9 well"> <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"> http://creativecommons.org/licenses/by/2.0/ </a></div>
+            </div>
+            <div class="row" >
+                <div class="col-md-3 well tag_div"> <strong>Creator</strong></div>
+                <div class="col-md-9 well"> <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>, <a href="https://orcid.org/0000-0003-3587-0367" target="_blank">Maria Poveda</a> </div>
+                <!--  debe añadir el href y el label de todos los creadores. 
+                  <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>, <a href="https://orcid.org/0000-0003-3587-0367" target="_blank">María Poveda</a>  -->
+            </div>
+            <div class="row" >
+                <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
+                <div class="col-md-9 well"> URI resolvable, Test, Resolvable, URI resolvable, Test, Resolvable </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-3 well tag_div"> <strong>Publisher</strong></div>
+                <div class="col-md-9 well"><a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a></div>
+            </div>
+            <div class="row" >
+                <div class="col-md-3 well tag_div"> <strong>Version</strong></div>
+                <div class="col-md-9 well"> 0.0.1 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>Indicator</strong></div>
+                <div class="col-md-9 well"> F1 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>Desc. Indicator</strong></div>
+                <div class="col-md-9 well"> (meta)data are assigned a globally unique and persistent identifier. </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>Repository</strong></div>
+                <div class="col-md-9 well"> <a href="https://github.com/oeg-upm/fair_ontologies" target="_blank"> https://github.com/oeg-upm/fair_ontologies </a> </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>Metric</strong></div>
+                <div class="col-md-9 well"> <a href="https://w3id.org/foops/metric/URI1" target="_blank"> https://w3id.org/foops/metric/URI1 </a> </div>
+            </div>
+        </div>
+
+        <div id="pie" class="row" style="margin-top: 20px;">
+            <div class="col-md-12 text-center"">
+              Ontology Engineer Group
+              <a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a>
+            </div>
+        </div>
+     </body>
+</html>
