@@ -31,37 +31,99 @@
     <!-- Javascript -->
     <script src="./FAIR_validator.js"></script>
     <script>
-      $(document).ready(function(){
-        $('#loader').hide();
-        $('#run_button').click(function(){
-          $('#loader').show();
-          $('#run_button').hide();
-          
-          if ($('#URI_input').val() != ""){
-           // console.log('the value is not null');
-            $.ajax({
-                url:"https://foops.linkeddata.es/assessOntology",
-                type:"POST",
-                data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
-                contentType:"application/json; charset=utf-8",
-                success: function(data, status){
-                    $('#loader').hide();
-                    $('#run_button').show();
-                    run(data)
-                }
-            }).fail(function (jqXHR, textStatus, error) {
-                $('#loader').hide();
-                $('#run_button').show();
-                alert('Error when contacting the server!' );
-            });
-          }
-          else{
-                 $('#loader').hide();
-                $('#run_button').show();
-                alert('Please enter an URI!' );           
-          }
-      });
-    });
+        $(document).ready(function(){
+          $('#loader').hide();
+          $('#run_button').click(function(){
+            $('#loader').show();
+            $('#run_button').hide();
+            const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20MB en bytes
+            if ($('#URI_input').val() != ""){
+             // console.log('the value is not null');
+              $.ajax({
+                //  url:"https://foops.linkeddata.es/assessOntology",
+                  url:"http://localhost:8080/assessOntology",
+                  type:"POST",
+                  data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
+                  contentType:"application/json; charset=utf-8",
+                  success: function(data, status){
+                      $('#loader').hide();
+                      $('#run_button').show();
+                      run(data)
+                  }
+              }).fail(function (jqXHR, textStatus, error) {
+                  $('#loader').hide();
+                  $('#run_button').show();
+                  alert('Error when contacting the server!' );
+              });
+            }
+
+            else if ($('#File_input').val() != ""){
+              console.log('the file is not null');
+              var fileInput = $('#File_input')[0];
+              var file = fileInput.files[0];
+              if(!file){
+                  alert('The file is not selected');
+                  return;
+              }
+              if (file.size > MAX_FILE_SIZE) {
+                  alert('The file is too big');
+                  return;
+              }
+              var formData = new FormData();
+              formData.append('file', file);
+              $.ajax({
+                  url: "http://localhost:8080/assessOntologyFile",
+                  type: "POST",
+                  data: formData,
+                  processData: false,
+                  contentType: false,
+                  success: function(data, status){
+                      $('#loader').hide();
+                      $('#run_button').show();
+                      run(data);
+                  }
+              }).fail(function (jqXHR, textStatus, error) {
+                  $('#loader').hide();
+                  $('#run_button').show();
+                  alert('Error when contacting the server!');
+              });
+            }
+            else if ($('#Code_input').val() != ""){
+              var formData2 = new FormData();
+              var ontologyCode = document.getElementById('Code_input').value;
+              var blob = new Blob([ontologyCode], { type: 'text/plain' });
+              var file = new File([blob], "ontology.owl", { type: "text/plain" });
+              if (file.size > MAX_FILE_SIZE) {
+                  alert('Too much text');
+                  return;
+              }
+
+              formData2.append('file', file);
+              $.ajax({
+                  url: "http://localhost:8080/assessOntologyFile",
+                  type: "POST",
+                  data: formData2,
+                  processData: false,
+                  contentType: false,
+                  success: function(data, status){
+                      $('#loader').hide();
+                      $('#run_button').show();
+                      run(data);
+                  }
+                  }).fail(function (jqXHR, textStatus, error) {
+                      $('#loader').hide();
+                      $('#run_button').show();
+                      alert('Error when contacting the server!');
+                  });
+
+            }
+            else{
+              $('#loader').hide();
+              $('#run_button').show();
+              alert('Please enter an URI!' );
+            }
+          });
+        });
     </script>
 
     <title>FOOPS!</title>
@@ -121,14 +183,14 @@
                         <div class="col-4 selector selector-izq center active" onclick="openInput(event, 'URI')">
                             <span class="texto3"> URI </span>
                         </div>
-                        <!-- Codigo
+                        <!-- Codigo-->
                         <div class="col-4 selector center" onclick="openInput(event, 'Code')">
                             <span class="texto3"> Code </span>
-                        </div>-->
-                        <!-- Archivo
+                        </div>
+                        <!-- Archivo-->
                         <div class="col-4 selector selector-der center" onclick="openInput(event, 'File')">
                             <span class="texto3"> File </span>
-                        </div>-->
+                        </div>
                     </div>
 
                     <!-- Input de URI-->
@@ -144,20 +206,20 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Input del código (commented until implemented)
+                    <!-- Input del código -->
                     <div id="Code" class="row selector-content mt-3" style="display: none">
                         <div class="col-12 center">
                             <textarea id="Code_input" class="input-2" placeholder="Paste here your ontology code. Please note that if you enter the ontology URI instead of the code there are more checks that we can do for you. For example, to test whether Content Negotiation is used for serving the ontology."></textarea>
                         </div>
                     </div>
-                    -->
-                    <!-- Input del archivo (commented until implemented)
+
+                    <!-- Input del archivo -->
                     <div id="File" class="row selector-content mt-3" style="display: none">
                         <div class="col-12">
                             <input id="File_input" class="input-1" type="file" placeholder="Drag and drop the file to upload here">
                         </div>
                     </div>
-                    -->
+
                 </div>
             </div>
         </div>

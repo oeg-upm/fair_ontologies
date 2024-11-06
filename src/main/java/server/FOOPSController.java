@@ -25,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.File;
@@ -106,5 +107,55 @@ public class FOOPSController {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Error while processing the request", e);
         }
+    }
+
+    /**
+     *
+     * @param file Archivo enviado como parte del FormData.
+     * @param otherData String opcional con otros datos enviados.
+     * @return Respuesta JSON obtenida por FOOPS.
+     */
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/assessOntologyFile",consumes = "multipart/form-data", produces = "application/json")
+    public String assessPOSTe(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(value = "otherData", required = false) String otherData) {
+        FOOPS f = null;
+        String fileContent = null;
+        if (!file.isEmpty()) {
+            String fileName = file.getOriginalFilename();
+            System.out.println("file Name: " + fileName);
+
+
+            try {
+                fileContent = new String(file.getBytes());
+                try{
+                    if (f == null && fileContent!=null){
+                        f = new FOOPS(fileName, true);
+                    }
+                    if (f == null){
+                        throw new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
+                    }
+                    f.fairTest();
+                    return f.exportJSON();
+
+                }catch(ResponseStatusException e) {
+                    throw e;
+                }            } catch (Exception e) {
+                e.printStackTrace();
+                return "{\"error\":\"Error processing file\"}";
+            }
+            finally{
+                if (f != null){
+                    f.removeTemporaryFolders();
+                }
+
+            }
+        }
+        else {
+            return  "{\"error\":\"No file detected\"}";
+        }
+
     }
 }
