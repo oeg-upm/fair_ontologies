@@ -8,18 +8,18 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Kind"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "Maria Poveda"
+                "@value": "Daniel Garijo"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -27,30 +27,6 @@
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F4",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are registered or indexed in a searchable resource"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@language": "en",
-                "@value": "F4"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/FIND3",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -138,19 +114,43 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/fair/principles/terms/F4",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are registered or indexed in a searchable resource"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@language": "en",
+                "@value": "F4"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Kind"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "Daniel Garijo"
+                "@value": "Maria Poveda"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/FIND3",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     }
 ]

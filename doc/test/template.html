@@ -19,10 +19,12 @@
                 border-right: 10px solid white; 
             }
         </style>
+        doc/catalog.html
+        https://oeg-upm.github.io/fair_ontologies/doc/catalog.html
         <div class="container">
             <div class="row">
                 <div class="col-md-12"> 
-                    <button type="button" class="btn btn-primary" onclick="history.back();" style="position: absolute; top: 10px; right: 10px;">Back</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href=document.referrer;" style="position: absolute; top: 10px; right: 10px;">Back</button>
                     <h1 class="miClase text-center">{{test_name}}</h1>
                 </div>
             </div>
@@ -67,7 +69,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Indicator</strong></div>
-                <div class="col-md-9 well"> {{test_indicator}} </div>
+                <div class="col-md-9 well"><a href="{{test_uri_indicator}}" target="_blank"> {{test_indicator}} </a></div>
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Desc. Indicator</strong></div>
