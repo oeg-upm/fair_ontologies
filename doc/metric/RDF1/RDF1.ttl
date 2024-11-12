@@ -1,0 +1,41 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://www.w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix dav: <https://example.org/ontology#> . 
+
+<https://w3id.org/foops/metric/CN1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/CN1> ;
+	dcterms:title "Content negotiation for RDF"@en ;
+	dcterms:description """ The benchmark verifies that the vocabulary is accessible in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will pass if the vocabulary is available in one of these formats and fail if no known RDF serialization is returned or the serialization is not among the specified formats. """^^xsd:string ;
+	rdfs:label "Metric CN1";
+	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
+	dqv:inDimension  <https://w3id.org/fair/principles/terms/A1> ;
+	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcat:version "0.0.1"^^xsd:string ;
+	dcat:keyword "Content negotiation"@en , "Metric"@en ;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/RDF1> ;
+	dcat:landingPage <https://w3id.org/foops/metric/CN1> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
+	ftr:metricStatus "Active"@en .
+<https://orcid.org/0000-0003-0454-7145> a dcat:Kind;
+	vcard:fn "Daniel Garijo" ;
+	vcard:hasEmail <mailto:dgarijo@upm.es> .
+<https://orcid.org/0000-0003-3587-0367> a dcat:Kind;
+	vcard:fn "Maria Poveda" ;
+	vcard:hasEmail <mailto:m.poveda@upm.es> .
+<https://w3id.org/fair/principles/terms/A1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "A1"@en ;
+	dcterms:description "(meta)data are retrievable by their identifier using a standardized communications protocol"@en .
+<https://oeg.fi.upm.es> a foaf:Organization .
+<https://w3id.org/foops/test/RDF1> a ftr:Test .
+<https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
+    dcterms:title "General Benchmark for FAIR Principles";
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle." .
