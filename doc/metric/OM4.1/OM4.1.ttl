@@ -14,7 +14,7 @@
 	dcterms:title "License availability"@en ;
 	dcterms:description """ The benchmark verifies the presence of a license, ensuring that the terms of use and distribution of the ontology are clearly defined and accessible. """^^xsd:string ; 
 	rdfs:label "Metric OM4.1";
-	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;

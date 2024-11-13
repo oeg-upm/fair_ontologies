@@ -1,13 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Kind"
@@ -50,7 +42,8 @@
     {
         "@id": "https://w3id.org/foops/test/VER1",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "https://www.w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
         ],
         "http://purl.org/dc/terms/creator": [
             {
@@ -101,6 +94,11 @@
                 "@value": "VER1"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -120,14 +118,17 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
         "https://www.w3id.org/ftr#indicator": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/F1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },

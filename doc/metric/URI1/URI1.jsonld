@@ -1,26 +1,8 @@
 [
     {
-        "@id": "https://w3id.org/fair/principles/terms/F1",
+        "@id": "https://w3id.org/foops/test/URI1",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are assigned a globally unique and persistent identifier."
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@language": "en",
-                "@value": "F1"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
+            "https://www.w3id.org/ftr#Test"
         ]
     },
     {
@@ -40,24 +22,42 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/URI1",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "http://xmlns.com/foaf/0.1/Organization"
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://w3id.org/fair/principles/terms/F1",
         "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Maria Poveda"
+                "@language": "en",
+                "@value": "(meta)data are assigned a globally unique and persistent identifier."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@language": "en",
+                "@value": "F1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@type": [
+            "https://example.org/ontology#MetricBenchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@value": "General Benchmark for FAIR Principles"
             }
         ]
     },
@@ -105,6 +105,11 @@
                 "@value": "Metric URI1"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -129,11 +134,6 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
         "http://www.w3.org/ns/dqv#inDimension": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/F1"
@@ -152,18 +152,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "https://example.org/ontology#MetricBenchmark"
+            "http://www.w3.org/ns/dcat#Kind"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+                "@value": "Maria Poveda"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "General Benchmark for FAIR Principles"
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     }

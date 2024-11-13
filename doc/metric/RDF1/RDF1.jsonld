@@ -22,18 +22,24 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://w3id.org/foops/test/RDF1",
         "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@type": [
+            "https://example.org/ontology#MetricBenchmark"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Maria Poveda"
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@value": "General Benchmark for FAIR Principles"
             }
         ]
     },
@@ -53,12 +59,6 @@
                 "@language": "en",
                 "@value": "A1"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/RDF1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
         ]
     },
     {
@@ -105,6 +105,11 @@
                 "@value": "Metric CN1"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -125,11 +130,6 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
         "http://www.w3.org/ns/dqv#inDimension": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/A1"
@@ -148,18 +148,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "https://example.org/ontology#MetricBenchmark"
+            "http://www.w3.org/ns/dcat#Kind"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+                "@value": "Maria Poveda"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "General Benchmark for FAIR Principles"
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     }

@@ -14,7 +14,7 @@
 	dcterms:title "Basic provenance metadata"@en ;
 	dcterms:description """ The benchmark verifies the presence of essential provenance metadata: author and creation date. Additionally, it checks for the presence of contributor and previous version metadata elements, though it does not penalize their absence, recognizing that not all ontologies may have a previous version or a contributor. """^^xsd:string ; 
 	rdfs:label "Metric OM5_1";
-	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
