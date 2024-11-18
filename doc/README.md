@@ -26,8 +26,8 @@ Currently, the structure of the TTL file required for a test is as follows:
 
 ---
 
-<https://w3id.org/foops/test/NEW1> a ftr:Test ; --> ID
-<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0000-0000-0000> ; --> CREATOR
+<https://w3id.org/foops/test/NEW1> a ftr:Test , dcat:DataService ; --> ID
+dcat:contactPoint <https://orcid.org/0000-0000-0000-0000> ; --> CREATOR
 dcterms:creator <https://orcid.org/0000-0000-0000-0000> ;
 dcterms:title "Title New1"@en ; --> TITLE TEST
 rdfs:label "NEW1"; --> LABEL
@@ -62,7 +62,7 @@ dcterms:identifier <https://w3id.org/foops/metric/NEW1> ; --> IDENTIFIER
 dcterms:title "TITLE"@en ; --> TITLE
 dcterms:description """ Descripction metric """^^xsd:string ; --> DESCRIPTION
 rdfs:label "Metric NEW1"; --> LABEL
-<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0000-0000-0000> ; --> CREAETOR
+dcat:contactPoint <https://orcid.org/0000-0000-0000-0000> ; --> CREAETOR
 dcterms:creator <https://orcid.org/0000-0000-0000-0000> ;
 dcterms:publisher <https://oeg.fi.upm.es> ; --> PUBLISHER
 dcat:version "0.0.1"^^xsd:string ; --> VERSION

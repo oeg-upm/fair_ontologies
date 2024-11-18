@@ -14,7 +14,7 @@
 	dcterms:title "Metadata are accessible, even when ontology is not"@en ;
 	dcterms:description """ This benchmark defines criteria to ensure that metadata remain accessible even when the associated ontology is no longer available. The benchmark verifies that the ontology is registered in a public metadata registry (LOV), to guarantee persistent access to the metadata"""^^xsd:string ; 
 	rdfs:label "Metric FIND_3_BIS";
-	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:publisher <https://oeg.fi.upm.es> ;

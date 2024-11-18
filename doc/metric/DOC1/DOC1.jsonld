@@ -1,11 +1,5 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/ns/dcat#Kind"
@@ -22,9 +16,9 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/DOC1",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "http://xmlns.com/foaf/0.1/Organization"
         ]
     },
     {
@@ -71,6 +65,11 @@
                 "@value": "Metric DOC1"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -95,11 +94,6 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
         "http://www.w3.org/ns/dqv#inDimension": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/R1"
@@ -118,18 +112,20 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Maria Poveda"
+                "@language": "en",
+                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@language": "en",
+                "@value": "R1"
             }
         ]
     },
@@ -150,20 +146,24 @@
         ]
     },
     {
-        "@id": "https://w3id.org/fair/principles/terms/R1",
+        "@id": "https://w3id.org/foops/test/DOC1",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/ns/dcat#Kind"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@language": "en",
-                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
+                "@value": "Maria Poveda"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@language": "en",
-                "@value": "R1"
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     }

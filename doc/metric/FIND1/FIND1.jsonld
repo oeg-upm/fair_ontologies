@@ -1,11 +1,5 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/ns/dcat#Kind"
@@ -19,12 +13,6 @@
             {
                 "@id": "mailto:dgarijo@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/FIND1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
         ]
     },
     {
@@ -71,6 +59,11 @@
                 "@value": "Metric FIND1"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -95,11 +88,6 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
         "http://www.w3.org/ns/dqv#inDimension": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/F3"
@@ -114,6 +102,34 @@
             {
                 "@language": "en",
                 "@value": "Active"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://xmlns.com/foaf/0.1/Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/FIND1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@type": [
+            "https://example.org/ontology#MetricBenchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@value": "General Benchmark for FAIR Principles"
             }
         ]
     },
@@ -148,22 +164,6 @@
             {
                 "@language": "en",
                 "@value": "F3"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
-        "@type": [
-            "https://example.org/ontology#MetricBenchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@value": "General Benchmark for FAIR Principles"
             }
         ]
     }

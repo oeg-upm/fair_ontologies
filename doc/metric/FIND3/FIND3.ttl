@@ -14,7 +14,7 @@
 	dcterms:title "Ontology in metadata registry"@en ;
 	rdfs:label "Metric FIND3";
 	dcterms:description """ This benchmark defines criteria to ensure that ontologies are registered in public repositories. The benchmark verifies that the ontology can be found in a recognized public registry (LOV). """^^xsd:string ; 
-	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;

@@ -14,7 +14,7 @@
 	dcterms:title "Persistent URL"@en ;
 	dcterms:description """ The benchmark verifies the presence of a persistent URL, such as w3id, purl, DOI, or a W3C URL, ensuring stable and long-term access to the ontology. """^^xsd:string ; 
 	rdfs:label "Metric PURL1";
-	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;

@@ -14,7 +14,7 @@
 	dcterms:title "Open protocol"@en ;
 	rdfs:label "Metric HTTP1";
 	dcterms:description """ The benchmark verifies that the ontology is accessible using open protocols such as HTTP or HTTPS, ensuring broad compatibility and accessibility. """^^xsd:string ;
-	<http://www.w3.org/ns/dcat/contactPoint> <https://orcid.org/0000-0003-0454-7145> ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/A1.1> ;

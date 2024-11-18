@@ -1,13 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Kind"
@@ -24,15 +16,16 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/metric/FIND_3_BIS",
         "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
         "@id": "https://w3id.org/foops/test/FIND_3_BIS",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "https://www.w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
         ],
         "http://purl.org/dc/terms/creator": [
             {
@@ -83,6 +76,11 @@
                 "@value": "FIND_3_BIS"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -102,15 +100,16 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
         "https://www.w3id.org/ftr#indicator": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/A2"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://xmlns.com/foaf/0.1/Organization"
         ]
     },
     {
@@ -132,6 +131,14 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Kind"
@@ -145,12 +152,6 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/FIND_3_BIS",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
         ]
     }
 ]

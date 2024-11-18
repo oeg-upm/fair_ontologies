@@ -1,72 +1,9 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are assigned a globally unique and persistent identifier"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@language": "en",
-                "@value": "F1"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/test/URI2",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "https://www.w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
         ],
         "http://purl.org/dc/terms/creator": [
             {
@@ -117,6 +54,11 @@
                 "@value": "URI2"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -136,11 +78,6 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
         "https://www.w3id.org/ftr#indicator": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/F1"
@@ -148,9 +85,73 @@
         ]
     },
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Kind"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/URI2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://xmlns.com/foaf/0.1/Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are assigned a globally unique and persistent identifier"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@language": "en",
+                "@value": "F1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Kind"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
         ]
     }
 ]

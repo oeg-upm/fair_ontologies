@@ -1,5 +1,27 @@
 [
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/ns/dcat#Kind"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://xmlns.com/foaf/0.1/Organization"
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/F1",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -18,47 +40,9 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/test/VER1",
         "@type": [
             "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
         ]
     },
     {
@@ -74,6 +58,22 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@value": "General Benchmark for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/ns/dcat#Kind"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -121,6 +121,11 @@
                 "@value": "Metric VER1"
             }
         ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
@@ -143,11 +148,6 @@
         "http://www.w3.org/ns/dcat#version": [
             {
                 "@value": "0.0.1"
-            }
-        ],
-        "http://www.w3.org/ns/dcat/contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
             }
         ],
         "http://www.w3.org/ns/dqv#inDimension": [
