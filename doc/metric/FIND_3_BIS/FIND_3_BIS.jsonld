@@ -1,18 +1,24 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "Daniel Garijo"
+                "@value": "Maria Poveda"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -30,12 +36,18 @@
         ],
         "http://purl.org/dc/terms/description": [
             {
+                "@language": "en",
                 "@value": " This benchmark defines criteria to ensure that metadata remain accessible even when the associated ontology is no longer available. The benchmark verifies that the ontology is registered in a public metadata registry (LOV), to guarantee persistent access to the metadata"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
             {
                 "@id": "https://w3id.org/foops/metric/FIND_3_BIS"
+            }
+        ],
+        "http://purl.org/dc/terms/license": [
+            {
+                "@id": "http://creativecommons.org/licenses/by/2.0/"
             }
         ],
         "http://purl.org/dc/terms/publisher": [
@@ -52,6 +64,11 @@
         "http://semanticscience.org/resource/SIO_000233": [
             {
                 "@id": "https://w3id.org/foops/test/FIND_3_BIS"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "Metric FIND_3_BIS"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -106,15 +123,37 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/FIND_3_BIS",
+        "@id": "https://w3id.org/foops/benchmark/full_assessment",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "https://example.org/ontology#MetricBenchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark for FAIR Principles"
+            }
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
         ]
     },
     {
@@ -128,43 +167,21 @@
                 "@value": "metadata are accessible, even when the data are no longer available"
             }
         ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "A2"
+            }
+        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@language": "en",
                 "@value": "A2"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@id": "https://w3id.org/foops/test/FIND_3_BIS",
         "@type": [
-            "https://example.org/ontology#MetricBenchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@value": "General Benchmark for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
+            "https://www.w3id.org/ftr#Test"
         ]
     }
 ]

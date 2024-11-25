@@ -18,23 +18,34 @@
             .tag_div {
                 border-right: 10px solid white; 
             }
+            .align-items-center { 
+                display: flex; 
+                align-items: center; 
+            }
+            .flex-space-between { 
+                display: flex; justify-content: space-between; 
+            }
+            .text-separation { 
+                margin-right: 10px; 
+            }
         </style>
-        doc/catalog.html
-        https://oeg-upm.github.io/fair_ontologies/doc/catalog.html
         <div class="container">
             <div class="row">
                 <div class="col-md-12"> 
-                    <button type="button" class="btn btn-primary" onclick="window.location.href=document.referrer;" style="position: absolute; top: 10px; right: 10px;">Back</button>
+                    <button type="button" class="btn btn-primary" onclick="window.history.back();" style="position: absolute; top: 10px; right: 10px;">Back</button>
                     <h1 class="miClase text-center">CN1</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 well" style="font-size: 18px;"> This test verifies whether an RDF representation is available for the target vocabulary. The test will PASS if the vocabulary is available in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned.</div>
             </div>
-            <div class="row">
-                <div class="col-md-12"> 
-                    <h4 class="miClase text-left">TEST INFORMATION</h4>
-                </div>
+            <div class="row flex-space-between"> 
+                <div class="col-md-12 align-items-center"> 
+                    <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
+                    <a href="CN1.ttl" title="RDF Resource Description
+                    Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
+                    alt="RDF Resource Description Framework Flyer Icon"/></a>
+                </div> 
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
@@ -57,7 +68,7 @@
             </div>
             <div class="row" >
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
-                <div class="col-md-9 well"> Content negotiation, Test, Content negotiation, Test </div>
+                <div class="col-md-9 well"> Content negotiation, Test </div>
             </div>
             <div class="row" >
                 <div class="col-md-3 well tag_div"> <strong>Publisher</strong></div>

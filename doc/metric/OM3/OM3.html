@@ -18,21 +18,34 @@
             .tag_div {
                 border-right: 10px solid white; 
             }
+            .align-items-center { 
+                display: flex; 
+                align-items: center; 
+            }
+            .flex-space-between { 
+                display: flex; justify-content: space-between; 
+            }
+            .text-separation { 
+                margin-right: 10px; 
+            }
         </style>
         <div class="container">
             <div class="row">
                 <div class="col-md-12"> 
-                    <button type="button" class="btn btn-primary" onclick="window.location.href=document.referrer;" style="position: absolute; top: 10px; right: 10px;">Back</button>
+                    <button type="button" class="btn btn-primary" onclick="window.history.back();" style="position: absolute; top: 10px; right: 10px;">Back</button>
                     <h1 class="miClase text-center">Metric OM3</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 well" style="font-size: 18px;">  The benchmark verifies the presence of the following detailed metadata: DOI, publisher, logo, status, source, and issued date. Additionally, it checks for the presence of previous version, backward compatibility, and modified metadata elements, though it does not penalize their absence, recognizing that not all ontologies may have, for example, a previous version. </div>
             </div>
-            <div class="row">
-                <div class="col-md-12"> 
-                    <h4 class="miClase text-left">METRIC INFORMATION</h4>
-                </div>
+            <div class="row flex-space-between"> 
+                <div class="col-md-12 align-items-center"> 
+                    <h4 class="miClase text-left text-separation">METRIC INFORMATION</h4> 
+                    <a href="OM3.ttl" title="RDF Resource Description
+                    Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
+                    alt="RDF Resource Description Framework Flyer Icon"/></a>
+                </div> 
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
@@ -51,7 +64,7 @@
             </div>
             <div class="row" >
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
-                <div class="col-md-9 well"> Detailed metadata, Metric, Reusable, Detailed metadata, Metric, Reusable </div>
+                <div class="col-md-9 well"> Detailed metadata, Metric, Reusable </div>
             </div>
             <div class="row" >
                 <div class="col-md-3 well tag_div"> <strong>Publisher</strong></div>
@@ -61,13 +74,17 @@
                 <div class="col-md-3 well tag_div"> <strong>Version</strong></div>
                 <div class="col-md-9 well"> 0.0.1 </div>
             </div>
+            <div class="row">
+                <div class="col-md-3 well tag_div"> <strong>License</strong></div>
+                <div class="col-md-9 well"> <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"> http://creativecommons.org/licenses/by/2.0/ </a></div>
+            </div>
             <div class="row" >
                 <div class="col-md-3 well tag_div"> <strong>Landing Page</strong></div>
                 <div class="col-md-9 well"><a href="https://w3id.org/foops/metric/OM3" target="_blank">https://w3id.org/foops/metric/OM3</a></div>
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Dimension</strong></div>
-                <div class="col-md-9 well"><a href="https://w3id.org/fair/principles/terms/R1" target="_blank"> R1 </a></div>
+                <div class="col-md-9 well"><a href="https://w3id.org/fair/principles/terms/R1" target="_blank"> n406976d8bdb14466837f5b48933af9e5b1 </a></div>
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Desc. Dimension</strong></div>

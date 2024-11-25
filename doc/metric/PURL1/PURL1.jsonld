@@ -1,27 +1,5 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
         "@id": "https://w3id.org/fair/principles/terms/F1",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -32,27 +10,37 @@
                 "@value": "(meta)data are assigned a globally unique and persistent identifier."
             }
         ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "F1"
+            }
+        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@language": "en",
                 "@value": "F1"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "https://example.org/ontology#MetricBenchmark"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+                "@value": "Maria Poveda"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "General Benchmark for FAIR Principles"
+                "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -70,6 +58,7 @@
         ],
         "http://purl.org/dc/terms/description": [
             {
+                "@language": "en",
                 "@value": " The benchmark verifies the presence of a persistent URL, such as w3id, purl, DOI, or a W3C URL, ensuring stable and long-term access to the ontology. "
             }
         ],
@@ -97,6 +86,11 @@
         "http://semanticscience.org/resource/SIO_000233": [
             {
                 "@id": "https://w3id.org/foops/test/PURL1"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "Metric PURL1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -151,25 +145,43 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/PURL1",
+        "@id": "https://w3id.org/foops/benchmark/full_assessment",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "https://example.org/ontology#MetricBenchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark for FAIR Principles"
+            }
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "Maria Poveda"
+                "@value": "Daniel Garijo"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@id": "mailto:dgarijo@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/PURL1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
         ]
     }
 ]

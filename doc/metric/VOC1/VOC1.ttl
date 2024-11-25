@@ -7,36 +7,40 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dav: <https://example.org/ontology#> . 
 
 <https://w3id.org/foops/metric/VOC1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC1> ;
 	dcterms:title "Vocabulary reuse (metadata)"@en ;
-	dcterms:description """ This benchmark defines criteria to ensure that the ontology reuses other vocabularies for declaring metadata terms. The benchmark verifies the presence of reused vocabularies in the ontology's metadata declarations, promoting interoperability and standardization. """^^xsd:string ;
-	rdfs:label "Metric VOC1";
+	dcterms:description """ This benchmark defines criteria to ensure that the ontology reuses other vocabularies for declaring metadata terms. The benchmark verifies the presence of reused vocabularies in the ontology's metadata declarations, promoting interoperability and standardization. """@en ;
+	rdfs:label "Metric VOC1"^^xsd:string ;
+	vivo:abbreviation "Metric VOC1"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/I2> ;
 	dcterms:publisher <https://oeg.fi.upm.es> ;
 	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "Vocabulary reuse metadata"@en , "Metric"@en , "Interoperable"@en ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VOC1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
 	ftr:metricStatus "Active"@en .
-<https://orcid.org/0000-0003-0454-7145> a dcat:Kind;
-	vcard:fn "Daniel Garijo" ;
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .
-<https://orcid.org/0000-0003-3587-0367> a dcat:Kind;
-	vcard:fn "Maria Poveda" ;
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
 <https://w3id.org/fair/principles/terms/I2> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
-	rdfs:label "I2"@en ;
+	rdfs:label "I2"^^xsd:string ;
+	vivo:abbreviation "I2"^^xsd:string ;
 	dcterms:description "(meta)data use vocabularies that follow FAIR principles"@en .
-<https://oeg.fi.upm.es> a foaf:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/VOC1> a ftr:Test .
 <https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles";
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle." .
+    dcterms:title "General Benchmark for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
 

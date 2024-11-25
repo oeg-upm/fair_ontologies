@@ -7,38 +7,42 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dav: <https://example.org/ontology#> . 
 
 <https://w3id.org/foops/metric/VER2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VER2> ;
 	dcterms:title "Version IRI resolves"@en ;
-	dcterms:description """ This benchmark verifies that the version IRI associated with the ontology is accessible and returns the expected representation, ensuring that users can reliably access the specified version of the ontology. """^^xsd:string ; 
-	rdfs:label "Metric VER2";
+	dcterms:description """ This benchmark verifies that the version IRI associated with the ontology is accessible and returns the expected representation, ensuring that users can reliably access the specified version of the ontology. """@en ; 
+	rdfs:label "Metric VER2"^^xsd:string ;
+	vivo:abbreviation "Metric VER2"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
 	dcterms:publisher <https://oeg.fi.upm.es> ;
 	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "Version IRI resolves"@en , "Metric"@en , "Findable"@en ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VER2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VER2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
 	ftr:metricStatus "Active"@en .
-<https://orcid.org/0000-0003-0454-7145> a dcat:Kind;
-	vcard:fn "Daniel Garijo" ;
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .
-<https://orcid.org/0000-0003-3587-0367> a dcat:Kind;
-	vcard:fn "Maria Poveda" ;
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
 <https://w3id.org/fair/principles/terms/F1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
-	rdfs:label "F1"@en ;
+	rdfs:label "F1"^^xsd:string ;
+	vivo:abbreviation "F1"^^xsd:string ;
 	dcterms:description "(meta)data are assigned a globally unique and persistent identifier"@en .
-<https://oeg.fi.upm.es> a foaf:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/Test/VER2> a ftr:Test .
 <https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles";
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle." .
+    dcterms:title "General Benchmark for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
 
 
 
