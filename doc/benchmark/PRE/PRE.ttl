@@ -1,0 +1,90 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://www.w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dav: <https://example.org/ontology#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+
+<https://w3id.org/foops/benchmark/PRE> a dav:MetricBenchmark ;
+	dcterms:identifier <https://w3id.org/foops/benchmark/PRE> ;
+	dcterms:title "General Benchmark for FAIR Principles"@en ;
+    rdfs:label "Benchmark PRE"^^xsd:string ;
+    vivo:abbreviation "Benchmark ALL"^^xsd:string ;
+	dcterms:description """ This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. """@en ; 
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
+    dcat:keyword "General Benchmark"@en , "Benchmark"@en , "Pre"@en ;
+	dcat:landingPage <https://w3id.org/foops/benchmark/PRE> ; 
+    dcat:version "0.0.1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	ftr:status "Active"@en ;
+    ftr:associatedMetric 
+        <https://w3id.org/foops/metric/FIND1> ,
+        <https://w3id.org/foops/metric/OM1> ,
+        <https://w3id.org/foops/metric/OM2> ,
+        <https://w3id.org/foops/metric/OM3> ,
+        <https://w3id.org/foops/metric/OM4.1> , 
+        <https://w3id.org/foops/metric/OM4.2> ,
+        <https://w3id.org/foops/metric/OM5_1> ,
+        <https://w3id.org/foops/metric/OM5_2> ,
+        <https://w3id.org/foops/metric/PURL1> ,
+        <https://w3id.org/foops/metric/VER1> ,
+        <https://w3id.org/foops/metric/VOC1> ,
+        <https://w3id.org/foops/metric/VOC2> ,
+        <https://w3id.org/foops/metric/VOC3> ,
+        <https://w3id.org/foops/metric/VOC4> 
+         .
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
+	vcard:hasEmail <mailto:dgarijo@upm.es> .
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
+	vcard:hasEmail <mailto:m.poveda@upm.es> .
+<https://w3id.org/foops/metric/FIND1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/FIND1> ;
+	rdfs:label "Metric FIND1"^^xsd:string .
+<https://w3id.org/foops/metric/OM1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM1> ;
+	rdfs:label "Metric OM1"^^xsd:string .
+<https://w3id.org/foops/metric/OM2> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM2> ;
+	rdfs:label "Metric OM2"^^xsd:string .
+<https://w3id.org/foops/metric/OM3> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM3> ;
+	rdfs:label "Metric OM3"^^xsd:string .
+<https://w3id.org/foops/metric/OM4.1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM4.1> ;
+	rdfs:label "Metric OM4.1"^^xsd:string .
+<https://w3id.org/foops/metric/OM4.2> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM4.2> ;
+	rdfs:label "Metric OM4.2"^^xsd:string .
+<https://w3id.org/foops/metric/OM5_1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM5_1> ;
+	rdfs:label "Metric OM5_1"^^xsd:string .
+<https://w3id.org/foops/metric/OM5_2.1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM5_2.1> ;
+	rdfs:label "Metric OM5_2.1"^^xsd:string .
+<https://w3id.org/foops/metric/PURL1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/PURL1> ;
+	rdfs:label "Metric PURL1"^^xsd:string .
+<https://w3id.org/foops/metric/VER1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/VER1> ;
+	rdfs:label "Metric VER1"^^xsd:string .
+<https://w3id.org/foops/metric/VOC1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/VOC1> ;
+	rdfs:label "Metric VOC1"^^xsd:string .
+<https://w3id.org/foops/metric/VOC2> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/VOC2> ;
+	rdfs:label "Metric VOC2"^^xsd:string .
+<https://w3id.org/foops/metric/VOC3> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/VOC3> ;
+	rdfs:label "Metric VOC3"^^xsd:string .
+<https://w3id.org/foops/metric/VOC4> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/VOC4> ;
+	rdfs:label "Metric VOC4"^^xsd:string .

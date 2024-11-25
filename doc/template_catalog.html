@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Foops catalogue</title>
+        <title>FOOPS catalogue</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -50,25 +50,33 @@
                     $keywords.html(formattedKeywords);
                 });
 
-                $("#div_metric").hide();
-                $("#div_benchmark").hide();
+                function showSection(uri) {
+                    const sections = {
+                        "https://w3id.org/foops/test/": "#div_test",
+                        "https://w3id.org/foops/metric/": "#div_metric",
+                        "https://w3id.org/foops/benchmark/": "#div_benchmark"
+                    };
+
+                    $("#div_test, #div_metric, #div_benchmark").hide();
+
+                    // Mostrar el div correspondiente al URI o la de "Test" por defecto
+                    const sectionToShow = sections[uri] || "#div_test";
+                    $(sectionToShow).show();
+                }
+       
+                const currentURI = window.location.href;
+                showSection(currentURI);
 
                 $("#btn_metric").click(function(){
-                    $("#div_test").hide();
-                    $("#div_benchmark").hide();
-                    $("#div_metric").show();
+                    showSection('https://w3id.org/foops/metric/');
                 });
                 
                 $("#btn_test").click(function(){
-                    $("#div_metric").hide();
-                    $("#div_benchmark").hide();
-                    $("#div_test").show();
+                    showSection('https://w3id.org/foops/test/');
                 });
 
                 $("#btn_benchmark").click(function(){
-                    $("#div_metric").hide();
-                    $("#div_benchmark").show();
-                    $("#div_test").hide();
+                    showSection('https://w3id.org/foops/benchmark/');
                 });
             });
             
@@ -84,14 +92,14 @@
                     <button id="btn_about" type="button" class="btn btn-primary" style="margin-right: 10px;"">About</button>
                 </div>
             </div>
-            <div id = "div_test" class="container">
+            <div id = "div_test" data-uri="https://w3id.org/foops/test/" class="container">
                 <div class="row text-center">
                     <div class="col-md-12"> <h1>TEST CATALOGUE</h1>
                         <p style="text-align: center;"><h4> Here you can find the list of test that <a href="https://foops.linkeddata.es/FAIR_validator.html#"> FOOPS </a> of <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
                     </div>
                 </div>
                 <hr>
-                <!-- filer -->
+                <!-- filetr -->
                 <div class="row">
                     <div class="ui-widget">
                         <div class="col-md-3"> 
@@ -99,6 +107,9 @@
                         </div>
                         <div class="col-md-8"> 
                           <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                          <div id="active-filters" style="margin-top: 10px;"> 
+                            <!-- Aquí se mostrarán los filtros activos --> 
+                          </div>
                           <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
                           </button>
@@ -130,7 +141,7 @@
                     </tbody>
                 </table>
             </div>
-            <div id = "div_metric" class="container">
+            <div id = "div_metric" data-uri="https://w3id.org/foops/metric/"  class="container">
                 <div class="row text-center">
                     <div class="col-md-12"> <h1>METRICS CATALOGUE</h1>
                         <p style="text-align: center;"> <h4>Here you can find the list of metrics that the <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
@@ -149,7 +160,7 @@
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
                             </button>
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <!-- ******** -->
                 <table class="table" style="margin-top: 30px;">
@@ -157,6 +168,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Title</th>
+                            <th>License</th>
                             <th>Version</th>
                             <th>Keywords</th>
                         </tr>
@@ -167,6 +179,7 @@
                             <!-- <td><a href="{{identifier}}">{{identifier}}</a></td> -->
                             <td><a href="{{identifier}}"><strong>{{name}}</strong></a></td>
                             <td class="titles">{{title}}</td>
+                            <td><a href="{{license}}" target="_blank"><span class="label label-success">{{license_label}}</span></a></td>
                             <td>{{version}}</td>
                             <td class="keywords">{{keywords}}</td>
                         </tr>
@@ -174,14 +187,51 @@
                     </tbody>
                 </table>
             </div>
-            <div id = "div_benchmark" class="container">
+            <div id = "div_benchmark" data-uri="https://w3id.org/foops/benchmark/" class="container">
                 <div class="row text-center">
                     <div class="col-md-12"> <h1>BENCHMARK CATALOGUE</h1>
-                        <p style="text-align: center;"> <h4>IN CONSTRUCTION</h4></p>
+                        <p style="text-align: center;"> <h4>Here you can find the list of benchmarks that the <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
                     </div>
                 </div>
+                <hr>
+                <!-- filer -->
+                <div class="row">
+                    <div class="ui-widget">
+                        <div class="col-md-3"> 
+                            <p class="text-right"><label for="tags">Filter by title or keywords: </label></p>
+                        </div>
+                        <div class="col-md-8"> 
+                            <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                            <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
+                            <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ******** -->
+                <table class="table" style="margin-top: 30px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>License</th>
+                            <th>Version</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#benchmarks}}
+                        <tr>
+                            <td><a href="{{identifier}}"><strong>{{name}}</strong></a></td>
+                            <td class="titles">{{title}}</td>
+                            <td><a href="{{license}}" target="_blank"><span class="label label-success">{{license_label}}</span></a></td>
+                            <td>{{version}}</td>
+                            <td class="keywords">{{keywords}}</td>
+                        </tr>
+                        {{/benchmarks}}
+                    </tbody>
+                </table>
             </div>
-
         </div>
 
         <div id="pie" class="row" style="margin-top: 30px;">  
@@ -191,24 +241,16 @@
             </div>
         </div>
         <script>
-            // function hideRows(text) {
-            //     index = 1;
-            //     tr = document.getElementById('tr'+index);
-            //     while (tr!=null){
-            //         valores = document.getElementById('inp'+index).value;
-            //         if (!valores.contains(text+'--')){
-            //             tr.style.display='none';
-            //         }
-            //         index++;
-            //         tr = document.getElementById('tr'+index);
-            //     }
-            //     document.getElementById('remButt').style.display='';
-            // }
+
+            let activeFilters = [];
+            let temporaryFilter = '';
 
             function showRows() {
-                var input = document.getElementById("tags").value.toLowerCase();
+                var input = document.getElementById("tags").value.toLowerCase().trim();
+                temporaryFilter = input;
+
                 var rows = document.querySelectorAll("tbody tr");
-              
+
                 rows.forEach(function(row) {
                     var keywordCell = row.querySelector(".keywords");
                     var titleCell = row.querySelector(".titles");
@@ -216,29 +258,66 @@
                     if (keywordCell || titleCell) {
                         var keywords = keywordCell.textContent.toLowerCase();
                         var titles = titleCell.textContent.toLowerCase();
-                        if (input.length < 3 || keywords.includes(input) || titles.includes(input)) {
-                            row.style.display = "";
-                        } else {
-                            row.style.display = "none";
+                        var match = activeFilters.every(function(filter) { 
+                            return keywords.includes(filter) || titles.includes(filter); 
+                        }); 
+
+                        if (input.length >= 3) { 
+                            match = match && (keywords.includes(input) || titles.includes(input));
                         }
+
+                        row.style.display = match ? "" : "none";
                     }
                 });
                 
                 var removeButton = document.getElementById("remButt");
-                if (input.length >= 3) {
-                    removeButton.style.display = "inline";
-                } else {
-                    removeButton.style.display = "none";
-                }
+                removeButton.style.display = activeFilters.length > 0 ? "inline" : "none";
             }
-            function clearFilter() {
-                document.getElementById("tags").value = "";
+
+            function removeFilter(filter) { 
+                activeFilters = activeFilters.filter(function(f) { 
+                    return f !== filter; 
+                }); 
+
+                updateActiveFilters(); 
                 showRows();
             }
+
+            function clearFilter() {
+                activeFilters = []; 
+                temporaryFilterm= '';
+                document.getElementById("active-filters").innerHTML = ""; 
+                document.getElementById("tags").value = ""; 
+                var removeButton = document.getElementById("remButt"); 
+                removeButton.style.display = "none"; 
+                showRows();
+            }
+
             function handleEnter(event) {
                 if (event.key === "Enter") {
-                    showRows();
+                    var input = temporaryFilter;
+                    if (input.length >= 3 && !activeFilters.includes(input)) { 
+                        activeFilters.push(input); 
+                        updateActiveFilters(); 
+                        document.getElementById("tags").value = ""; 
+                        showRows();
+                    }
                 }
+            }
+
+            function updateActiveFilters() { 
+                var filterContainer = document.getElementById("active-filters"); 
+                filterContainer.innerHTML = ""; 
+                activeFilters.forEach(function(filter) { 
+                    var filterLabel = document.createElement("span"); 
+                    filterLabel.className = "label label-info"; 
+                    filterLabel.style.marginRight = "5px"; 
+                    filterLabel.textContent = filter; 
+                    filterLabel.onclick = function() { 
+                        removeFilter(filter); 
+                    };
+                    filterContainer.appendChild(filterLabel); 
+                }); 
             }
         </script>
      </body>

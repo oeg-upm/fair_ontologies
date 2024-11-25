@@ -1,5 +1,21 @@
 [
     {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/OM5_2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -14,12 +30,18 @@
         ],
         "http://purl.org/dc/terms/description": [
             {
+                "@language": "en",
                 "@value": " The benchmark verifies the presence of detailed provenance metadata elements: issued date and publisher, ensuring that users can trace the creation and distribution of the ontology effectively. "
             }
         ],
         "http://purl.org/dc/terms/identifier": [
             {
                 "@id": "https://w3id.org/foops/metric/OM5_2"
+            }
+        ],
+        "http://purl.org/dc/terms/license": [
+            {
+                "@id": "http://creativecommons.org/licenses/by/2.0/"
             }
         ],
         "http://purl.org/dc/terms/publisher": [
@@ -36,6 +58,11 @@
         "http://semanticscience.org/resource/SIO_000233": [
             {
                 "@id": "https://w3id.org/foops/test/OM5_2"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "Metric OM5_2"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -90,9 +117,39 @@
         ]
     },
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/OM5_2",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@type": [
+            "https://example.org/ontology#MetricBenchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark for FAIR Principles"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
@@ -116,54 +173,14 @@
                 "@value": "(meta)data are associated with detailed provenance"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://vivoweb.org/ontology/core#abbreviation": [
             {
-                "@language": "en",
                 "@value": "R1.2"
             }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM5_2",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
-        "@type": [
-            "https://example.org/ontology#MetricBenchmark"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@value": "General Benchmark for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
+                "@value": "R1.2"
             }
         ]
     }

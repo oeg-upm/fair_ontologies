@@ -7,36 +7,40 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dav: <https://example.org/ontology#> .
 
 <https://w3id.org/foops/metric/FIND_3_BIS> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND_3_BIS> ;
 	dcterms:title "Metadata are accessible, even when ontology is not"@en ;
-	dcterms:description """ This benchmark defines criteria to ensure that metadata remain accessible even when the associated ontology is no longer available. The benchmark verifies that the ontology is registered in a public metadata registry (LOV), to guarantee persistent access to the metadata"""^^xsd:string ; 
-	rdfs:label "Metric FIND_3_BIS";
+	dcterms:description """ This benchmark defines criteria to ensure that metadata remain accessible even when the associated ontology is no longer available. The benchmark verifies that the ontology is registered in a public metadata registry (LOV), to guarantee persistent access to the metadata"""@en ; 
+	rdfs:label "Metric FIND_3_BIS"^^xsd:string ;
+	vivo:abbreviation "Metric FIND_3_BIS"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:publisher <https://oeg.fi.upm.es> ;
 	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "Metadata accesible"@en , "Metric"@en , "Accesible"@en ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/A2> ; 
 	dcat:landingPage <https://w3id.org/foops/metric/FIND_3_BIS> ; 
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/FIND_3_BIS> ;
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
 	ftr:metricStatus "Active"@en .
-<https://orcid.org/0000-0003-0454-7145> a dcat:Kind;
-	vcard:fn "Daniel Garijo" ;
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .
-<https://orcid.org/0000-0003-3587-0367> a dcat:Kind;
-	vcard:fn "Maria Poveda" ;
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
 <https://w3id.org/fair/principles/terms/A2> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
-	rdfs:label "A2"@en ;
+	rdfs:label "A2"^^xsd:string ;
+	vivo:abbreviation "A2"^^xsd:string ;
 	dcterms:description "metadata are accessible, even when the data are no longer available"@en .
-<https://oeg.fi.upm.es> a foaf:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/FIND_3_BIS> a ftr:Test .
 <https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles";
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle." .
+    dcterms:title "General Benchmark for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
 

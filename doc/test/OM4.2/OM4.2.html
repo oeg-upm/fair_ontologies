@@ -18,23 +18,34 @@
             .tag_div {
                 border-right: 10px solid white; 
             }
+            .align-items-center { 
+                display: flex; 
+                align-items: center; 
+            }
+            .flex-space-between { 
+                display: flex; justify-content: space-between; 
+            }
+            .text-separation { 
+                margin-right: 10px; 
+            }
         </style>
-        doc/catalog.html
-        https://oeg-upm.github.io/fair_ontologies/doc/catalog.html
         <div class="container">
             <div class="row">
                 <div class="col-md-12"> 
-                    <button type="button" class="btn btn-primary" onclick="window.location.href=document.referrer;" style="position: absolute; top: 10px; right: 10px;">Back</button>
+                    <button type="button" class="btn btn-primary" onclick="window.history.back();" style="position: absolute; top: 10px; right: 10px;">Back</button>
                     <h1 class="miClase text-center">OM4.2</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 well" style="font-size: 18px;">  This check verifies if the ontology license is resolvable </div>
             </div>
-            <div class="row">
-                <div class="col-md-12"> 
-                    <h4 class="miClase text-left">TEST INFORMATION</h4>
-                </div>
+            <div class="row flex-space-between"> 
+                <div class="col-md-12 align-items-center"> 
+                    <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
+                    <a href="OM4.2.ttl" title="RDF Resource Description
+                    Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
+                    alt="RDF Resource Description Framework Flyer Icon"/></a>
+                </div> 
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
@@ -57,7 +68,7 @@
             </div>
             <div class="row" >
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
-                <div class="col-md-9 well"> License resolvable, Test, Reusable, License resolvable, Test, Reusable </div>
+                <div class="col-md-9 well"> License resolvable, Test, Reusable </div>
             </div>
             <div class="row" >
                 <div class="col-md-3 well tag_div"> <strong>Publisher</strong></div>

@@ -1,52 +1,8 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://xmlns.com/foaf/0.1/Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM4.1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
-        "@type": [
-            "https://example.org/ontology#MetricBenchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@value": "General Benchmark for FAIR Principles"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "http://www.w3.org/ns/dcat#Kind"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
@@ -57,6 +13,12 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -74,12 +36,18 @@
         ],
         "http://purl.org/dc/terms/description": [
             {
+                "@language": "en",
                 "@value": " The benchmark verifies the presence of a license, ensuring that the terms of use and distribution of the ontology are clearly defined and accessible. "
             }
         ],
         "http://purl.org/dc/terms/identifier": [
             {
                 "@id": "https://w3id.org/foops/metric/OM4.1"
+            }
+        ],
+        "http://purl.org/dc/terms/license": [
+            {
+                "@id": "http://creativecommons.org/licenses/by/2.0/"
             }
         ],
         "http://purl.org/dc/terms/publisher": [
@@ -96,6 +64,11 @@
         "http://semanticscience.org/resource/SIO_000233": [
             {
                 "@id": "https://w3id.org/foops/test/OM4.1"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "Metric OM4.1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -150,6 +123,46 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@type": [
+            "https://example.org/ontology#MetricBenchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/OM4.1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/R1.1",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -160,9 +173,13 @@
                 "@value": "(meta)data are released with a clear and accessible data usage license"
             }
         ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "R1.1"
+            }
+        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@language": "en",
                 "@value": "R1.1"
             }
         ]
