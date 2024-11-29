@@ -11,13 +11,17 @@
               margin-bottom: 10px;
             }
             .well {
-              margin: 0px;
-              padding: 10px 0; 
-              padding-left: 10px;
+                margin: 0; 
+                padding: 10px; 
+                min-height: 40px;
             }
             .tag_div {
-                border-right: 10px solid white; 
+                margin-right: 10px;
             }
+            .row-equal { 
+                display: flex; 
+                align-items: stretch; 
+            } 
             .align-items-center { 
                 display: flex; 
                 align-items: center; 
@@ -27,7 +31,38 @@
             }
             .text-separation { 
                 margin-right: 10px; 
+            } 
+            .status-indicator {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                margin-right: 8px;
+                vertical-align: middle;
             }
+            .status-indicator.Active {
+                background-color: #28a745; /* Verde */
+            }
+            .status-indicator.Proposed {
+                background-color: #ffc107; /* Amarillo */
+            }
+            .status-indicator.Inactive {
+                background-color: #6c757d; /* Gris */
+            }
+            .status-indicator.Deprecated {
+                background-color: #dc3545; /* Rojo */
+            }
+            .legend ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            .legend li {
+                margin-bottom: 5px;
+            }
+            .legend li strong {
+                color: #000; /* Negrita negra para el texto */
+            }  
         </style>
         <div class="container">
             <div class="row">
@@ -47,66 +82,84 @@
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 
             </div>
-            <div class="row">
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
                 <div class="col-md-9 well"> Minimum metadata </div>
             </div>
-            <div class="row">
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
                 <div class="col-md-9 well"><a href="https://w3id.org/foops/metric/OM1" target="_blank">https://w3id.org/foops/metric/OM1</a></div>
                 <!-- <div class="col-md-9 well"><a href="https://w3id.org/foops/test/URI1" target="_blank">https://w3id.org/foops/test/URI1</a></div> -->
             </div>
-            <div class="row" >
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Creator</strong></div>
                 <div class="col-md-9 well"> <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>, <a href="https://orcid.org/0000-0003-3587-0367" target="_blank">Maria Poveda</a> </div>
                 <!--  debe añadir el href y el label de todos los creadores. 
                   <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>, <a href="https://orcid.org/0000-0003-3587-0367" target="_blank">María Poveda</a>  -->
             </div>
-            <div class="row" >
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
                 <div class="col-md-9 well"> Minimum metadata, Metric, Findable </div>
             </div>
-            <div class="row" >
+            <div class="row row-equal">
+                <div class="col-md-3 well tag_div"> <strong>Contact Point</strong></div>
+                <div class="col-md-9 well"> <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>: <a href="mailto:dgarijo@upm.es" target="_blank">dgarijo@upm.es</a> </div>   
+            </div>
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Publisher</strong></div>
                 <div class="col-md-9 well"><a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a></div>
             </div>
-            <div class="row" >
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Version</strong></div>
                 <div class="col-md-9 well"> 0.0.1 </div>
             </div>
-            <div class="row">
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>License</strong></div>
                 <div class="col-md-9 well"> <a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"> http://creativecommons.org/licenses/by/2.0/ </a></div>
             </div>
-            <div class="row" >
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Landing Page</strong></div>
                 <div class="col-md-9 well"><a href="https://w3id.org/foops/metric/OM1" target="_blank">https://w3id.org/foops/metric/OM1</a></div>
             </div>
-            <div class="row">
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Dimension</strong></div>
-                <div class="col-md-9 well"><a href="https://w3id.org/fair/principles/terms/F2" target="_blank"> F2 </a></div>
+                <div class="col-md-9 well"><a href="https://w3id.org/fair/principles/terms/F2" target="_blank"> F2</a>: data are described with rich metadata (defined by R1 below)  </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Desc. Dimension</strong></div>
                 <div class="col-md-9 well"> data are described with rich metadata (defined by R1 below) </div>
-            </div>
-            <div class="row">
+            </div> -->
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Benchmark</strong></div>
-                <div class="col-md-9 well"> <a href="https://w3id.org/foops/benchmark/full_assessment" target="_blank"> https://w3id.org/foops/benchmark/full_assessment </a> </div>
+                <div class="col-md-9 well"> <a href="https://w3id.org/foops/benchmark/ALL" target="_blank">General Benchmark ALL for FAIR Principles</a>: This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics.<br><a href="https://w3id.org/foops/benchmark/PRE" target="_blank">General Benchmark PRE for FAIR Principles</a>: This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics. </div>
+                <!-- <div class="col-md-9 well"> <a href="" target="_blank">  </a>:   </div> -->
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Benchmark Title</strong></div>
-                <div class="col-md-9 well">  General Benchmark for FAIR Principles </div>
+                <div class="col-md-9 well">   </div>
             </div>
             <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Benchmark Desc</strong></div>
-                <div class="col-md-9 well">  This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. </div>
-            </div>
-            <div class="row">
+                <div class="col-md-9 well">   </div>
+            </div> -->
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Metric Status</strong></div>
-                <div class="col-md-9 well"> Active </div>
+                <div class="col-md-2 well">                   
+                    <span class="status-indicator Active"></span>
+                    <span>Active </span>
+                </div>
+                <div class="col-md-7">
+                    <div class="legend">
+                        <ul>
+                            <li><span class="status-indicator Active"></span> <strong>Active:</strong> The metric is actively used and maintained.</li>
+                            <li><span class="status-indicator Proposed"></span> <strong>Proposed:</strong> The metric is under review or consideration for adoption.</li>
+                            <li><span class="status-indicator Inactive"></span> <strong>Inactive:</strong> The metric is not currently in use but remains available for reference.</li>
+                            <li><span class="status-indicator Deprecated"></span> <strong>Deprecated:</strong> The metric has been retired and should no longer be used.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="row">
+            <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Test</strong></div>
                 <div class="col-md-9 well"> <a href="https://w3id.org/foops/test/OM1" target="_blank"> https://w3id.org/foops/test/OM1 </a> </div>
             </div>
