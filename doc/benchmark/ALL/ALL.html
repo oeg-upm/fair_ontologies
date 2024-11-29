@@ -31,6 +31,37 @@
             }
             .text-separation { 
                 margin-right: 10px; 
+            }
+            .status-indicator {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                margin-right: 8px;
+                vertical-align: middle;
+            }
+            .status-indicator.Active {
+                background-color: #28a745; /* Verde */
+            }
+            .status-indicator.Proposed {
+                background-color: #ffc107; /* Amarillo */
+            }
+            .status-indicator.Inactive {
+                background-color: #6c757d; /* Gris */
+            }
+            .status-indicator.Deprecated {
+                background-color: #dc3545; /* Rojo */
+            }
+            .legend ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            .legend li {
+                margin-bottom: 5px;
+            }
+            .legend li strong {
+                color: #000; /* Negrita negra para el texto */
             }   
         </style>
         <div class="container">
@@ -67,6 +98,10 @@
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
                 <div class="col-md-9 well"> General Benchmark, Benchmark, All </div>
             </div>
+            <div class="row row-equal">
+                <div class="col-md-3 well tag_div"> <strong>Contact Point</strong></div>
+                <div class="col-md-9 well"> <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>: <a href="mailto:dgarijo@upm.es" target="_blank">dgarijo@upm.es</a> </div>   
+            </div>
             <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Version</strong></div>
                 <div class="col-md-9 well"> 0.0.1 </div>
@@ -85,7 +120,20 @@
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Benchmark Status</strong></div>
-                <div class="col-md-9 well"> Active </div>
+                <div class="col-md-2 well"> 
+                    <span class="status-indicator Active"></span>
+                    <span>Active </span>
+                </div>
+                <div class="col-md-7">
+                    <div class="legend">
+                        <ul>
+                            <li><span class="status-indicator Active"></span> <strong>Active:</strong> The benchmark is actively used and maintained.</li>
+                            <li><span class="status-indicator Proposed"></span> <strong>Proposed:</strong> The benchmark is under review or consideration for adoption.</li>
+                            <li><span class="status-indicator Inactive"></span> <strong>Inactive:</strong> The benchmark is not currently in use but remains available for reference.</li>
+                            <li><span class="status-indicator Deprecated"></span> <strong>Deprecated:</strong> The benchmark has been retired and should no longer be used.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 

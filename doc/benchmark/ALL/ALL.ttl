@@ -6,11 +6,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dav: <https://example.org/ontology#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 
-<https://w3id.org/foops/benchmark/ALL> a dav:MetricBenchmark ;
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark ;
 	dcterms:identifier <https://w3id.org/foops/benchmark/ALL> ;
 	dcterms:title "General Benchmark for FAIR Principles"@en ;
     rdfs:label "Benchmark ALL"^^xsd:string ;
@@ -57,70 +56,93 @@
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
 <https://w3id.org/foops/metric/CN1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/CN1> ;
-	rdfs:label "Metric CN1"^^xsd:string .
+	rdfs:label "Metric CN1"^^xsd:string ;
+    vivo:abbreviation "Metric CN1"^^xsd:string .
 <https://w3id.org/foops/metric/DOC1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/DOC1> ;
-	rdfs:label "Metric DOC1"^^xsd:string .
+	rdfs:label "Metric DOC1"^^xsd:string ;
+    vivo:abbreviation "Metric DOC1"^^xsd:string .
 <https://w3id.org/foops/metric/FIND1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND1> ;
-	rdfs:label "Metric FIND1"^^xsd:string .
+	rdfs:label "Metric FIND1"^^xsd:string ;
+    vivo:abbreviation "Metric FIND1"^^xsd:string .
 <https://w3id.org/foops/metric/FIND2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND2> ;
-	rdfs:label "Metric FIND2"^^xsd:string .
+	rdfs:label "Metric FIND2"^^xsd:string ;
+    vivo:abbreviation "Metric FIND2"^^xsd:string .
 <https://w3id.org/foops/metric/FIND3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND3> ;
-	rdfs:label "Metric FIND3"^^xsd:string .
+	rdfs:label "Metric FIND3"^^xsd:string ;
+    vivo:abbreviation "Metric FIND3"^^xsd:string .
 <https://w3id.org/foops/metric/FIND_3_BIS> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND_3_BIS> ;
-	rdfs:label "Metric FIND_3_BIS"^^xsd:string .
+	rdfs:label "Metric FIND_3_BIS"^^xsd:string ;
+    vivo:abbreviation "Metric FIND_3_BIS"^^xsd:string .
 <https://w3id.org/foops/metric/HTTP1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/HTTP1> ;
-	rdfs:label "Metric HTTP1"^^xsd:string .
+	rdfs:label "Metric HTTP1"^^xsd:string ;
+    vivo:abbreviation "Metric HTTP1"^^xsd:string .
 <https://w3id.org/foops/metric/OM1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM1> ;
-	rdfs:label "Metric OM1"^^xsd:string .
+	rdfs:label "Metric OM1"^^xsd:string ;
+    vivo:abbreviation "Metric OM1"^^xsd:string .
 <https://w3id.org/foops/metric/OM2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM2> ;
-	rdfs:label "Metric OM2"^^xsd:string .
+	rdfs:label "Metric OM2"^^xsd:string ;
+    vivo:abbreviation "Metric OM2"^^xsd:string .
 <https://w3id.org/foops/metric/OM3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM3> ;
-	rdfs:label "Metric OM3"^^xsd:string .
+	rdfs:label "Metric OM3"^^xsd:string ;
+    vivo:abbreviation "Metric OM3"^^xsd:string .
 <https://w3id.org/foops/metric/OM4.1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM4.1> ;
-	rdfs:label "Metric OM4.1"^^xsd:string .
+	rdfs:label "Metric OM4.1"^^xsd:string ;
+    vivo:abbreviation "Metric OM4.1"^^xsd:string .
 <https://w3id.org/foops/metric/OM4.2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM4.2> ;
-	rdfs:label "Metric OM4.2"^^xsd:string .
+	rdfs:label "Metric OM4.2"^^xsd:string ;
+    vivo:abbreviation "Metric OM4.2"^^xsd:string .
 <https://w3id.org/foops/metric/OM5_1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM5_1> ;
-	rdfs:label "Metric OM5_1"^^xsd:string .
+	rdfs:label "Metric OM5_1"^^xsd:string ;
+    vivo:abbreviation "Metric OM5_1"^^xsd:string .
 <https://w3id.org/foops/metric/OM5_2.1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM5_2.1> ;
-	rdfs:label "Metric OM5_2.1"^^xsd:string .
+	rdfs:label "Metric OM5_2.1"^^xsd:string ;
+    vivo:abbreviation "Metric OM5_2.1"^^xsd:string .
 <https://w3id.org/foops/metric/PURL1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/PURL1> ;
-	rdfs:label "Metric PURL1"^^xsd:string .
+	rdfs:label "Metric PURL1"^^xsd:string ;
+    vivo:abbreviation "Metric PURL1"^^xsd:string .
 <https://w3id.org/foops/metric/URI1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/URI1> ;
-	rdfs:label "Metric URI1"^^xsd:string .
+	rdfs:label "Metric URI1"^^xsd:string ;
+    vivo:abbreviation "Metric URI1"^^xsd:string .
 <https://w3id.org/foops/metric/URI2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/URI2> ;
-	rdfs:label "Metric URI2"^^xsd:string .
+	rdfs:label "Metric URI2"^^xsd:string ;
+    vivo:abbreviation "Metric URI2"^^xsd:string .
 <https://w3id.org/foops/metric/VER1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VER1> ;
-	rdfs:label "Metric VER1"^^xsd:string .
+	rdfs:label "Metric VER1"^^xsd:string ;
+    vivo:abbreviation "Metric VER1"^^xsd:string .
 <https://w3id.org/foops/metric/VER2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VER2> ;
-	rdfs:label "Metric VER2"^^xsd:string .
+	rdfs:label "Metric VER2"^^xsd:string ;
+    vivo:abbreviation "Metric VER2"^^xsd:string .
 <https://w3id.org/foops/metric/VOC1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC1> ;
-	rdfs:label "Metric VOC1"^^xsd:string .
+	rdfs:label "Metric VOC1"^^xsd:string ;
+    vivo:abbreviation "Metric VOC1"^^xsd:string .
 <https://w3id.org/foops/metric/VOC2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC2> ;
-	rdfs:label "Metric VOC2"^^xsd:string .
+	rdfs:label "Metric VOC2"^^xsd:string ;
+    vivo:abbreviation "Metric VOC2"^^xsd:string .
 <https://w3id.org/foops/metric/VOC3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC3> ;
-	rdfs:label "Metric VOC3"^^xsd:string .
+	rdfs:label "Metric VOC3"^^xsd:string ;
+    vivo:abbreviation "Metric VOC3"^^xsd:string .
 <https://w3id.org/foops/metric/VOC4> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC4> ;
-	rdfs:label "Metric VOC4"^^xsd:string .
+	rdfs:label "Metric VOC4"^^xsd:string ;
+    vivo:abbreviation "Metric VOC4"^^xsd:string .
