@@ -31,11 +31,12 @@ public class Check_OM1_MinimumMetadata extends Check {
     public Check_OM1_MinimumMetadata(Ontology o) {
         super(o);
         this.category_id = Constants.FINDABLE;
-        this.id = Constants.OM1;
+        this.id = Constants.OM1_URL;
         this.title = Constants.OM1_TITLE;
         this.description = Constants.OM1_DESC;
         this.principle_id = "F2";
         this.total_tests_run = Constants.MINIMUM_METADATA.length;
+        this.abbreviation = Constants.OM1;
     }
 
     @Override

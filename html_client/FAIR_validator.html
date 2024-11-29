@@ -49,6 +49,7 @@
                       $('#loader').hide();
                       $('#run_button').show();
                       run(data)
+console.log(JSON.stringify(data, null, 2));
                   }
               }).fail(function (jqXHR, textStatus, error) {
                   $('#loader').hide();
@@ -174,23 +175,45 @@
 
         <!-- Ontology input -->
         <div class="row mt-3">
-            <div class="caja caja-input">
+            <div class="caja caja-input" id="divInfo">
                 <div class="col-12">
 
                     <!-- Encabezados seleccionable -->
                     <div class="row selectores">
                         <!-- URI -->
-                        <div class="col-4 selector selector-izq center active" onclick="openInput(event, 'URI')">
+                        <div class="col-4 selector selector-izq center active" onclick="openInput(event, 'URI')" id = "cajaUri">
                             <span class="texto3"> URI </span>
                         </div>
                         <!-- Codigo-->
-                        <div class="col-4 selector center" onclick="openInput(event, 'Code')">
+                        <div class="col-4 selector center" onclick="openInput(event, 'Code')" id = "cajaCode">
                             <span class="texto3"> Code </span>
                         </div>
                         <!-- Archivo-->
-                        <div class="col-4 selector selector-der center" onclick="openInput(event, 'File')">
+                        <div class="col-4 selector selector-der center" onclick="openInput(event, 'File')" id = "cajaFile">
                             <span class="texto3"> File </span>
                         </div>
+
+
+                        <script type="text/javascript">
+                            //Creo un evento para cada opcion, actualizando la altura del div general para que sea mas estetico
+                            //En el caso del evento del code es para actualizar la altura si hay cambios o no
+                            document.getElementById("cajaUri").addEventListener("click", cambio);
+                            document.getElementById("cajaFile").addEventListener("click", cambio);
+                            document.getElementById("cajaCode").addEventListener("click", actualizar);
+
+                            function cambio () {
+                                let infoDiv = document.getElementById("divInfo");
+                                infoDiv.style.height = "";
+                            }
+
+                             function actualizar () {
+                                let infoDiv = document.getElementById("divInfo");
+                                let textArea = document.getElementById("Code_input")
+                                if (textArea.value != "") {
+                                    infoDiv.style.height = "600px";
+                                }
+                            }
+                        </script>
                     </div>
 
                     <!-- Input de URI-->
@@ -210,6 +233,22 @@
                     <div id="Code" class="row selector-content mt-3" style="display: none">
                         <div class="col-12 center">
                             <textarea id="Code_input" class="input-2" placeholder="Paste here your ontology code. Please note that if you enter the ontology URI instead of the code there are more checks that we can do for you. For example, to test whether Content Negotiation is used for serving the ontology."></textarea>
+                            <script type="text/javascript">
+                                //Creo un evento para cuando haya un cambio se haga mas grande el elemento
+                                document.getElementById("Code_input").addEventListener("input", () => {
+                                    let infoDiv = document.getElementById("divInfo");
+                                    infoDiv.style.height = "600px";
+
+                                    let textArea = document.getElementById("Code_input");
+                                    textArea.style.height = "500px";
+
+                                    //Si no hay nada dentro actualizo los parametros
+                                    if (textArea.value == "") {
+                                        textArea.style.height = "";
+                                        infoDiv.style.height = "";
+                                    }
+                                })
+                            </script>
                         </div>
                     </div>
 
@@ -315,7 +354,7 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Findable-checks')">
+                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Findable-checks')">
                     </div>
                 </div>
                 <div id="Findable-checks" class="col-12 p-0 caja-principles">
@@ -332,7 +371,7 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Accessible-checks')">
+                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Accessible-checks')">
                     </div>
                 </div>
                 <div id="Accessible-checks" class="col-12 p-0 caja-principles">
@@ -349,7 +388,7 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Interoperable-checks')">
+                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Interoperable-checks')">
                     </div>
                 </div>
                 <div id="Interoperable-checks" class="col-12 p-0 caja-principles">
@@ -366,7 +405,7 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/up-arrow.svg" onclick="arrowClicked(event, 'Reusable-checks')">
+                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Reusable-checks')">
                     </div>
                 </div>
                 <div id="Reusable-checks" class="col-12 p-0 caja-principles">

@@ -29,11 +29,12 @@ public class Check_DOC1_HTMLDoc extends Check {
 
     public Check_DOC1_HTMLDoc(Ontology o) {
         super(o);
-        this.id = Constants.DOC1;
+        this.id = Constants.DOC1_URL;
         this.title = Constants.DOC1_TITLE;
         this.category_id = Constants.REUSABLE;
         this.principle_id ="R1";
         this.description = Constants.DOC1_DESC;
+        this.abbreviation = Constants.DOC1;
     }
 
     @Override

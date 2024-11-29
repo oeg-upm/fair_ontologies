@@ -127,7 +127,7 @@ function getAbsolutePassedChecks(checks){
   // console.log("Total vale: " + totalChecks);
 
 
-  return passedChecks 
+  return passedChecks
 }
 
 
@@ -138,9 +138,9 @@ function loadGrafics(result){
   var popupScore = document.querySelector("#scorePopup");
   var passedChecks = 0;
 
-  graphicScore.innerHTML = getRadialScoreHTML(result.overall_score, 1.6); 
+  graphicScore.innerHTML = getRadialScoreHTML(result.overall_score, 1.6);
   graphicSpider.innerHTML = getSpiderGraphHTML(result);
-  
+
  // checks = groupBy(result.checks, "category_id")
  // passedChecks = getAbsolutePassedChecks(checks['Findable']) + getAbsolutePassedChecks(checks['Accessible']) + getAbsolutePassedChecks(checks['Interoperable']) + getAbsolutePassedChecks(checks['Reusable']);
 
@@ -218,7 +218,7 @@ function getSpiderGraphHTML(result){
 
 
   return `
-  <svg  height="200" width="250" viewBox="-120 0 300 100" transform="scale(1.8,1.8)">  
+  <svg  height="200" width="250" viewBox="-120 0 300 100" transform="scale(1.8,1.8)">
   <rect x="50" y="-30" transform="rotate(45)" width="50" height="50" fill="#fff" stroke-width="1" stroke="black" />
     <line x1="22" y1="50" x2="91" y2="50" stroke-width="1" stroke="black"></line>
     <line x1="57" y1="15" x2="57" y2="85" stroke-width="1" stroke="black"></line>
@@ -477,10 +477,10 @@ function loadInfo(result) {
 }
 
 function loadCategory(category, result) {
-
+//DIV DEL FAIR
   var checks_div = document.getElementById(category + "-checks");
   checks_div.innerHTML = getLineHTMLNoLine();
-
+   checks_div.style ="display: none";
   checks = getCategoryChecks(category, result);
 
   loadPrinciples(checks, checks_div);
@@ -510,6 +510,7 @@ function getCategoryChecks(category, result) {
 }
 
 function loadPrinciples(principles, checks_div) {
+    //DIV DEL TITULO CHIQUITO
   for (let principle in principles) {
     var title = document.createElement("div");
     title.innerHTML = getPrincipleHTML(principle);
@@ -518,13 +519,17 @@ function loadPrinciples(principles, checks_div) {
   }
 }
 
+
+
+
 function loadChecks(checks, checks_div) {
   for (let i = 0; i < checks.length; i++) {
     var check = document.createElement("div");
-    check.className = "p-3 caja-check";
+    check.className = "p-3 caja-check ";
+
     check.innerHTML = getCheckHTML(checks[i]);
     checks_div.appendChild(check);
-    
+    //hideContent(checks[i].id);
   }
 }
 
@@ -540,7 +545,7 @@ function getCheckHTML(check_info) {
       <div class="row">
         <p class="texto-affected pl-3 "> Imported/Reused URIs: </p>
       </div>`
-      + getAffectedURIsHTML(check_info.reference_resources, check_info.principle_id, check_info.id) +
+      + getAffectedURIsHTML(check_info.reference_resources, check_info.principle_id, check_info.abbreviation) +
       `</div>`
   }
 
@@ -556,51 +561,51 @@ function getCheckHTML(check_info) {
         <p class="texto-affected pl-3"> Affected URIs: </p>
       </div>
       `
-      + getAffectedURIsHTML(check_info.affected_elements, check_info.principle_id, check_info.id) +
+      + getAffectedURIsHTML(check_info.affected_elements, check_info.principle_id, check_info.abbreviation) +
       `
     </div>
     `
   }
-
-  return (
-    `
-    <div class="col-12 p-0 caja-blanca mt-2">
-      <div class="row mt-2 mx-0">
-        <div class="col-8">
-          <span class="texto-check">
-            `+ check_info.id +": "+ check_info.title+`
-          </span>
-        </div>
-        <div class="col-2">
-          <div style="position: absolute; top:-30px;">
-        `+getRadialScoreHTML(check_info.total_passed_tests/check_info.total_tests_run, 0.5)+`
-          </div>
-        </div>
-        <div class="col-2 d-flex align-items-center justify-content-end">
-          <img src="assets/up-arrow.svg" onclick="arrowClicked(event, '`+check_info.id+`')">
+//DIV DEL CHECK
+return (
+  `
+  <div class="col-12 p-0 caja-blanca mt-2" >
+    <div class="row mt-2 mx-0">
+      <div class="col-8">
+        <span class="texto-check">
+          `+`<a href=` + check_info.id + ` target="_blank">   `+ check_info.abbreviation +`: `+ check_info.title +`
+          </a>
+        </span>
+      </div>
+      <div class="col-2">
+        <div style="position: absolute; top:-30px;">
+          `+ getRadialScoreHTML(check_info.total_passed_tests / check_info.total_tests_run, 0.5) + `
         </div>
       </div>
-      <div class="row m-0" id="`+check_info.id+`">
-      `+ getLineHTML() +`
-        <div class="row mx-0 mt-2 w-100">
-          <dl>
-              <dt>Description</dt>
-              <dd>  `
-                + check_info.description + `
-              </dd>
-              <dt>Explanation</dt>
-              <dd>  `
-                + check_info.explanation + `
-              </dd>
-          </dl>
-        </div>
-        `+ affected_URIs_HTML +`
-        `+ reference_URIs_HTML +`
+      <div class="col-2 d-flex align-items-center justify-content-end"  >
+        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, '`+ check_info.abbreviation + `')">
       </div>
     </div>
+    <div class="row m-0" id="`+ check_info.abbreviation + `" style="display: none">
+      `+ getLineHTML() + `
+      <div class="row mx-0 mt-2 w-100">
+        <dl>
+          <dt>Description</dt>
+          <dd>
+            ` + check_info.description + `
+          </dd>
+          <dt>Explanation</dt>
+          <dd>
+            ` + check_info.explanation + `
+          </dd>
+        </dl>
+      </div>
+      ` + affected_URIs_HTML + `
+      ` + reference_URIs_HTML + `
+    </div>
+  </div>
   `
-  );
-
+);
 /*
   return (
     `
@@ -656,7 +661,7 @@ function getAffectedURIsHTML(URIs, principle_id, check_id){
     if (i == 4 && URIs.length > 9){
       html += `<div class="collapse" id="block-id-` + principle_id + check_id +`">`;
     }
-  
+
   }
 
     if (URIs.length > 9){
@@ -682,10 +687,11 @@ function getPrincipleHTML(text) {
   // console.log("his is the text: " + text);
   return (
     `
-    <div class="row my-3 pl-3">
+    <div class="row420 my-3 pl-3">
       <span id="` + text + `"class="texto-principle pl-3">` +
     text + `: `+ getPrincipleDescription (text) +
     ` </span>
+
     </div>
   `
   );
@@ -703,7 +709,7 @@ function groupBy(objectArray, property) {
 }
 
 function arrowClicked(event, id){
-
+    console.log(event);
   status = getArrowStatus(event)
 
   replaceArrow(event, status)
@@ -746,6 +752,5 @@ function hideContent(id) {
 function example1(uri){
   document.getElementById("URI_input").value=uri;
   }
-
 
 

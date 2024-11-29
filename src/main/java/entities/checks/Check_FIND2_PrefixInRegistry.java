@@ -41,13 +41,14 @@ import java.net.URL;
 public class Check_FIND2_PrefixInRegistry extends Check {
     public Check_FIND2_PrefixInRegistry(Ontology o) {
         super(o);
-        this.id = Constants.FIND2;
+        this.id = Constants.FIND2_URL;
         this.title = Constants.FIND2_TITLE;
         this.description = Constants.FIND2_DESC;
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F4";
         this.total_tests_run = 2;
         //one test to see if the onto is there, another one to check if the namespace is the right one
+        this.abbreviation = Constants.FIND2;
     }
 
     @Override

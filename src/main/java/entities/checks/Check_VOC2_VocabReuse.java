@@ -33,11 +33,12 @@ public class Check_VOC2_VocabReuse extends Check {
 
     public Check_VOC2_VocabReuse(Ontology o) {
         super(o);
-        this.id = Constants.VOC2;
+        this.id = Constants.VOC2_URL;
         this.title = Constants.VOC2_TITLE;
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I2";
         this.description = Constants.VOC2_DESC;
+        this.abbreviation = Constants.VOC2;
     }
 
     @Override

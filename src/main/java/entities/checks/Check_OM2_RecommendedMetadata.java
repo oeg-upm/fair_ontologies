@@ -26,11 +26,12 @@ public class Check_OM2_RecommendedMetadata extends Check {
     public Check_OM2_RecommendedMetadata(Ontology o) {
         super(o);
         this.category_id = Constants.REUSABLE;
-        this.id = Constants.OM2;
+        this.id = Constants.OM2_URL;
         this.title = Constants.OM2_TITLE;
         this.description = Constants.OM2_DESC;
         this.principle_id = "R1";
         this.total_tests_run = Constants.RECOMMENDED_METADATA.length;
+        this.abbreviation = Constants.OM2;
     }
     /**
      * This check verifies whether the detected metadata is the recommended one

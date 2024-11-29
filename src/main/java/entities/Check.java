@@ -40,6 +40,10 @@ public abstract class Check {
     protected String title;
     @Expose (serialize = true)
     protected String explanation;
+
+    @Expose (serialize = true)
+    protected String abbreviation;
+
     @Expose (serialize = true)
     protected ArrayList<String> affected_elements;
     @Expose (serialize = true)
@@ -60,6 +64,10 @@ public abstract class Check {
         total_tests_run = 1; //by default
     }
 
+
+    public String getAbbreviation(){ return abbreviation;}
+
+    public void setAbbreviation(String abbreviation){ this.abbreviation = abbreviation; }
     public String getDescription() {
         return description;
     }
