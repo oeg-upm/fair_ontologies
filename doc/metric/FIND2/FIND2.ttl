@@ -12,7 +12,28 @@
 <https://w3id.org/foops/metric/FIND2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND2> ;
 	dcterms:title "Prefix is in registry"@en ;
-	dcterms:description """ This benchmark defines criteria to ensure the discoverability and consistency of ontology prefixes. The benchmark verifies that the ontology prefix is registered in recognized registries such as prefix.cc or LOV. It also checks that the prefix resolves to the same namespace prefix found in the ontology, ensuring accurate and consistent referencing. """@en ;
+	dcterms:description """ 
+This metric ensures that ontology prefixes are discoverable and consistently aligned with recognized registries. It verifies that the prefix is registered in platforms such as prefix.cc or LOV and resolves to the same namespace as declared in the ontology.
+
+**What is being measured?**
+
+The registration and resolution of the ontology prefix in trusted registries.
+
+**Why should we measure it?**
+
+To guarantee accurate and consistent references across datasets and to promote interoperability.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology prefix must:
+
+* Be registered in recognized registries (e.g., prefix.cc, LOV).
+* Resolve to the same namespace prefix as declared in the ontology.
+	"""@en ;
 	rdfs:label "Metric FIND2"^^xsd:string ;
 	vivo:abbreviation "Metric FIND2"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;

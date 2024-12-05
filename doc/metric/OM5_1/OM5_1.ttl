@@ -12,7 +12,30 @@
 <https://w3id.org/foops/metric/OM5_1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM5_1> ;
 	dcterms:title "Basic provenance metadata"@en ;
-	dcterms:description """ The benchmark verifies the presence of essential provenance metadata: author and creation date. Additionally, it checks for the presence of contributor and previous version metadata elements, though it does not penalize their absence, recognizing that not all ontologies may have a previous version or a contributor. """@en ; 
+	dcterms:description """ 
+	
+This metric checks for the inclusion of essential provenance metadata, ensuring that the origin and authorship of the ontology are clear and traceable.
+
+**What is being measured?**
+
+The presence of basic provenance metadata, specifically:
+
+* Mandatory: Author and creation date.
+* Optional: Contributor and previous version metadata elements.
+
+**Why should we measure it?**
+
+Provenance metadata is crucial for understanding the source and authorship of an ontology, supporting reusability and trust. While not all ontologies may have contributors or previous versions, their inclusion adds value.
+
+**What must be provided for the measurement?**
+
+An ontology file or URI containing metadata sections with provenance information.
+
+**What are considered valid results?**
+
+Ontologies that explicitly state an author and a creation date satisfy the metric. Ontologies are encouraged, but not required, to include information on contributors and previous versions.
+	
+	"""@en ; 
 	rdfs:label "Metric OM5_1"^^xsd:string ;
 	vivo:abbreviation "Metric OM5_1"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;

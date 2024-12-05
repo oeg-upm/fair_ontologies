@@ -12,7 +12,30 @@
 <https://w3id.org/foops/metric/PURL1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/PURL1> ;
 	dcterms:title "Persistent URL"@en ;
-	dcterms:description """ The benchmark verifies the presence of a persistent URL, such as w3id, purl, DOI, or a W3C URL, ensuring stable and long-term access to the ontology. """@en ; 
+	dcterms:description """ 
+This metric evaluates whether the ontology has a persistent URL, ensuring reliable and long-term access.
+
+**What is being measured?**
+
+The presence of a persistent URL, such as:
+
+* W3ID
+* PURL
+* DOI
+* W3C URL
+
+**Why should we measure it?**
+
+Persistent URLs provide a stable reference to the ontology, essential for long-term usability and citation. They ensure that users can reliably access the ontology, even as web structures or hosting services change.
+
+**What must be provided for the measurement?**
+
+An ontology URI that includes or resolves to a persistent identifier.
+
+**What are considered valid results?**
+
+Valid results are ontologies with a registered persistent URL that is resolvable and points to the ontology’s location or metadata. Examples include a DOI pointing to the ontology publication or a W3ID redirecting to the ontology’s hosting service.
+	"""@en ; 
 	rdfs:label "Metric PURL1"^^xsd:string ;
 	vivo:abbreviation "Metric PURL1"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;

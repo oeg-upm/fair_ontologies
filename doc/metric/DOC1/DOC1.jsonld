@@ -1,5 +1,11 @@
 [
     {
+        "@id": "https://w3id.org/foops/test/DOC1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/DOC1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -15,7 +21,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This metric evaluates the presence and accessibility of HTML documentation, ensuring that users can easily access, read, and understand the structure and content. "
+                "@value": " \nThis metric evaluates the presence and accessibility of HTML documentation to ensure that users can easily access and understand the resource’s structure and content.\n\n**What is being measured?**\n\nThe availability and quality of HTML documentation for an ontology or resource.\n\n**Why should we measure it?**\n\nHTML documentation enhances usability, transparency, and accessibility, aligning with FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe existence of an accessible, online HTML page providing clear and detailed documentation of the ontology.\n\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -119,28 +125,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
         "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -163,12 +147,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/DOC1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -181,6 +159,28 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     }

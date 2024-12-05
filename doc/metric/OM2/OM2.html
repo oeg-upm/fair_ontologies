@@ -72,7 +72,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;">  The benchmark verifies the presence of the following recommended metadata: NS Prefix, version info, creation date, and citation. Additionally, it checks for the presence of the contributor metadata element, though it does not penalize its absence, recognizing that not all ontologies may have contributors. </div>
+                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric evaluates whether the ontology includes a set of additional recommended metadata fields that enhance its usability and documentation quality.</p>
+<p><strong>What is being measured?</strong></p>
+<p>The presence of the following recommended metadata fields:</p>
+<ul>
+<li>Namespace Prefix (NS Prefix)</li>
+<li>Version Info</li>
+<li>Creation Date</li>
+<li>Citation</li>
+<li>Contributor (optional)</li>
+</ul>
+<p><strong>Why should we measure it?</strong></p>
+<p>Recommended metadata ensures richer documentation and better support for reusability, traceability, and credit attribution in line with FAIR principles.</p>
+<p><strong>What must be provided for the measurement?</strong></p>
+<p>An ontology file or its URI.</p>
+<p><strong>What are considered valid results?</strong></p>
+<p>The ontology should include all recommended fields except the contributor field, which is optional and does not result in a penalty if absent. Missing other fields will cause the ontology to fail this benchmark.</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 

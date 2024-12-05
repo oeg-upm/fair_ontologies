@@ -14,7 +14,29 @@
 	dcterms:title "Open protocol"@en ;
 	rdfs:label "Metric HTTP1"^^xsd:string ;
 	vivo:abbreviation "Metric HTTP1"^^xsd:string ;
-	dcterms:description """ The benchmark verifies that the ontology is accessible using open protocols such as HTTP or HTTPS, ensuring broad compatibility and accessibility. """@en ;
+	dcterms:description """ 	
+This metric ensures that ontologies are accessible through open protocols, such as HTTP or HTTPS, guaranteeing widespread compatibility and accessibility for users and systems.
+
+**What is being measured?**
+
+The availability of the ontology via standardized open protocols.
+
+**Why should we measure it?**
+
+To ensure the ontology is readily accessible and usable across different platforms without proprietary barriers, supporting FAIR principles.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology must:
+
+* Be accessible via open protocols (e.g., HTTP, HTTPS).
+* Return a valid response when accessed using these protocols.
+	
+	"""@en ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

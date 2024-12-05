@@ -12,7 +12,32 @@
 <https://w3id.org/foops/metric/OM2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM2> ;
 	dcterms:title "Recommended metadata"@en ;
-	dcterms:description """ The benchmark verifies the presence of the following recommended metadata: NS Prefix, version info, creation date, and citation. Additionally, it checks for the presence of the contributor metadata element, though it does not penalize its absence, recognizing that not all ontologies may have contributors. """@en ;
+	dcterms:description """ 
+	
+This metric evaluates whether the ontology includes a set of additional recommended metadata fields that enhance its usability and documentation quality.
+
+**What is being measured?**
+
+The presence of the following recommended metadata fields:
+
+* Namespace Prefix (NS Prefix)
+* Version Info
+* Creation Date
+* Citation
+* Contributor (optional)
+
+**Why should we measure it?**
+
+Recommended metadata ensures richer documentation and better support for reusability, traceability, and credit attribution in line with FAIR principles.
+
+**What must be provided for the measurement?**
+
+An ontology file or its URI.
+
+**What are considered valid results?**
+
+The ontology should include all recommended fields except the contributor field, which is optional and does not result in a penalty if absent. Missing other fields will cause the ontology to fail this benchmark.
+	"""@en ;
 	rdfs:label "Metric OM2"^^xsd:string ;
 	vivo:abbreviation "Metric OM2"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;

@@ -1,5 +1,11 @@
 [
     {
+        "@id": "https://w3id.org/foops/test/OM2",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://www.w3id.org/ftr#Benchmark"
@@ -18,25 +24,25 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Daniel Garijo"
+                "@language": "en",
+                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://vivoweb.org/ontology/core#abbreviation": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@value": "R1"
             }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "R1"
+            }
         ]
     },
     {
@@ -73,7 +79,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " The benchmark verifies the presence of the following recommended metadata: NS Prefix, version info, creation date, and citation. Additionally, it checks for the presence of the contributor metadata element, though it does not penalize its absence, recognizing that not all ontologies may have contributors. "
+                "@value": " \n\t\nThis metric evaluates whether the ontology includes a set of additional recommended metadata fields that enhance its usability and documentation quality.\n\n**What is being measured?**\n\nThe presence of the following recommended metadata fields:\n\n* Namespace Prefix (NS Prefix)\n* Version Info\n* Creation Date\n* Citation\n* Contributor (optional)\n\n**Why should we measure it?**\n\nRecommended metadata ensures richer documentation and better support for reusability, traceability, and credit attribution in line with FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology file or its URI.\n\n**What are considered valid results?**\n\nThe ontology should include all recommended fields except the contributor field, which is optional and does not result in a penalty if absent. Missing other fields will cause the ontology to fail this benchmark.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -162,34 +168,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/OM2",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/R1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@value": "R1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "R1"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -202,6 +180,28 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     }
