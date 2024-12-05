@@ -1,45 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://www.w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/RDF1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/CN1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -55,7 +15,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " The benchmark verifies that the vocabulary is accessible in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will pass if the vocabulary is available in one of these formats and fail if no known RDF serialization is returned or the serialization is not among the specified formats. "
+                "@value": " \n\nThis metric ensures that the vocabulary is accessible in recognized RDF serialization formats.\n\n**What is being measured?**\n\nThe accessibility of the vocabulary in any of the following RDF serializations:\n\n* RDF/XML\n* Turtle (TTL)\n* N-Triples\n* JSON-LD\n\n**Why should we measure it?**\n\nRDF serializations are fundamental for semantic web technologies. Ensuring accessibility in at least one of these formats allows tools and systems to process the vocabulary effectively, enabling interoperability and usability across platforms.\n\n**What must be provided for the measurement?**\n\nAn ontology URI supporting content negotiation.\n\n**What are considered valid results?**\n\nValid results occur if the ontology is accessible in at least one specified RDF serialization. The test fails if no recognized serialization is returned or the serialization does not match the required formats.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -137,9 +97,21 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
         ]
     },
     {
@@ -178,6 +150,34 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/RDF1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
         ]
     }
 ]

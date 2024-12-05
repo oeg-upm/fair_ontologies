@@ -72,7 +72,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;">  This benchmark defines criteria to ensure that the ontology reuses other vocabularies for declaring metadata terms. The benchmark verifies the presence of reused vocabularies in the ontology&#x27;s metadata declarations, promoting interoperability and standardization. </div>
+                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric evaluates the extent to which the ontology reuses established vocabularies for metadata declaration, fostering interoperability and adherence to standards.</p>
+<p><strong>What is being measured?</strong></p>
+<p>The reuse of standard vocabularies (e.g., Dublin Core, FOAF, or SKOS) in the ontology’s metadata declarations.</p>
+<p><strong>Why should we measure it?</strong></p>
+<p>Reusing well-known vocabularies enhances interoperability, reduces redundancy, and ensures compatibility with tools and datasets that rely on these standards.</p>
+<p><strong>What must be provided for the measurement?</strong></p>
+<p>An ontology URI.</p>
+<p><strong>What are considered valid results?</strong></p>
+<ul>
+<li>PASS: The ontology’s metadata uses terms from recognized standard vocabularies.</li>
+<li>FAIL: Metadata terms are custom-defined without reusing standard vocabularies, reducing interoperability.</li>
+</ul></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 

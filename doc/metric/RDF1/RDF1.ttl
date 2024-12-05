@@ -12,7 +12,31 @@
 <https://w3id.org/foops/metric/CN1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/CN1> ;
 	dcterms:title "Content negotiation for RDF"@en ;
-	dcterms:description """ The benchmark verifies that the vocabulary is accessible in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will pass if the vocabulary is available in one of these formats and fail if no known RDF serialization is returned or the serialization is not among the specified formats. """@en ;
+	dcterms:description """ 
+
+This metric ensures that the vocabulary is accessible in recognized RDF serialization formats.
+
+**What is being measured?**
+
+The accessibility of the vocabulary in any of the following RDF serializations:
+
+* RDF/XML
+* Turtle (TTL)
+* N-Triples
+* JSON-LD
+
+**Why should we measure it?**
+
+RDF serializations are fundamental for semantic web technologies. Ensuring accessibility in at least one of these formats allows tools and systems to process the vocabulary effectively, enabling interoperability and usability across platforms.
+
+**What must be provided for the measurement?**
+
+An ontology URI supporting content negotiation.
+
+**What are considered valid results?**
+
+Valid results occur if the ontology is accessible in at least one specified RDF serialization. The test fails if no recognized serialization is returned or the serialization does not match the required formats.
+	"""@en ;
 	rdfs:label "Metric CN1"^^xsd:string ;
 	vivo:abbreviation "Metric CN1"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;

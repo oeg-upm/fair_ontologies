@@ -12,7 +12,26 @@
 <https://w3id.org/foops/metric/FIND_3_BIS> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND_3_BIS> ;
 	dcterms:title "Metadata are accessible, even when ontology is not"@en ;
-	dcterms:description """ This benchmark defines criteria to ensure that metadata remain accessible even when the associated ontology is no longer available. The benchmark verifies that the ontology is registered in a public metadata registry (LOV), to guarantee persistent access to the metadata"""@en ; 
+	dcterms:description """ 
+This metric ensures that metadata remain accessible even if the ontology itself becomes unavailable. It verifies that the ontology is registered in a public metadata registry like the Linked Open Vocabularies (LOV) to guarantee persistent access to its metadata.
+
+**What is being measured?** 
+
+The accessibility of metadata independently of the ontology’s availability.
+
+**Why should we measure it?**
+
+Ensuring metadata accessibility supports reusability, discoverability, and long-term FAIR compliance.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+Metadata registered and accessible via a persistent public registry such as LOV.
+	
+	"""@en ; 
 	rdfs:label "Metric FIND_3_BIS"^^xsd:string ;
 	vivo:abbreviation "Metric FIND_3_BIS"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;

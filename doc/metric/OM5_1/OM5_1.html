@@ -72,7 +72,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;">  The benchmark verifies the presence of essential provenance metadata: author and creation date. Additionally, it checks for the presence of contributor and previous version metadata elements, though it does not penalize their absence, recognizing that not all ontologies may have a previous version or a contributor. </div>
+                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric checks for the inclusion of essential provenance metadata, ensuring that the origin and authorship of the ontology are clear and traceable.</p>
+<p><strong>What is being measured?</strong></p>
+<p>The presence of basic provenance metadata, specifically:</p>
+<ul>
+<li>Mandatory: Author and creation date.</li>
+<li>Optional: Contributor and previous version metadata elements.</li>
+</ul>
+<p><strong>Why should we measure it?</strong></p>
+<p>Provenance metadata is crucial for understanding the source and authorship of an ontology, supporting reusability and trust. While not all ontologies may have contributors or previous versions, their inclusion adds value.</p>
+<p><strong>What must be provided for the measurement?</strong></p>
+<p>An ontology file or URI containing metadata sections with provenance information.</p>
+<p><strong>What are considered valid results?</strong></p>
+<p>Ontologies that explicitly state an author and a creation date satisfy the metric. Ontologies are encouraged, but not required, to include information on contributors and previous versions.</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 

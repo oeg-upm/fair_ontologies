@@ -6,40 +6,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://www.w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/OM3",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -55,7 +21,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " The benchmark verifies the presence of the following detailed metadata: DOI, publisher, logo, status, source, and issued date. Additionally, it checks for the presence of previous version, backward compatibility, and modified metadata elements, though it does not penalize their absence, recognizing that not all ontologies may have, for example, a previous version. "
+                "@value": " \n\t\nThis metric evaluates whether an ontology includes a comprehensive set of metadata elements that provide in-depth information for improved usability, provenance tracking, and interoperability.\n\n**What is being measured?**\n\nThe presence of the following detailed metadata fields:\n\n* DOI (Digital Object Identifier)\n* Publisher\n* Logo\n* Status\n* Source\n* Issued Date\n\nAdditionally, optional fields are checked but not penalized if absent:\n\n* Previous Version\n* Backward Compatibility\n* Modified Date\n\n**Why should we measure it?**\n\nDetailed metadata enhances the ontology’s credibility, accessibility, and traceability, aligning with FAIR principles to ensure its longevity and adaptability in diverse applications.\n\n**What must be provided for the measurement?**\n\nAn ontology file or its URI.\n\n**What are considered valid results?**\n\nThe ontology should include all mandatory fields. Optional fields like previous version, backward compatibility, and modified date are recommended but their absence does not lead to a failure of this benchmark.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -144,27 +110,21 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://www.w3id.org/ftr#Benchmark"
         ],
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -185,15 +145,33 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "_:n7b27b1143af44c8e8cd34c9d82d28769b1"
+                "@id": "_:n1f56523abeaf4f8e903ff84612f644b4b1"
             }
         ]
     },
     {
-        "@id": "_:n7b27b1143af44c8e8cd34c9d82d28769b1",
+        "@id": "_:n1f56523abeaf4f8e903ff84612f644b4b1",
         "http://www.w3.org/2001/XMLSchema#string": [
             {
                 "@value": "R1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
             }
         ]
     },
@@ -210,6 +188,28 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     }

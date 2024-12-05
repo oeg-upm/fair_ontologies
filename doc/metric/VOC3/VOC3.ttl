@@ -12,7 +12,25 @@
 <https://w3id.org/foops/metric/VOC3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC3> ;
 	dcterms:title "Documentation: labels"@en ;
-	dcterms:description """ This benchmark defines criteria to evaluate the extent to which all ontology terms have labels. The benchmark verifies that ontology terms are labeled using rdfs:label in OWL vocabularies and skos:prefLabel in SKOS vocabularies, ensuring that each term has a human-readable identifier. """@en ; 
+	dcterms:description """ 
+This metric defines criteria to evaluate the extent to which all ontology terms have labels. The metric verifies that ontology terms are labeled using rdfs:label in OWL vocabularies and skos:prefLabel in SKOS vocabularies, ensuring that each term has a human-readable identifier.
+
+**What is being measured?**
+
+The presence of human-readable labels for all ontology terms, using rdfs:label for OWL vocabularies and skos:prefLabel for SKOS vocabularies.
+
+**Why should we measure it?**
+
+Having labels for ontology terms improves usability, accessibility, and understanding, making ontologies easier to work with for humans and systems.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+All ontology terms have labels defined using rdfs:label or skos:prefLabel, ensuring that the ontology is understandable and usable.
+	"""@en ; 
 	rdfs:label "Metric VOC3"^^xsd:string ;
 	vivo:abbreviation "Metric VOC3"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;

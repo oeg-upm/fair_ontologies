@@ -1,64 +1,8 @@
 [
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@id": "https://w3id.org/foops/test/URI1",
         "@type": [
-            "https://www.w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are assigned a globally unique and persistent identifier."
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@value": "F1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "F1"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "https://www.w3id.org/ftr#Test"
         ]
     },
     {
@@ -77,7 +21,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "This check verifies if the ontology URI found within the ontology document is resolvable. The test will PASS if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."
+                "@value": "\nThis metric ensures that the ontology’s URI is resolvable and provides accessible content in recognized RDF serialization formats.\n\n**What is being measured?**\n\nThe resolvability of the ontology URI within the ontology document, ensuring it can provide content in RDF serializations like RDF/XML, TTL, N-Triples, or JSON-LD.\n\n**Why should we measure it?**\n\nA resolvable ontology URI guarantees that users and systems can access and use the ontology efficiently. It is essential for semantic web interoperability and for maintaining the credibility and usability of the ontology.\n\n**What must be provided for the measurement?**\n\nThe ontology URI to be tested.\n\n**What are considered valid results?**\n\n* PASS: The URI is resolvable and returns content in one of the specified RDF serializations.\n* FAIL: The URI is not resolvable or does not return any of the supported RDF formats.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -163,9 +107,43 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/URI1",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
-            "https://www.w3id.org/ftr#Test"
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are assigned a globally unique and persistent identifier."
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "F1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "F1"
+            }
         ]
     },
     {
@@ -181,6 +159,28 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     }

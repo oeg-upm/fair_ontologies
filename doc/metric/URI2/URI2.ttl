@@ -12,7 +12,25 @@
 <https://w3id.org/foops/metric/URI2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/URI2> ;
 	dcterms:title "Consistent ontology IDs"@en ;
-	dcterms:description """ The benchmark verifies the consistency between the ontology's URI and its ID, ensuring accurate identification and referencing. """@en ;
+	dcterms:description """ 
+This metric ensures alignment between the ontology’s URI and its ID, promoting accurate and reliable identification.
+
+**What is being measured?**
+
+The consistency between the ontology’s URI and its declared ID, ensuring that the ontology can be uniquely identified and referenced.
+
+**Why should we measure it?**
+
+Inconsistent IDs can lead to confusion, misidentification, and errors in ontology usage. Verifying consistency ensures smooth integration and usage in semantic web applications.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology’s URI and ID are consistent, properly aligned, and follow the expected format.
+	"""@en ;
 	rdfs:label "Metric URI2"^^xsd:string ;
 	vivo:abbreviation "Metric URI2"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
