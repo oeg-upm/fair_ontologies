@@ -1,85 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://www.w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
-        "@type": [
-            "https://www.w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F2",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "data are described with rich metadata (defined by R1 below)"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@value": "F2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "F2"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -117,7 +37,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric verifies whether the ontology includes a set of required metadata fields essential for its effective use and FAIR compliance.\n\n**What is being measured?**\n\nThe presence of the following minimum metadata in the ontology:\n\n* Title\n* Description\n* License\n* Version IRI\n* Creator\n* Creation Date\n* Namespace URI\n\n**Why should we measure it?**\n\nTo ensure the ontology provides sufficient context for reuse, versioning, and compliance with FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology file or its URI.\n\n**What are considered valid results?**\n\nThe ontology must contain all specified metadata fields. If any field is missing or incomplete, the ontology fails this benchmark.\n\t"
+                "@value": " \nThis metric verifies whether the ontology includes a set of required metadata fields essential for its effective use and FAIR compliance.\n\n**What is being measured?**\n\nThe presence of the following minimum metadata in the ontology:\n\n* Title\n* Description\n* License\n* Version IRI\n* Creator\n* Creation Date\n* Namespace URI\n\n**Why should we measure it?**\n\nTo ensure the ontology provides sufficient context for reuse, versioning, and compliance with FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology must contain all specified metadata fields. If any field is missing or incomplete, the ontology fails this benchmark.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -202,6 +122,86 @@
             {
                 "@language": "en",
                 "@value": "Active"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F2",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "data are described with rich metadata (defined by R1 below)"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "F2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "F2"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/OM1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     }

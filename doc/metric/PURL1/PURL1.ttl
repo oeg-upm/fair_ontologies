@@ -30,7 +30,7 @@ Persistent URLs provide a stable reference to the ontology, essential for long-t
 
 **What must be provided for the measurement?**
 
-An ontology URI that includes or resolves to a persistent identifier.
+An ontology URI.
 
 **What are considered valid results?**
 

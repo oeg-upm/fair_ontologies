@@ -14,7 +14,7 @@
 	dcterms:title "Open protocol"@en ;
 	rdfs:label "Metric HTTP1"^^xsd:string ;
 	vivo:abbreviation "Metric HTTP1"^^xsd:string ;
-	dcterms:description """ 	
+	dcterms:description """ 
 This metric ensures that ontologies are accessible through open protocols, such as HTTP or HTTPS, guaranteeing widespread compatibility and accessibility for users and systems.
 
 **What is being measured?**

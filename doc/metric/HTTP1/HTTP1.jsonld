@@ -1,5 +1,11 @@
 [
     {
+        "@id": "https://w3id.org/foops/test/HTTP1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/HTTP1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -15,7 +21,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \t\nThis metric ensures that ontologies are accessible through open protocols, such as HTTP or HTTPS, guaranteeing widespread compatibility and accessibility for users and systems.\n\n**What is being measured?**\n\nThe availability of the ontology via standardized open protocols.\n\n**Why should we measure it?**\n\nTo ensure the ontology is readily accessible and usable across different platforms without proprietary barriers, supporting FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology must:\n\n* Be accessible via open protocols (e.g., HTTP, HTTPS).\n* Return a valid response when accessed using these protocols.\n\t\n\t"
+                "@value": " \nThis metric ensures that ontologies are accessible through open protocols, such as HTTP or HTTPS, guaranteeing widespread compatibility and accessibility for users and systems.\n\n**What is being measured?**\n\nThe availability of the ontology via standardized open protocols.\n\n**Why should we measure it?**\n\nTo ensure the ontology is readily accessible and usable across different platforms without proprietary barriers, supporting FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology must:\n\n* Be accessible via open protocols (e.g., HTTP, HTTPS).\n* Return a valid response when accessed using these protocols.\n\t\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -101,20 +107,24 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://www.w3id.org/ftr#Benchmark"
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -157,31 +167,21 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://www.w3id.org/ftr#Benchmark"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Daniel Garijo"
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/HTTP1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
         ]
     }
 ]

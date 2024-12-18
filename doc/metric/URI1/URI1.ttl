@@ -25,12 +25,11 @@ A resolvable ontology URI guarantees that users and systems can access and use t
 
 **What must be provided for the measurement?**
 
-The ontology URI to be tested.
+An ontology URI.
 
 **What are considered valid results?**
 
-* PASS: The URI is resolvable and returns content in one of the specified RDF serializations.
-* FAIL: The URI is not resolvable or does not return any of the supported RDF formats.
+The ontology URI provides accessible content in recognized RDF serialization formats (e.g., RDF/XML, TTL, N-Triples, JSON-LD), ensuring interoperability and usability.
 	"""@en ;
 	rdfs:label "Metric URI1"^^xsd:string ;
 	vivo:abbreviation "Metric URI1"^^xsd:string ;	
