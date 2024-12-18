@@ -29,8 +29,7 @@ An ontology URI.
 
 **What are considered valid results?**
 
-* PASS: The ontology’s metadata uses terms from recognized standard vocabularies.
-* FAIL: Metadata terms are custom-defined without reusing standard vocabularies, reducing interoperability.
+Valid results indicate the extent of vocabulary reuse, ranging from high alignment (extensive reuse) to low alignment (minimal reuse), providing insights into interoperability and areas for improvement.
 	"""@en ;
 	rdfs:label "Metric VOC1"^^xsd:string ;
 	vivo:abbreviation "Metric VOC1"^^xsd:string ;

@@ -25,7 +25,7 @@ Measuring license availability ensures that the ontology can be legally used and
 
 **What must be provided for the measurement?**
 
-An ontology file or its URI that includes a clear and accessible license.
+An ontology URI.
 
 **What are considered valid results?**
 

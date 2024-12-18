@@ -39,7 +39,7 @@ Detailed metadata enhances the ontology’s credibility, accessibility, and trac
 
 **What must be provided for the measurement?**
 
-An ontology file or its URI.
+An ontology URI.
 
 **What are considered valid results?**
 

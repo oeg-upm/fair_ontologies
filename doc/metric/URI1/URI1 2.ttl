@@ -9,46 +9,40 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> . 
 
-<https://w3id.org/foops/metric/CN1> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/CN1> ;
-	dcterms:title "Content negotiation for RDF"@en ;
-	dcterms:description """ 
-
-This metric ensures that the vocabulary is accessible in recognized RDF serialization formats.
+<https://w3id.org/foops/metric/URI1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/URI1> ;
+	dcterms:title "Ontology URI is resolvable"@en ;
+	dcterms:description """
+This metric ensures that the ontology’s URI is resolvable and provides accessible content in recognized RDF serialization formats.
 
 **What is being measured?**
 
-The accessibility of the vocabulary in any of the following RDF serializations:
-
-* RDF/XML
-* Turtle (TTL)
-* N-Triples
-* JSON-LD
+The resolvability of the ontology URI within the ontology document, ensuring it can provide content in RDF serializations like RDF/XML, TTL, N-Triples, or JSON-LD.
 
 **Why should we measure it?**
 
-RDF serializations are fundamental for semantic web technologies. Ensuring accessibility in at least one of these formats allows tools and systems to process the vocabulary effectively, enabling interoperability and usability across platforms.
+A resolvable ontology URI guarantees that users and systems can access and use the ontology efficiently. It is essential for semantic web interoperability and for maintaining the credibility and usability of the ontology.
 
 **What must be provided for the measurement?**
 
-An ontology URI supporting content negotiation.
+An ontology URI.
 
 **What are considered valid results?**
 
-Valid results occur if the ontology is accessible in at least one specified RDF serialization. The test fails if no recognized serialization is returned or the serialization does not match the required formats.
+The ontology URI provides accessible content in recognized RDF serialization formats (e.g., RDF/XML, TTL, N-Triples, JSON-LD), ensuring interoperability and usability.
 	"""@en ;
-	rdfs:label "Metric CN1"^^xsd:string ;
-	vivo:abbreviation "Metric CN1"^^xsd:string ;	
+	rdfs:label "Metric URI1"^^xsd:string ;
+	vivo:abbreviation "Metric URI1"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dqv:inDimension  <https://w3id.org/fair/principles/terms/A1> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
 	dcterms:publisher <https://oeg.fi.upm.es> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
-	dcat:keyword "Content negotiation"@en , "Metric"@en ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/RDF1> ;
-	dcat:landingPage <https://w3id.org/foops/metric/CN1> ; 
+	dcat:keyword "URI resolvable"@en , "Metric"@en , "Resolvable"@en;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/URI1> ;
+	dcat:landingPage <https://w3id.org/foops/metric/URI1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:metricStatus "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
@@ -57,12 +51,12 @@ Valid results occur if the ontology is accessible in at least one specified RDF 
 <https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
 	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
-<https://w3id.org/fair/principles/terms/A1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
-	rdfs:label "A1"^^xsd:string ;
-	vivo:abbreviation "A1"^^xsd:string ;
-	dcterms:description "(meta)data are retrievable by their identifier using a standardized communications protocol"@en .
+<https://w3id.org/fair/principles/terms/F1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "F1"^^xsd:string ;
+	vivo:abbreviation "F1"^^xsd:string ;
+	dcterms:description "(meta)data are assigned a globally unique and persistent identifier."@en .
 <https://oeg.fi.upm.es> a vcard:Organization .
-<https://w3id.org/foops/test/RDF1> a ftr:Test .
+<https://w3id.org/foops/test/URI1> a ftr:Test .
 <https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
     dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
     dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .

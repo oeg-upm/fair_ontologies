@@ -32,7 +32,7 @@ Recommended metadata ensures richer documentation and better support for reusabi
 
 **What must be provided for the measurement?**
 
-An ontology file or its URI.
+An ontology URI.
 
 **What are considered valid results?**
 

@@ -104,20 +104,30 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@id": "https://w3id.org/foops/test/VOC3",
         "@type": [
-            "https://www.w3id.org/ftr#Benchmark"
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -162,12 +172,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/VOC3",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -184,24 +188,20 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://www.w3id.org/ftr#Benchmark"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Daniel Garijo"
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     }

@@ -25,7 +25,7 @@ Resolvable licenses ensure transparency and trust in the use of the ontology, al
 
 **What must be provided for the measurement?**
 
-An ontology file or its URI that includes a license linked to a resolvable URL.
+An ontology URI.
 
 **What are considered valid results?**
 

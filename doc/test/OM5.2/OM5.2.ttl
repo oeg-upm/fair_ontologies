@@ -9,21 +9,21 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 
-<https://w3id.org/foops/test/OM5_1> a ftr:Test , dcat:DataService ;
+<https://w3id.org/foops/test/OM5.2> a ftr:Test , dcat:DataService ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Basic provenance metadata"@en ;
-	rdfs:label "OM5_1"^^xsd:string ;
-	vivo:abbreviation "OM5_1"^^xsd:string ;
+	dcterms:title "Detailed provenance metadata"@en ;
+	rdfs:label "OM5.2"^^xsd:string ;
+	vivo:abbreviation "OM5.2"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	ftr:indicator <https://w3id.org/fair/principles/terms/R1.2> ;
-	dcterms:description """ This check verifies if basic provenance is available for the ontology: [author, creation date]. This check also verifies whether [contributor, previous version] are present, but with no penalty (as no all ontologies may have a previous version or a contributor) """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ This check verifies if detailed provenance information is available for the ontology: [issued date, publisher]"""@en ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/OM5_1> ;
-	dcat:keyword "Basic provenance metadata"@en , "Test"@en , "Reusable"@en ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/OM5_1> ;
+	dcterms:identifier <https://w3id.org/foops/test/OM5.2> ;
+	dcat:keyword "Detailed provenance metadata"@en , "Test"@en , "Reusable"@en ;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/OM5.2> ;
 	doap:repository <https://w3id.org/foops/repository> .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
@@ -38,5 +38,5 @@
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/repository>
 foaf:homePage <https://github.com/oeg-upm/fair_ontologies> .
-<https://w3id.org/foops/metric/OM5_1> a dqv:Metric .
+<https://w3id.org/foops/metric/OM5.2> a dqv:Metric .
 
