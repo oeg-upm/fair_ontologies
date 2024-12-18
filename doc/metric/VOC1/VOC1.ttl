@@ -7,13 +7,30 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix vivo: <http://vivoweb.org/ontology/core#> .
-@prefix dav: <https://example.org/ontology#> . 
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
 
 <https://w3id.org/foops/metric/VOC1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC1> ;
 	dcterms:title "Vocabulary reuse (metadata)"@en ;
-	dcterms:description """ This benchmark defines criteria to ensure that the ontology reuses other vocabularies for declaring metadata terms. The benchmark verifies the presence of reused vocabularies in the ontology's metadata declarations, promoting interoperability and standardization. """@en ;
+	dcterms:description """ 
+This metric evaluates the extent to which the ontology reuses established vocabularies for metadata declaration, fostering interoperability and adherence to standards.
+
+**What is being measured?**
+
+The reuse of standard vocabularies (e.g., Dublin Core, FOAF, or SKOS) in the ontology’s metadata declarations.
+
+**Why should we measure it?**
+
+Reusing well-known vocabularies enhances interoperability, reduces redundancy, and ensures compatibility with tools and datasets that rely on these standards.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+Valid results indicate the extent of vocabulary reuse, ranging from high alignment (extensive reuse) to low alignment (minimal reuse), providing insights into interoperability and areas for improvement.
+	"""@en ;
 	rdfs:label "Metric VOC1"^^xsd:string ;
 	vivo:abbreviation "Metric VOC1"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
@@ -26,7 +43,7 @@
 	dcat:keyword "Vocabulary reuse metadata"@en , "Metric"@en , "Interoperable"@en ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VOC1> ; 
-	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE>  ; 
 	ftr:metricStatus "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
@@ -40,7 +57,11 @@
 	dcterms:description "(meta)data use vocabularies that follow FAIR principles"@en .
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/VOC1> a ftr:Test .
-<https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles"@en ;
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
+<https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark;
+    dcterms:title "General Benchmark PRE for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."@en .
+
 

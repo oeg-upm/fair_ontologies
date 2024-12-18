@@ -7,13 +7,38 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix vivo: <http://vivoweb.org/ontology/core#> .
-@prefix dav: <https://example.org/ontology#> . 
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
 
 <https://w3id.org/foops/metric/OM1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM1> ;
 	dcterms:title "Minimum metadata"@en ;
-	dcterms:description """ This check verifies if the The following  minimum metadata [title, description, license, version iri, creator, creationDate, namespace URI] are present in the ontology """@en ;
+	dcterms:description """ 
+This metric verifies whether the ontology includes a set of required metadata fields essential for its effective use and FAIR compliance.
+
+**What is being measured?**
+
+The presence of the following minimum metadata in the ontology:
+
+* Title
+* Description
+* License
+* Version IRI
+* Creator
+* Creation Date
+* Namespace URI
+
+**Why should we measure it?**
+
+To ensure the ontology provides sufficient context for reuse, versioning, and compliance with FAIR principles.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology must contain all specified metadata fields. If any field is missing or incomplete, the ontology fails this benchmark.
+	"""@en ;
 	rdfs:label "Metric OM1"^^xsd:string ;
 	vivo:abbreviation "Metric OM1"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
@@ -26,7 +51,7 @@
 	dcat:keyword "Minimum metadata"@en , "Metric"@en , "Findable"@en ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM1> ; 
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM1> ;
-	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL>, <https://w3id.org/foops/benchmark/PRE> ; 
 	ftr:metricStatus "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
@@ -40,6 +65,9 @@
 	dcterms:description "data are described with rich metadata (defined by R1 below)"@en .
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/OM1> a ftr:Test .
-<https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles"@en ;
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
+<https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark;
+    dcterms:title "General Benchmark PRE for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."@en .

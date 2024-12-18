@@ -10,7 +10,7 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 
 <https://w3id.org/foops/test/FIND1> a ftr:Test , dcat:DataService ;
-	dcat:coontacPoint <https://orcid.org/0000-0003-0454-7145> ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:title "Ontology prefix"@en ;

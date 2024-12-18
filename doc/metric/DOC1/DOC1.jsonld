@@ -1,43 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/fair/principles/terms/R1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@value": "R1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "R1"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -59,7 +21,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This metric evaluates the presence and accessibility of HTML documentation, ensuring that users can easily access, read, and understand the structure and content. "
+                "@value": " \nThis metric evaluates the presence and accessibility of HTML documentation to ensure that users can easily access and understand the resource’s structure and content.\n\n**What is being measured?**\n\nThe availability and quality of HTML documentation for an ontology or resource.\n\n**Why should we measure it?**\n\nHTML documentation enhances usability, transparency, and accessibility, aligning with FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe existence of an accessible, online HTML page providing clear and detailed documentation of the ontology.\n\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -134,7 +96,7 @@
         ],
         "https://www.w3id.org/ftr#hasBenchmark": [
             {
-                "@id": "https://w3id.org/foops/benchmark/full_assessment"
+                "@id": "https://w3id.org/foops/benchmark/ALL"
             }
         ],
         "https://www.w3id.org/ftr#metricStatus": [
@@ -145,20 +107,64 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
-            "https://example.org/ontology#MetricBenchmark"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "R1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "R1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "General Benchmark for FAIR Principles"
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/DOC1",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -176,12 +182,6 @@
             {
                 "@id": "mailto:dgarijo@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/DOC1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
         ]
     }
 ]

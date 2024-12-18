@@ -1,30 +1,23 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "@id": "https://w3id.org/foops/repository",
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Maria Poveda"
+                "@language": "en",
+                "@value": "Main repository for FOOPS! code and documentation"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/test/CN1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/CN1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
+            "https://www.w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
         ],
         "http://purl.org/dc/terms/creator": [
             {
@@ -37,12 +30,12 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " The benchmark verifies that the vocabulary is accessible in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will pass if the vocabulary is available in one of these formats and fail if no known RDF serialization is returned or the serialization is not among the specified formats. "
+                "@value": "This test verifies whether an RDF representation is available for the target vocabulary. The test will PASS if the vocabulary is available in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."
             }
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/CN1"
+                "@id": "https://w3id.org/foops/test/CN1"
             }
         ],
         "http://purl.org/dc/terms/license": [
@@ -63,17 +56,22 @@
         ],
         "http://semanticscience.org/resource/SIO_000233": [
             {
-                "@id": "https://w3id.org/foops/test/RDF1"
+                "@id": "https://w3id.org/foops/metric/CN1"
+            }
+        ],
+        "http://usefulinc.com/ns/doap#repository": [
+            {
+                "@id": "https://w3id.org/foops/repository"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
-                "@value": "Metric CN1"
+                "@value": "CN1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Metric CN1"
+                "@value": "CN1"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -88,12 +86,7 @@
             },
             {
                 "@language": "en",
-                "@value": "Metric"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#landingPage": [
-            {
-                "@id": "https://w3id.org/foops/metric/CN1"
+                "@value": "Test"
             }
         ],
         "http://www.w3.org/ns/dcat#version": [
@@ -101,38 +94,42 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dqv#inDimension": [
+        "https://www.w3id.org/ftr#indicator": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/A1"
-            }
-        ],
-        "https://www.w3id.org/ftr#hasBenchmark": [
-            {
-                "@id": "https://w3id.org/foops/benchmark/full_assessment"
-            }
-        ],
-        "https://www.w3id.org/ftr#metricStatus": [
-            {
-                "@language": "en",
-                "@value": "Active"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://example.org/ontology#MetricBenchmark"
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/CN1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://semanticscience.org/resource/SIO_000234": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
+                "@id": "https://w3id.org/foops/test/CN1"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@language": "en",
-                "@value": "General Benchmark for FAIR Principles"
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -172,12 +169,6 @@
             {
                 "@value": "A1"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/RDF1",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
         ]
     }
 ]

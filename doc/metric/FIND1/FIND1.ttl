@@ -8,12 +8,29 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
-@prefix dav: <https://example.org/ontology#> .
 
 <https://w3id.org/foops/metric/FIND1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND1> ;
 	dcterms:title "Ontology prefix"@en ;
-	dcterms:description """ This benchmark defines criteria to ensure the availability of ontology prefixes. The benchmark verifies that the ontology prefix is registered and accessible, ensuring consistent usage and reference across various datasets and applications."""@en ; 
+	dcterms:description """ 
+This metric ensures the availability and accessibility of ontology prefixes. It verifies that the prefix is registered and resolvable, enabling consistent usage across datasets and applications.
+
+**What is being measured?**
+
+The registration and accessibility of the ontology prefix.
+
+**Why should we measure it?**
+
+To ensure interoperability and consistent reference in diverse datasets and tools.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+A registered ontology prefix that resolves correctly and aligns with public registries.
+	"""@en ; 
 	rdfs:label "Metric FIND1"^^xsd:string ;
 	vivo:abbreviation "Metric FIND1"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
@@ -26,7 +43,7 @@
 	dcat:keyword "Ontology prefix"@en , "Metric"@en , "Findable"@en ;
 	dcat:landingPage <https://w3id.org/foops/metric/FIND1> ; 
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/FIND1> ;
-	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL>, <https://w3id.org/foops/benchmark/PRE> ; 
 	ftr:metricStatus "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
@@ -40,6 +57,9 @@
 	dcterms:description "metadata clearly and explicitly include the identifier of the data it describes"@en .
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/FIND1> a ftr:Test .
-<https://w3id.org/foops/benchmark/ALL> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles"@en ;
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
+<https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark;
+    dcterms:title "General Benchmark PRE for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."@en .

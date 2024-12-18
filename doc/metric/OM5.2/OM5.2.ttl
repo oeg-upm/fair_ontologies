@@ -1,0 +1,68 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://www.w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
+
+<https://w3id.org/foops/metric/OM5.2> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM5.2> ;
+	dcterms:title "Detailed provenance metadata"@en ;
+	dcterms:description """ 
+This metric evaluates whether detailed provenance information about an ontology is provided, enabling users to understand its creation and distribution context.
+
+**What is being measured?**
+
+The inclusion of:
+
+* Mandatory: Issued date and publisher.
+
+**Why should we measure it?**
+
+Detailed provenance metadata helps users trace the ontology’s origins, ensuring accountability and reliability. The publisher and issued date provide critical context for the ontology’s dissemination.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+Ontologies that include explicit and correct values for the issued date and publisher meet the metric’s requirements.
+	"""@en ;
+	rdfs:label "Metric OM5.2"^^xsd:string ;
+	vivo:abbreviation "Metric OM5.2"^^xsd:string ;	
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
+	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	dcat:keyword "Detailed provenance metadata"@en, "Metric"@en, "Reusable"@en ;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM5.2> ;
+	dcat:landingPage <https://w3id.org/foops/metric/OM5.2> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL>, <https://w3id.org/foops/benchmark/PRE> ; 
+	ftr:metricStatus "Active"@en .
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
+	vcard:hasEmail <mailto:dgarijo@upm.es> .
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
+	vcard:hasEmail <mailto:m.poveda@upm.es> .
+<https://w3id.org/fair/principles/terms/R1.2> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "R1.2"^^xsd:string ;
+	vivo:abbreviation "R1.2"^^xsd:string ;
+	dcterms:description "(meta)data are associated with detailed provenance"@en .
+<https://oeg.fi.upm.es> a vcard:Organization .
+<https://w3id.org/foops/test/OM5.2> a ftr:Test .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
+<https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark;
+    dcterms:title "General Benchmark PRE for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."@en .
+

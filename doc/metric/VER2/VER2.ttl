@@ -7,13 +7,30 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix vivo: <http://vivoweb.org/ontology/core#> .
-@prefix dav: <https://example.org/ontology#> . 
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
 
 <https://w3id.org/foops/metric/VER2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VER2> ;
 	dcterms:title "Version IRI resolves"@en ;
-	dcterms:description """ This benchmark verifies that the version IRI associated with the ontology is accessible and returns the expected representation, ensuring that users can reliably access the specified version of the ontology. """@en ; 
+	dcterms:description """ 
+This metric ensures the existence of a version-specific identifier (IRI) for the ontology, promoting precise versioning and accurate referencing.
+
+**What is being measured?**
+
+The presence and uniqueness of the ontology’s version IRI, verifying that it is distinct from the general ontology URI.
+
+**Why should we measure it?**
+
+Version IRIs are crucial for managing updates and ensuring that users and systems can identify and work with the correct version of an ontology.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology includes a distinct version IRI separate from the general ontology URI, resolvable to a meaningful resource.
+	"""@en ; 
 	rdfs:label "Metric VER2"^^xsd:string ;
 	vivo:abbreviation "Metric VER2"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
@@ -26,7 +43,7 @@
 	dcat:keyword "Version IRI resolves"@en , "Metric"@en , "Findable"@en ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VER2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VER2> ; 
-	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:metricStatus "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
@@ -40,9 +57,9 @@
 	dcterms:description "(meta)data are assigned a globally unique and persistent identifier"@en .
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/Test/VER2> a ftr:Test .
-<https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles"@en ;
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
 
 
 

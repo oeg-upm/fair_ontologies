@@ -22,49 +22,9 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/FIND2",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
-        "@type": [
-            "https://example.org/ontology#MetricBenchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark for FAIR Principles"
-            }
         ]
     },
     {
@@ -84,6 +44,12 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/test/FIND2",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/FIND2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -99,7 +65,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This benchmark defines criteria to ensure the discoverability and consistency of ontology prefixes. The benchmark verifies that the ontology prefix is registered in recognized registries such as prefix.cc or LOV. It also checks that the prefix resolves to the same namespace prefix found in the ontology, ensuring accurate and consistent referencing. "
+                "@value": " \nThis metric ensures that ontology prefixes are discoverable and consistently aligned with recognized registries. It verifies that the prefix is registered in platforms such as prefix.cc or LOV and resolves to the same namespace as declared in the ontology.\n\n**What is being measured?**\n\nThe registration and resolution of the ontology prefix in trusted registries.\n\n**Why should we measure it?**\n\nTo guarantee accurate and consistent references across datasets and to promote interoperability.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology prefix must:\n\n* Be registered in recognized registries (e.g., prefix.cc, LOV).\n* Resolve to the same namespace prefix as declared in the ontology.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -174,13 +140,47 @@
         ],
         "https://www.w3id.org/ftr#hasBenchmark": [
             {
-                "@id": "https://w3id.org/foops/benchmark/full_assessment"
+                "@id": "https://w3id.org/foops/benchmark/ALL"
             }
         ],
         "https://www.w3id.org/ftr#metricStatus": [
             {
                 "@language": "en",
                 "@value": "Active"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     }

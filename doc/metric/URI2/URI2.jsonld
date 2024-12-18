@@ -22,6 +22,36 @@
         ]
     },
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/URI2",
+        "@type": [
+            "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/URI2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -37,7 +67,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " The benchmark verifies the consistency between the ontology's URI and its ID, ensuring accurate identification and referencing. "
+                "@value": " \nThis metric ensures alignment between the ontology’s URI and its ID, promoting accurate and reliable identification.\n\n**What is being measured?**\n\nThe consistency between the ontology’s URI and its declared ID, ensuring that the ontology can be uniquely identified and referenced.\n\n**Why should we measure it?**\n\nInconsistent IDs can lead to confusion, misidentification, and errors in ontology usage. Verifying consistency ensures smooth integration and usage in semantic web applications.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology’s URI and ID are consistent, properly aligned, and follow the expected format.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -112,7 +142,7 @@
         ],
         "https://www.w3id.org/ftr#hasBenchmark": [
             {
-                "@id": "https://w3id.org/foops/benchmark/full_assessment"
+                "@id": "https://w3id.org/foops/benchmark/ALL"
             }
         ],
         "https://www.w3id.org/ftr#metricStatus": [
@@ -139,30 +169,6 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
-        "@type": [
-            "https://example.org/ontology#MetricBenchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark for FAIR Principles"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -176,12 +182,6 @@
             {
                 "@id": "mailto:dgarijo@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/URI2",
-        "@type": [
-            "https://www.w3id.org/ftr#Test"
         ]
     }
 ]

@@ -1,27 +1,5 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/FIND_3_BIS",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -37,7 +15,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This benchmark defines criteria to ensure that metadata remain accessible even when the associated ontology is no longer available. The benchmark verifies that the ontology is registered in a public metadata registry (LOV), to guarantee persistent access to the metadata"
+                "@value": " \nThis metric ensures that metadata remain accessible even if the ontology itself becomes unavailable. It verifies that the ontology is registered in a public metadata registry like the Linked Open Vocabularies (LOV) to guarantee persistent access to its metadata.\n\n**What is being measured?** \n\nThe accessibility of metadata independently of the ontology’s availability.\n\n**Why should we measure it?**\n\nEnsuring metadata accessibility supports reusability, discoverability, and long-term FAIR compliance.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nMetadata registered and accessible via a persistent public registry such as LOV.\n\t\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -112,7 +90,7 @@
         ],
         "https://www.w3id.org/ftr#hasBenchmark": [
             {
-                "@id": "https://w3id.org/foops/benchmark/full_assessment"
+                "@id": "https://w3id.org/foops/benchmark/ALL"
             }
         ],
         "https://www.w3id.org/ftr#metricStatus": [
@@ -123,21 +101,9 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://example.org/ontology#MetricBenchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark for FAIR Principles"
-            }
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -182,6 +148,40 @@
         "@id": "https://w3id.org/foops/test/FIND_3_BIS",
         "@type": [
             "https://www.w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
         ]
     }
 ]

@@ -7,13 +7,33 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix vivo: <http://vivoweb.org/ontology/core#> .
-@prefix dav: <https://example.org/ontology#> . 
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
 
 <https://w3id.org/foops/metric/FIND2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND2> ;
 	dcterms:title "Prefix is in registry"@en ;
-	dcterms:description """ This benchmark defines criteria to ensure the discoverability and consistency of ontology prefixes. The benchmark verifies that the ontology prefix is registered in recognized registries such as prefix.cc or LOV. It also checks that the prefix resolves to the same namespace prefix found in the ontology, ensuring accurate and consistent referencing. """@en ;
+	dcterms:description """ 
+This metric ensures that ontology prefixes are discoverable and consistently aligned with recognized registries. It verifies that the prefix is registered in platforms such as prefix.cc or LOV and resolves to the same namespace as declared in the ontology.
+
+**What is being measured?**
+
+The registration and resolution of the ontology prefix in trusted registries.
+
+**Why should we measure it?**
+
+To guarantee accurate and consistent references across datasets and to promote interoperability.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology prefix must:
+
+* Be registered in recognized registries (e.g., prefix.cc, LOV).
+* Resolve to the same namespace prefix as declared in the ontology.
+	"""@en ;
 	rdfs:label "Metric FIND2"^^xsd:string ;
 	vivo:abbreviation "Metric FIND2"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
@@ -26,7 +46,7 @@
 	dcat:keyword "Prefix registry"@en , "Metric"@en , "Findable"@en ;
 	dcat:landingPage <https://w3id.org/foops/metric/FIND2> ; 
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/FIND2> ;
-	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:metricStatus "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
@@ -40,6 +60,6 @@
 	dcterms:description "(meta)data are registered or indexed in a searchable resource"@en .
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/FIND2> a ftr:Test .
-<https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles"@en ;
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .

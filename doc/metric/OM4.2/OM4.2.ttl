@@ -7,13 +7,30 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
-@prefix vivo: <http://vivoweb.org/ontology/core#> .
-@prefix dav: <https://example.org/ontology#> . 
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
 
 <https://w3id.org/foops/metric/OM4.2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM4.2> ;
 	dcterms:title "License is resolvable"@en ;
-	dcterms:description """ The benchmark verifies that the license associated with the ontology can be accessed through a resolvable URL, ensuring that the terms of use and distribution are clearly accessible and verifiable. """@en ; 
+	dcterms:description """ 
+This metric ensures that the license associated with an ontology is accessible via a resolvable URL, allowing users to easily verify the terms of use.
+
+**What is being measured?**
+
+The accessibility of the license through a functional and resolvable URL. This guarantees that users can view and confirm the ontology’s licensing terms.
+
+**Why should we measure it?**
+
+Resolvable licenses ensure transparency and trust in the use of the ontology, aligning with FAIR principles by clearly defining and verifying usage rights.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The license must have a functional URL that leads to a license document (e.g., Creative Commons, MIT License, etc.). If the URL is broken or unavailable, the ontology fails this benchmark.
+	"""@en ; 
 	rdfs:label "Metric OM4.2"^^xsd:string ;
 	vivo:abbreviation "Metric OM4.2"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
@@ -26,7 +43,7 @@
 	dcat:keyword "License resolvable"@en , "Metric"@en , "Reusable"@en ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM4.2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM4.2> ; 
-	ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/ALL>; 
 	ftr:metricStatus "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
@@ -40,6 +57,9 @@
 	dcterms:description "(meta)data are released with a clear and accessible data usage license"@en .
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/OM4.2> a ftr:Test .
-<https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark;
-    dcterms:title "General Benchmark for FAIR Principles"@en ;
-    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."@en .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
+<https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark;
+    dcterms:title "General Benchmark PRE for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."@en .

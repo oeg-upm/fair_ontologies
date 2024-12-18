@@ -70,14 +70,14 @@ dcat:keyword "Tags"@en ; --> KEYWORDS
 dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ; --> DIMENSION
 dcat:landingPage <https://w3id.org/foops/metric/NEW1> ; --> LANDING PAGE
 <http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/NEW1> ; --> TEST RELATE WITH THE METRIC
-ftr:hasBenchmark <https://w3id.org/foops/benchmark/full_assessment> ;
+ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ;
 ftr:metricStatus "Active"@en .
 <https://orcid.org/000-0000-0000-0000> a vcard:Individual;
 vcard:fn "Name Creator" ;
 vcard:hasEmail <mailto:name@mail.com> .
 <https://oeg.fi.upm.es> a vcard:Organization .
 <https://w3id.org/foops/test/NEW1> a ftr:Test .
-<https://w3id.org/foops/benchmark/full_assessment> a dav:MetricBenchmark; --> BENCHMARK
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark; --> BENCHMARK
 dcterms:title "General Benchmark for FAIR Principles"@en ;
 dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle." .
 <https://w3id.org/fair/principles/terms/R1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;

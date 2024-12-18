@@ -15,7 +15,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This benchmark defines criteria to ensure that the ontology imports or extends other vocabularies besides RDF, OWL, and RDFS. The benchmark verifies the presence of imported or extended vocabularies, promoting interoperability and reuse of existing ontological structures "
+                "@value": " \nThis metric defines criteria to ensure that the ontology imports or extends other vocabularies besides RDF, OWL, and RDFS. The metric verifies the presence of imported or extended vocabularies, promoting interoperability and reuse of existing ontological structures.\n\n**What is being measured?**\n\nThe presence and usage of external vocabularies that the ontology imports or extends, beyond RDF, OWL, and RDFS.\n\n**Why should we measure it?**\n\nReusing existing vocabularies ensures interoperability, reduces redundancy, and fosters a collaborative and standardized approach to ontology development.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology imports or extends one or more vocabularies in addition to RDF, OWL, and RDFS, ensuring enhanced interoperability and reuse.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -90,7 +90,10 @@
         ],
         "https://www.w3id.org/ftr#hasBenchmark": [
             {
-                "@id": "https://w3id.org/foops/benchmark/full_assessment"
+                "@id": "https://w3id.org/foops/benchmark/ALL"
+            },
+            {
+                "@id": "https://w3id.org/foops/benchmark/PRE"
             }
         ],
         "https://www.w3id.org/ftr#metricStatus": [
@@ -107,46 +110,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/full_assessment",
-        "@type": [
-            "https://example.org/ontology#MetricBenchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark for FAIR Principles"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -160,6 +123,12 @@
             {
                 "@id": "mailto:dgarijo@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -181,6 +150,58 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@value": "I2"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://www.w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     }
