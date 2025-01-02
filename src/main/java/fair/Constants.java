@@ -167,7 +167,7 @@ public class Constants {
     public static final String OM3_EXPLANATION = OM1_EXPLANATION_ERROR;
 
     //license
-    public static final String OM4_1 = "OM4.1";
+    public static final String OM4_1 = "OM4_1";
     public static final String OM4_1_TITLE = "License availability";
     public static final String OM4_1_DESC = "This check verifies if a license associated with the ontology";
     public static final String OM4_1_EXPLANATION_OK = "A license was found";
@@ -175,7 +175,7 @@ public class Constants {
     public static final String OM4_1_EXPLANATION_ERROR = "License or rights not found";
 
     //license_resolvable
-    public static final String OM4_2 = "OM4.2";
+    public static final String OM4_2 = "OM4_2";
     public static final String OM4_2_TITLE = "License is resolvable";
     public static final String OM4_2_DESC = "This check verifies if the ontology license is resolvable";
     public static final String OM4_2_EXPLANATION_OK = "License could be resolved";

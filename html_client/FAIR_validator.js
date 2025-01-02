@@ -85,6 +85,9 @@ function loadResults(){
 
 function getAverageChecks(checks){
   total = 0
+  if (checks == null) {
+    return 0;
+  };
   for(let i = 0; i < checks.length; i++){
     total += checks[i].total_passed_tests/checks[i].total_tests_run
   }
@@ -98,6 +101,7 @@ function getPassedChecks(checks){
   var passedChecks = 0
   var totalChecks = 0
 
+if (checks == null) return `(` + 0 +`)`;
 
   for(let i = 0; i < checks.length; i++){
     passedChecks += checks[i].total_passed_tests/checks[i].total_tests_run;
@@ -111,7 +115,7 @@ function getPassedChecks(checks){
        passedChecks = passedChecks.toFixed(2);
    };
 
-  return `(` + passedChecks + `/` + totalChecks+ `)`
+  return `(` + passedChecks + `/` + totalChecks+ `)`;
 }
 
 function getAbsolutePassedChecks(checks){
@@ -482,8 +486,10 @@ function loadCategory(category, result) {
   checks_div.innerHTML = getLineHTMLNoLine();
    checks_div.style ="display: none";
   checks = getCategoryChecks(category, result);
-
+    console.log("LONGINUS"+checks.content);
   loadPrinciples(checks, checks_div);
+
+
 }
 
 function getLineHTML(){
@@ -511,14 +517,47 @@ function getCategoryChecks(category, result) {
 
 function loadPrinciples(principles, checks_div) {
     //DIV DEL TITULO CHIQUITO
+console.log("EY"+principles);
+    if (principles.length == 0) {
+    console.log("ANTO");
+         divNuevo.classList.add("vacio");
+         var vacio = document.createElement("div");
+         vacio.className = "texto-check"
+         vacio.innerHTML =`  <span class="texto-check">Alvaro ferrero diesel</span>`;
+
+        // System.out.println("================================");
+            divNuevo.appendChild(vacio);
+
+    }
   for (let principle in principles) {
+  console.log("GILI"+principles.length);
+
     var title = document.createElement("div");
     title.innerHTML = getPrincipleHTML(principle);
     checks_div.appendChild(title);
-    loadChecks(principles[principle], checks_div);
+    loadChecks2(principles[principle], checks_div);
   }
 }
 
+
+function loadChecks2(checks, checks_div) {
+let divNuevo = document.createElement("div");
+
+
+  for (let i = 0; i < checks.length; i++) {
+
+    divNuevo.classList.add("check");
+    var check = document.createElement("div");
+    check.className = "p-3 caja-check ";
+
+    //divNuevo.style.display = "none";
+
+    check.innerHTML = getCheckHTML(checks[i]);
+    divNuevo.appendChild(check);
+    //hideContent(checks[i].id);
+  }
+  checks_div.appendChild(divNuevo);
+}
 
 
 
@@ -546,7 +585,7 @@ function getCheckHTML(check_info) {
         <p class="texto-affected pl-3 "> Imported/Reused URIs: </p>
       </div>`
       + getAffectedURIsHTML(check_info.reference_resources, check_info.principle_id, check_info.abbreviation) +
-      `</div>`
+    `</div>`
   }
 
   if("affected_elements" in check_info){
@@ -566,46 +605,116 @@ function getCheckHTML(check_info) {
     </div>
     `
   }
-//DIV DEL CHECK
-return (
-  `
-  <div class="col-12 p-0 caja-blanca mt-2" >
-    <div class="row mt-2 mx-0">
-      <div class="col-8">
-        <span class="texto-check">
-          `+`<a href=` + check_info.id + ` target="_blank">   `+ check_info.abbreviation +`: `+ check_info.title +`
-          </a>
-        </span>
-      </div>
-      <div class="col-2">
-        <div style="position: absolute; top:-30px;">
-          `+ getRadialScoreHTML(check_info.total_passed_tests / check_info.total_tests_run, 0.5) + `
+  //TODO score en variable para saber porcentaje y mostrar sugerencias
+
+   let score = (check_info.total_passed_tests / check_info.total_tests_run);
+   let divTexto = "";
+
+   // DIV DEL CHECK
+   if (score == 1) {
+    divTexto = `
+        <div class="col-12 p-0 caja-blanca mt-2">
+          <div class="row mt-2 mx-0">
+            <div class="col-8">
+              <span class="texto-check">
+                <a href="${check_info.id}" target="_blank">
+                  ${check_info.abbreviation}: ${check_info.title}
+                </a>
+              </span>
+            </div>
+            <div class="col-2">
+              <div style="position: absolute; top:-30px;">
+                ${getRadialScoreHTML(score, 0.5)}
+              </div>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-end">
+              <img
+                     src="assets/down-arrow.svg"
+                     onclick="arrowClicked(event, '${check_info.abbreviation}')">
+            </div>
+          </div>
+          <div class="row m-0" id="${check_info.abbreviation}" style="display: none">
+            ${getLineHTML()}
+            <div class="row mx-0 mt-2 w-100">
+              <dl>
+                <dt>Description</dt>
+                <dd>${check_info.description}</dd>
+                <dt>Explanation</dt>
+                <dd>${check_info.explanation}</dd>
+              </dl>
+            </div>
+            ${affected_URIs_HTML}
+            ${reference_URIs_HTML}
+          </div>
         </div>
-      </div>
-      <div class="col-2 d-flex align-items-center justify-content-end"  >
-        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, '`+ check_info.abbreviation + `')">
-      </div>
-    </div>
-    <div class="row m-0" id="`+ check_info.abbreviation + `" style="display: none">
-      `+ getLineHTML() + `
-      <div class="row mx-0 mt-2 w-100">
-        <dl>
-          <dt>Description</dt>
-          <dd>
-            ` + check_info.description + `
-          </dd>
-          <dt>Explanation</dt>
-          <dd>
-            ` + check_info.explanation + `
-          </dd>
-        </dl>
-      </div>
-      ` + affected_URIs_HTML + `
-      ` + reference_URIs_HTML + `
-    </div>
-  </div>
-  `
-);
+      `;
+   } else {
+    divTexto = `
+        <div class="col-12 p-0 caja-blanca mt-2">
+          <div class="row mt-2 mx-0">
+            <div class="col-8">
+              <span class="texto-check">
+                <a href="${check_info.id}" target="_blank">
+                  ${check_info.abbreviation}: ${check_info.title}
+                </a>
+              </span>
+            </div>
+            <div class="col-2">
+              <div style="position: absolute; top:-30px;">
+                ${getRadialScoreHTML(score, 0.5)}
+              </div>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-end">
+              <img
+                     src="assets/down-arrow.svg"
+                     onclick="arrowClicked(event, '${check_info.abbreviation}')">
+            </div>
+          </div>
+          <div class="row m-0" id="${check_info.abbreviation}" style="display: none">
+            ${getLineHTML()}
+            <div class="row mx-0 mt-2 w-100">
+              <dl>
+                <dt>Description</dt>
+                <dd>${check_info.description}</dd>
+                <dt>Explanation</dt>
+                <dd>${check_info.explanation}</dd>
+              </dl>
+            </div>
+
+            <div class="row mt-2 mx-0">
+                <div class="col-8">
+                    <span class="texto-check">
+                        Recommended Suggestions
+                    </span>
+                </div>
+
+                <div class="col-2 d-flex align-items-center justify-content-end">
+                    <img src="assets/down-arrow.svg" onclick="arrowClicked(event, '${check_info.abbreviation}_SUG')">
+                </div>
+            </div>
+            <div class="row m-0" id="${check_info.abbreviation}_SUG" style="display: none">
+                ${getLineHTML()}
+             <div class="row mx-0 mt-2 w-100">
+                    <dl>
+                        <dt class="titleSuggest">Recommended Action </dt>
+                        <dd>${'Try this curl command: curl -sH Accept:text/turtle -L https://w3id.org/example'}</dd>
+                        <dt class="titleSuggest">Recommended Documentation </dt>
+                        <dd>${'https://w3id.org/example'}</dd>
+                        <dt class="titleSuggest">Affected Elements </dt>
+                    </dl>
+            </div>
+
+            ${affected_URIs_HTML}
+            ${reference_URIs_HTML}
+          </div>
+        </div>
+      `;
+                 // <p id = "suggest" showSuggest('RI1', 'Try this curl command: curl -sH Accept:text/turtle -L https://w3id.org/example', 'URI1, URI2')>Suggestion</p>
+
+   }
+
+   return divTexto;
+
 /*
   return (
     `
@@ -685,14 +794,17 @@ function getAffectedURIsHTML(URIs, principle_id, check_id){
 
 function getPrincipleHTML(text) {
   // console.log("his is the text: " + text);
+  //TODO nuevo span para colapsar div
   return (
     `
-    <div class="row420 my-3 pl-3">
+    <div class="row420 my-3 pl-3 d-flex justify-content-between">
       <span id="` + text + `"class="texto-principle pl-3">` +
     text + `: `+ getPrincipleDescription (text) +
     ` </span>
-
-    </div>
+     <img
+          src="assets/down-arrow.svg"
+          onclick="expand (event)" class="arr3">
+     </div>
   `
   );
 }
@@ -752,5 +864,229 @@ function hideContent(id) {
 function example1(uri){
   document.getElementById("URI_input").value=uri;
   }
+
+
+function showSuggest(titulo, contenido, ey) {
+      //var checks_div = document.getElementById(category + "-checks");
+      var suggest_div = document.createElement("suggest");
+    suggest_div.innerHTML = getLineHTMLNoLine();
+       suggest_div.style ="display: none";
+    //  checks = getCategoryChecks(category, result);
+
+        var title = document.createElement("div");
+        title.innerHTML = getPrincipleHTML(principle);
+        suggest_div.appendChild(title);
+      //loadChecks2(principles[principle], checks_div);
+
+    return
+      `  <div class="col-12 p-0 caja-blanca mt-2">
+          <div class="row mt-2 mx-0">
+            <div class="col-8">
+              <span class="texto-check">
+                <a href="${check_info.id}" target="_blank">
+                  ${check_info.abbreviation}: ${check_info.title}
+                </a>
+              </span>
+            </div>
+            <div class="col-2">
+              <div style="position: absolute; top:-30px;">
+                ${getRadialScoreHTML(score, 0.5)}
+              </div>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-end">
+              <img
+                     src="assets/down-arrow.svg"
+                     onclick="arrowClicked(event, '${check_info.abbreviation}')">
+            </div>
+          </div>
+          <div class="row m-0" id="${check_info.abbreviation}" style="display: none">
+            ${getLineHTML()}
+            <div class="row mx-0 mt-2 w-100">
+              <dl>
+                <dt>Description</dt>
+                <dd>${check_info.description}</dd>
+                <dt>Explanation</dt>
+                <dd>${check_info.explanation}</dd>
+              </dl>
+            </div>
+            <p id = "suggest" onclick="showSuggest('RI1', 'Try this curl command: curl -sH Accept:text/turtle -L https://w3id.org/example')">Suggestion</p>
+            ${affected_URIs_HTML}
+            ${reference_URIs_HTML}
+          </div>
+        </div>
+      `
+
+
+}
+
+  /**********/
+// Función para crear y mostrar la ventana emergente
+function showSuggest2(titulo, contenido, ey) {
+  // Crear el modal (ventana emergente)
+  const modal = document.createElement('div');
+  modal.style.position = 'fixed';
+  modal.style.zIndex = '1000';
+  modal.style.left = '0';
+  modal.style.top = '0';
+  modal.style.width = '100%';
+  modal.style.height = '100%';
+  modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  modal.style.display = 'flex';
+  modal.style.justifyContent = 'center';
+  modal.style.alignItems = 'center'; // Esto centra el modal vertical y horizontalmente
+
+  // Crear el contenido de la ventana
+  const modalContent = document.createElement('div');
+  modalContent.style.backgroundColor = 'white';
+  modalContent.style.padding = '20px';
+  modalContent.style.borderRadius = '8px';
+  modalContent.style.textAlign = 'center';
+  modalContent.style.maxWidth = '500px';
+  modalContent.style.width = '80%';
+
+  // Crear el botón de cerrar (X)
+  const closeButton = document.createElement('span');
+  closeButton.textContent = '×';
+  closeButton.style.position = 'absolute';
+  closeButton.style.top = '10px';
+  closeButton.style.right = '20px';
+  closeButton.style.fontSize = '24px';
+  closeButton.style.cursor = 'pointer';
+
+  // Crear el título
+  const tituloElemento = document.createElement('h2');
+  tituloElemento.textContent = "SUGGESTION " + titulo;
+
+   /*titulo 1*/
+  // Crear el contenido "https://github.com/oeg-upm/fair_ontologies/issues"
+  const contenidoElemento = document.createElement('p');
+
+  const tituloEelemento1 = document.createElement('span');
+  tituloEelemento1.classList.add('tituloSuggest');
+  const contenidoTitulo1 = document.createTextNode("Action: ");
+  tituloEelemento1.appendChild(contenidoTitulo1);
+
+  let contenido1 = document.createTextNode(contenido);
+
+  contenidoElemento.appendChild(tituloEelemento1);
+  contenidoElemento.appendChild(contenido1);
+
+  // Crear el botón de aceptar
+  const aceptarBtn = document.createElement('button');
+  aceptarBtn.textContent = 'Aceptar';
+  aceptarBtn.style.marginTop = '20px';
+  aceptarBtn.style.padding = '10px 20px';
+  aceptarBtn.style.fontSize = '16px';
+  aceptarBtn.style.cursor = 'pointer';
+  aceptarBtn.style.backgroundColor = '#007bff';
+  aceptarBtn.style.color = 'white';
+  aceptarBtn.style.border = 'none';
+  aceptarBtn.style.borderRadius = '4px';
+
+  // Agregar los elementos al modal
+  modalContent.appendChild(closeButton);
+  modalContent.appendChild(tituloElemento);
+  /*agregar contenido*/
+  modalContent.appendChild(contenidoElemento);
+  //modalContent.appendChild(contenidoElemento2);
+
+ if(contenido!=null){
+    // Crear el elemento contenedor
+    const contenidoElemento2 = document.createElement('p');
+
+    // Asegúrate de que "ey" tenga un valor válido
+    //let ey = "Este es un texto dinámico"; // Define un valor para ey
+
+    // Crear el nodo de texto para "ey"
+    let contenido2 = document.createTextNode(contenido);
+
+    // Crear un elemento <span> con el título
+    const titulo2 = document.createElement('span');
+    titulo2.classList.add('tituloSuggest');
+    const contenidoTitulo2 = document.createTextNode("Recommended documentation: ");
+    titulo2.appendChild(contenidoTitulo2);
+
+    // Agregar el título y el texto al contenedor
+    contenidoElemento2.appendChild(titulo2);
+    contenidoElemento2.appendChild(contenido2);
+
+    // Agregar el contenedor al modal
+    modalContent.appendChild(contenidoElemento2);
+
+  }
+
+  /*titulo 3*/
+  if(ey!=null){
+    // Crear el elemento contenedor
+    const contenidoElemento3 = document.createElement('p');
+
+    // Asegúrate de que "ey" tenga un valor válido
+   // let ey = "Este es un texto dinámico"; // Define un valor para ey
+
+    // Crear el nodo de texto para "ey"
+    let contenido3 = document.createTextNode(ey);
+
+    // Crear un elemento <span> con el título
+    const titulo3 = document.createElement('span');
+    titulo3.classList.add('tituloSuggest');
+    const contenidoTitulo3 = document.createTextNode("Affected elements: ");
+    titulo3.appendChild(contenidoTitulo3);
+
+    // Agregar el título y el texto al contenedor
+    contenidoElemento3.appendChild(titulo3);
+    contenidoElemento3.appendChild(contenido3);
+
+    // Agregar el contenedor al modal
+    modalContent.appendChild(contenidoElemento3);
+
+  }
+
+  modalContent.appendChild(aceptarBtn);
+  modal.appendChild(modalContent);
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Manejar el clic en el botón de "Aceptar"
+  aceptarBtn.onclick = function() {
+    document.body.removeChild(modal); // Eliminar el modal
+  };
+
+  // Manejar el clic en la "X" para cerrar el modal
+  closeButton.onclick = function() {
+    document.body.removeChild(modal); // Eliminar el modal
+  };
+
+  // Cerrar el modal si se hace clic fuera del contenido
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      document.body.removeChild(modal); // Eliminar el modal
+    }
+  };
+}
+
+// Llamar a la función cuando sea necesario, por ejemplo, en un evento de clic en un botón
+// showSuggest("Aviso importante", "Este es un mensaje personalizado.");
+
+
+
+function expand (event) {
+    let expandImg = event.target;
+    let statusExpand = (expandImg.src.includes("up-arrow.svg") ? "up" : "down");
+    replaceArrow(event, statusExpand);
+    let divPadre = expandImg.parentNode;
+    let padreDiv = divPadre.parentNode.nextElementSibling;
+    Array.from(padreDiv.children).forEach(divHijo => {
+      // Buscar la imagen dentro del hijo
+      const img = divHijo.querySelector("img");
+      if(statusExpand == "up" && img.src.includes("up-arrow.svg") ){
+          img.click();
+      } else if (statusExpand == "down" && img.src.includes("down-arrow.svg")) {
+         img.click();
+      }
+    });
+}
+
+
 
 

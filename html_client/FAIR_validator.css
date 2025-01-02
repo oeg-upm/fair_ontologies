@@ -232,6 +232,7 @@ input::placeholder {
   border: 1px solid #000000;
   border-radius: 10px;
   padding: 10px;
+  background-color: white;
 }
 
 .input-2 {
@@ -240,6 +241,7 @@ input::placeholder {
   border: 1px solid #000000; 
   border-radius: 10px;
   padding: 10px;
+  resize: none;
 }
 
 /* BOTONES */
@@ -366,4 +368,42 @@ footer{
 [aria-expanded="false"] > .expanded,
 [aria-expanded="true"] > .collapsed {
   display: none;
+}
+
+/*PRUEBAS*/
+#expand {
+    float: right;
+    justify-content: space-around; /* Espaciado igual alrededor */
+
+}
+//REVISAR YO
+.row420 {
+    display: flex; /* Utiliza Flexbox */
+    justify-content: space-around; /* Espaciado igual alrededor */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin: 20px 0; /* Margen opcional para la fila */
+}
+
+p#suggest {
+    margin: 0px auto;
+    margin-bottom: 15px;
+    color: blue;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.9s;
+    width: 5%;
+}
+
+.tituloSuggest {
+    font-weight: bold;
+}
+
+
+.datosSuggest {
+    width: 250px;
+}
+
+
+.arr3{
+    margin-right: 2rem !important;
 }

@@ -34,7 +34,7 @@ public class Check_RDF1_RDFAvailability extends Check {
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I1";
         this.description = Constants.RDF1_DESC;
-        this.abbreviation = ""; // TODO no hay enlace
+        this.abbreviation = Constants.RDF1; // TODO no hay enlace
     }
 
     @Override
