@@ -47,10 +47,10 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
         this.principle_id = "F4";
         this.abbreviation = Constants.FIND3;
 
-        if(total_passed_tests/total_tests_run<1){
-        this.recommendedDoc = Constants.URI1_DOC;
-        this.action = Constants.URI1_SUG;
-        System.out.println("Document");}
+       // if(total_passed_tests/total_tests_run<1){
+        //this.recommendedDoc = Constants.URI1_DOC;
+        //this.action = Constants.URI1_SUG;
+        //System.out.println("Document");}
     }
 
 

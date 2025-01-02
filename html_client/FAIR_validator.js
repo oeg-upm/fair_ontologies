@@ -681,17 +681,9 @@ function getCheckHTML(check_info) {
               </dl>
             </div>
 
-            <div class="row mt-2 mx-0">
-                <div class="col-8">
-                    <span class="texto-check">
-                        Recommended Suggestions
-                    </span>
-                </div>
 
-                <div class="col-2 d-flex align-items-center justify-content-end">
-                    <img src="assets/down-arrow.svg" onclick="arrowClicked(event, '${check_info.abbreviation}_SUG')">
-                </div>
-            </div>
+
+
             <div class="row m-0" id="${check_info.abbreviation}_SUG" style="display: none">
                 ${getLineHTML()}
              <div class="row mx-0 mt-2 w-100">
