@@ -33,12 +33,13 @@ public class Check_URI2_OntologyURIEqualToID extends Check {
 
     public Check_URI2_OntologyURIEqualToID(Ontology o, String originalURI) {
         super(o);
-        this.id = Constants.URI2;
+        this.id = Constants.URI2_URL;
         this.title = Constants.URI2_TITLE;
         this.category_id = Constants.FINDABLE;
         this.principle_id ="F1";
         this.description = Constants.URI2_DESC;
         this.originalURI = originalURI;
+        this.abbreviation = Constants.URI2;
     }
 
     @Override

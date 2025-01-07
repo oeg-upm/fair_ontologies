@@ -31,10 +31,11 @@ public class Check_VER2_ResolvableVersionIRI extends Check {
         super(o);
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F1";
-        this.id = Constants.VER2;
+        this.id = Constants.VER2_URL;
         this.title = Constants.VER2_TITLE;
         this.description = Constants.VER2_DESC;
         this.category_id = Constants.FINDABLE;
+        this.abbreviation = Constants.VER2;
     }
 
     @Override

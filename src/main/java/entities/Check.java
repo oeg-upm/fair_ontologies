@@ -40,6 +40,15 @@ public abstract class Check {
     protected String title;
     @Expose (serialize = true)
     protected String explanation;
+
+    @Expose (serialize = true)
+    protected String abbreviation;
+    @Expose (serialize = true)
+    protected String action;
+    @Expose (serialize = true)
+    protected String recommendedDoc;
+    @Expose (serialize = true)
+    protected String[] affectedElements;
     @Expose (serialize = true)
     protected ArrayList<String> affected_elements;
     @Expose (serialize = true)
@@ -60,6 +69,10 @@ public abstract class Check {
         total_tests_run = 1; //by default
     }
 
+
+    public String getAbbreviation(){ return abbreviation;}
+
+    public void setAbbreviation(String abbreviation){ this.abbreviation = abbreviation; }
     public String getDescription() {
         return description;
     }
@@ -124,6 +137,22 @@ public abstract class Check {
         return total_passed_tests;
     }
 
+    public String getAction(){
+        return action;
+    }
+
+    public void setAction(String action){
+        this.action = action;
+    }
+    public String getRecommendedDoc(){
+        return recommendedDoc;
+    }
+    public void setRecommendedDoc(String recommendedDoc){
+        this.recommendedDoc = recommendedDoc;
+    }
+    public String getAffectedElements(){
+        return affectedElements.toString();
+    }
     /**
      * Method to be extended by the different checks to perform the appropriate validation or test
      */

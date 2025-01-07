@@ -19,6 +19,55 @@
 package fair;
 
 public class Constants {
+
+    public static final String CN1_URL = "https://w3id.org/foops/test/RDF1";
+
+    public static final String DOC1_URL = "https://w3id.org/foops/test/DOC1";
+
+    public static final String FIND1_URL = "https://w3id.org/foops/test/FIND1";
+
+    public static final String FIND2_URL = "https://w3id.org/foops/test/FIND2";
+
+    public static final String FIND3_URL = "https://w3id.org/foops/test/FIND3";
+
+    public static final String FIND3_BIS_URL = "https://w3id.org/foops/test/FIND_3_BIS";
+
+    public static final String HTTP1_URL = "https://w3id.org/foops/test/HTTP1";
+
+    public static final String OM1_URL = "https://w3id.org/foops/test/OM1";
+
+    public static final String OM2_URL = "https://w3id.org/foops/test/OM2";
+
+    public static final String OM3_URL= "https://w3id.org/foops/test/OM3";
+
+    public static final String OM41_URL = "https://w3id.org/foops/test/OM4.1";
+
+    public static final String OM42_URL = "https://w3id.org/foops/test/OM4.2";
+
+    public static final String OM5_1_URL = "https://w3id.org/foops/test/OM5_1";
+
+    public static final String OM5_2_URL = "https://w3id.org/foops/test/OM5_2";
+
+    public static final String PURL1_URL = "https://w3id.org/foops/test/PURL1";
+
+    public static final String URI1_URL = "https://w3id.org/foops/test/URI1";
+
+    public static final String URI2_URL = "https://w3id.org/foops/test/URI2";
+
+    public static final String VER1_URL = "https://w3id.org/foops/test/VER1";
+
+    public static final String VER2_URL = "https://w3id.org/foops/test/VER2";
+
+    public static final String VOC1_URL = "https://w3id.org/foops/test/VOC1";
+
+    public static final String VOC2_URL = "https://w3id.org/foops/test/VOC2";
+
+    public static final String VOC3_URL = "https://w3id.org/foops/test/VOC3";
+
+    public static final String VOC4_URL = "https://w3id.org/foops/test/VOC4";
+
+
+
     public static final String[] POSSIBLE_VOCAB_SERIALIZATIONS = { "application/rdf+xml", "text/turtle", "text/n3",
             "application/ld+json" };
     public static final String TEXT_HTML = "text/html";
@@ -118,7 +167,7 @@ public class Constants {
     public static final String OM3_EXPLANATION = OM1_EXPLANATION_ERROR;
 
     //license
-    public static final String OM4_1 = "OM4.1";
+    public static final String OM4_1 = "OM4_1";
     public static final String OM4_1_TITLE = "License availability";
     public static final String OM4_1_DESC = "This check verifies if a license associated with the ontology";
     public static final String OM4_1_EXPLANATION_OK = "A license was found";
@@ -126,7 +175,7 @@ public class Constants {
     public static final String OM4_1_EXPLANATION_ERROR = "License or rights not found";
 
     //license_resolvable
-    public static final String OM4_2 = "OM4.2";
+    public static final String OM4_2 = "OM4_2";
     public static final String OM4_2_TITLE = "License is resolvable";
     public static final String OM4_2_DESC = "This check verifies if the ontology license is resolvable";
     public static final String OM4_2_EXPLANATION_OK = "License could be resolved";

@@ -31,11 +31,12 @@ import java.util.ArrayList;
 public class Check_VOC1_VocabReuseMetadata extends Check {
     public Check_VOC1_VocabReuseMetadata(Ontology o) {
         super(o);
-        this.id = Constants.VOC1;
+        this.id = Constants.VOC1_URL;
         this.title = Constants.VOC1_TITLE;
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I2";
         this.description = Constants.VOC1_DESC;
+        this.abbreviation = Constants.VOC1;
     }
 
     @Override
