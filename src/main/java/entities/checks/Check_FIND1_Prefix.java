@@ -36,10 +36,6 @@ public class Check_FIND1_Prefix extends Check {
         this.principle_id = "F3";
         this.abbreviation = Constants.FIND1;
 
-        if(total_passed_tests/total_tests_run<1){
-
-            System.out.println("NOOOOOOO");
-        }
     }
 
     @Override

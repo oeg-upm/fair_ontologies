@@ -486,7 +486,7 @@ function loadCategory(category, result) {
   checks_div.innerHTML = getLineHTMLNoLine();
    checks_div.style ="display: none";
   checks = getCategoryChecks(category, result);
-    console.log("LONGINUS"+checks.content);
+
   loadPrinciples(checks, checks_div);
 
 
@@ -517,9 +517,7 @@ function getCategoryChecks(category, result) {
 
 function loadPrinciples(principles, checks_div) {
     //DIV DEL TITULO CHIQUITO
-console.log("EY"+principles);
     if (principles.length == 0) {
-    console.log("ANTO");
          divNuevo.classList.add("vacio");
          var vacio = document.createElement("div");
          vacio.className = "texto-check"
@@ -530,7 +528,7 @@ console.log("EY"+principles);
 
     }
   for (let principle in principles) {
-  console.log("GILI"+principles.length);
+
 
     var title = document.createElement("div");
     title.innerHTML = getPrincipleHTML(principle);
