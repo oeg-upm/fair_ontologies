@@ -1,50 +1,8 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/OM2",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/R1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@value": "R1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "R1"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/test/OM2",
         "@type": [
-            "https://www.w3id.org/ftr#Test",
+            "https://w3id.org/ftr#Test",
             "http://www.w3.org/ns/dcat#DataService"
         ],
         "http://purl.org/dc/terms/creator": [
@@ -126,9 +84,25 @@
                 "@value": "0.0.1"
             }
         ],
-        "https://www.w3id.org/ftr#indicator": [
+        "https://w3id.org/ftr#indicator": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/R1"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -149,19 +123,45 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@value": "Daniel Garijo"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/R1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://vivoweb.org/ontology/core#abbreviation": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@value": "R1"
             }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "R1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/OM2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     }
 ]

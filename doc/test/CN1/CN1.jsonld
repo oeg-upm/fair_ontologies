@@ -1,22 +1,8 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "Main repository for FOOPS! code and documentation"
-            }
-        ],
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/test/CN1",
         "@type": [
-            "https://www.w3id.org/ftr#Test",
+            "https://w3id.org/ftr#Test",
             "http://www.w3.org/ns/dcat#DataService"
         ],
         "http://purl.org/dc/terms/creator": [
@@ -94,26 +80,25 @@
                 "@value": "0.0.1"
             }
         ],
-        "https://www.w3id.org/ftr#indicator": [
+        "https://w3id.org/ftr#indicator": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/A1"
             }
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/CN1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://semanticscience.org/resource/SIO_000234": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@id": "https://w3id.org/foops/test/CN1"
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -134,18 +119,22 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Daniel Garijo"
+                "@language": "en",
+                "@value": "Main repository for FOOPS! code and documentation"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },
@@ -168,6 +157,17 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@value": "A1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/CN1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ],
+        "http://semanticscience.org/resource/SIO_000234": [
+            {
+                "@id": "https://w3id.org/foops/test/CN1"
             }
         ]
     }
