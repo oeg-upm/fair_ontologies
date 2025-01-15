@@ -23,7 +23,7 @@
     dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	ftr:status "Active"@en ;
-    ftr:associatedMetric 
+    ftr:hasAssociatedMetric 
         <https://w3id.org/foops/metric/CN1> ,
         <https://w3id.org/foops/metric/DOC1> ,
         <https://w3id.org/foops/metric/FIND1> ,
@@ -102,14 +102,14 @@
 	dcterms:identifier <https://w3id.org/foops/metric/OM4.2> ;
 	rdfs:label "Metric OM4.2"^^xsd:string ;
     vivo:abbreviation "Metric OM4.2"^^xsd:string .
-<https://w3id.org/foops/metric/OM5_1> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/OM5_1> ;
-	rdfs:label "Metric OM5_1"^^xsd:string ;
+<https://w3id.org/foops/metric/OM5.1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM5.1> ;
+	rdfs:label "Metric OM5.1"^^xsd:string ;
     vivo:abbreviation "Metric OM5_1"^^xsd:string .
-<https://w3id.org/foops/metric/OM5_2.1> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/OM5_2.1> ;
-	rdfs:label "Metric OM5_2.1"^^xsd:string ;
-    vivo:abbreviation "Metric OM5_2.1"^^xsd:string .
+<https://w3id.org/foops/metric/OM5.2> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM5.2> ;
+	rdfs:label "Metric OM5.2"^^xsd:string ;
+    vivo:abbreviation "Metric OM5."^^xsd:string .
 <https://w3id.org/foops/metric/PURL1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/PURL1> ;
 	rdfs:label "Metric PURL1"^^xsd:string ;

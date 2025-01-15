@@ -1,5 +1,11 @@
 [
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -14,28 +20,6 @@
             {
                 "@language": "en",
                 "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are assigned a globally unique and persistent identifier"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@value": "F1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "F1"
             }
         ]
     },
@@ -133,10 +117,38 @@
                 "@id": "https://w3id.org/foops/benchmark/ALL"
             }
         ],
-        "https://w3id.org/ftr#metricStatus": [
+        "https://w3id.org/ftr#status": [
             {
                 "@language": "en",
                 "@value": "Active"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/URI2",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are assigned a globally unique and persistent identifier"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "F1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "F1"
             }
         ]
     },
@@ -170,18 +182,6 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/URI2",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     }
 ]
