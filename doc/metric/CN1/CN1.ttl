@@ -50,7 +50,7 @@ Valid results occur if the ontology is accessible in at least one specified RDF 
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/CN1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/CN1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
-	ftr:metricStatus "Active"@en .
+	ftr:status "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .

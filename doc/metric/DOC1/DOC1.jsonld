@@ -1,5 +1,33 @@
 [
     {
+        "@id": "https://w3id.org/fair/principles/terms/R1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@value": "R1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "R1"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -111,11 +139,17 @@
                 "@id": "https://w3id.org/foops/benchmark/ALL"
             }
         ],
-        "https://w3id.org/ftr#metricStatus": [
+        "https://w3id.org/ftr#status": [
             {
                 "@language": "en",
                 "@value": "Active"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/DOC1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -147,40 +181,6 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/DOC1",
-        "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/R1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@value": "R1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "R1"
             }
         ]
     }

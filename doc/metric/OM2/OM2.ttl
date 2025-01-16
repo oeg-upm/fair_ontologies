@@ -51,7 +51,7 @@ The ontology should include all recommended fields except the contributor field,
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE> ; 
-	ftr:metricStatus "Active"@en .
+	ftr:status "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .
