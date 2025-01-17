@@ -1,0 +1,65 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
+
+<https://w3id.org/foops/metric/OM4.1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/OM4.1> ;
+	dcterms:title "License availability"@en ;
+	dcterms:description """ 
+This metric evaluates whether an ontology clearly defines and provides access to its licensing terms, ensuring that users are informed about how the ontology can be used and shared.
+
+**What is being measured?**
+
+The presence of a clearly defined license for the ontology. This includes ensuring that the license is easily accessible and specifies terms of use and redistribution.
+
+**Why should we measure it?**
+
+Measuring license availability ensures that the ontology can be legally used and shared within a community, supporting the FAIR principles by making its usage terms clear and transparent.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology must include a defined license, such as Creative Commons or an equivalent open license. The absence of a license will cause the ontology to fail this benchmark.
+	"""@en ; 
+	rdfs:label "Metric OM4.1"^^xsd:string ;
+	vivo:abbreviation "Metric OM4.1"^^xsd:string ;	
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;
+	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	dcat:keyword "License availability"@en , "Metric"@en , "Reusable"@en ;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM4.1> ;
+	dcat:landingPage <https://w3id.org/foops/metric/OM4.1> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE>; 
+	ftr:status "Active"@en .
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
+	vcard:hasEmail <mailto:dgarijo@upm.es> .
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
+	vcard:hasEmail <mailto:m.poveda@upm.es> .
+<https://w3id.org/fair/principles/terms/R1.1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "R1.1"^^xsd:string ;
+	vivo:abbreviation "R1.1"^^xsd:string ;
+	dcterms:description "(meta)data are released with a clear and accessible data usage license"@en .
+<https://oeg.fi.upm.es> a vcard:Organization .
+<https://w3id.org/foops/test/OM4.1> a ftr:Test .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
+<https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark;
+    dcterms:title "General Benchmark PRE for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."@en .

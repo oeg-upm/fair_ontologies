@@ -26,11 +26,12 @@ public class Check_OM5_1_ProvenanceMetadataBasic extends Check {
     public Check_OM5_1_ProvenanceMetadataBasic(Ontology o){
         super(o);
         this.category_id = Constants.REUSABLE;
-        this.id = Constants.OM5_1;
+        this.id = Constants.OM5_1_URL;
         this.title = Constants.OM5_1_TITLE;
         this.description = Constants.OM5_1_DESC;
         this.principle_id = "R1.2";
         this.total_tests_run = Constants.PROVENANCE_METADATA_BASIC.length;
+        this.abbreviation = Constants.OM5_1;
     }
 
     @Override

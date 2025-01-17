@@ -1,0 +1,65 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> . 
+
+<https://w3id.org/foops/metric/VOC2> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/VOC2> ;
+	dcterms:title "Vocabulary reuse"@en ;
+	dcterms:description """ 
+This metric defines criteria to ensure that the ontology imports or extends other vocabularies besides RDF, OWL, and RDFS. The metric verifies the presence of imported or extended vocabularies, promoting interoperability and reuse of existing ontological structures.
+
+**What is being measured?**
+
+The presence and usage of external vocabularies that the ontology imports or extends, beyond RDF, OWL, and RDFS.
+
+**Why should we measure it?**
+
+Reusing existing vocabularies ensures interoperability, reduces redundancy, and fosters a collaborative and standardized approach to ontology development.
+
+**What must be provided for the measurement?**
+
+An ontology URI.
+
+**What are considered valid results?**
+
+The ontology imports or extends one or more vocabularies in addition to RDF, OWL, and RDFS, ensuring enhanced interoperability and reuse.
+	"""@en ;
+	rdfs:label "Metric VOC2"^^xsd:string ;
+	vivo:abbreviation "Metric VOC2"^^xsd:string ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/I2> ;	
+	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	dcat:keyword "Vocabulary reuse"@en , "Metric"@en , "Interoperable"@en ;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC2> ;
+	dcat:landingPage <https://w3id.org/foops/metric/VOC2> ; 
+	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE> ; 
+	ftr:status "Active"@en .
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
+	vcard:hasEmail <mailto:dgarijo@upm.es> .
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
+	vcard:hasEmail <mailto:m.poveda@upm.es> .
+<https://w3id.org/fair/principles/terms/I2> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "I2"^^xsd:string ;
+	vivo:abbreviation "I2"^^xsd:string ;
+	dcterms:description "(meta)data use vocabularies that follow FAIR principles"@en .
+<https://oeg.fi.upm.es> a vcard:Organization .
+<https://w3id.org/foops/test/VOC2> a ftr:Test .
+<https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
+    dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."@en .
+<https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark;
+    dcterms:title "General Benchmark PRE for FAIR Principles"@en ;
+    dcterms:description "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."@en .

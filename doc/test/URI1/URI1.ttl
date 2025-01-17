@@ -1,0 +1,41 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+
+<https://w3id.org/foops/test/URI1> a ftr:Test , dcat:DataService ;
+	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
+	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
+	dcterms:title "Ontology URI is resolvable"@en ;
+	rdfs:label "URI1"^^xsd:string ;
+	vivo:abbreviation "URI1"^^xsd:string ;
+	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	ftr:indicator <https://w3id.org/fair/principles/terms/F1> ;
+	dcterms:description """ This check verifies if the ontology URI found within the ontology document is resolvable. The test will PASS if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. """@en ;
+	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcat:version "0.0.1"^^xsd:string ;
+	dcterms:identifier <https://w3id.org/foops/test/URI1> ;
+	dcat:keyword "URI resolvable"@en , "Test"@en , "Resolvable"@en;
+	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/URI1> ;
+	doap:repository <https://w3id.org/foops/repository> .
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
+	vcard:fn "Daniel Garijo"^^xsd:string ;
+	vcard:hasEmail <mailto:dgarijo@upm.es> .
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
+	vcard:fn "Maria Poveda"^^xsd:string ;
+	vcard:hasEmail <mailto:m.poveda@upm.es> .
+<https://w3id.org/fair/principles/terms/F1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+	rdfs:label "F1"^^xsd:string ;
+	vivo:abbreviation "F1"^^xsd:string ;
+	dcterms:description "(meta)data are assigned a globally unique and persistent identifier."@en .
+<https://oeg.fi.upm.es> a vcard:Organization .
+<https://w3id.org/foops/repository>
+foaf:homePage <https://github.com/oeg-upm/fair_ontologies> .
+<https://w3id.org/foops/metric/URI1> a dqv:Metric .

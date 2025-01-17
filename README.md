@@ -14,7 +14,7 @@ Our [ISWC 2021 demo paper](html_client/assets/iswc_2021_demo.pdf) (**best demo a
     year         = 2021,
     booktitle    = {International Semantic Web Conference (ISWC) 2021: Posters, Demos, and Industry Tracks},
     publisher    = {CEUR-WS.org},
-    series       = {{CEUR} Workshop Proceedings},
+    series       = {CEUR Workshop Proceedings},
     volume       = 2980,
     url          = {http://ceur-ws.org/Vol-2980/paper321.pdf}
 }
@@ -53,3 +53,26 @@ curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json
 
 As a result, you should see a JSON in your console, such as the one in sample.json.
 
+## Running the JAR in local
+To create the JAR, just run:
+
+```
+mvn install -f pom_jar.xml
+```
+
+Then run the following command to test a URI: 
+
+```
+java -jar target/fair_ontologies-0.1.0.jar -ontURI https://w3id.org/example
+```
+
+You can also test one ontology from a file:
+
+```
+java -jar target/fair_ontologies-0.1.0.jar -ontFile filePath
+```
+
+As a result, you should see a JSON in your folder, such as the one in sample.json.
+
+
+If you want to change the out file path you can use the flag -out

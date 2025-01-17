@@ -40,12 +40,19 @@ import java.net.URL;
 public class Check_FIND3_FindOntologyInRegistry extends Check {
     public Check_FIND3_FindOntologyInRegistry(Ontology o) {
         super(o);
-        this.id = Constants.FIND3;
+        this.id = Constants.FIND3_URL;
         this.title = Constants.FIND3_TITLE;
         this.description = Constants.FIND3_DESC;
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F4";
+        this.abbreviation = Constants.FIND3;
+
+       // if(total_passed_tests/total_tests_run<1){
+        //this.recommendedDoc = Constants.URI1_DOC;
+        //this.action = Constants.URI1_SUG;
+        //System.out.println("Document");}
     }
+
 
     @Override
     public void check() {

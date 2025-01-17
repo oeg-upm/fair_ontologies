@@ -25,11 +25,12 @@ public class Check_OM3_DetailedMetadata extends Check {
     public Check_OM3_DetailedMetadata(Ontology o) {
         super(o);
         this.category_id = Constants.REUSABLE;
-        this.id = Constants.OM3;
+        this.id = Constants.OM3_URL;
         this.title = Constants.OM3_TITLE;
         this.description = Constants.OM3_DESC;
         this.principle_id = "R1";
         this.total_tests_run = Constants.DETAILED_METADATA.length;
+        this.abbreviation = Constants.OM3;
     }
     /**
      * This check verifies whether the detected metadata is the optional one

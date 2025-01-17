@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FOOPS catalogue</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <style>
+            .row {
+              margin-bottom: 10px;
+            }
+            .well {
+              margin: 0px;
+              padding: 10px 0; 
+              padding-left: 10px;
+            }
+            .tag_div {
+                border-right: 10px solid white; 
+            }
+            .label.label-primary {
+                font-size: 12px;
+            }
+            .label.label-success {
+                font-size: 12px;
+            }
+            h1 {
+                margin-bottom: 25px; 
+            }
+            h4 {
+                font-weight: 300; 
+                margin-top: 0; 
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+
+                function formatKeywords(keywords) {
+                    if (!keywords) return ''; 
+                    return keywords.split(',').map(function(keyword) {
+                        return '<span class="label label-primary">' + keyword.trim() + '</span>';
+                    }).join(' ');
+                }
+
+                $('tbody tr').each(function() {
+                    var $keywords = $(this).find('.keywords');
+                    var formattedKeywords = formatKeywords($keywords.text());
+                    $keywords.html(formattedKeywords);
+                });
+
+                function showSection(sectionId) { 
+                    $("#test, #metric, #benchmark").hide(); // Mostrar la sección correspondiente 
+                    $(sectionId).show();
+                } 
+                function updateURL(sectionId) { 
+                    // Actualizar el target de la URL 
+                    window.location.hash = sectionId;
+                } 
+
+                const currentHash = window.location.hash; 
+                if (!currentHash) { 
+                    // Si no hay marcador en la URL, actualizar a #test 
+                    updateURL("test"); 
+                } 
+                showSection(currentHash || "#test");
+
+                // function showSection(uri) {
+                //     const sections = {
+                //         "https://w3id.org/foops/test/": "#div_test",
+                //         "https://w3id.org/foops/metric/": "#div_metric",
+                //         "https://w3id.org/foops/benchmark/": "#div_benchmark"
+                //     };
+
+                //     $("#div_test, #div_metric, #div_benchmark").hide();
+
+                //     // Mostrar el div correspondiente al URI o la de "Test" por defecto
+                //     const sectionToShow = sections[uri] || "#div_test";
+                //     $(sectionToShow).show();
+                // }
+       
+                // const currentURI = window.location.href;
+                // showSection(currentURI);
+
+                $("#btn_metric").click(function(){
+                    updateURL("metric"); 
+                    showSection("#metric");
+                });
+                
+                $("#btn_test").click(function(){
+                    updateURL("test"); 
+                    showSection("#test");
+                });
+
+                $("#btn_benchmark").click(function(){
+                    updateURL("benchmark"); 
+                    showSection("#benchmark");
+                });
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div style="margin-top: 20px;">
+            <div class="row">
+                <div class="col-md-12" style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                    <button id="btn_test" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Test</button>
+                    <button id="btn_metric" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Metric</button>
+                    <button id="btn_benchmark" type="button" class="btn btn-primary" style="margin-right: 10px;"">Benchmark</button>
+                    <button id="btn_about" type="button" class="btn btn-primary" style="margin-right: 10px;"">About</button>
+                </div>
+            </div>
+            <div id = "test" class="container">
+                <div class="row text-center">
+                    <div class="col-md-12"> <h1>TEST CATALOGUE</h1>
+                        <p style="text-align: center;"><h4> Here you can find the list of test that <a href="https://foops.linkeddata.es/FAIR_validator.html#"> FOOPS </a> of <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
+                    </div>
+                </div>
+                <hr>
+                <!-- filetr -->
+                <div class="row">
+                    <div class="ui-widget">
+                        <div class="col-md-3"> 
+                          <p class="text-right"><label for="tags">Filter by title or keywords: </label></p>
+                        </div>
+                        <div class="col-md-8"> 
+                          <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                          <div id="active-filters" style="margin-top: 10px;"> 
+                            <!-- Aquí se mostrarán los filtros activos --> 
+                          </div>
+                          <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
+                            <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
+                          </button>
+                        </div>
+                      </div>
+                </div>
+                <!-- ******** -->
+                <table class="table" style="margin-top: 30px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>License</th>
+                            <th>Version</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/CN1">https://w3id.org/foops/test/CN1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/CN1"><strong>CN1</strong></a></td>
+                            <td class="titles">Content negotiation for RDF</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Content negotiation, Test</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/DOC1">https://w3id.org/foops/test/DOC1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/DOC1"><strong>DOC1</strong></a></td>
+                            <td class="titles">HTML availability</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">HTML availability, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/FIND1">https://w3id.org/foops/test/FIND1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/FIND1"><strong>FIND1</strong></a></td>
+                            <td class="titles">Ontology prefix</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Ontology prefix, Test, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/FIND2">https://w3id.org/foops/test/FIND2</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/FIND2"><strong>FIND2</strong></a></td>
+                            <td class="titles">Prefix is in registry</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Prefix registry, Test, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/FIND3">https://w3id.org/foops/test/FIND3</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/FIND3"><strong>FIND3</strong></a></td>
+                            <td class="titles">Ontology in metadata registry</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Ontology in metadata registry, Test, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/FIND_3_BIS">https://w3id.org/foops/test/FIND_3_BIS</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/FIND_3_BIS"><strong>FIND_3_BIS</strong></a></td>
+                            <td class="titles">Metadata are accessible, even when ontology is not</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Metadata accesible, Test, Accesible</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/HTTP1">https://w3id.org/foops/test/HTTP1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/HTTP1"><strong>HTTP1</strong></a></td>
+                            <td class="titles">Open protocol</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Open protocol, Test, Accesible</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/OM1">https://w3id.org/foops/test/OM1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/OM1"><strong>OM1</strong></a></td>
+                            <td class="titles">Minimum metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Minimum metadata, Test, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/OM2">https://w3id.org/foops/test/OM2</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/OM2"><strong>OM2</strong></a></td>
+                            <td class="titles">Recommended metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Recommended metadata, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/OM3">https://w3id.org/foops/test/OM3</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/OM3"><strong>OM3</strong></a></td>
+                            <td class="titles">Detailed metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Detailed metadata, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/OM4.1">https://w3id.org/foops/test/OM4.1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/OM4.1"><strong>OM4.1</strong></a></td>
+                            <td class="titles">License availability</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">License availability, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/OM4.2">https://w3id.org/foops/test/OM4.2</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/OM4.2"><strong>OM4.2</strong></a></td>
+                            <td class="titles">License is resolvable</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">License resolvable, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/OM5.1">https://w3id.org/foops/test/OM5.1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/OM5.1"><strong>OM5.1</strong></a></td>
+                            <td class="titles">Basic provenance metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Basic provenance metadata, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/OM5.2">https://w3id.org/foops/test/OM5.2</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/OM5.2"><strong>OM5.2</strong></a></td>
+                            <td class="titles">Detailed provenance metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Detailed provenance metadata, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/PURL1">https://w3id.org/foops/test/PURL1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/PURL1"><strong>PURL1</strong></a></td>
+                            <td class="titles">Persistent URL</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Persistent URL, Test, Accesible</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/URI1">https://w3id.org/foops/test/URI1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/URI1"><strong>URI1</strong></a></td>
+                            <td class="titles">Ontology URI is resolvable</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">URI resolvable, Test, Resolvable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/URI2">https://w3id.org/foops/test/URI2</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/URI2"><strong>URI2</strong></a></td>
+                            <td class="titles">Consistent ontology IDs</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Consistent ontology ID, Test, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/VER1">https://w3id.org/foops/test/VER1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/VER1"><strong>VER1</strong></a></td>
+                            <td class="titles">Version IRI</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Version IRI, Test, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/VER2">https://w3id.org/foops/test/VER2</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/VER2"><strong>VER2</strong></a></td>
+                            <td class="titles">Version IRI resolves</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Version IRI resolves, Test, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/VOC1">https://w3id.org/foops/test/VOC1</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/VOC1"><strong>VOC1</strong></a></td>
+                            <td class="titles">Vocabulary reuse (metadata)</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Vocabulary reuse metadata, Test, Interoperable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/VOC2">https://w3id.org/foops/test/VOC2</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/VOC2"><strong>VOC2</strong></a></td>
+                            <td class="titles">Vocabulary reuse</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Vocabulary reuse, Test, Interoperable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/VOC3">https://w3id.org/foops/test/VOC3</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/VOC3"><strong>VOC3</strong></a></td>
+                            <td class="titles">Documentation: labels</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Documentation labels, Test, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/test/VOC4">https://w3id.org/foops/test/VOC4</a></td> -->
+                            <td><a href="https://w3id.org/foops/test/VOC4"><strong>VOC4</strong></a></td>
+                            <td class="titles">Documentation: definitions</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Documentation definitions, Test, Reusable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id = "metric" class="container">
+                <div class="row text-center">
+                    <div class="col-md-12"> <h1>METRICS CATALOGUE</h1>
+                        <p style="text-align: center;"> <h4>Here you can find the list of metrics that the <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
+                    </div>
+                </div>
+                <hr>
+                <!-- filer -->
+                <div class="row">
+                    <div class="ui-widget">
+                        <div class="col-md-3"> 
+                            <p class="text-right"><label for="tags">Filter by title or keywords: </label></p>
+                        </div>
+                        <div class="col-md-8"> 
+                            <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                            <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
+                            <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ******** -->
+                <table class="table" style="margin-top: 30px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>License</th>
+                            <th>Version</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/CN1">https://w3id.org/foops/metric/CN1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/CN1"><strong>Metric CN1</strong></a></td>
+                            <td class="titles">Content negotiation for RDF</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Content negotiation, Metric</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/DOC1">https://w3id.org/foops/metric/DOC1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/DOC1"><strong>Metric DOC1</strong></a></td>
+                            <td class="titles">HTML availability</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">HTML availability, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/FIND1">https://w3id.org/foops/metric/FIND1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/FIND1"><strong>Metric FIND1</strong></a></td>
+                            <td class="titles">Ontology prefix</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Ontology prefix, Metric, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/FIND2">https://w3id.org/foops/metric/FIND2</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/FIND2"><strong>Metric FIND2</strong></a></td>
+                            <td class="titles">Prefix is in registry</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Prefix registry, Metric, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/FIND3">https://w3id.org/foops/metric/FIND3</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/FIND3"><strong>Metric FIND3</strong></a></td>
+                            <td class="titles">Ontology in metadata registry</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Ontology in metadata registry, Metric, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/FIND_3_BIS">https://w3id.org/foops/metric/FIND_3_BIS</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/FIND_3_BIS"><strong>Metric FIND_3_BIS</strong></a></td>
+                            <td class="titles">Metadata are accessible, even when ontology is not</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Metadata accesible, Metric, Accesible</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/HTTP1">https://w3id.org/foops/metric/HTTP1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/HTTP1"><strong>Metric HTTP1</strong></a></td>
+                            <td class="titles">Open protocol</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Open protocol, Metric, Accesible</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/OM1">https://w3id.org/foops/metric/OM1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/OM1"><strong>Metric OM1</strong></a></td>
+                            <td class="titles">Minimum metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Minimum metadata, Metric, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/OM2">https://w3id.org/foops/metric/OM2</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/OM2"><strong>Metric OM2</strong></a></td>
+                            <td class="titles">Recommended metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Recommended metadata, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/OM3">https://w3id.org/foops/metric/OM3</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/OM3"><strong>Metric OM3</strong></a></td>
+                            <td class="titles">Detailed metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Detailed metadata, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/OM4.1">https://w3id.org/foops/metric/OM4.1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/OM4.1"><strong>Metric OM4.1</strong></a></td>
+                            <td class="titles">License availability</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">License availability, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/OM4.2">https://w3id.org/foops/metric/OM4.2</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/OM4.2"><strong>Metric OM4.2</strong></a></td>
+                            <td class="titles">License is resolvable</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">License resolvable, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/OM5.1">https://w3id.org/foops/metric/OM5.1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/OM5.1"><strong>Metric OM5.1</strong></a></td>
+                            <td class="titles">Basic provenance metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Basic provenance metadata, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/OM5.2">https://w3id.org/foops/metric/OM5.2</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/OM5.2"><strong>Metric OM5.2</strong></a></td>
+                            <td class="titles">Detailed provenance metadata</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Detailed provenance metadata, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/PURL1">https://w3id.org/foops/metric/PURL1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/PURL1"><strong>Metric PURL1</strong></a></td>
+                            <td class="titles">Persistent URL</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Persistent URL, Metric, Accesible</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/URI1">https://w3id.org/foops/metric/URI1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/URI1"><strong>Metric URI1</strong></a></td>
+                            <td class="titles">Ontology URI is resolvable</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">URI resolvable, Metric, Resolvable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/URI2">https://w3id.org/foops/metric/URI2</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/URI2"><strong>Metric URI2</strong></a></td>
+                            <td class="titles">Consistent ontology IDs</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Consistent ontology ID, Metric, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/VER1">https://w3id.org/foops/metric/VER1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/VER1"><strong>Metric VER1</strong></a></td>
+                            <td class="titles">Version IRI</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Version IRI, Metric, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/VER2">https://w3id.org/foops/metric/VER2</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/VER2"><strong>Metric VER2</strong></a></td>
+                            <td class="titles">Version IRI resolves</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Version IRI resolves, Metric, Findable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/VOC1">https://w3id.org/foops/metric/VOC1</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/VOC1"><strong>Metric VOC1</strong></a></td>
+                            <td class="titles">Vocabulary reuse (metadata)</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Vocabulary reuse metadata, Metric, Interoperable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/VOC2">https://w3id.org/foops/metric/VOC2</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/VOC2"><strong>Metric VOC2</strong></a></td>
+                            <td class="titles">Vocabulary reuse</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Vocabulary reuse, Metric, Interoperable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/VOC3">https://w3id.org/foops/metric/VOC3</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/VOC3"><strong>Metric VOC3</strong></a></td>
+                            <td class="titles">Documentation: labels</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Documentation labels, Metric, Reusable</td>
+                        </tr>
+                        <tr>
+                            <!-- <td><a href="https://w3id.org/foops/metric/VOC4">https://w3id.org/foops/metric/VOC4</a></td> -->
+                            <td><a href="https://w3id.org/foops/metric/VOC4"><strong>Metric VOC4</strong></a></td>
+                            <td class="titles">Documentation: definitions</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">Documentation definitions, Metric, Reusable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id = "benchmark" class="container">
+                <div class="row text-center">
+                    <div class="col-md-12"> <h1>BENCHMARK CATALOGUE</h1>
+                        <p style="text-align: center;"> <h4>Here you can find the list of benchmarks that the <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
+                    </div>
+                </div>
+                <hr>
+                <!-- filer -->
+                <div class="row">
+                    <div class="ui-widget">
+                        <div class="col-md-3"> 
+                            <p class="text-right"><label for="tags">Filter by title or keywords: </label></p>
+                        </div>
+                        <div class="col-md-8"> 
+                            <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                            <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
+                            <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ******** -->
+                <table class="table" style="margin-top: 30px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>License</th>
+                            <th>Version</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="https://w3id.org/foops/benchmark/ALL"><strong>Benchmark ALL</strong></a></td>
+                            <td class="titles">General Benchmark for FAIR Principles</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">General Benchmark, Benchmark, All</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://w3id.org/foops/benchmark/PRE"><strong>Benchmark PRE</strong></a></td>
+                            <td class="titles">General Benchmark for FAIR Principles</td>
+                            <td><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><span class="label label-success">CC-BY-2.0</span></a></td>
+                            <td>0.0.1</td>
+                            <td class="keywords">General Benchmark, Benchmark, Pre</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="pie" class="row" style="margin-top: 30px;">  
+            <div class="col-md-12 text-center"">
+              Ontology Engineer Group
+              <a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a>
+            </div>
+        </div>
+        <script>
+
+            let activeFilters = [];
+            let temporaryFilter = '';
+
+            function showRows() {
+                var input = document.getElementById("tags").value.toLowerCase().trim();
+                temporaryFilter = input;
+
+                var rows = document.querySelectorAll("tbody tr");
+
+                rows.forEach(function(row) {
+                    var keywordCell = row.querySelector(".keywords");
+                    var titleCell = row.querySelector(".titles");
+              
+                    if (keywordCell || titleCell) {
+                        var keywords = keywordCell.textContent.toLowerCase();
+                        var titles = titleCell.textContent.toLowerCase();
+                        var match = activeFilters.every(function(filter) { 
+                            return keywords.includes(filter) || titles.includes(filter); 
+                        }); 
+
+                        if (input.length >= 3) { 
+                            match = match && (keywords.includes(input) || titles.includes(input));
+                        }
+
+                        row.style.display = match ? "" : "none";
+                    }
+                });
+                
+                var removeButton = document.getElementById("remButt");
+                removeButton.style.display = activeFilters.length > 0 ? "inline" : "none";
+            }
+
+            function removeFilter(filter) { 
+                activeFilters = activeFilters.filter(function(f) { 
+                    return f !== filter; 
+                }); 
+
+                updateActiveFilters(); 
+                showRows();
+            }
+
+            function clearFilter() {
+                activeFilters = []; 
+                temporaryFilterm= '';
+                document.getElementById("active-filters").innerHTML = ""; 
+                document.getElementById("tags").value = ""; 
+                var removeButton = document.getElementById("remButt"); 
+                removeButton.style.display = "none"; 
+                showRows();
+            }
+
+            function handleEnter(event) {
+                if (event.key === "Enter") {
+                    var input = temporaryFilter;
+                    if (input.length >= 3 && !activeFilters.includes(input)) { 
+                        activeFilters.push(input); 
+                        updateActiveFilters(); 
+                        document.getElementById("tags").value = ""; 
+                        showRows();
+                    }
+                }
+            }
+
+            function updateActiveFilters() { 
+                var filterContainer = document.getElementById("active-filters"); 
+                filterContainer.innerHTML = ""; 
+                activeFilters.forEach(function(filter) { 
+                    var filterLabel = document.createElement("span"); 
+                    filterLabel.className = "label label-info"; 
+                    filterLabel.style.marginRight = "5px"; 
+                    filterLabel.textContent = filter; 
+                    filterLabel.onclick = function() { 
+                        removeFilter(filter); 
+                    };
+                    filterContainer.appendChild(filterLabel); 
+                }); 
+            }
+        </script>
+     </body>
+</html>

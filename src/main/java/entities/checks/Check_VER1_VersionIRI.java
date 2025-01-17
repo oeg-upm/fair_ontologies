@@ -30,11 +30,12 @@ public class Check_VER1_VersionIRI extends Check {
     public Check_VER1_VersionIRI(Ontology o) {
         super(o);
         this.principle_id = "F1";
-        this.id = Constants.VER1;
+        this.id = Constants.VER1_URL;
         this.title = Constants.VER1_TITLE;
         this.description = Constants.VER1_DESC;
         this.category_id = Constants.FINDABLE;
         this.total_tests_run = 2; // one for URI version availability, the second one for equivalence check
+        this.abbreviation = Constants.VER1;
     }
 
     @Override
