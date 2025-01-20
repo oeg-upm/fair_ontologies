@@ -37,6 +37,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Optional;
 
 
 public class FOOPS {
@@ -84,6 +85,12 @@ public class FOOPS {
 
     }
 
+    public Optional<Check> getCheckByName(String name) {
+        return checks.stream()
+                     .filter(check -> check.getClass().getSimpleName().equals(name))
+                     .findFirst();
+    }
+    
     private float getTotalScore(){
         float totalNum = 0;
         for (Check check : checks) {

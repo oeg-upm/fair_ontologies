@@ -20,7 +20,8 @@ package server;
 
 import com.google.gson.Gson;
 import entities.Response;
-import fair.FOOPS;
+import entities.Check;
+import fair.FOOPS; 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -31,11 +32,16 @@ import org.springframework.web.server.ResponseStatusException;
 import java.io.File;
 import java.io.PrintWriter;
 import java.nio.file.Path;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import java.util.Optional;
 
 @RestController
 public class FOOPSController {
+
     Logger logger = LoggerFactory.getLogger(FOOPSController.class);
 
+    @ApiOperation(value = "Assess GET  ontology")
     @CrossOrigin(origins = "*")
     @GetMapping("/assessOntology")
     public String assessGET() {
@@ -51,9 +57,21 @@ public class FOOPSController {
      * @param body String body with the JSON to parse as a request.
      * @return JSON response obtained by FOOPS
      */
+    @ApiOperation( 
+        value = "Assess ontology", 
+        notes = "return JSON response obtained by FOOPS. \n\n" 
+        + "Example request JSON:\n" 
+        + "```\n" 
+        + "{\n" 
+        + " \"ontologyUri\": \"https://w3id.org/okn/o/sd#\"\n" 
+        + "}\n" 
+        + "```"
+        )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntology", consumes = "application/json", produces = "application/json")
-    public String assessPOST(@RequestBody String body) {
+    public String assessPOST(
+        @ApiParam(value = "Ontology request object", required = true)
+        @RequestBody String body) {
         Response r = null;
         FOOPS f = null;
         Path ontologyPath = null;
@@ -109,6 +127,19 @@ public class FOOPSController {
         }
     }
 
+    @ApiOperation(value = "In construction: Get test by name") 
+    @GetMapping(path = "/checkByName", produces = "application/json") 
+    public String getCheckByName( 
+        @ApiParam(value = "Name of test", required = true) 
+        @RequestParam String name) {
+
+        FOOPS f = null;
+        Path ontologyPath = null;
+        ontologyPath = Path.of("ontology");
+        f = new FOOPS(String.valueOf(ontologyPath), false); // Ajustar los parámetros según tu necesidad
+        Optional<Check> check = f.getCheckByName(name); 
+        return "{ \"check\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
+    }
     /**
      *
      * @param file Archivo enviado como parte del FormData.
