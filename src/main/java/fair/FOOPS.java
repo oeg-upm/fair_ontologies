@@ -63,7 +63,6 @@ public class FOOPS {
         }
         else if (isFromFile) {
             checks = benchmark.fileChecks(ontology);
-
         }
         else if (custom) {
             //Example
@@ -85,10 +84,51 @@ public class FOOPS {
 
     }
 
-    public Optional<Check> getCheckByName(String name) {
+    /**
+    * In construction
+    * Method for getting test by name.
+    * @param name Name test. 
+    * @return ????????
+    */
+    public Optional<Check> getTestByName(String name) {
+        logger.info("------ Get test -----");
+        // Gson gson = new GsonBuilder().
+        // excludeFieldsWithoutExposeAnnotation().
+        // setPrettyPrinting().
+        // create();
+        
+        // checks.forEach(check -> { 
+        //     logger.info("Objeto completo del check: " + check);       
+        //     String jsonCheck = gson.toJson(check);
+        //     logger.info("JSON completo del check: " + jsonCheck);   
+        // });
         return checks.stream()
-                     .filter(check -> check.getClass().getSimpleName().equals(name))
-                     .findFirst();
+                    .peek(check -> logger.info("Verificando check: " + check.getClass().getSimpleName()))
+                    .filter(check -> check.getClass().getSimpleName().equals(name))
+                    .findFirst();
+    }
+    /**
+    * In construction
+    * Method for getting benchmark by name.
+    * @param name Name benchmark. 
+    * @return ????????
+    */
+    public Optional<Check> getBenchmarkByName(String name) {
+        logger.info("------ Get benchmark -----");
+        // Gson gson = new GsonBuilder().
+        // excludeFieldsWithoutExposeAnnotation().
+        // setPrettyPrinting().
+        // create();
+        
+        // checks.forEach(check -> { 
+        //     logger.info("Objeto completo del check: " + check);       
+        //     String jsonCheck = gson.toJson(check);
+        //     logger.info("JSON completo del check: " + jsonCheck);   
+        // });
+        return checks.stream()
+                    .peek(check -> logger.info("Verificando check: " + check.getClass().getSimpleName()))
+                    .filter(check -> check.getClass().getSimpleName().equals(name))
+                    .findFirst();
     }
     
     private float getTotalScore(){
