@@ -41,7 +41,7 @@ public class FOOPSController {
 
     Logger logger = LoggerFactory.getLogger(FOOPSController.class);
 
-    @ApiOperation(value = "Assess GET  ontology")
+    @ApiOperation(value = "Assess GET ontology")
     @CrossOrigin(origins = "*")
     @GetMapping("/assessOntology")
     public String assessGET() {
@@ -128,11 +128,23 @@ public class FOOPSController {
     }
 
     @ApiOperation(
-        value = "IN CONSTRUCTION: Get test by name",
+        value = "IN CONSTRUCTION: Test by name",
         notes = "return JSON TEST obtained by FOOPS." 
         ) 
-    @GetMapping(path = "/testByName", produces = "application/json") 
-    public String getTestByName( 
+    @PostMapping(path = "/test", consumes = "application/json", produces = "application/json")
+    public String testByNamePOST( 
+        @ApiParam(value = "Name of test", required = true) 
+        @RequestBody String body) {
+
+        return "{ \"test\": \"Not found\" }"; 
+    }
+
+    @ApiOperation(
+        value = "IN CONSTRUCTION: Test by name",
+        notes = "return JSON TEST obtained by FOOPS." 
+        ) 
+    @GetMapping(path = "/test", produces = "application/json")
+    public String testByNameGET( 
         @ApiParam(value = "Name of test", required = true) 
         @RequestParam String name) {
 
@@ -141,15 +153,27 @@ public class FOOPSController {
         ontologyPath = Path.of("ontology");
         f = new FOOPS(String.valueOf(ontologyPath), true); 
         Optional<Check> check = f.getTestByName(name); 
-        return "{ \"check\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
+        return "{ \"test\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
     }
 
     @ApiOperation(
-        value = "IN CONSTRUCTION: Get benchmark by name",
+        value = "IN CONSTRUCTION: Benchmark by name",
         notes = "return JSON BENCHMARK obtained by FOOPS." 
         ) 
-    @GetMapping(path = "/benchmarkByName", produces = "application/json") 
-    public String getBenchmarkByName( 
+    @PostMapping(path = "/benchmark", consumes = "application/json", produces = "application/json") 
+    public String benchmarkByNamePOST( 
+        @ApiParam(value = "Name of benchmark", required = true) 
+        @RequestBody String body) {
+
+        return "{ \"benchmark\": \"Not found\" }"; 
+    }
+
+    @ApiOperation(
+        value = "IN CONSTRUCTION: Benchmark by name",
+        notes = "return JSON BENCHMARK obtained by FOOPS." 
+        ) 
+    @GetMapping(path = "/benchmark", produces = "application/json") 
+    public String benchmarkByNamePost( 
         @ApiParam(value = "Name of benchmark", required = true) 
         @RequestParam String name) {
 
@@ -158,7 +182,7 @@ public class FOOPSController {
         ontologyPath = Path.of("ontology");
         f = new FOOPS(String.valueOf(ontologyPath), true); 
         Optional<Check> check = f.getBenchmarkByName(name); 
-        return "{ \"check\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
+        return "{ \"benchmark\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
     }
     /**
      *
