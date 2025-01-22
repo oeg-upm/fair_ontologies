@@ -127,17 +127,37 @@ public class FOOPSController {
         }
     }
 
-    @ApiOperation(value = "In construction: Get test by name") 
-    @GetMapping(path = "/checkByName", produces = "application/json") 
-    public String getCheckByName( 
+    @ApiOperation(
+        value = "IN CONSTRUCTION: Get test by name",
+        notes = "return JSON TEST obtained by FOOPS." 
+        ) 
+    @GetMapping(path = "/testByName", produces = "application/json") 
+    public String getTestByName( 
         @ApiParam(value = "Name of test", required = true) 
         @RequestParam String name) {
 
         FOOPS f = null;
         Path ontologyPath = null;
         ontologyPath = Path.of("ontology");
-        f = new FOOPS(String.valueOf(ontologyPath), false); // Ajustar los parámetros según tu necesidad
-        Optional<Check> check = f.getCheckByName(name); 
+        f = new FOOPS(String.valueOf(ontologyPath), true); 
+        Optional<Check> check = f.getTestByName(name); 
+        return "{ \"check\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
+    }
+
+    @ApiOperation(
+        value = "IN CONSTRUCTION: Get benchmark by name",
+        notes = "return JSON BENCHMARK obtained by FOOPS." 
+        ) 
+    @GetMapping(path = "/benchmarkByName", produces = "application/json") 
+    public String getBenchmarkByName( 
+        @ApiParam(value = "Name of benchmark", required = true) 
+        @RequestParam String name) {
+
+        FOOPS f = null;
+        Path ontologyPath = null;
+        ontologyPath = Path.of("ontology");
+        f = new FOOPS(String.valueOf(ontologyPath), true); 
+        Optional<Check> check = f.getBenchmarkByName(name); 
         return "{ \"check\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
     }
     /**
