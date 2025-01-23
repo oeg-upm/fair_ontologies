@@ -20,6 +20,8 @@ package fair;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import entities.Check;
 import entities.checks.*;
 import entities.Ontology;
@@ -38,7 +40,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Optional;
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
@@ -90,22 +93,28 @@ public class FOOPS {
     * @param name Name test. 
     * @return ????????
     */
-    public Optional<Check> getTestByName(String name) {
-        logger.info("------ Get test -----");
-        // Gson gson = new GsonBuilder().
-        // excludeFieldsWithoutExposeAnnotation().
-        // setPrettyPrinting().
-        // create();
-        
-        // checks.forEach(check -> { 
-        //     logger.info("Objeto completo del check: " + check);       
-        //     String jsonCheck = gson.toJson(check);
-        //     logger.info("JSON completo del check: " + jsonCheck);   
-        // });
+    public Optional<Map<String, String>> getTestByName(String name) {
+   
+        Gson gson = new GsonBuilder()
+                .excludeFieldsWithoutExposeAnnotation()
+                .setPrettyPrinting()
+                .create();
+
         return checks.stream()
-                    .peek(check -> logger.info("Verificando check: " + check.getClass().getSimpleName()))
-                    .filter(check -> check.getClass().getSimpleName().equals(name))
-                    .findFirst();
+                .map(check -> {
+                    String jsonCheck = gson.toJson(check);
+                    JsonObject jsonObject = JsonParser.parseString(jsonCheck).getAsJsonObject();
+                    return jsonObject;
+                })
+                .filter(jsonObject -> jsonObject.get("abbreviation").getAsString().equals(name))
+                .map(jsonObject -> {
+                    Map<String, String> details = new HashMap<>();
+                    details.put("description", jsonObject.get("description").getAsString());
+                    details.put("id", jsonObject.get("id").getAsString());
+                    details.put("title", jsonObject.get("title").getAsString());
+                    return details;
+                })
+                .findFirst();
     }
     /**
     * In construction
