@@ -35,6 +35,9 @@ import java.nio.file.Path;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import java.util.Optional;
+import java.util.Map;
+import java.nio.file.Files;
+import java.util.HashMap;
 
 @RestController
 public class FOOPSController {
@@ -75,6 +78,7 @@ public class FOOPSController {
         Response r = null;
         FOOPS f = null;
         Path ontologyPath = null;
+        
         try{
             try { //has an onto URI been provided?
                 Gson gson = new Gson();
@@ -135,15 +139,22 @@ public class FOOPSController {
     public String testByNamePOST( 
         @ApiParam(value = "Name of test", required = true) 
         @RequestBody String body) {
-
+        
+        //hay que extraer el id del json del boy
+        // FOOPS f = null;
+        // Path ontologyPath = null;
+        // ontologyPath = Path.of("ontology");
+        // f = new FOOPS(String.valueOf(ontologyPath), true); 
+        // Optional<Check> check = f.getTestByName(name); 
         return "{ \"test\": \"Not found\" }"; 
+    
     }
 
     @ApiOperation(
-        value = "IN CONSTRUCTION: Test by name",
-        notes = "return JSON TEST obtained by FOOPS." 
+        value = "Test description by name",
+        notes = "return test description and id." 
         ) 
-    @GetMapping(path = "/test", produces = "application/json")
+    @GetMapping(path = "/test", produces = "text/plainn")
     public String testByNameGET( 
         @ApiParam(value = "Name of test", required = true) 
         @RequestParam String name) {
@@ -151,9 +162,39 @@ public class FOOPSController {
         FOOPS f = null;
         Path ontologyPath = null;
         ontologyPath = Path.of("ontology");
-        f = new FOOPS(String.valueOf(ontologyPath), true); 
-        Optional<Check> check = f.getTestByName(name); 
-        return "{ \"test\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
+        Map<String, String> response = new HashMap<>();
+
+        try {
+            if (!Files.exists(ontologyPath)) {
+                logger.error("El archivo ontology no existe en la ubicación especificada: " + ontologyPath.toString());
+                // Proseguir sin cargar ontology
+                f = new FOOPS("default_url_or_empty_string", false); // Asume alguna URL por defecto o deja vacío
+            } else {
+                f = new FOOPS(String.valueOf(ontologyPath), true);
+            }
+        } catch (Exception e) {
+            logger.error("Error cargando la ontología: " + e.getMessage());
+            // Proseguir sin ontology
+            f = new FOOPS("default_url_or_empty_string", false);
+        }
+        Optional<Map<String, String>> testDetails = f.getTestByName(name); 
+
+        if (testDetails.isPresent()) {
+            Map<String, String> details = testDetails.get();
+            String description = details.get("description");
+            String id = details.get("id");
+            String title = details.get("title");
+
+            return "Test: " + name + "\n" +
+                   "Title: " + title + "\n" +
+                   "Description: " + description + "\n" +
+                   "Please send a POST request to obtain a JSON. Example:\n" +
+                   "curl -X POST \"https://foops.linkeddata.es/test/" + name + "\" -H \"accept: application/json; charset=UTF-8\" " +
+                   "-H \"Content-Type: application/json;charset=UTF-8\" -d " +
+                   "{ \"test\": \"" + id + "\" }";
+        } else {
+            return "Description not found about: " + name;
+        }
     }
 
     @ApiOperation(
@@ -165,24 +206,29 @@ public class FOOPSController {
         @ApiParam(value = "Name of benchmark", required = true) 
         @RequestBody String body) {
 
+        // FOOPS f = null;
+        // Path ontologyPath = null;
+        // ontologyPath = Path.of("ontology");
+        // f = new FOOPS(String.valueOf(ontologyPath), true); 
+        // Optional<Check> check = f.getBenchmarkByName(name); 
         return "{ \"benchmark\": \"Not found\" }"; 
+
     }
 
     @ApiOperation(
-        value = "IN CONSTRUCTION: Benchmark by name",
-        notes = "return JSON BENCHMARK obtained by FOOPS." 
+        value = "IN CONSTRUCTION: Benchmark description by name",
+        notes = "return benchmark description and id." 
         ) 
     @GetMapping(path = "/benchmark", produces = "application/json") 
     public String benchmarkByNamePost( 
         @ApiParam(value = "Name of benchmark", required = true) 
         @RequestParam String name) {
 
-        FOOPS f = null;
-        Path ontologyPath = null;
-        ontologyPath = Path.of("ontology");
-        f = new FOOPS(String.valueOf(ontologyPath), true); 
-        Optional<Check> check = f.getBenchmarkByName(name); 
-        return "{ \"benchmark\": \"" + (check.isPresent() ? check.get().toString() : "Not found") + "\" }"; 
+        return "Please send a POST request. Example: " +
+        "curl -X POST \"https://foops.linkeddata.es/benchmark\" -H \"accept: application/json;" +
+        "charset=UTF-8\" " +
+        "-H \"Content-Type: application/json;charset=UTF-8\" -d " +
+        "\"{ \"benchmark\": \"https://w3id.org/foops/test/CN1\"}\"";
     }
     /**
      *
