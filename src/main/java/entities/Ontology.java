@@ -411,7 +411,6 @@ public class Ontology {
         if(isSKOS) {
             //extract only for skos:Concept
             EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass(Constants.SKOS_CONCEPT), ontologyModel).forEach(a-> {
-                System.out.println("Se mete aqui");
                 this.terms.add(a.toStringID());
                 OWLAnnotationProperty skosLabel = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty(Constants.PROP_SKOS_PREF_LABEL);
                 EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosLabel).forEach(ann -> {
