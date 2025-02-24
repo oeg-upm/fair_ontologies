@@ -67,7 +67,6 @@ public class Ontology {
     private final ArrayList<String> terms; // all terms
     private final ArrayList<String> termsWithDescription;
     private boolean isSKOS = false;
-    private boolean isHTTP = false;
 
     /**
      *
@@ -147,7 +146,6 @@ public class Ontology {
             } catch (Exception e) {
                 logger.info("No version IRI detected");
             }
-            this.ontologyModel.annotations().forEach(System.out::println);
             this.ontologyModel.annotations().forEach(this::completeMetadata);
         }
     }
@@ -393,7 +391,6 @@ public class Ontology {
                 this.supportedMetadata.add(Constants.FOOPS_NAME);
                 break;
         }
-        System.out.println(this.supportedMetadata);
     }
 
     /**
