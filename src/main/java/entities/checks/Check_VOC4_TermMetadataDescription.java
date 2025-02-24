@@ -60,7 +60,7 @@ public class Check_VOC4_TermMetadataDescription extends Check {
             } else {
                 this.status = Constants.ERROR;
                 this.explanation = Constants.VOC4_EXPLANATION_ERROR + ontology.getTermsWithDescription().size() + " out of " +
-                        ontology.getTerms().size() + " terms";
+                        ontology.getTerms().size() + " terms.";
                 affected_elements = new ArrayList<>();
                 for (String term:ontology.getTerms()){
                     if (!ontology.getTermsWithDescription().contains(term)){

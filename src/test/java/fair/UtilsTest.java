@@ -38,19 +38,19 @@ public class UtilsTest {
     @Test
     public void isLicenseResolvable_3() {
         String empty_url = "";
-        assertTFalse(Utils.isURIResolvable(empty_url));
+        assertFalse(Utils.isURIResolvable(empty_url));
     }
 
     @Test
     public void isLicenseResolvable_4() {
         String null_url = null;
-        assertTFalse(Utils.isURIResolvable(null_url));
+        assertFalse(Utils.isURIResolvable(null_url));
     }
 
     @Test
     public void isLicenseResolvable_5() {
         String random_string = "ñasodnivoev";
-        assertTFalse(Utils.isURIResolvable(random_string));
+        assertFalse(Utils.isURIResolvable(random_string));
     }
 
 

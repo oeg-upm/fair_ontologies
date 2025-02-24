@@ -455,15 +455,15 @@ public class Ontology {
     private void checkTermCoverage(OWLNamedObject a){
         String termNS = a.getIRI().getNamespace();
         if(termNS.equals(Constants.NS_OWL)) return; //We ignore OWL reuse.
-        if(!termNS.contains(this.ontologyURI)) {
+        if(!termNS.toLowerCase().contains(this.ontologyURI.toLowerCase())) {
             if (!this.reusedVocabularies.contains(termNS)) {
                 this.reusedVocabularies.add(termNS);
             }
         }else{
             //get label/def coverage for the ontology URI considered
             String termIRI = a.getIRI().getIRIString();
-            if(!terms.contains(termIRI)) { // to avoid duplicates
-                terms.add(termIRI);
+            if(!this.terms.contains(termIRI)) { // to avoid duplicates
+                this.terms.add(termIRI);
             }
             OWLAnnotationProperty label = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getRDFSLabel();
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), label).forEach(ann -> {
