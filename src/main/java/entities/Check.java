@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-22 Ontology Engineering Group, Universidad Politecnica de Madrid, Spain
+ * Copyright 2021-22 Engineering Group, Universidad Politecnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
