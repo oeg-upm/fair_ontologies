@@ -165,11 +165,22 @@ public class Ontology {
                     logger.error("Error while getting ontology title. No literal provided");
                 }
                 break;
+
+            case Constants.PROP_SCHEMA_NAME_HTTP:
+                try {
+//                    valueLanguage = a.getValue().asLiteral().get().getLang();
+                    this.title = a.getValue().asLiteral().get().getLiteral();
+                    this.supportedMetadata.add(Constants.FOOPS_TITLE);
+                } catch (Exception e) {
+                    logger.error("Error while getting ontology title. No literal provided");
+                }
+                break;
             case Constants.PROP_DCTERMS_ABSTRACT:
             case Constants.PROP_DC_ABSTRACT:
             case Constants.PROP_DCTERMS_DESCRIPTION:
             case Constants.PROP_DC_DESCRIPTION:
             case Constants.PROP_SCHEMA_DESCRIPTION:
+            case Constants.PROP_SCHEMA_DESCRIPTION_HTTP:
             case Constants.PROP_RDFS_COMMENT:
             case Constants.PROP_DOAP_DESCRIPTION:
             case Constants.PROP_DOAP_SHORT_DESC:
@@ -198,6 +209,14 @@ public class Ontology {
                     logger.error("Error while getting ontology abstract. No literal provided");
                 }
                 break;
+            case Constants.PROP_SCHEMA_SCHEMA_VERSION_HTTP:
+                try {
+                    this.versionInfo = a.getValue().asLiteral().get().getLiteral();
+                    this.supportedMetadata.add(Constants.FOOPS_VERSION_INFO);
+                } catch (Exception e) {
+                    logger.error("Error while getting ontology abstract. No literal provided");
+                }
+                break;
             case Constants.PROP_VANN_PREFIX:
                 this.namespacePrefix = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_NS_PREFIX);
@@ -211,6 +230,7 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_LICENSE:
             case Constants.PROP_SCHEMA_LICENSE:
+            case Constants.PROP_SCHEMA_LICENSE_HTTP:
             case Constants.PROP_DOAP_LICENSE:
             case Constants.PROP_CC_LICENSE:
                 //add rights.
@@ -232,10 +252,12 @@ public class Ontology {
             case Constants.PROP_DC_CONTRIBUTOR:
             case Constants.PROP_DCTERMS_CONTRIBUTOR:
             case Constants.PROP_SCHEMA_CONTRIBUTOR:
+            case Constants.PROP_SCHEMA_CONTRIBUTOR_HTTP:
             case Constants.PROP_PAV_CONTRIBUTED_BY:
             case Constants.PROP_DC_CREATOR:
             case Constants.PROP_DCTERMS_CREATOR:
             case Constants.PROP_SCHEMA_CREATOR:
+            case Constants.PROP_SCHEMA_CREATOR_HTTP:
             case Constants.PROP_PAV_CREATED_BY:
             case Constants.PROP_PAV_AUTHORED_BY:
             case Constants.PROP_FOAF_MAKER:
@@ -243,6 +265,7 @@ public class Ontology {
             case Constants.PROP_DC_PUBLISHER:
             case Constants.PROP_DCTERMS_PUBLISHER:
             case Constants.PROP_SCHEMA_PUBLISHER:
+            case Constants.PROP_SCHEMA_PUBLISHER_HTTP:
             case Constants.PROP_DOAP_DOCUMENTER:
             case Constants.PROP_DOAP_MAINTAINER:
             case Constants.PROP_DOAP_DEVELOPER:
@@ -254,6 +277,7 @@ public class Ontology {
                         case Constants.PROP_DC_CONTRIBUTOR:
                         case Constants.PROP_DCTERMS_CONTRIBUTOR:
                         case Constants.PROP_SCHEMA_CONTRIBUTOR:
+                        case Constants.PROP_SCHEMA_CONTRIBUTOR_HTTP:
                         case Constants.PROP_DOAP_DOCUMENTER:
                         case Constants.PROP_DOAP_MAINTAINER:
                         case Constants.PROP_DOAP_HELPER:
@@ -269,6 +293,7 @@ public class Ontology {
                         case Constants.PROP_FOAF_MAKER:
                         case Constants.PROP_PROV_ATTRIBUTED_TO:
                         case Constants.PROP_SCHEMA_CREATOR:
+                        case Constants.PROP_SCHEMA_CREATOR_HTTP:
                         case Constants.PROP_DOAP_DEVELOPER:
                             this.authors.add(value);
                             this.supportedMetadata.add(Constants.FOOPS_AUTHOR);
@@ -284,6 +309,7 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_CREATED:
             case Constants.PROP_SCHEMA_DATE_CREATED:
+            case Constants.PROP_SCHEMA_DATE_CREATED_HTTP:
             case Constants.PROP_DOAP_CREATED:
             case Constants.PROP_PROV_GENERATED_AT_TIME:
             case Constants.PROP_PAV_CREATED_ON:
@@ -303,8 +329,20 @@ public class Ontology {
                     logger.error("Error while getting the date. No literal provided");
                 }
                 break;
+            case Constants.PROP_SCHEMA_DATE_MODIFIED_HTTP:
+                try {
+                    this.modifiedDate = a.getValue().asLiteral().get().getLiteral();
+                    this.supportedMetadata.add(Constants.FOOPS_MODIFIED);
+                } catch (Exception e) {
+                    logger.error("Error while getting the date. No literal provided");
+                }
+                break;
             case Constants.PROP_DCTERMS_BIBLIOGRAPHIC_CIT:
             case Constants.PROP_SCHEMA_CITATION:
+                this.citation = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_CITATION);
+                break;
+            case Constants.PROP_SCHEMA_CITATION_HTTP:
                 this.citation = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_CITATION);
                 break;
@@ -314,7 +352,12 @@ public class Ontology {
                 break;
             case Constants.PROP_BIBO_STATUS:
                 try {
-                    this.status = a.getValue().asLiteral().get().getLiteral();
+                    if (a.getValue().isLiteral()) {
+                        this.status = a.getValue().asLiteral().get().getLiteral();
+                    }
+                    if (a.getValue().isIRI()) {
+                        this.status = a.getValue().asIRI().get().getIRIString();
+                    }
                     this.supportedMetadata.add(Constants.FOOPS_STATUS);
                 } catch (Exception e) {
                     logger.error("Error while getting the status. No literal provided");
@@ -326,6 +369,10 @@ public class Ontology {
                 break;
             case Constants.PROP_FOAF_LOGO:
             case Constants.PROP_SCHEMA_SCHEMA_LOGO:
+                this.logo = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.supportedMetadata.add(Constants.FOOPS_LOGO);
+                break;
+            case Constants.PROP_SCHEMA_SCHEMA_LOGO_HTTP:
                 this.logo = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_LOGO);
                 break;
@@ -408,15 +455,15 @@ public class Ontology {
     private void checkTermCoverage(OWLNamedObject a){
         String termNS = a.getIRI().getNamespace();
         if(termNS.equals(Constants.NS_OWL)) return; //We ignore OWL reuse.
-        if(!termNS.contains(this.ontologyURI)) {
+        if(!termNS.toLowerCase().contains(this.ontologyURI.toLowerCase())) {
             if (!this.reusedVocabularies.contains(termNS)) {
                 this.reusedVocabularies.add(termNS);
             }
         }else{
             //get label/def coverage for the ontology URI considered
             String termIRI = a.getIRI().getIRIString();
-            if(!terms.contains(termIRI)) { // to avoid duplicates
-                terms.add(termIRI);
+            if(!this.terms.contains(termIRI)) { // to avoid duplicates
+                this.terms.add(termIRI);
             }
             OWLAnnotationProperty label = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getRDFSLabel();
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), label).forEach(ann -> {

@@ -167,7 +167,6 @@ public class FOOPSController {
         try {
             if (!Files.exists(ontologyPath)) {
                 logger.error("El archivo ontology no existe en la ubicación especificada: " + ontologyPath.toString());
-                // Proseguir sin cargar ontology
                 f = new FOOPS("default_url_or_empty_string", false); // Asume alguna URL por defecto o deja vacío
             } else {
                 f = new FOOPS(String.valueOf(ontologyPath), true);
@@ -230,6 +229,7 @@ public class FOOPSController {
         "-H \"Content-Type: application/json;charset=UTF-8\" -d " +
         "\"{ \"benchmark\": \"https://w3id.org/foops/test/CN1\"}\"";
     }
+    
     /**
      *
      * @param file Archivo enviado como parte del FormData.
@@ -242,30 +242,15 @@ public class FOOPSController {
             @RequestParam("file") MultipartFile file,
             @RequestParam(value = "otherData", required = false) String otherData) {
         FOOPS f = null;
-        String fileContent = null;
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
-            System.out.println("file Name: " + fileName);
-
-
             try {
-                fileContent = new String(file.getBytes());
-                try{
-                    if (f == null && fileContent!=null){
-                        f = new FOOPS(fileName, true);
-                    }
-                    if (f == null){
-                        throw new ResponseStatusException(
-                                HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
-                    }
-                    f.fairTest();
-                    return f.exportJSON();
-
-                }catch(ResponseStatusException e) {
-                    throw e;
-                }            } catch (Exception e) {
-                e.printStackTrace();
-                return "{\"error\":\"Error processing file\"}";
+                f = new FOOPS(fileName, true);
+                f.fairTest();
+                return f.exportJSON();
+            } catch (Exception e) {
+                throw new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST, "Error while processing the file", e);
             }
             finally{
                 if (f != null){
@@ -275,7 +260,9 @@ public class FOOPSController {
             }
         }
         else {
-            return  "{\"error\":\"No file detected\"}";
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Could not load ontology",
+                    new Exception("Ontology URI or ontology content not provided"));
         }
 
     }

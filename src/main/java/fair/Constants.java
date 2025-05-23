@@ -296,6 +296,7 @@ public class Constants {
 
     public static final String NS_RDFS = "http://www.w3.org/2000/01/rdf-schema#";
     public static final String NS_SCHEMA = "https://schema.org/";
+    public static final String NS_SCHEMA_HTTP = "http://schema.org/";
     public static final String NS_DC = "http://purl.org/dc/elements/1.1/";
     public static final String NS_DCTERMS = "http://purl.org/dc/terms/";
     public static final String NS_OWL = "http://www.w3.org/2002/07/owl#";
@@ -350,6 +351,18 @@ public class Constants {
     public static final String PROP_SCHEMA_PUBLISHER = NS_SCHEMA + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION = NS_SCHEMA + "schemaVersion";
     public static final String PROP_SCHEMA_SCHEMA_LOGO = NS_SCHEMA + "logo";
+
+    public static final String PROP_SCHEMA_NAME_HTTP = NS_SCHEMA_HTTP + "name";
+    public static final String PROP_SCHEMA_CREATOR_HTTP = NS_SCHEMA_HTTP + "creator";
+    public static final String PROP_SCHEMA_LICENSE_HTTP = NS_SCHEMA_HTTP + "license";
+    public static final String PROP_SCHEMA_CONTRIBUTOR_HTTP = NS_SCHEMA_HTTP + "contributor";
+    public static final String PROP_SCHEMA_DESCRIPTION_HTTP = NS_SCHEMA_HTTP + "description";
+    public static final String PROP_SCHEMA_CITATION_HTTP = NS_SCHEMA_HTTP + "citation";
+    public static final String PROP_SCHEMA_DATE_CREATED_HTTP = NS_SCHEMA_HTTP + "dateCreated";
+    public static final String PROP_SCHEMA_DATE_MODIFIED_HTTP = NS_SCHEMA_HTTP + "dateModified";
+    public static final String PROP_SCHEMA_PUBLISHER_HTTP = NS_SCHEMA_HTTP + "publisher";
+    public static final String PROP_SCHEMA_SCHEMA_VERSION_HTTP = NS_SCHEMA_HTTP + "schemaVersion";
+    public static final String PROP_SCHEMA_SCHEMA_LOGO_HTTP = NS_SCHEMA_HTTP + "logo";
 
     public static final String PROP_OWL_VERSION_INFO = NS_OWL + "versionInfo";
 
