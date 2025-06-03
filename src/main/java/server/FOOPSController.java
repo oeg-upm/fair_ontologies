@@ -18,26 +18,32 @@
 package server;
 
 
-import com.google.gson.Gson;
-import entities.Response;
-import entities.Check;
-import fair.FOOPS; 
+import java.io.File;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path; 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.io.File;
-import java.io.PrintWriter;
-import java.nio.file.Path;
+import com.google.gson.Gson;
+
+import entities.Response;
+import fair.FOOPS;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import java.util.Optional;
-import java.util.Map;
-import java.nio.file.Files;
-import java.util.HashMap;
 
 @RestController
 public class FOOPSController {
@@ -162,19 +168,21 @@ public class FOOPSController {
         FOOPS f = null;
         Path ontologyPath = null;
         ontologyPath = Path.of("ontology");
+        logger.info("Ontology path: " + ontologyPath.toString());
+   
         Map<String, String> response = new HashMap<>();
 
         try {
             if (!Files.exists(ontologyPath)) {
-                logger.error("El archivo ontology no existe en la ubicación especificada: " + ontologyPath.toString());
-                // Proseguir sin cargar ontology
-                f = new FOOPS("default_url_or_empty_string", false); // Asume alguna URL por defecto o deja vacío
+                logger.error("The ontology file does not exist at the specified location:  " + ontologyPath.toString());
+                // Proceed without loading ontology
+                f = new FOOPS("default_url_or_empty_string", false); // Assume a default URL or leave it empty
             } else {
                 f = new FOOPS(String.valueOf(ontologyPath), true);
             }
         } catch (Exception e) {
-            logger.error("Error cargando la ontología: " + e.getMessage());
-            // Proseguir sin ontology
+            logger.error("Error getting ontolgy: " + e.getMessage());
+            // Proceed without loading ontology
             f = new FOOPS("default_url_or_empty_string", false);
         }
         Optional<Map<String, String>> testDetails = f.getTestByName(name); 
@@ -232,9 +240,9 @@ public class FOOPSController {
     }
     /**
      *
-     * @param file Archivo enviado como parte del FormData.
-     * @param otherData String opcional con otros datos enviados.
-     * @return Respuesta JSON obtenida por FOOPS.
+     * @param file file File sent as part of the FormData.
+     * @param otherData Optional string with additional data sent
+     * @return JSON response obtained by FOOPS..
      */
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntologyFile",consumes = "multipart/form-data", produces = "application/json")

@@ -18,20 +18,6 @@
 
 package fair;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import entities.Check;
-import entities.checks.*;
-import entities.Ontology;
-import org.apache.commons.io.FileUtils;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.formats.TurtleDocumentFormat;
-import org.semanticweb.owlapi.model.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -39,9 +25,28 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+
+import org.apache.commons.io.FileUtils;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.formats.TurtleDocumentFormat;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import entities.Check;
+import entities.Ontology;
 
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
@@ -56,13 +61,18 @@ public class FOOPS {
         tmpFolder = null;
         try {
             tmpFolder = Files.createTempDirectory(Path.of("."), "foops");
+            logger.info("Temp Directory created");
         }catch(Exception e){
             logger.error("Could not create temporary folder. Exiting");
             return;
         }
         this.ontology = new Ontology(o, isFromFile, tmpFolder);
         if(!isFromFile ){
+            logger.info("uri Checks");
+            logger.info("ontology: " + ontology);
+            logger.info("o: " + o);
             checks =  benchmark.uriChecks(ontology,o);
+            logger.info("CHECKS: " + checks.toString());
         }
         else if (isFromFile) {
             checks = benchmark.fileChecks(ontology);
@@ -94,27 +104,49 @@ public class FOOPS {
     * @return ????????
     */
     public Optional<Map<String, String>> getTestByName(String name) {
-   
+        
         Gson gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
                 .setPrettyPrinting()
                 .create();
-
-        return checks.stream()
-                .map(check -> {
-                    String jsonCheck = gson.toJson(check);
-                    JsonObject jsonObject = JsonParser.parseString(jsonCheck).getAsJsonObject();
-                    return jsonObject;
-                })
-                .filter(jsonObject -> jsonObject.get("abbreviation").getAsString().equals(name))
-                .map(jsonObject -> {
-                    Map<String, String> details = new HashMap<>();
-                    details.put("description", jsonObject.get("description").getAsString());
-                    details.put("id", jsonObject.get("id").getAsString());
-                    details.put("title", jsonObject.get("title").getAsString());
-                    return details;
-                })
-                .findFirst();
+        // Intentando encontrar el test entre la lista de checks cargados previamente
+        for (Check check : checks) {
+            // Convertir el check a JSON y luego a JsonObject
+            String jsonCheck = gson.toJson(check);
+            JsonObject jsonObject = JsonParser.parseString(jsonCheck).getAsJsonObject();
+    
+            // Comparar la abreviatura
+            if (jsonObject.get("abbreviation").getAsString().equals(name)) {
+                logger.info("Encontrado");
+                // Si coincide, construir el mapa con la información del test
+                Map<String, String> details = new HashMap<>();
+                details.put("description", jsonObject.get("description").getAsString());
+                details.put("id", jsonObject.get("id").getAsString());
+                details.put("title", jsonObject.get("title").getAsString());
+    
+                // Devolver como Optional
+                return Optional.of(details);
+            }
+        }
+    
+        // Si no se encuentra, devolver Optional vacío
+        return Optional.empty();
+  
+        // return checks.stream()
+        //         .map(check -> {
+        //             String jsonCheck = gson.toJson(check);
+        //             JsonObject jsonObject = JsonParser.parseString(jsonCheck).getAsJsonObject();
+        //             return jsonObject;
+        //         })
+        //         .filter(jsonObject -> jsonObject.get("abbreviation").getAsString().equals(name))
+        //         .map(jsonObject -> {
+        //             Map<String, String> details = new HashMap<>();
+        //             details.put("description", jsonObject.get("description").getAsString());
+        //             details.put("id", jsonObject.get("id").getAsString());
+        //             details.put("title", jsonObject.get("title").getAsString());
+        //             return details;
+        //         })
+        //         .findFirst();
     }
     /**
     * In construction
@@ -135,7 +167,7 @@ public class FOOPS {
         //     logger.info("JSON completo del check: " + jsonCheck);   
         // });
         return checks.stream()
-                    .peek(check -> logger.info("Verificando check: " + check.getClass().getSimpleName()))
+                    .peek(check -> logger.info("Verifying check: " + check.getClass().getSimpleName()))
                     .filter(check -> check.getClass().getSimpleName().equals(name))
                     .findFirst();
     }
