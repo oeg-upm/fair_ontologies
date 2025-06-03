@@ -1,4 +1,5 @@
 # OEG FAIR Ontologies Assessment (FOOPS!)
+[![DOI](https://zenodo.org/badge/367292245.svg)](https://doi.org/10.5281/zenodo.14767999)
 
 <img src="html_client/assets/foopsLogo.png" alt="logo" width="200"/>
 

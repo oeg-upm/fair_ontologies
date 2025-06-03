@@ -34,4 +34,27 @@ public class UtilsTest {
         String resolvable_url = "http://creativecommons.org/licenses/by/2.0/";
         assertTrue(Utils.isURIResolvable(resolvable_url));
     }
+
+    @Test
+    public void isLicenseResolvable_3() {
+        String empty_url = "";
+        assertFalse(Utils.isURIResolvable(empty_url));
+    }
+
+    @Test
+    public void isLicenseResolvable_4() {
+        String null_url = null;
+        assertFalse(Utils.isURIResolvable(null_url));
+    }
+
+    @Test
+    public void isLicenseResolvable_5() {
+        String random_string = "ñasodnivoev";
+        assertFalse(Utils.isURIResolvable(random_string));
+    }
+
+
+    //Meter mas tests
+
+
 }
