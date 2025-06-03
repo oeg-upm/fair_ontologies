@@ -590,23 +590,27 @@ def iterate_paths(path_source, path_destination, template, pquery, type_doc):
         for file in files:
             if file.endswith(".ttl"):
                 # si encontramos el archivo ttl podemos llamar a las funciones de transformacion
-                path_ttl_source = os.path.join(root, file)
-                folder_name = os.path.basename(root)
+                path_ttl = os.path.join(root, file)
+                # path_ttl_source = os.path.join(root, file)
+                # folder_name = os.path.basename(root)
 
-                destination_path_folder = os.path.join(
-                    path_destination, 'doc', subfolder, folder_name)
+                # destination_path_folder = os.path.join(
+                #     path_destination, 'doc', subfolder, folder_name)
 
-                os.makedirs(destination_path_folder, exist_ok=True)
+                # relative_path = os.path.relpath(root, path_source)
+                # destination_path_folder = os.path.join(path_destination, subfolder, relative_path)
 
-                try:
-                    shutil.copy(path_ttl_source, destination_path_folder)
-                    print(
-                        f"File {file} copied succesfully to {destination_path_folder}")
-                    path_ttl = os.path.join(destination_path_folder, file)
+                # os.makedirs(destination_path_folder, exist_ok=True)
 
-                except Exception as e:
-                    print(f"Error copying file: {file} - {e}")
-                    continue
+                # try:
+                #     shutil.copy(path_ttl_source, destination_path_folder)
+                #     print(
+                #         f"File {file} copied succesfully to {destination_path_folder}")
+                #     path_ttl = os.path.join(destination_path_folder, file)
+
+                # except Exception as e:
+                #     print(f"Error copying file: {file} - {e}")
+                #     continue
 
                 match type_doc:
                     case "T":
@@ -632,7 +636,6 @@ def catalog_process(path_mustache_catalog, path_source):
     item_to_list(path_source, tests, QUERY_CATALOG_TTL, "T")
     item_to_list(path_source, metrics, QUERY_CATALOG_METRIC, "M")
     item_to_list(path_source, benchmarks, QUERY_CATALOG_BENCHMARK, "B")
-
     # # sorted list of test and metrics by name
     tests_sorted = sorted(tests, key=lambda x: x["name"])
     metrics_sorted = sorted(metrics, key=lambda x: x["name"])
@@ -649,7 +652,8 @@ def catalog_process(path_mustache_catalog, path_source):
         template_content, {'tests': tests_sorted,
                            'metrics': metrics_sorted, 'benchmarks': benchmarks_sorted})
 
-    path_catalog = os.path.join(path_source, 'doc', 'catalog.html')
+    # path_catalog = os.path.join(path_source, 'doc', 'catalog.html')
+    path_catalog = os.path.join(path_source, 'catalog.html')
     print("Path catalog: " + path_catalog)
     with open(path_catalog, 'w', encoding="utf-8") as output_file:
         output_file.write(rendered_output)
@@ -667,8 +671,8 @@ def item_to_list(path, plist, pquery, type_doc):
         case _:
             print("Unknown type doc")
 
-    path_source = os.path.join(path, 'doc', subfolder)
-
+    # path_source = os.path.join(path, 'doc', subfolder)
+    path_source = os.path.join(path, subfolder)
     for root, _, files in os.walk(path_source):
         for file in files:
             if file.endswith(".ttl"):
