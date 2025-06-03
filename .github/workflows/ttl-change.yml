@@ -36,6 +36,6 @@ jobs:
 
       - name: Commit changes
         run: |
-          git add doc/*.html doc/*.json-ld
+          git add doc/*.html doc/*.jsonld
           git commit -m "Auto-generate HTML and JSON-LD from TTL changes" || echo "No changes to commit"
           git push
