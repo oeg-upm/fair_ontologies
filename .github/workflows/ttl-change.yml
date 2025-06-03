@@ -1,0 +1,41 @@
+name: Run script ttl-transformations when change ttl en doc folder
+
+on:
+  push:
+    paths:
+      - 'doc/**/*.ttl'
+      
+permissions:
+  contents: write  
+  
+jobs:
+  ejecutar-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: clon repo
+        uses: actions/checkout@v3
+
+      - name: set Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: install dependencies
+        run: |
+          pip install -r doc/web_generation_scripts/requirements.txt
+
+      - name: run script
+        run: |
+          python doc/web_generation_scripts/ttl_transformations.py -i doc -o doc
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes
+        run: |
+          git add doc/*.html doc/*.json-ld
+          git commit -m "Auto-generate HTML and JSON-LD from TTL changes" || echo "No changes to commit"
+          git push
