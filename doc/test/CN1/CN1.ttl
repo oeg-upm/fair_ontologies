@@ -22,7 +22,7 @@
     dcterms:publisher <https://oeg.fi.upm.es> ;
     dcat:version "0.0.1"^^xsd:string ;
     dcterms:identifier <https://w3id.org/foops/test/CN1> ;
-    dcat:keyword "Content negotiation"@en , "Test"@en ;
+    dcat:keyword "Content negotiation"@en , "Juanjen"@en, "Test"@en ;
     <http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/CN1> ; 
     doap:repository <https://w3id.org/foops/repository> .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
