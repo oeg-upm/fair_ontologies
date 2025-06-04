@@ -1,25 +1,26 @@
 [
     {
-        "@id": "https://w3id.org/foops/test/OM1",
+        "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
-            "https://w3id.org/ftr#Test"
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+            }
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/foops/test/OM1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
+            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -40,20 +41,19 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "https://w3id.org/ftr#Benchmark"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -72,30 +72,6 @@
             {
                 "@language": "en",
                 "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F2",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "data are described with rich metadata (defined by R1 below)"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F2"
             }
         ]
     },
@@ -219,6 +195,30 @@
         "https://w3id.org/ftr#supportedBy": [
             {
                 "@id": "https://w3id.org/foops/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F2",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "data are described with rich metadata (defined by R1 below)"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F2"
             }
         ]
     }
