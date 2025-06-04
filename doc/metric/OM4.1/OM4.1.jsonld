@@ -1,11 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/test/OM4.1",
-        "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/OM4.1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -123,6 +117,36 @@
         ]
     },
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/R1.1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are released with a clear and accessible data usage license"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1.1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1.1"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -158,33 +182,21 @@
         ]
     },
     {
-        "@id": "https://w3id.org/fair/principles/terms/R1.1",
+        "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "https://w3id.org/ftr#Benchmark"
         ],
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "(meta)data are released with a clear and accessible data usage license"
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
             }
         ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1.1"
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
             }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1.1"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -205,21 +217,9 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@id": "https://w3id.org/foops/test/OM4.1",
         "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
+            "https://w3id.org/ftr#Test"
         ]
     }
 ]

@@ -24,9 +24,9 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/OM1",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -44,6 +44,12 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/OM1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -158,12 +164,6 @@
             {
                 "@id": "https://w3id.org/foops/"
             }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
