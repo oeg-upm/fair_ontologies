@@ -17,9 +17,33 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/fair/principles/terms/A2",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "metadata are accessible, even when the data are no longer available"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "A2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "A2"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/FIND_3_BIS",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -54,30 +78,6 @@
             {
                 "@language": "en",
                 "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/A2",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "metadata are accessible, even when the data are no longer available"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "A2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "A2"
             }
         ]
     },
@@ -196,9 +196,9 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/FIND_3_BIS",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/ftr#Test"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     }
 ]
