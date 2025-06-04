@@ -17,30 +17,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM4.1",
-        "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/OM4.1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -148,12 +124,6 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -168,6 +138,24 @@
             {
                 "@language": "en",
                 "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     },
@@ -193,6 +181,18 @@
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "R1.1"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/OM4.1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     },
     {
