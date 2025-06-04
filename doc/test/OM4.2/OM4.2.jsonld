@@ -17,6 +17,12 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/metric/OM4.2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -34,45 +40,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@id": "https://w3id.org/foops/test/OM4.2",
         "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/OM4.1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
+            "https://w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
         ],
         "http://purl.org/dc/terms/creator": [
             {
@@ -85,12 +64,12 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric evaluates whether an ontology clearly defines and provides access to its licensing terms, ensuring that users are informed about how the ontology can be used and shared.\n\n**What is being measured?**\n\nThe presence of a clearly defined license for the ontology. This includes ensuring that the license is easily accessible and specifies terms of use and redistribution.\n\n**Why should we measure it?**\n\nMeasuring license availability ensures that the ontology can be legally used and shared within a community, supporting the FAIR principles by making its usage terms clear and transparent.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology must include a defined license, such as Creative Commons or an equivalent open license. The absence of a license will cause the ontology to fail this benchmark.\n\t"
+                "@value": " This check verifies if the ontology license is resolvable "
             }
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/OM4.1"
+                "@id": "https://w3id.org/foops/test/OM4.2"
             }
         ],
         "http://purl.org/dc/terms/license": [
@@ -106,24 +85,29 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "License availability"
+                "@value": "License is resolvable"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
             {
-                "@id": "https://w3id.org/foops/test/OM4.1"
+                "@id": "https://w3id.org/foops/metric/OM4.2"
+            }
+        ],
+        "http://usefulinc.com/ns/doap#repository": [
+            {
+                "@id": "https://w3id.org/foops/repository"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.1"
+                "@value": "OM4.2"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.1"
+                "@value": "OM4.2"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -131,23 +115,28 @@
                 "@id": "https://orcid.org/0000-0003-0454-7145"
             }
         ],
+        "http://www.w3.org/ns/dcat#endpointDescription": [
+            {
+                "@id": "https://w3id.org/foops/api"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointURL": [
+            {
+                "@id": "https://w3id.org/foops/api/assess/test/OM4.2"
+            }
+        ],
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
-                "@value": "License availability"
+                "@value": "License resolvable"
             },
             {
                 "@language": "en",
-                "@value": "Metric"
+                "@value": "Test"
             },
             {
                 "@language": "en",
                 "@value": "Reusable"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#landingPage": [
-            {
-                "@id": "https://w3id.org/foops/metric/OM4.1"
             }
         ],
         "http://www.w3.org/ns/dcat#version": [
@@ -156,28 +145,14 @@
                 "@value": "0.0.1"
             }
         ],
-        "http://www.w3.org/ns/dqv#inDimension": [
-            {
-                "@id": "https://w3id.org/fair/principles/terms/R1.1"
-            }
-        ],
         "https://w3id.org/dpv#isApplicableFor": [
             {
                 "@id": "https://schema.org/DefinedTermSet"
             }
         ],
-        "https://w3id.org/ftr#hasBenchmark": [
+        "https://w3id.org/ftr#indicator": [
             {
-                "@id": "https://w3id.org/foops/benchmark/ALL"
-            },
-            {
-                "@id": "https://w3id.org/foops/benchmark/PRE"
-            }
-        ],
-        "https://w3id.org/ftr#status": [
-            {
-                "@language": "en",
-                "@value": "Active"
+                "@id": "https://w3id.org/fair/principles/terms/R1.1"
             }
         ],
         "https://w3id.org/ftr#supportedBy": [
@@ -214,12 +189,6 @@
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM4.1",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     }
 ]
