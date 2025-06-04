@@ -23,7 +23,7 @@
     dcterms:publisher <https://oeg.fi.upm.es> ;
     dcat:version "0.0.1"^^xsd:string ;
     dcterms:identifier <https://w3id.org/foops/test/CN1> ;
-    dcat:keyword "Content negotiation"@en , "Otra"@en, "Test"@en ;
+    dcat:keyword "Content negotiation"@en ,"Test"@en ;
     dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/CN1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
