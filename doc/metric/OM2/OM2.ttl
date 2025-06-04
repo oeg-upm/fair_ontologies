@@ -8,6 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> . 
+@prefix dpv: <https://w3id.org/dpv#> .
 
 <https://w3id.org/foops/metric/OM2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM2> ;
@@ -48,6 +49,8 @@ The ontology should include all recommended fields except the contributor field,
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "Recommended metadata"@en , "Metric"@en , "Reusable"@en ;
+	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
+    ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE> ; 

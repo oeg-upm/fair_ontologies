@@ -1,19 +1,8 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/foops/test/CN1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
+            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -35,9 +24,25 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/CN1",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "https://w3id.org/ftr#Test"
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -87,13 +92,11 @@
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "Metric CN1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "Metric CN1"
             }
         ],
@@ -119,13 +122,17 @@
         ],
         "http://www.w3.org/ns/dcat#version": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "0.0.1"
             }
         ],
         "http://www.w3.org/ns/dqv#inDimension": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/A1"
+            }
+        ],
+        "https://w3id.org/dpv#isApplicableFor": [
+            {
+                "@id": "https://schema.org/DefinedTermSet"
             }
         ],
         "https://w3id.org/ftr#hasBenchmark": [
@@ -138,12 +145,27 @@
                 "@language": "en",
                 "@value": "Active"
             }
+        ],
+        "https://w3id.org/ftr#supportedBy": [
+            {
+                "@id": "https://w3id.org/foops/"
+            }
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
         ]
     },
     {
@@ -159,31 +181,12 @@
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "A1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "A1"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     }

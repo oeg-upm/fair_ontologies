@@ -220,7 +220,6 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
     contacts_mail = []
 
     for row in results:
-        print(row.title)
         data['test_identifier'] = row.s
         data['test_title'] = row.title
         data['test_name'] = row.label
