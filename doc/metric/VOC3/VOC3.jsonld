@@ -1,5 +1,50 @@
 [
     {
+<<<<<<< HEAD
+=======
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/VOC3",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         "@id": "https://w3id.org/foops/metric/VOC3",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -106,6 +151,7 @@
                 "@language": "en",
                 "@value": "Active"
             }
+<<<<<<< HEAD
         ],
         "https://w3id.org/ftr#supportedBy": [
             {
@@ -151,6 +197,8 @@
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
+=======
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         ]
     },
     {
@@ -176,12 +224,36 @@
         ]
     },
     {
+<<<<<<< HEAD
+=======
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
+<<<<<<< HEAD
+=======
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
                 "@value": "Maria Poveda"
             }
         ],
@@ -192,6 +264,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "@id": "https://w3id.org/foops/test/VOC3",
         "@type": [
             "https://w3id.org/ftr#Test"
@@ -213,6 +286,11 @@
                 "@language": "en",
                 "@value": "General Benchmark PRE for FAIR Principles"
             }
+=======
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         ]
     }
 ]

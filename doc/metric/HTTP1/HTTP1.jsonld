@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "@id": "https://w3id.org/foops/test/HTTP1",
         "@type": [
             "https://w3id.org/ftr#Test"
@@ -25,21 +26,55 @@
     },
     {
         "@id": "https://orcid.org/0000-0003-0454-7145",
+=======
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://w3id.org/ftr#Benchmark"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Daniel Garijo"
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     },
     {
+        "@id": "https://w3id.org/fair/principles/terms/A1.1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "The protocol is open, free, and universally implementable"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+<<<<<<< HEAD
+                "@value": "Daniel Garijo"
+=======
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "A1.1"
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "A1.1"
+            }
+        ]
+    },
+    {
+<<<<<<< HEAD
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -59,6 +94,11 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+=======
+        "@id": "https://w3id.org/foops/test/HTTP1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         ]
     },
     {
@@ -165,6 +205,7 @@
                 "@language": "en",
                 "@value": "Active"
             }
+<<<<<<< HEAD
         ],
         "https://w3id.org/ftr#supportedBy": [
             {
@@ -176,22 +217,58 @@
         "@id": "https://w3id.org/fair/principles/terms/A1.1",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+=======
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@language": "en",
-                "@value": "The protocol is open, free, and universally implementable"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
+<<<<<<< HEAD
                 "@value": "A1.1"
+=======
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
+<<<<<<< HEAD
                 "@value": "A1.1"
             }
         ]
+=======
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
     }
 ]

@@ -183,5 +183,11 @@
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
     }
 ]

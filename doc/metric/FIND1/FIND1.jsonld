@@ -6,6 +6,33 @@
         ]
     },
     {
+<<<<<<< HEAD
+=======
+        "@id": "https://w3id.org/fair/principles/terms/F3",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "metadata clearly and explicitly include the identifier of the data it describes"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F3"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F3"
+            }
+        ]
+    },
+    {
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -24,6 +51,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -49,10 +77,16 @@
         "@id": "https://w3id.org/fair/principles/terms/F3",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+=======
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
         ],
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
+<<<<<<< HEAD
                 "@value": "metadata clearly and explicitly include the identifier of the data it describes"
             }
         ],
@@ -64,6 +98,15 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@value": "F3"
+=======
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
             }
         ]
     },
@@ -198,6 +241,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -214,5 +258,28 @@
                 "@value": "General Benchmark PRE for FAIR Principles"
             }
         ]
+=======
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+>>>>>>> 45c1a85a73e81eb107492fb907704e94b90ab1f3
     }
 ]

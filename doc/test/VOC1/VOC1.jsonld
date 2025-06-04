@@ -177,6 +177,12 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/metric/VOC1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/repository",
         "http://xmlns.com/foaf/0.1/homePage": [
             {
