@@ -14,7 +14,7 @@
     dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
     dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:title "Content negotiation for RDF"@en ;
+    dcterms:title "Cooontent negotiation for RDF"@en ;
     rdfs:label "CN1"^^xsd:string ;
 	vivo:abbreviation "CN1"^^xsd:string ;
     dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
