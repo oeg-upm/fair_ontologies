@@ -1,19 +1,36 @@
 [
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
         ],
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -141,19 +158,26 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/foops/test/OM3",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
             }
         ]
     },
@@ -176,40 +200,16 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "_:n1dc1884793f04469a57bff2c1d72169bb1"
+                "@id": "_:n19ceeb8ff0024f04a0d55c48cf481a01b1"
             }
         ]
     },
     {
-        "@id": "_:n1dc1884793f04469a57bff2c1d72169bb1",
+        "@id": "_:n19ceeb8ff0024f04a0d55c48cf481a01b1",
         "http://www.w3.org/2001/XMLSchema#string": [
             {
                 "@value": "R1"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM3",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     },
     {
