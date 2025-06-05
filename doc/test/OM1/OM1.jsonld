@@ -1,40 +1,8 @@
 [
     {
-        "@id": "https://w3id.org/fair/principles/terms/F2",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "data are described with rich metadata (defined by R1 below)"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F2"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/OM1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -152,6 +120,14 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -165,6 +141,30 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F2",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "data are described with rich metadata (defined by R1 below)"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F2"
             }
         ]
     },
@@ -186,9 +186,9 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/metric/OM1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     }
 ]

@@ -24,6 +24,37 @@
         ]
     },
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/test/DOC1",
         "@type": [
             "https://w3id.org/ftr#Test",
@@ -61,7 +92,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Prueba HTML availability"
+                "@value": "HTML availability"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -138,28 +169,9 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/foops/metric/DOC1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -177,18 +189,6 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/DOC1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     }
 ]

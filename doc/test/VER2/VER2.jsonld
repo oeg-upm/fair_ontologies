@@ -138,6 +138,12 @@
         ]
     },
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/repository",
         "http://xmlns.com/foaf/0.1/homePage": [
             {
@@ -163,6 +169,12 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/metric/VER2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -177,18 +189,6 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/VER2",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     }
 ]

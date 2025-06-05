@@ -1,11 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/metric/FIND_3_BIS",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
         "@id": "https://w3id.org/fair/principles/terms/A2",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -27,6 +21,12 @@
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "A2"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -186,9 +186,9 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/metric/FIND_3_BIS",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     }
 ]

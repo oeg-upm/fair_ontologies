@@ -1,5 +1,11 @@
 [
     {
+        "@id": "https://w3id.org/foops/test/OM3",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -18,22 +24,16 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "_:n17677fb0eaca48399446868d5875f22eb1"
+                "@id": "_:n6f8c0673274149a2a17a4fdf6a0e44dcb1"
             }
         ]
     },
     {
-        "@id": "_:n17677fb0eaca48399446868d5875f22eb1",
+        "@id": "_:n6f8c0673274149a2a17a4fdf6a0e44dcb1",
         "http://www.w3.org/2001/XMLSchema#string": [
             {
                 "@value": "R1"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM3",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -154,6 +154,12 @@
         ]
     },
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -168,23 +174,6 @@
             {
                 "@language": "en",
                 "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -224,9 +213,20 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
         ]
     }
 ]
