@@ -20,31 +20,33 @@ package server;
 
 import com.google.gson.Gson;
 import entities.Response;
-import entities.Check;
-import fair.FOOPS; 
+import entities.ResponseResource;
+import fair.FOOPS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.File;
 import java.io.PrintWriter;
 import java.nio.file.Path;
+import java.util.ArrayList;
+
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import java.util.Optional;
-import java.util.Map;
-import java.nio.file.Files;
-import java.util.HashMap;
 
 @RestController
 public class FOOPSController {
 
     Logger logger = LoggerFactory.getLogger(FOOPSController.class);
+    private final RestTemplate restTemplate = new RestTemplate();
 
-    @ApiOperation(value = "Assess GET ontology")
+    @ApiOperation(value = "Assess GET ontology (")
     @CrossOrigin(origins = "*")
     @GetMapping("/assessOntology")
     public String assessGET() {
@@ -61,8 +63,8 @@ public class FOOPSController {
      * @return JSON response obtained by FOOPS
      */
     @ApiOperation( 
-        value = "Assess ontology", 
-        notes = "return JSON response obtained by FOOPS. \n\n" 
+        value = "Assess an ontology against a set of FOOPS! tests. This is the original FOOPS! call for assessment",
+        notes = "This call returns a JSON response obtained by FOOPS. To see an example, please see use the following JSON "
         + "Example request JSON:\n" 
         + "```\n" 
         + "{\n" 
@@ -92,20 +94,19 @@ public class FOOPSController {
                         HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
             }
             try{ //is there content?
-            if (f == null && body!=null && !"".equals(body)){
-                ontologyPath = Path.of("ontology");
-                try (PrintWriter out = new PrintWriter(String.valueOf(ontologyPath))) {
-                    out.println(body);
+                if (f == null && body!=null && !"".equals(body)){
+                    ontologyPath = Path.of("ontology");
+                    try (PrintWriter out = new PrintWriter(String.valueOf(ontologyPath))) {
+                        out.println(body);
+                    }
+                    f = new FOOPS(String.valueOf(ontologyPath), true);
                 }
-                f = new FOOPS(String.valueOf(ontologyPath), true);
-            }
-            if (f == null){ //no ontology or content could be loaded
-                throw new ResponseStatusException(
-                        HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
-            }
-            f.fairTest();
-            return f.exportJSON();
-
+                if (f == null){ //no ontology or content could be loaded
+                    throw new ResponseStatusException(
+                            HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
+                }
+                f.fairTest();
+                return f.exportJSON();
             }catch(ResponseStatusException e) {
                 throw e;
             }catch(Exception e){
@@ -131,122 +132,127 @@ public class FOOPSController {
         }
     }
 
+
     @ApiOperation(
-        value = "IN CONSTRUCTION: Test by name",
-        notes = "return JSON TEST obtained by FOOPS." 
-        ) 
-    @PostMapping(path = "/test", consumes = "application/json", produces = "application/json")
-    public String testByNamePOST( 
-        @ApiParam(value = "Name of test", required = true) 
-        @RequestBody String body) {
-        
-        //hay que extraer el id del json del boy
-        // FOOPS f = null;
-        // Path ontologyPath = null;
-        // ontologyPath = Path.of("ontology");
-        // f = new FOOPS(String.valueOf(ontologyPath), true); 
-        // Optional<Check> check = f.getTestByName(name); 
-        return "{ \"test\": \"Not found\" }"; 
-    
+            value = "Get test metadata (in JSON-LD)",
+            notes = "return test description following the FTR specification."
+    )
+    @GetMapping(path = "/tests/{identifier}",  produces = "application/ld+json")
+    public ResponseEntity<String> getTestMetadata(@PathVariable String identifier) {
+        String url = "https://oeg-upm.github.io/fair_ontologies/doc/test/"+ identifier +"/"+ identifier +".jsonld" ;
+        // https://w3id.org/foops/test/FIND1
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        return ResponseEntity.status(response.getStatusCode())
+                .header(HttpHeaders.CONTENT_TYPE, "application/ld+json")
+                .body(response.getBody());
     }
 
-    @ApiOperation(
-        value = "Test description by name",
-        notes = "return test description and id." 
-        ) 
-    @GetMapping(path = "/test", produces = "text/plainn")
-    public String testByNameGET( 
-        @ApiParam(value = "Name of test", required = true) 
-        @RequestParam String name) {
 
+    @ApiOperation(
+            value = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/)",
+            notes = "This call returns a JSON response obtained by FOOPS. \n"
+                    + "To see all available FOOPS! tests, see https://w3id.org/foops/catalogue"
+                    + "To see an example, please see use the following JSON: "
+                    + "Example request JSON:\n"
+                    + "```\n"
+                    + "{\n"
+                    + " \"resource_identifier\": \"https://w3id.org/example#\"\n"
+                    + "}\n"
+                    + "```"
+    )
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "assess/test/{test_identifier}", consumes = "application/json", produces = "application/json")
+    public String postTestAssessment(@PathVariable String test_identifier, @RequestBody String body) {
+        String targetResource = "";
         FOOPS f = null;
-        Path ontologyPath = null;
-        ontologyPath = Path.of("ontology");
-        Map<String, String> response = new HashMap<>();
-
-        try {
-            if (!Files.exists(ontologyPath)) {
-                logger.error("El archivo ontology no existe en la ubicación especificada: " + ontologyPath.toString());
-                f = new FOOPS("default_url_or_empty_string", false); // Asume alguna URL por defecto o deja vacío
-            } else {
-                f = new FOOPS(String.valueOf(ontologyPath), true);
+        try{
+            try { //has an onto URI been provided?
+                Gson gson = new Gson();
+                ResponseResource r = gson.fromJson(body, ResponseResource.class);
+                targetResource = r.getResourceIdentifier();
+                ArrayList<String> testIDs = new ArrayList<>();
+                testIDs.add(test_identifier);
+                f = new FOOPS(targetResource, testIDs);
+                f.fairTest();
+                return f.exportJSON();
+            }catch(Exception e){
+                logger.error("Error "+ e.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
             }
-        } catch (Exception e) {
-            logger.error("Error cargando la ontología: " + e.getMessage());
-            // Proseguir sin ontology
-            f = new FOOPS("default_url_or_empty_string", false);
+        }catch(ResponseStatusException e) {
+            throw e;
+        }catch(Exception e){
+            logger.error("Error while processing ontology." +e.getMessage());
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error while processing the ontology", e);
+        }finally{
+            if (f != null){
+                f.removeTemporaryFolders();
+            }
         }
-        Optional<Map<String, String>> testDetails = f.getTestByName(name); 
-
-        if (testDetails.isPresent()) {
-            Map<String, String> details = testDetails.get();
-            String description = details.get("description");
-            String id = details.get("id");
-            String title = details.get("title");
-
-            return "Test: " + name + "\n" +
-                   "Title: " + title + "\n" +
-                   "Description: " + description + "\n" +
-                   "Please send a POST request to obtain a JSON. Example:\n" +
-                   "curl -X POST \"https://foops.linkeddata.es/test/" + name + "\" -H \"accept: application/json; charset=UTF-8\" " +
-                   "-H \"Content-Type: application/json;charset=UTF-8\" -d " +
-                   "{ \"test\": \"" + id + "\" }";
-        } else {
-            return "Description not found about: " + name;
-        }
+        //return ("TO DO assessment of test "+ test_identifier + " on "+targetResource);
     }
 
     @ApiOperation(
-        value = "IN CONSTRUCTION: Benchmark by name",
-        notes = "return JSON BENCHMARK obtained by FOOPS." 
-        ) 
-    @PostMapping(path = "/benchmark", consumes = "application/json", produces = "application/json") 
-    public String benchmarkByNamePOST( 
-        @ApiParam(value = "Name of benchmark", required = true) 
-        @RequestBody String body) {
-
-        // FOOPS f = null;
-        // Path ontologyPath = null;
-        // ontologyPath = Path.of("ontology");
-        // f = new FOOPS(String.valueOf(ontologyPath), true); 
-        // Optional<Check> check = f.getBenchmarkByName(name); 
-        return "{ \"benchmark\": \"Not found\" }"; 
-
+            value = "Run a test on a resource",
+            notes = "return test description following the FTR specification."
+    )
+    @PostMapping(path = "assess/benchmark/{identifier}",  produces = "text/plain")
+    public String postBenchmarkAssessment(@PathVariable String identifier) {
+        String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
+        return ("TO DO assessment of test "+ url);
     }
 
     @ApiOperation(
-        value = "IN CONSTRUCTION: Benchmark description by name",
-        notes = "return benchmark description and id." 
-        ) 
-    @GetMapping(path = "/benchmark", produces = "application/json") 
-    public String benchmarkByNamePost( 
-        @ApiParam(value = "Name of benchmark", required = true) 
-        @RequestParam String name) {
-
-        return "Please send a POST request. Example: " +
-        "curl -X POST \"https://foops.linkeddata.es/benchmark\" -H \"accept: application/json;" +
-        "charset=UTF-8\" " +
-        "-H \"Content-Type: application/json;charset=UTF-8\" -d " +
-        "\"{ \"benchmark\": \"https://w3id.org/foops/test/CN1\"}\"";
+            value = "Get metric metadata (in JSON-LD)",
+            notes = "return metric description following the FTR specification."
+    )
+    @GetMapping(path = "/metrics/{identifier}",  produces = "application/ld+json")
+    public ResponseEntity<String> getMetricMetadata(@PathVariable String identifier) {
+        String url = "https://oeg-upm.github.io/fair_ontologies/doc/metric/"+ identifier +"/"+ identifier +".jsonld" ;
+        // https://w3id.org/foops/metric/FIND1
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        return ResponseEntity.status(response.getStatusCode())
+                .header(HttpHeaders.CONTENT_TYPE, "application/ld+json")
+                .body(response.getBody());
     }
-    
+
+    @ApiOperation(
+            value = "Get benchmark metadata (in JSON-LD)",
+            notes = "return benchmark descriptions following the FTR specification."
+    )
+    @GetMapping(path = "/benchmarks/{identifier}",  produces = "application/ld+json")
+    public ResponseEntity<String> getBenchmarkMetadata(@PathVariable String identifier) {
+        String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
+        // https://w3id.org/foops/benchmark/ALL
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        return ResponseEntity.status(response.getStatusCode())
+                .header(HttpHeaders.CONTENT_TYPE, "application/ld+json")
+                .body(response.getBody());
+    }
+
     /**
      *
-     * @param file Archivo enviado como parte del FormData.
-     * @param otherData String opcional con otros datos enviados.
-     * @return Respuesta JSON obtenida por FOOPS.
+     * @param file file sent as part of the FormData form.
+     * @param otherData String other data sent.
+     * @return JSON with FOOPS! response.
      */
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntologyFile",consumes = "multipart/form-data", produces = "application/json")
-    public String assessPOSTe(
+    public String assessPOST(
             @RequestParam("file") MultipartFile file,
             @RequestParam(value = "otherData", required = false) String otherData) {
         FOOPS f = null;
+        logger.info("Received request!");
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
             try {
-                f = new FOOPS(fileName, true);
+                File tempFile = File.createTempFile("uploaded_onto_", "_" + fileName);
+                file.transferTo(tempFile);
+                f = new FOOPS(tempFile.getAbsolutePath(), true);
                 f.fairTest();
+                tempFile.delete();
                 return f.exportJSON();
             } catch (Exception e) {
                 throw new ResponseStatusException(

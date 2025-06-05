@@ -242,7 +242,7 @@ function getSpiderPoint(center, maximum, score){
 
   point = null
 
-  console.log(distance_x)
+  //console.log(distance_x)
   if(distance_x == 0){
     //console.log("Punto en eje y")
     point = { "x": center.x, "y": center.y + (distance_y*score) }
@@ -481,13 +481,24 @@ function loadInfo(result) {
 }
 
 function loadCategory(category, result) {
-//DIV DEL FAIR
   var checks_div = document.getElementById(category + "-checks");
   checks_div.innerHTML = getLineHTMLNoLine();
-   checks_div.style ="display: none";
+  checks_div.style ="display: none";
   checks = getCategoryChecks(category, result);
-
-  loadPrinciples(checks, checks_div);
+  // console.log(result)
+  //if a category does not have any results (depends on the benchmark, return a special body)
+  //if (category == "Accessible"){
+  const hasCategory = result.checks.some(check => check.category_id === category);
+  if (!hasCategory){
+    checks_div.classList.add("vacio");
+    var vacio = document.createElement("div");
+    vacio.className = "texto-check"
+    vacio.innerHTML =` <div class="row420 my-3 pl-3 d-flex justify-content-between"> <span class="texto-check">No checks were run for this category (ontology code or file was submitted)</span> </div>`;
+    checks_div.appendChild(vacio);
+  }else{
+    loadPrinciples(checks, checks_div);
+  }
+  
 
 
 }
@@ -518,17 +529,17 @@ function getCategoryChecks(category, result) {
 function loadPrinciples(principles, checks_div) {
     //DIV DEL TITULO CHIQUITO
     if (principles.length == 0) {
-         divNuevo.classList.add("vacio");
+         checks_div.classList.add("vacio");
          var vacio = document.createElement("div");
          vacio.className = "texto-check"
-         vacio.innerHTML =`  <span class="texto-check">Alvaro ferrero diesel</span>`;
+         vacio.innerHTML =`  <span class="texto-check">No principles!</span>`;
 
         // System.out.println("================================");
-            divNuevo.appendChild(vacio);
+            checks_div.appendChild(vacio);
 
     }
   for (let principle in principles) {
-
+    //console.log(principles)
 
     var title = document.createElement("div");
     title.innerHTML = getPrincipleHTML(principle);
@@ -625,8 +636,9 @@ function getCheckHTML(check_info) {
                 ${getRadialScoreHTML(score, 0.5)}
               </div>
             </div>
-            <div class="col-2 d-flex align-items-center justify-content-end">
+            <div class="col-2 d-flex align-items-center justify-content-end ">
               <img
+                     class="clickable-category"
                      src="assets/down-arrow.svg"
                      onclick="arrowClicked(event, '${check_info.abbreviation}')">
             </div>
@@ -662,8 +674,9 @@ function getCheckHTML(check_info) {
                 ${getRadialScoreHTML(score, 0.5)}
               </div>
             </div>
-            <div class="col-2 d-flex align-items-center justify-content-end">
+            <div class="col-2 d-flex align-items-center justify-content-end ">
               <img
+                     class="clickable-category"
                      src="assets/down-arrow.svg"
                      onclick="arrowClicked(event, '${check_info.abbreviation}')">
             </div>
@@ -791,12 +804,12 @@ function getPrincipleHTML(text) {
       <span id="` + text + `"class="texto-principle pl-3">` +
     text + `: `+ getPrincipleDescription (text) +
     ` </span>
-     <img
-          src="assets/down-arrow.svg"
-          onclick="expand (event)" class="arr3">
      </div>
   `
   );
+  //<img
+  //        src="assets/down-arrow.svg"
+  //        onclick="expand (event)" class="arr3">
 }
 
 function groupBy(objectArray, property) {
@@ -810,8 +823,28 @@ function groupBy(objectArray, property) {
   }, {});
 }
 
+function categoryClicked(event, categoryName){
+  //console.log(event);
+  const downArrow = "assets/down-arrow.svg";
+  const upArrow = "assets/up-arrow.svg";
+  
+  const arrow = document.getElementById(`${categoryName}-arrow`);
+  const currentSrc = arrow.getAttribute("src");
+//  console.log(arrow);
+  if (!arrow) return;
+  
+  if (currentSrc.includes("down-arrow.svg")) {
+        arrow.setAttribute("src", upArrow);
+        showContent(`${categoryName}-checks`);
+    } else {
+        arrow.setAttribute("src", downArrow);
+        hideContent(`${categoryName}-checks`);
+    }
+
+}
+
 function arrowClicked(event, id){
-    console.log(event);
+    //console.log(event);
   status = getArrowStatus(event)
 
   replaceArrow(event, status)
@@ -869,6 +902,7 @@ function showSuggest(titulo, contenido, ey) {
       //loadChecks2(principles[principle], checks_div);
 
     return
+    /*
       `  <div class="col-12 p-0 caja-blanca mt-2">
           <div class="row mt-2 mx-0">
             <div class="col-8">
@@ -885,6 +919,7 @@ function showSuggest(titulo, contenido, ey) {
             </div>
             <div class="col-2 d-flex align-items-center justify-content-end">
               <img
+                     class="clickable-category"
                      src="assets/down-arrow.svg"
                      onclick="arrowClicked(event, '${check_info.abbreviation}')">
             </div>
@@ -905,6 +940,7 @@ function showSuggest(titulo, contenido, ey) {
           </div>
         </div>
       `
+      */
 
 
 }

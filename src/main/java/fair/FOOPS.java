@@ -20,11 +20,11 @@ package fair;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import entities.Check;
-import entities.checks.*;
 import entities.Ontology;
+import fair.Benchmarks.CustomBenchmark;
+import fair.Benchmarks.URIBenchmark;
+import fair.Benchmarks.FileBenchmark;
 import org.apache.commons.io.FileUtils;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.formats.TurtleDocumentFormat;
@@ -39,9 +39,6 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Optional;
-import java.util.HashMap;
-import java.util.Map;
 
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
@@ -50,27 +47,34 @@ public class FOOPS {
     private Path tmpFolder;
     private Ontology ontology;
 
+    /**
+     * Constructor for running FOOPS! in a single test mode. Useful when invoking the API
+     * @param o URI of
+     * @param testsToRun arraylist with the ids of the tests to run. A new benchmark
+     */
+    public FOOPS(String o, ArrayList<String> testsToRun){
+        initTempFolder();
+        this.ontology = new Ontology(o, false, tmpFolder);
+        checks = new CustomBenchmark(ontology,o,testsToRun).getChecks();
+    }
     public FOOPS(String o, boolean isFromFile){
-        boolean custom = false;
-        Benchmark benchmark = new Benchmark();
+        initTempFolder();
+        this.ontology = new Ontology(o, isFromFile, tmpFolder);
+        if(!isFromFile ){
+            checks = new URIBenchmark(ontology,o).getChecks();
+        }
+        else {
+            checks = new FileBenchmark(ontology).getChecks();
+        }
+    }
+
+    private void initTempFolder(){
         tmpFolder = null;
         try {
             tmpFolder = Files.createTempDirectory(Path.of("."), "foops");
         }catch(Exception e){
             logger.error("Could not create temporary folder. Exiting");
             return;
-        }
-        this.ontology = new Ontology(o, isFromFile, tmpFolder);
-        if(!isFromFile ){
-            checks =  benchmark.uriChecks(ontology,o);
-        }
-        else if (isFromFile) {
-            checks = benchmark.fileChecks(ontology);
-        }
-        else if (custom) {
-            //Example
-            String[] customChecks = {"f1","rdf1","om1"};
-
         }
     }
 
@@ -85,59 +89,6 @@ public class FOOPS {
             logger.error("Error with check");
         }
 
-    }
-
-    /**
-    * In construction
-    * Method for getting test by name.
-    * @param name Name test. 
-    * @return ????????
-    */
-    public Optional<Map<String, String>> getTestByName(String name) {
-   
-        Gson gson = new GsonBuilder()
-                .excludeFieldsWithoutExposeAnnotation()
-                .setPrettyPrinting()
-                .create();
-
-        return checks.stream()
-                .map(check -> {
-                    String jsonCheck = gson.toJson(check);
-                    JsonObject jsonObject = JsonParser.parseString(jsonCheck).getAsJsonObject();
-                    return jsonObject;
-                })
-                .filter(jsonObject -> jsonObject.get("abbreviation").getAsString().equals(name))
-                .map(jsonObject -> {
-                    Map<String, String> details = new HashMap<>();
-                    details.put("description", jsonObject.get("description").getAsString());
-                    details.put("id", jsonObject.get("id").getAsString());
-                    details.put("title", jsonObject.get("title").getAsString());
-                    return details;
-                })
-                .findFirst();
-    }
-    /**
-    * In construction
-    * Method for getting benchmark by name.
-    * @param name Name benchmark. 
-    * @return ????????
-    */
-    public Optional<Check> getBenchmarkByName(String name) {
-        logger.info("------ Get benchmark -----");
-        // Gson gson = new GsonBuilder().
-        // excludeFieldsWithoutExposeAnnotation().
-        // setPrettyPrinting().
-        // create();
-        
-        // checks.forEach(check -> { 
-        //     logger.info("Objeto completo del check: " + check);       
-        //     String jsonCheck = gson.toJson(check);
-        //     logger.info("JSON completo del check: " + jsonCheck);   
-        // });
-        return checks.stream()
-                    .peek(check -> logger.info("Verificando check: " + check.getClass().getSimpleName()))
-                    .filter(check -> check.getClass().getSimpleName().equals(name))
-                    .findFirst();
     }
     
     private float getTotalScore(){
@@ -176,7 +127,6 @@ public class FOOPS {
                 create();
         String jsonChecks = gson.toJson(checks);
         out += jsonChecks +"\n}";
-//        System.out.println(out);
         return out;
     }
 
@@ -275,7 +225,6 @@ public class FOOPS {
         catch(Exception e){
             logger.error("Error when producing the summary " + e.getMessage());
         }
-
 
     }
 

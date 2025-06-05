@@ -36,94 +36,109 @@
           $('#run_button').click(function(){
             $('#loader').show();
             $('#run_button').hide();
-            const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20MB en bytes
-            if ($('#URI_input').val() != ""){
-             // console.log('the value is not null');
-              $.ajax({
-                //  url:"https://foops.linkeddata.es/assessOntology",
-                  url:"http://localhost:8080/assessOntology",
-                  type:"POST",
-                  data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
-                  contentType:"application/json; charset=utf-8",
-                  success: function(data, status){
-                      $('#loader').hide();
-                      $('#run_button').show();
-                      run(data)
-                    console.log("ontology received correctly");
-                  }
-              }).fail(function (jqXHR, textStatus, error) {
-                  $('#loader').hide();
-                  $('#run_button').show();
-                  alert('Error when contacting the server!' );
-              });
+            const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20MB 
+            const selected = document.querySelector('.selector.active');
+            // console.log("Selected:", selected.id); 
+            // console.log("Selected label:", selected.textContent.trim()); 
+            if (selected.textContent.trim() == "URI"){
+                if ($('#URI_input').val() != ""){
+                    $.ajax({
+                        //  url:"https://foops.linkeddata.es/assessOntology",
+                        url:"http://localhost:8080/assessOntology",
+                        type:"POST",
+                        data:"{ \"ontologyUri\": \""+$('#URI_input').val()+"\"}",
+                        contentType:"application/json; charset=utf-8",
+                        success: function(data, status){
+                            $('#loader').hide();
+                            $('#run_button').show();
+                            run(data)
+                            console.log("ontology received correctly");
+                        }
+                    }).fail(function (jqXHR, textStatus, error) {
+                        $('#loader').hide();
+                        $('#run_button').show();
+                        alert('Error when contacting the server!' );
+                    });
+                }else{
+                    $('#loader').hide();
+                    $('#run_button').show();
+                    alert('Please enter a valid ontology URI' );
+                }
             }
+            else if (selected.textContent.trim() == "File"){
+                if ($('#File_input').val() != ""){
+                    //console.log('Selected file is not null');
+                    var fileInput = $('#File_input')[0];
+                    var file = fileInput.files[0];
+                    if(!file){
+                        alert('A file has not been selected');
+                        return;
+                    }
+                    if (file.size > MAX_FILE_SIZE) {
+                        alert('The file is too big');
+                        return;
+                    }
+                    var formData = new FormData();
+                    formData.append('file', file);
+                    $.ajax({
+                        url: "http://localhost:8080/assessOntologyFile",
+                        type: "POST",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(data, status){
+                            $('#loader').hide();
+                            $('#run_button').show();
+                            run(data);
+                        }
+                    }).fail(function (jqXHR, textStatus, error) {
+                        $('#loader').hide();
+                        $('#run_button').show();
+                        alert('Error when contacting the server!');
+                    });
+                }else{
+                    $('#loader').hide();
+                    $('#run_button').show();
+                    alert('Please input a valid file' );
+                }
+            }
+            else if (selected.textContent.trim() == "Code"){
+              if ($('#Code_input').val() != ""){
+                var formData2 = new FormData();
+                var ontologyCode = document.getElementById('Code_input').value;
+                var blob = new Blob([ontologyCode], { type: 'text/plain' });
+                var file = new File([blob], "ontology.owl", { type: "text/plain" });
+                if (file.size > MAX_FILE_SIZE) {
+                    alert('The code entered is too long. Please insert a shorter ontology (< 20mb)');
+                    return;
+                }
 
-            else if ($('#File_input').val() != ""){
-              console.log('the file is not null');
-              var fileInput = $('#File_input')[0];
-              var file = fileInput.files[0];
-              if(!file){
-                  alert('The file is not selected');
-                  return;
-              }
-              if (file.size > MAX_FILE_SIZE) {
-                  alert('The file is too big');
-                  return;
-              }
-              var formData = new FormData();
-              formData.append('file', file);
-              $.ajax({
-                  url: "http://localhost:8080/assessOntologyFile",
-                  type: "POST",
-                  data: formData,
-                  processData: false,
-                  contentType: false,
-                  success: function(data, status){
-                      $('#loader').hide();
-                      $('#run_button').show();
-                      run(data);
-                  }
-              }).fail(function (jqXHR, textStatus, error) {
-                  $('#loader').hide();
-                  $('#run_button').show();
-                  alert('Error when contacting the server!');
-              });
-            }
-            else if ($('#Code_input').val() != ""){
-              var formData2 = new FormData();
-              var ontologyCode = document.getElementById('Code_input').value;
-              var blob = new Blob([ontologyCode], { type: 'text/plain' });
-              var file = new File([blob], "ontology.owl", { type: "text/plain" });
-              if (file.size > MAX_FILE_SIZE) {
-                  alert('Too much text');
-                  return;
-              }
+                formData2.append('file', file);
+                $.ajax({
+                    url: "http://localhost:8080/assessOntologyFile",
+                    type: "POST",
+                    data: formData2,
+                    processData: false,
+                    contentType: false,
+                    success: function(data, status){
+                        $('#loader').hide();
+                        $('#run_button').show();
+                        run(data);
+                    }
+                    }).fail(function (jqXHR, textStatus, error) {
+                        $('#loader').hide();
+                        $('#run_button').show();
+                        alert('Error when contacting the server!');
+                    });
 
-              formData2.append('file', file);
-              $.ajax({
-                  url: "http://localhost:8080/assessOntologyFile",
-                  type: "POST",
-                  data: formData2,
-                  processData: false,
-                  contentType: false,
-                  success: function(data, status){
-                      $('#loader').hide();
-                      $('#run_button').show();
-                      run(data);
-                  }
-                  }).fail(function (jqXHR, textStatus, error) {
-                      $('#loader').hide();
-                      $('#run_button').show();
-                      alert('Error when contacting the server!');
-                  });
-
+                }else{
+                    $('#loader').hide();
+                    $('#run_button').show();
+                    alert('Please enter some ontology code' );
+                }
             }
-            else{
-              $('#loader').hide();
-              $('#run_button').show();
-              alert('Please enter an URI!' );
-            }
-          });
+            
+        });
         });
     </script>
 
@@ -216,11 +231,11 @@
                         </script>
                     </div>
 
-                    <!-- Input de URI-->
+                    <!-- Input from URI-->
                     <div id="URI" class="row selector-content mt-3" style="display: flex">
 
                         <div class="col-12 center">
-                            <input id="URI_input" class="input-1" placeholder="Enter URI...">
+                            <input id="URI_input" class="input-1" placeholder="Enter an ontology URI...">
                         </div>
                         <div id="example" class="col-12 texto6">
                             <br>
@@ -229,10 +244,10 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Input del código -->
+                    <!-- Input from code -->
                     <div id="Code" class="row selector-content mt-3" style="display: none">
                         <div class="col-12 center">
-                            <textarea id="Code_input" class="input-2" placeholder="Paste here your ontology code. Please note that if you enter the ontology URI instead of the code there are more checks that we can do for you. For example, to test whether Content Negotiation is used for serving the ontology."></textarea>
+                            <textarea id="Code_input" class="input-2" placeholder="Paste here your ontology code"></textarea>
                             <script type="text/javascript">
                                 //Creo un evento para cuando haya un cambio se haga mas grande el elemento
                                 document.getElementById("Code_input").addEventListener("input", () => {
@@ -250,12 +265,23 @@
                                 })
                             </script>
                         </div>
+                        <div id="clarification" class="col-12 texto6">
+                            <p>
+                                Note: This mode does not run accessibility tests. 
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Input del archivo -->
+                    <!-- Input from file -->
                     <div id="File" class="row selector-content mt-3" style="display: none">
                         <div class="col-12">
                             <input id="File_input" class="input-1" type="file" placeholder="Drag and drop the file to upload here">
+                        </div>
+                        
+                        <div id="clarification2" class="col-12 texto6">
+                            <p><br/>
+                                Note: This mode does not run accessibility tests. 
+                            </p>
                         </div>
                     </div>
 
@@ -347,69 +373,69 @@
 
             <!-- Findable -->
             <div class="row w-100 mt-3 ml-0 pb-2 caja">
-                <div class="row w-100 pl-3 pt-2 caja-category" >
+                <div class="row w-100 pl-3 pt-2 caja-category clickable-category" onclick="categoryClicked(event, 'Findable')" >
                     <div class="col-10">
                         <span class="texto-category">
                             Findable
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Findable-checks')">
+                        <img id="Findable-arrow" src="assets/down-arrow.svg">
                     </div>
                 </div>
                 <div id="Findable-checks" class="col-12 p-0 caja-principles">
-                    <!-- Aqui van todos los checks-->
+                    <!-- Checks go here-->
                 </div>
             </div>
 
             <!-- Accessible -->
             <div class="row w-100 mt-3 ml-0 pb-2 caja">
-                <div class="row w-100 pl-3 pt-2 caja-category">
+                <div class="row w-100 pl-3 pt-2 caja-category clickable-category" onclick="categoryClicked(event, 'Accessible')">
                     <div class="col-10">
                         <span class="texto-category">
                             Accessible
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Accessible-checks')">
+                        <img id="Accessible-arrow" src="assets/down-arrow.svg">
                     </div>
                 </div>
                 <div id="Accessible-checks" class="col-12 p-0 caja-principles">
-                    <!-- Aqui van todos los checks-->
+                    <!-- Checks go here-->
                 </div>
             </div>
 
             <!-- Interoperable -->
             <div class="row w-100 mt-3 ml-0 pb-2 caja">
-                <div class="row w-100 pl-3 pt-2 caja-category">
+                <div class="row w-100 pl-3 pt-2 caja-category clickable-category" onclick="categoryClicked(event, 'Interoperable')">
                     <div class="col-10">
                         <span class="texto-category">
                             Interoperable
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Interoperable-checks')">
+                        <img id="Interoperable-arrow" src="assets/down-arrow.svg">
                     </div>
                 </div>
                 <div id="Interoperable-checks" class="col-12 p-0 caja-principles">
-                    <!-- Aqui van todos los checks-->
+                    <!-- Checks go here-->
                 </div>
             </div>
 
             <!-- Reusable -->
             <div class="row w-100 mt-3 ml-0 pb-2 caja">
-                <div class="row w-100 pl-3 pt-2 caja-category">
+                <div class="row w-100 pl-3 pt-2 caja-category clickable-category" onclick="categoryClicked(event, 'Reusable')">
                     <div class="col-10">
                         <span class="texto-category">
                             Reusable
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img src="assets/down-arrow.svg" onclick="arrowClicked(event, 'Reusable-checks')">
+                        <img id="Reusable-arrow" src="assets/down-arrow.svg">
                     </div>
                 </div>
                 <div id="Reusable-checks" class="col-12 p-0 caja-principles">
-                    <!-- Aqui van todos los checks-->
+                    <!-- Checks go here-->
                 </div>
             </div>
 
@@ -433,7 +459,7 @@
                 <br>
                 Built with <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
                 <br>
-                Latest revision July, 2021
+                Latest revision June, 2025
                 <br>
                 Licensed under the <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
             </div>

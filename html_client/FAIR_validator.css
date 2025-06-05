@@ -407,3 +407,12 @@ p#suggest {
 .arr3{
     margin-right: 2rem !important;
 }
+
+.clickable-category {
+    cursor: pointer;
+}
+
+#clarification p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
