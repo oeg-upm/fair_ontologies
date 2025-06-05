@@ -1,47 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F3",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "metadata clearly and explicitly include the identifier of the data it describes"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F3"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F3"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -56,6 +14,12 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/FIND1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -176,21 +140,27 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
         ],
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
             }
         ],
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
+                "@value": "General Benchmark PRE for FAIR Principles"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -211,15 +181,45 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/fair/principles/terms/F3",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "metadata clearly and explicitly include the identifier of the data it describes"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F3"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F3"
+            }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/FIND1",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
-            "https://w3id.org/ftr#Test"
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
         ]
     }
 ]
