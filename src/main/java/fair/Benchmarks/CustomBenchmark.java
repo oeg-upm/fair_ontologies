@@ -1,5 +1,6 @@
 package fair.Benchmarks;
 
+import entities.Check;
 import entities.Ontology;
 import entities.checks.*;
 import fair.Benchmark;
@@ -17,7 +18,7 @@ public class CustomBenchmark extends Benchmark {
      * @param testIDs tests that will be run
      */
     public CustomBenchmark(Ontology ontology,String ontologyOriginalUri, ArrayList<String> testIDs){
-        ArrayList checks = new ArrayList<>();
+        ArrayList<Check> checks = new ArrayList<>();
         for (String item : testIDs) {
             switch (item){
                 case Constants.CN1:

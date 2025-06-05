@@ -472,4 +472,55 @@ public class Constants {
             "http://schema.org/",
             "http://www.hozo.jp/owl/YAMATO20210604.miz.owl#"
     };
+
+    public static String FTR_CONTEXT = "  \t\"@context\":\"https://w3id.org/ftr/context\",\n";
+    public static String JSON_LD_TEST_TEMPLATE =
+            "{\n" + FTR_CONTEXT +
+                    "  \n" +
+                    "    \"@id\": \"$RESULT_ID\",\n" +
+                    "    \"@type\": \"https://w3id.org/ftr#TestResult\",\n" +
+                    "    \"description\": \"$RESULT_DESCRIPTION.\",\n" +
+                    "    \"identifier\": {\n" +
+                    "        \"@id\": \"$RESULT_ID\"\n" +
+                    "    },\n" +
+                    "    \"title\": \"$RESULT_TITLE\",\n" +
+                    "    \"generatedAtTime\": {\n" +
+                    "        \"@type\": \"http://www.w3.org/2001/XMLSchema#date\",\n" +
+                    "        \"@value\": \"$RESULT_DATE\"\n" +
+                    "     },\n" +
+                    "    \"value\": \"$RESULT_VALUE\",\n" +
+                    "    \"wasDerivedFrom\": {\n" +
+                    "        \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
+                    "      },\n" +
+                    "    \"completion\": {\n" +
+                    "        \"@value\": \"$RESULT_COMPLETION\"\n" +
+                    "     },\n" +
+                    "    \"log\": \"$RESULT_LOG\",\n" +
+                    "    \"outputFromTest\": {\n" +
+                    "      \"@id\": \"$TEST_ID\",\n" +
+                    "      \"@type\": \"Test\",\n" +
+                    "      \"description\": \"$TEST_DESCRIPTION\",\n" +
+                    "      \"identifier\": \"$TEST_ID\",\n" +
+                    "      \"license\": {\n" +
+                    "        \"@id\": \" http://creativecommons.org/licenses/by/2.0/ \"\n" +
+                    "      },\n" +
+                    "      \"title\": \"$TEST_TITLE\",\n" +
+                    "      \"isImplementationOf\": {\n" +
+                    "        \"@id\": \"https://w3id.org/foops/metric/$TEST_ABBRV\"\n" +
+                    "      },\n" +
+                    "      \"endpointDescription\": {\n" +
+                    "        \"@id\": \"https://w3id.org/foops/api\"\n" +
+                    "      },\n" +
+                    "      \"endpointURL\": {\n" +
+                    "        \"@id\": \"https://w3id.org/foops/api/assess/test/$TEST_ABBRV\"\n" +
+                    "      },\n" +
+                    "      \"version\": \"0.0.1\",\n" +
+                    "      \"generatedBy\": {\n" +
+                    "        \"@type\": \"TestExecutionActivity\",\n" +
+                    "        \"wasAssociatedWith\": {\n" +
+                    "        \"@id\": \"https://w3id.org/foops\"\n" +
+                    "        }\n" +
+                    "      }\n" +
+                    "    }\n" +
+                    "}";
 }

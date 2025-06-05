@@ -174,7 +174,8 @@ public class FOOPSController {
                 testIDs.add(test_identifier);
                 f = new FOOPS(targetResource, testIDs);
                 f.fairTest();
-                return f.exportJSON();
+                //return f.exportJSON();
+                return f.exportJSONLD();
             }catch(Exception e){
                 logger.error("Error "+ e.getMessage());
                 throw new ResponseStatusException(

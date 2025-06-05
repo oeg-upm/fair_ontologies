@@ -39,6 +39,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
@@ -102,7 +103,8 @@ public class FOOPS {
     }
 
     /**
-     * This method writes the results as a JSON file
+     * This method writes the results as a JSON file using the FOOPS! format
+     * More information and example can be found here: https://github.com/oeg-upm/fair_ontologies/blob/main/sample.json
      */
     public String exportJSON(){
         String license, title;
@@ -128,6 +130,26 @@ public class FOOPS {
         String jsonChecks = gson.toJson(checks);
         out += jsonChecks +"\n}";
         return out;
+    }
+
+    /**
+     * This function will return the results of a series of tests according to the FAIR testing resource specification
+     * available at https://w3id/org/ftr
+     * @return The JSON-LD corresponding to the execution of a set of tests.
+     */
+    public String exportJSONLD(){
+        // if there is a single check, we return a simple JSONLD from an activity.
+        //Otherwise, we return a full test set.
+        String template = Constants.JSON_LD_TEST_TEMPLATE;
+        String resultId = "" + new Date().getTime();
+        if(this.checks.size() == 1){
+            Check check = checks.get(0);
+            template = template.replace("$TEST_ID",check.getId());
+            template = template.replace("$TEST_ABBRV",check.getAbbreviation());
+            return template;
+        }
+        return "TO DOOOOOOOOOOOOOoo";
+
     }
 
     /**
