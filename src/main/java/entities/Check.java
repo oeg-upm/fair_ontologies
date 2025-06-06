@@ -101,8 +101,14 @@ public abstract class Check {
         return explanation;
     }
 
+    public ArrayList<String> getReference_resources(){return  reference_resources;}
+
     public String getStatus() {
         return status;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getId() {

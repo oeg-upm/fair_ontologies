@@ -141,11 +141,33 @@ public class FOOPS {
         // if there is a single check, we return a simple JSONLD from an activity.
         //Otherwise, we return a full test set.
         String template = Constants.JSON_LD_TEST_TEMPLATE;
-        String resultId = "" + new Date().getTime();
+        String resultId = "urn:foops:" + new Date().getTime();
         if(this.checks.size() == 1){
             Check check = checks.get(0);
             template = template.replace("$TEST_ID",check.getId());
             template = template.replace("$TEST_ABBRV",check.getAbbreviation());
+            template = template.replace("$RESULT_ID",resultId);
+            template = template.replace("$RESULT_DESCRIPTION",check.getExplanation());
+            template = template.replace("$RESULT_TITLE",
+                    "Output from running test: "+check.getAbbreviation()+" ("+ check.getId()+")");
+            template = template.replace("$RESULT_DATE",""+new Date().toString());
+            template = template.replace("$RESULT_VALUE",check.getStatus());// Status should be consistent with pass/fail
+            template = template.replace("$ORIGINAL_RESOURCE",check.getOntology_URI());
+            float completion = (float) (check.getTotal_passed_tests() * 100) /check.getTotal_tests_run();
+            template = template.replace("$RESULT_COMPLETION",""+completion);
+            StringBuilder explanation = new StringBuilder(check.getExplanation());
+            ArrayList<String> referenceResources = check.getReference_resources();
+            if (referenceResources!=null && !referenceResources.isEmpty()){
+                explanation.append(" Evidence: ");
+                for (String i:referenceResources){
+                    explanation.append(i).append("-");
+                }
+            }
+            template = template.replace("$RESULT_LOG",explanation.toString());
+            template = template.replace("$TEST_DESCRIPTION",check.getDescription());
+            template = template.replace("$TEST_TITLE",check.getTitle());
+            template = template.replace("$ORIGINAL_RESOURCE",check.getOntology_URI());
+            template = template.replace("$ORIGINAL_RESOURCE",check.getOntology_URI());
             return template;
         }
         return "TO DOOOOOOOOOOOOOoo";

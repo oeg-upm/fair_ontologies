@@ -476,10 +476,9 @@ public class Constants {
     public static String FTR_CONTEXT = "  \t\"@context\":\"https://w3id.org/ftr/context\",\n";
     public static String JSON_LD_TEST_TEMPLATE =
             "{\n" + FTR_CONTEXT +
-                    "  \n" +
                     "    \"@id\": \"$RESULT_ID\",\n" +
                     "    \"@type\": \"https://w3id.org/ftr#TestResult\",\n" +
-                    "    \"description\": \"$RESULT_DESCRIPTION.\",\n" +
+                    "    \"description\": \"$RESULT_DESCRIPTION\",\n" +
                     "    \"identifier\": {\n" +
                     "        \"@id\": \"$RESULT_ID\"\n" +
                     "    },\n" +
@@ -515,10 +514,11 @@ public class Constants {
                     "        \"@id\": \"https://w3id.org/foops/api/assess/test/$TEST_ABBRV\"\n" +
                     "      },\n" +
                     "      \"version\": \"0.0.1\",\n" +
-                    "      \"generatedBy\": {\n" +
+                    "      \"wasGeneratedBy\": {\n" +
                     "        \"@type\": \"TestExecutionActivity\",\n" +
                     "        \"wasAssociatedWith\": {\n" +
-                    "        \"@id\": \"https://w3id.org/foops\"\n" +
+                    "        \"@id\": \"https://w3id.org/foops\",\n" +
+                    "        \"title\": \"FOOPS!: Ontology Pitfall Scanner for FAIR\"\n" +
                     "        }\n" +
                     "      }\n" +
                     "    }\n" +
