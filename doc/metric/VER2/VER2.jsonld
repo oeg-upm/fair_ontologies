@@ -1,29 +1,5 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/VER2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -70,11 +46,13 @@
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "Metric VER2"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "Metric VER2"
             }
         ],
@@ -104,12 +82,18 @@
         ],
         "http://www.w3.org/ns/dcat#version": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "0.0.1"
             }
         ],
         "http://www.w3.org/ns/dqv#inDimension": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/F1"
+            }
+        ],
+        "https://w3id.org/dpv#isApplicableFor": [
+            {
+                "@id": "https://schema.org/DefinedTermSet"
             }
         ],
         "https://w3id.org/ftr#hasBenchmark": [
@@ -121,6 +105,28 @@
             {
                 "@language": "en",
                 "@value": "Active"
+            }
+        ],
+        "https://w3id.org/ftr#supportedBy": [
+            {
+                "@id": "https://w3id.org/foops/"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -137,19 +143,21 @@
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "F1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "F1"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/Test/VER2",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/ftr#Test"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ]
     },
     {
@@ -159,6 +167,7 @@
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "Daniel Garijo"
             }
         ],
@@ -169,18 +178,26 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://w3id.org/foops/Test/VER2",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Maria Poveda"
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     }

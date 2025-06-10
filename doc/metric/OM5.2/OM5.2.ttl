@@ -8,6 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> . 
+@prefix dpv: <https://w3id.org/dpv#> .
 
 <https://w3id.org/foops/metric/OM5.2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM5.2> ;
@@ -43,6 +44,8 @@ Ontologies that include explicit and correct values for the issued date and publ
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "Detailed provenance metadata"@en, "Metric"@en, "Reusable"@en ;
+	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
+    ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM5.2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM5.2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL>, <https://w3id.org/foops/benchmark/PRE> ; 

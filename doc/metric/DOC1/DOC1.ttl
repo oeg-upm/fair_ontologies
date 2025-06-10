@@ -8,6 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix dpv: <https://w3id.org/dpv#> .
 
 <https://w3id.org/foops/metric/DOC1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/DOC1> ;
@@ -41,6 +42,8 @@ The existence of an accessible, online HTML page providing clear and detailed do
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "HTML availability"@en , "Metric"@en , "Reusable"@en ;
+	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
+    ftr:supportedBy <https://w3id.org/foops/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ; 
 	dcat:landingPage <https://w3id.org/foops/metric/DOC1> ; 
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/DOC1> ; # Test relacionado con la métrica de tipo ftr:test
