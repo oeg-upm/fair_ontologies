@@ -1,5 +1,60 @@
 [
     {
+        "@id": "https://w3id.org/fair/principles/terms/A1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are retrievable by their identifier using a standardized communications protocol"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "A1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "A1"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "Main repository for FOOPS! code and documentation"
+            }
+        ],
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/test/CN1",
         "@type": [
             "https://w3id.org/ftr#Test",
@@ -52,17 +107,29 @@
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "CN1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "CN1"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
             {
                 "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointDescription": [
+            {
+                "@id": "https://w3id.org/foops/api"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointURL": [
+            {
+                "@id": "https://w3id.org/foops/api/assess/test/CN1"
             }
         ],
         "http://www.w3.org/ns/dcat#keyword": [
@@ -77,44 +144,23 @@
         ],
         "http://www.w3.org/ns/dcat#version": [
             {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "0.0.1"
+            }
+        ],
+        "https://w3id.org/dpv#isApplicableFor": [
+            {
+                "@id": "https://schema.org/DefinedTermSet"
             }
         ],
         "https://w3id.org/ftr#indicator": [
             {
                 "@id": "https://w3id.org/fair/principles/terms/A1"
             }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "https://w3id.org/ftr#supportedBy": [
             {
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
+                "@id": "https://w3id.org/foops/"
             }
         ]
     },
@@ -125,38 +171,19 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "Main repository for FOOPS! code and documentation"
-            }
-        ],
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/A1",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@language": "en",
-                "@value": "(meta)data are retrievable by their identifier using a standardized communications protocol"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "A1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "A1"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
