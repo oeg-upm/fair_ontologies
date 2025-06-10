@@ -14,7 +14,7 @@
 	dcterms:title "General Benchmark for FAIR Principles"@en ;
     rdfs:label "Benchmark ALL"^^xsd:string ;
     vivo:abbreviation "Benchmark ALL"^^xsd:string ;
-	dcterms:description """ This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. """@en ; 
+	dcterms:description """ Benchmark that includes all tests included in FOOPS! for FAIR assessment of ontologies."""@en ; 
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
@@ -39,6 +39,7 @@
         <https://w3id.org/foops/metric/OM5.1> ,
         <https://w3id.org/foops/metric/OM5.2> ,
         <https://w3id.org/foops/metric/PURL1> ,
+		<https://w3id.org/foops/metric/RDF1> ,
         <https://w3id.org/foops/metric/URI1> ,
         <https://w3id.org/foops/metric/URI2> ,
         <https://w3id.org/foops/metric/VER1> ,
@@ -114,6 +115,10 @@
 	dcterms:identifier <https://w3id.org/foops/metric/PURL1> ;
 	rdfs:label "Metric PURL1"^^xsd:string ;
     vivo:abbreviation "Metric PURL1"^^xsd:string .
+<https://w3id.org/foops/metric/RDF1> a dqv:Metric ;
+	dcterms:identifier <https://w3id.org/foops/metric/RDF1> ;
+	rdfs:label "Metric RDF1"^^xsd:string ;
+    vivo:abbreviation "Metric FIND1"^^xsd:string .
 <https://w3id.org/foops/metric/URI1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/URI1> ;
 	rdfs:label "Metric URI1"^^xsd:string ;
