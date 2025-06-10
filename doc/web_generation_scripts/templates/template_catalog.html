@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FOOPS catalogue</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <style>
+            .row {
+              margin-bottom: 10px;
+            }
+            .well {
+              margin: 0px;
+              padding: 10px 0; 
+              padding-left: 10px;
+            }
+            .tag_div {
+                border-right: 10px solid white; 
+            }
+            .label.label-primary {
+                font-size: 12px;
+            }
+            .label.label-success {
+                font-size: 12px;
+            }
+            h1 {
+                margin-bottom: 25px; 
+            }
+            h4 {
+                font-weight: 300; 
+                margin-top: 0; 
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+
+                function formatKeywords(keywords) {
+                    if (!keywords) return ''; 
+                    return keywords.split(',').map(function(keyword) {
+                        return '<span class="label label-primary">' + keyword.trim() + '</span>';
+                    }).join(' ');
+                }
+
+                $('tbody tr').each(function() {
+                    var $keywords = $(this).find('.keywords');
+                    var formattedKeywords = formatKeywords($keywords.text());
+                    $keywords.html(formattedKeywords);
+                });
+
+                function showSection(sectionId) { 
+                    $("#test, #metric, #benchmark").hide(); // Mostrar la sección correspondiente 
+                    $(sectionId).show();
+                } 
+                function updateURL(sectionId) { 
+                    // Actualizar el target de la URL 
+                    window.location.hash = sectionId;
+                } 
+
+                const currentHash = window.location.hash; 
+                if (!currentHash) { 
+                    // Si no hay marcador en la URL, actualizar a #test 
+                    updateURL("test"); 
+                } 
+                showSection(currentHash || "#test");
+
+                // function showSection(uri) {
+                //     const sections = {
+                //         "https://w3id.org/foops/test/": "#div_test",
+                //         "https://w3id.org/foops/metric/": "#div_metric",
+                //         "https://w3id.org/foops/benchmark/": "#div_benchmark"
+                //     };
+
+                //     $("#div_test, #div_metric, #div_benchmark").hide();
+
+                //     // Mostrar el div correspondiente al URI o la de "Test" por defecto
+                //     const sectionToShow = sections[uri] || "#div_test";
+                //     $(sectionToShow).show();
+                // }
+       
+                // const currentURI = window.location.href;
+                // showSection(currentURI);
+
+                $("#btn_metric").click(function(){
+                    updateURL("metric"); 
+                    showSection("#metric");
+                });
+                
+                $("#btn_test").click(function(){
+                    updateURL("test"); 
+                    showSection("#test");
+                });
+
+                $("#btn_benchmark").click(function(){
+                    updateURL("benchmark"); 
+                    showSection("#benchmark");
+                });
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div style="margin-top: 20px;">
+            <div class="row">
+                <div class="col-md-12" style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                    <button id="btn_test" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Test</button>
+                    <button id="btn_metric" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Metric</button>
+                    <button id="btn_benchmark" type="button" class="btn btn-primary" style="margin-right: 10px;"">Benchmark</button>
+                    <button id="btn_about" type="button" class="btn btn-primary" style="margin-right: 10px;"">About</button>
+                </div>
+            </div>
+            <div id = "test" class="container">
+                <div class="row text-center">
+                    <div class="col-md-12"> <h1>TEST CATALOGUE</h1>
+                        <p style="text-align: center;"><h4> Here you can find the list of test that <a href="https://foops.linkeddata.es/FAIR_validator.html#"> FOOPS </a> of <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
+                    </div>
+                </div>
+                <hr>
+                <!-- filetr -->
+                <div class="row">
+                    <div class="ui-widget">
+                        <div class="col-md-3"> 
+                          <p class="text-right"><label for="tags">Filter by title or keywords: </label></p>
+                        </div>
+                        <div class="col-md-8"> 
+                          <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                          <div id="active-filters" style="margin-top: 10px;"> 
+                            <!-- Aquí se mostrarán los filtros activos --> 
+                          </div>
+                          <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
+                            <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
+                          </button>
+                        </div>
+                      </div>
+                </div>
+                <!-- ******** -->
+                <table class="table" style="margin-top: 30px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>License</th>
+                            <th>Version</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#tests}}
+                        <tr>
+                            <!-- <td><a href="{{identifier}}">{{identifier}}</a></td> -->
+                            <td><a href="{{identifier}}"><strong>{{name}}</strong></a></td>
+                            <td class="titles">{{title}}</td>
+                            <td><a href="{{license}}" target="_blank"><span class="label label-success">{{license_label}}</span></a></td>
+                            <td>{{version}}</td>
+                            <td class="keywords">{{keywords}}</td>
+                        </tr>
+                        {{/tests}}
+                    </tbody>
+                </table>
+            </div>
+            <div id = "metric" class="container">
+                <div class="row text-center">
+                    <div class="col-md-12"> <h1>METRICS CATALOGUE</h1>
+                        <p style="text-align: center;"> <h4>Here you can find the list of metrics that the <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
+                    </div>
+                </div>
+                <hr>
+                <!-- filer -->
+                <div class="row">
+                    <div class="ui-widget">
+                        <div class="col-md-3"> 
+                            <p class="text-right"><label for="tags">Filter by title or keywords: </label></p>
+                        </div>
+                        <div class="col-md-8"> 
+                            <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                            <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
+                            <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ******** -->
+                <table class="table" style="margin-top: 30px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>License</th>
+                            <th>Version</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#metrics}}
+                        <tr>
+                            <!-- <td><a href="{{identifier}}">{{identifier}}</a></td> -->
+                            <td><a href="{{identifier}}"><strong>{{name}}</strong></a></td>
+                            <td class="titles">{{title}}</td>
+                            <td><a href="{{license}}" target="_blank"><span class="label label-success">{{license_label}}</span></a></td>
+                            <td>{{version}}</td>
+                            <td class="keywords">{{keywords}}</td>
+                        </tr>
+                        {{/metrics}}
+                    </tbody>
+                </table>
+            </div>
+            <div id = "benchmark" class="container">
+                <div class="row text-center">
+                    <div class="col-md-12"> <h1>BENCHMARK CATALOGUE</h1>
+                        <p style="text-align: center;"> <h4>Here you can find the list of benchmarks that the <a href="https://oeg.fi.upm.es"> Ontology Engineering Group (OEG) </a> is developing and publishing on the web.</h4></p>
+                    </div>
+                </div>
+                <hr>
+                <!-- filer -->
+                <div class="row">
+                    <div class="ui-widget">
+                        <div class="col-md-3"> 
+                            <p class="text-right"><label for="tags">Filter by title or keywords: </label></p>
+                        </div>
+                        <div class="col-md-8"> 
+                            <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                            <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
+                            <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ******** -->
+                <table class="table" style="margin-top: 30px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>License</th>
+                            <th>Version</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#benchmarks}}
+                        <tr>
+                            <td><a href="{{identifier}}"><strong>{{name}}</strong></a></td>
+                            <td class="titles">{{title}}</td>
+                            <td><a href="{{license}}" target="_blank"><span class="label label-success">{{license_label}}</span></a></td>
+                            <td>{{version}}</td>
+                            <td class="keywords">{{keywords}}</td>
+                        </tr>
+                        {{/benchmarks}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="pie" class="row" style="margin-top: 30px;">  
+            <div class="col-md-12 text-center"">
+              Ontology Engineer Group
+              <a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a>
+            </div>
+        </div>
+        <script>
+
+            let activeFilters = [];
+            let temporaryFilter = '';
+
+            function showRows() {
+                var input = document.getElementById("tags").value.toLowerCase().trim();
+                temporaryFilter = input;
+
+                var rows = document.querySelectorAll("tbody tr");
+
+                rows.forEach(function(row) {
+                    var keywordCell = row.querySelector(".keywords");
+                    var titleCell = row.querySelector(".titles");
+              
+                    if (keywordCell || titleCell) {
+                        var keywords = keywordCell.textContent.toLowerCase();
+                        var titles = titleCell.textContent.toLowerCase();
+                        var match = activeFilters.every(function(filter) { 
+                            return keywords.includes(filter) || titles.includes(filter); 
+                        }); 
+
+                        if (input.length >= 3) { 
+                            match = match && (keywords.includes(input) || titles.includes(input));
+                        }
+
+                        row.style.display = match ? "" : "none";
+                    }
+                });
+                
+                var removeButton = document.getElementById("remButt");
+                removeButton.style.display = activeFilters.length > 0 ? "inline" : "none";
+            }
+
+            function removeFilter(filter) { 
+                activeFilters = activeFilters.filter(function(f) { 
+                    return f !== filter; 
+                }); 
+
+                updateActiveFilters(); 
+                showRows();
+            }
+
+            function clearFilter() {
+                activeFilters = []; 
+                temporaryFilterm= '';
+                document.getElementById("active-filters").innerHTML = ""; 
+                document.getElementById("tags").value = ""; 
+                var removeButton = document.getElementById("remButt"); 
+                removeButton.style.display = "none"; 
+                showRows();
+            }
+
+            function handleEnter(event) {
+                if (event.key === "Enter") {
+                    var input = temporaryFilter;
+                    if (input.length >= 3 && !activeFilters.includes(input)) { 
+                        activeFilters.push(input); 
+                        updateActiveFilters(); 
+                        document.getElementById("tags").value = ""; 
+                        showRows();
+                    }
+                }
+            }
+
+            function updateActiveFilters() { 
+                var filterContainer = document.getElementById("active-filters"); 
+                filterContainer.innerHTML = ""; 
+                activeFilters.forEach(function(filter) { 
+                    var filterLabel = document.createElement("span"); 
+                    filterLabel.className = "label label-info"; 
+                    filterLabel.style.marginRight = "5px"; 
+                    filterLabel.textContent = filter; 
+                    filterLabel.onclick = function() { 
+                        removeFilter(filter); 
+                    };
+                    filterContainer.appendChild(filterLabel); 
+                }); 
+            }
+        </script>
+     </body>
+</html>

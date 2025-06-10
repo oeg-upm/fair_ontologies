@@ -8,6 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix dpv: <https://w3id.org/dpv#> .
 
 <https://w3id.org/foops/test/CN1> a ftr:Test , dcat:DataService ;
     dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
@@ -22,7 +23,11 @@
     dcterms:publisher <https://oeg.fi.upm.es> ;
     dcat:version "0.0.1"^^xsd:string ;
     dcterms:identifier <https://w3id.org/foops/test/CN1> ;
-    dcat:keyword "Content negotiation"@en , "Test"@en ;
+    dcat:keyword "Content negotiation"@en ,"Test"@en ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/CN1> ;
+    dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
+    ftr:supportedBy <https://w3id.org/foops/> ;
     <http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/CN1> ; 
     doap:repository <https://w3id.org/foops/repository> .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
