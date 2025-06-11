@@ -19,7 +19,7 @@ PREFIX dpv: <https://w3id.org/dpv#>
 
 SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?indicator ?label_indicator ?desc_indicator ?license
 ?publisher_uri ?publisher_label ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
-?applicable_for ?supported_by ?web_repository
+?applicable_for ?supported_by ?web_repository ?same_as
 WHERE {
     ?s a ftr:Test .
     ?s dcterms:title ?title .
@@ -35,6 +35,7 @@ WHERE {
     ?s dcat:endpointURL ?endpoint_url .
     ?s dpv:isApplicableFor ?applicable_for .
     ?s ftr:supportedBy ?supported_by .
+    OPTIONAL { ?s owl:sameAs ?same_as . }
     ?indicator rdfs:label ?label_indicator .
     ?indicator dcterms:description ?desc_indicator .
     ?metric a dqv:Metric .
@@ -58,10 +59,11 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dpv: <https://w3id.org/dpv#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 
 SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?license ?indimension ?label_dimension ?desc_indimension
 ?publisher_uri ?publisher_label ?test ?creator_name ?creator_orcid ?landing_page ?benchmark ?bm_title ?bm_desc ?metric_status ?contact_orcid ?contact_name 
-?contact_mail ?applicable_for ?supported_by 
+?contact_mail ?applicable_for ?supported_by ?same_as
 WHERE {
     ?s a dqv:Metric .
     ?s dcterms:title ?title .
@@ -74,6 +76,7 @@ WHERE {
     ?s dcterms:license ?license .
     ?s dcat:landingPage ?landing_page .
     ?s dqv:inDimension ?indimension .
+    OPTIONAL { ?s owl:sameAs ?same_as . }
     ?s ftr:status ?metric_status .
     ?s ftr:hasBenchmark ?benchmark .
     ?s dpv:isApplicableFor ?applicable_for .
@@ -101,9 +104,11 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 
 SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?license
  ?creator_name ?creator_orcid ?landing_page ?benchmark_status ?hasAssociatedMetric ?metricIdentifier ?metricLabel ?contact_orcid ?contact_name ?contact_mail
+ ?same_as
 WHERE {
     ?s a ftr:Benchmark .
     ?s dcterms:title ?title .
@@ -112,6 +117,7 @@ WHERE {
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
     ?s dcterms:license ?license .
+    OPTIONAL { ?s owl:sameAs ?same_as . }
     ?s dcat:landingPage ?landing_page .
     ?s ftr:status ?benchmark_status .
     ?s dcterms:creator ?creator_orcid .
@@ -207,7 +213,8 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         'test_endpoint_desc': '',
         'test_endpoint_url': '',
         'test_applicable_for': '',
-        'test_supported_by': ''
+        'test_supported_by': '',
+        'test_same_as': ''
     }
 
     keywords = []
@@ -240,6 +247,7 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         data['test_endpoint_url'] = row.endpoint_url
         data['test_applicable_for'] = row.applicable_for
         data['test_supported_by'] = row.supported_by
+        data['test_same_as'] = row.same_as
 
         if str(row.keywords) not in keywords:
             keywords.append(str(row.keywords))
@@ -349,7 +357,8 @@ def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
         'benchmark_status': '',
         'benchmark_turtle': '',
         'benchmark_contactName': '',
-        'benchmark_contactMail': ''
+        'benchmark_contactMail': '',
+        'benchmark_same_as': ''
     }
 
     # como hay varias keywords normalemnte, las meto en un array y
@@ -377,9 +386,9 @@ def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
         data['benchmark_landing_page'] = row.landing_page
         data['benchmark_status'] = row.benchmark_status
         data['benchmark_turtle'] = row.label.replace('Benchmark ', '') + '.ttl'
+        data['benchmark_same_as'] = row.same_as
 
-        if str(row.keywords) not in keywords:
-            
+        if str(row.keywords) not in keywords: 
             keywords.append(str(row.keywords))
 
         if str(row.creator_name) not in creators:
@@ -477,7 +486,8 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         'metric_contactName': '',
         'metric_contactMail': '',
         'metric_applicable_for': '',
-        'metric_supported_by': ''
+        'metric_supported_by': '',
+        'metric_same_as': ''
     }
 
     # como hay varias keywords normalemnte, las meto en un array y
@@ -515,6 +525,7 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         data['metric_turtle'] = row.label.replace('Metric ', '') + '.ttl'
         data['metric_applicable_for'] = row.applicable_for
         data['metric_supported_by'] = row.supported_by
+        data['metric_same_as'] = row.same_as
 
         if str(row.keywords) not in keywords:
             keywords.append(str(row.keywords))

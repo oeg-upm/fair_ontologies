@@ -17,7 +17,7 @@
 	dcterms:title "Vocabulary reuse"@en ;
 	rdfs:label "VOC2"^^xsd:string ;
 	vivo:abbreviation "VOC2"^^xsd:string ;
-	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	ftr:indicator <https://w3id.org/fair/principles/terms/I2> ;
 	dcterms:description """ This check verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS)"""@en ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;

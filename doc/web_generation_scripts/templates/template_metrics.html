@@ -144,6 +144,12 @@
                 <div class="col-md-3 well tag_div"> <strong>Supported by</strong></div>
                 <div class="col-md-9 well"> <a href="{{metric_supported_by}}" target="_blank"> {{metric_supported_by}} </a> </div>
             </div>
+            {{#metric_same_as}}
+            <div class="row row-equal">
+                <div class="col-md-3 well tag_div"> <strong>Same as</strong></div>
+                <div class="col-md-9 well"> <a href="{{metric_same_as}}" target="_blank"> {{metric_same_as}} </a> </div>
+            </div>
+             {{/metric_same_as}}
             <!-- <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Benchmark Title</strong></div>
                 <div class="col-md-9 well">  {{metric_benchmark_title}} </div>

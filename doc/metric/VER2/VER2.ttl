@@ -40,8 +40,8 @@ The ontology includes a distinct version IRI separate from the general ontology 
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
-	dcat:keyword "Version IRI resolves"@en , "Metric"@en , "Findable"@en ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+	dcat:keyword "Version IRI resolves"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VER2> ;

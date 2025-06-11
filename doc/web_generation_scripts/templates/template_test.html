@@ -118,6 +118,12 @@
                 <div class="col-md-3 well tag_div"> <strong>Supported by</strong></div>
                 <div class="col-md-9 well"> <a href="{{test_supported_by}}" target="_blank"> {{test_supported_by}} </a> </div>
             </div>
+            {{#test_same_as}}
+            <div class="row row-equal">
+                <div class="col-md-3 well tag_div"> <strong>Same as</strong></div>
+                <div class="col-md-9 well"> <a href="{{test_same_as}}" target="_blank"> {{test_same_as}} </a> </div>
+            </div>
+            {{/test_same_as}}
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Metric</strong></div>
                 <div class="col-md-9 well"> <a href="{{test_metric}}" target="_blank"> {{test_metric}} </a> </div>

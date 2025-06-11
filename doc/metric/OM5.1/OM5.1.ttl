@@ -44,8 +44,8 @@ Ontologies that explicitly state an author and a creation date satisfy the metri
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
-	dcat:keyword "Basic provenance metadata"@en , "Metric"@en , "Reusable"@en ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+	dcat:keyword "Basic provenance metadata"@en , "Metric"@en , "Reusable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM5.1> ;
