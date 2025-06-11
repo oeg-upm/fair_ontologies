@@ -46,7 +46,7 @@ The ontology must contain all specified metadata fields. If any field is missing
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F2> ;
-	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "Minimum metadata"@en , "Metric"@en , "Findable"@en ;
@@ -66,7 +66,11 @@ The ontology must contain all specified metadata fields. If any field is missing
 	rdfs:label "F2"^^xsd:string ;
 	vivo:abbreviation "F2"^^xsd:string ;
 	dcterms:description "data are described with rich metadata (defined by R1 below)"@en .
-<https://oeg.fi.upm.es> a vcard:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" .
+<https://ror.org/03n6nwv02> a vcard:Organization;
+    dcterms:identifier  "https://ror.org/02h3v0f81" ;
+    rdfs:label "Universidad Politécnica de Madrid" .
 <https://w3id.org/foops/test/OM1> a ftr:Test .
 <https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
     dcterms:title "General Benchmark ALL for FAIR Principles"@en ;

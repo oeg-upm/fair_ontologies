@@ -42,7 +42,7 @@ Ontologies that explicitly state an author and a creation date satisfy the metri
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
-	dcterms:publisher <https://oeg.fi.upm.es> ;
+	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
 	dcat:keyword "Basic provenance metadata"@en , "Metric"@en , "Reusable"@en ;
@@ -62,7 +62,11 @@ Ontologies that explicitly state an author and a creation date satisfy the metri
 	rdfs:label "R1.2"^^xsd:string ;
 	vivo:abbreviation "R1.2"^^xsd:string ;
 	dcterms:description "(meta)data are associated with detailed provenance"@en .
-<https://oeg.fi.upm.es> a vcard:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" .
+<https://ror.org/03n6nwv02> a vcard:Organization;
+    dcterms:identifier  "https://ror.org/02h3v0f81" ;
+    rdfs:label "Universidad Politécnica de Madrid" .
 <https://w3id.org/foops/test/OM5.1> a ftr:Test .
 <https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
     dcterms:title "General Benchmark ALL for FAIR Principles"@en ;

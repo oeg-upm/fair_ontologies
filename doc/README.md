@@ -34,7 +34,7 @@ rdfs:label "NEW1"; --> LABEL
 dcterms:license <http://creativecommons.org/licenses/by/2.0/> ; --> LICENSE
 ftr:indicator <https://w3id.org/fair/principles/terms/R1> ; --> INDICATOR
 dcterms:description """ Description New1 """@en ; --> TEST DESCRIPCION
-dcterms:publisher <https://oeg.fi.upm.es> ; --> PUBLISHER
+dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ; --> PUBLISHER
 dcat:version "0.0.1"^^xsd:string ; --> VERSION
 dcterms:identifier <https://w3id.org/foops/test/NEW1> ; --> IDENTIFIER
 dcat:keyword "tags"@en ; --> KEYWORDS
@@ -46,7 +46,11 @@ vcard:hasEmail <mailto:name@mail.com> .
 <https://w3id.org/fair/principles/terms/R1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
 rdfs:label "indicator"@en ; --> NAME INDICATOR
 dcterms:description "description indicator"@en . --> INDICATOR DESCRIPTION
-<https://oeg.fi.upm.es> a vcard:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" .
+<https://ror.org/03n6nwv02> a vcard:Organization;
+    dcterms:identifier  "https://ror.org/02h3v0f81" ;
+    rdfs:label "Universidad Politécnica de Madrid" .
 <https://w3id.org/foops/repository>
 foaf:homePage <https://github.com/oeg-upm/fair_ontologies> . --> REPOSITORY
 <https://w3id.org/foops/metric/NEW1> a dqv:Metric .
@@ -64,7 +68,7 @@ dcterms:description """ Descripction metric """@en ; --> DESCRIPTION
 rdfs:label "Metric NEW1"; --> LABEL
 dcat:contactPoint <https://orcid.org/0000-0000-0000-0000> ; --> CREAETOR
 dcterms:creator <https://orcid.org/0000-0000-0000-0000> ;
-dcterms:publisher <https://oeg.fi.upm.es> ; --> PUBLISHER
+dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ; --> PUBLISHER
 dcat:version "0.0.1"^^xsd:string ; --> VERSION
 dcat:keyword "Tags"@en ; --> KEYWORDS
 dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ; --> DIMENSION
@@ -75,7 +79,11 @@ ftr:metricStatus "Active"@en .
 <https://orcid.org/000-0000-0000-0000> a vcard:Individual;
 vcard:fn "Name Creator" ;
 vcard:hasEmail <mailto:name@mail.com> .
-<https://oeg.fi.upm.es> a vcard:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" .
+<https://ror.org/03n6nwv02> a vcard:Organization;
+    dcterms:identifier  "https://ror.org/02h3v0f81" ;
+    rdfs:label "Universidad Politécnica de Madrid" .
 <https://w3id.org/foops/test/NEW1> a ftr:Test .
 <https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark; --> BENCHMARK
 dcterms:title "General Benchmark for FAIR Principles"@en ;
