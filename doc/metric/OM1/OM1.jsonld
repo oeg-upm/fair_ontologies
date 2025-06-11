@@ -1,18 +1,66 @@
 [
     {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F2",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "data are described with rich metadata (defined by R1 below)"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F2"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/test/OM1",
         "@type": [
             "https://w3id.org/ftr#Test"
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "Ontology Engineering Group"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -30,40 +78,6 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     },
@@ -86,19 +100,13 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
+                "@value": "Ontology Engineering Group"
             }
         ]
     },
@@ -128,7 +136,7 @@
         ],
         "http://purl.org/dc/terms/license": [
             {
-                "@id": "http://creativecommons.org/licenses/by/2.0/"
+                "@id": "http://creativecommons.org/licenses/by/4.0/"
             }
         ],
         "http://purl.org/dc/terms/publisher": [
@@ -179,6 +187,10 @@
             {
                 "@language": "en",
                 "@value": "Findable"
+            },
+            {
+                "@language": "en",
+                "@value": "FAIR"
             }
         ],
         "http://www.w3.org/ns/dcat#landingPage": [
@@ -223,26 +235,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/fair/principles/terms/F2",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://purl.org/dc/terms/identifier": [
             {
-                "@language": "en",
-                "@value": "data are described with rich metadata (defined by R1 below)"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F2"
+                "@value": "https://ror.org/02h3v0f81"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F2"
+                "@value": "Universidad Politécnica de Madrid"
             }
         ]
     }

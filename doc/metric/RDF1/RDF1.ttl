@@ -44,8 +44,8 @@ The test is considered successful if the ontology is accessible and returned in 
 	dqv:inDimension  <https://w3id.org/fair/principles/terms/I1> ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
-	dcat:keyword "Interoperable"@en , "Metric"@en ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+	dcat:keyword "Interoperable"@en , "Metric"@en, "FAIR"@en;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/RDF1> ;

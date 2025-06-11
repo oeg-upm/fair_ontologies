@@ -114,6 +114,12 @@
                 <div class="col-md-3 well tag_div"> <strong>Landing Page</strong></div>
                 <div class="col-md-9 well"><a href="{{benchmark_landing_page}}" target="_blank">{{benchmark_landing_page}}</a></div>
             </div>
+            {{#benchmark_same_as}}
+            <div class="row row-equal">
+                <div class="col-md-3 well tag_div"> <strong>Same as</strong></div>
+                <div class="col-md-9 well"> <a href="{{benchmark_same_as}}" target="_blank"> {{benchmark_same_as}} </a> </div>
+            </div>
+            {{/benchmark_same_as}}
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Metric</strong></div>
                 <div class="col-md-9 well">  {{{benchmark_metrics}}}</div>

@@ -17,7 +17,7 @@
 	dcterms:title "Documentation: definitions"@en ;
 	rdfs:label "VOC4"^^xsd:string ;
 	vivo:abbreviation "VOC4"^^xsd:string ;
-	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	ftr:indicator <https://w3id.org/fair/principles/terms/R1> ;
 	dcterms:description """ This check verifies whether all ontology terms have descriptions (rdfs:comment in OWL vocabularies, skos:definition in SKOS vocabularies) """@en ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
