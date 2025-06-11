@@ -20,7 +20,7 @@
     dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
     ftr:indicator <https://w3id.org/fair/principles/terms/A1> ;
     dcterms:description """This test verifies whether an RDF representation is available for the target vocabulary. The test will PASS if the vocabulary is available in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."""@en ;
-    dcterms:publisher <https://oeg.fi.upm.es> ;
+    dcterms:publisher <https://oeg.fi.upm.es> , <https://ror.org/03n6nwv02>;
     dcat:version "0.0.1"^^xsd:string ;
     dcterms:identifier <https://w3id.org/foops/test/CN1> ;
     dcat:keyword "Content negotiation"@en ,"Test"@en ;
@@ -40,7 +40,11 @@
     rdfs:label "A1"^^xsd:string ;
     vivo:abbreviation "A1"^^xsd:string ;
     dcterms:description "(meta)data are retrievable by their identifier using a standardized communications protocol"@en .
-<https://oeg.fi.upm.es> a vcard:Organization .
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" .
+<https://ror.org/03n6nwv02> a vcard:Organization;
+    dcterms:identifier  "https://ror.org/02h3v0f81" ;
+    rdfs:label "Universidad Politécnica de Madrid" .
 <https://w3id.org/foops/repository> 
     foaf:homePage <https://github.com/oeg-upm/fair_ontologies> ;
     dcterms:description "Main repository for FOOPS! code and documentation"@en .

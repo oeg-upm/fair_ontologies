@@ -3,12 +3,34 @@
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
         ]
     },
     {
         "@id": "https://w3id.org/foops/metric/FIND1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
         ]
     },
     {
@@ -25,30 +47,6 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F3",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "metadata clearly and explicitly include the identifier of the data it describes"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F3"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F3"
             }
         ]
     },
@@ -85,6 +83,9 @@
         "http://purl.org/dc/terms/publisher": [
             {
                 "@id": "https://oeg.fi.upm.es"
+            },
+            {
+                "@id": "https://ror.org/03n6nwv02"
             }
         ],
         "http://purl.org/dc/terms/title": [
@@ -167,27 +168,50 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
             }
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://w3id.org/fair/principles/terms/F3",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@language": "en",
+                "@value": "metadata clearly and explicitly include the identifier of the data it describes"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://vivoweb.org/ontology/core#abbreviation": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F3"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F3"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     }

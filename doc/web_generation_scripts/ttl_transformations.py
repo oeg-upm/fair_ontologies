@@ -18,7 +18,7 @@ PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dpv: <https://w3id.org/dpv#> 
 
 SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?indicator ?label_indicator ?desc_indicator ?license
-?publisher ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
+?publisher_uri ?publisher_label ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
 ?applicable_for ?supported_by ?web_repository
 WHERE {
     ?s a ftr:Test .
@@ -26,7 +26,8 @@ WHERE {
     ?s rdfs:label ?label .
     ?s dcterms:description ?description .
     ?s dcterms:license ?license .
-    ?s dcterms:publisher ?publisher .
+    ?s dcterms:publisher ?publisher_uri .
+    ?publisher_uri rdfs:label ?publisher_label .
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
     ?s ftr:indicator ?indicator .
@@ -59,14 +60,15 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dpv: <https://w3id.org/dpv#> 
 
 SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?license ?indimension ?label_dimension ?desc_indimension
-?publisher ?test ?creator_name ?creator_orcid ?landing_page ?benchmark ?bm_title ?bm_desc ?metric_status ?contact_orcid ?contact_name 
+?publisher_uri ?publisher_label ?test ?creator_name ?creator_orcid ?landing_page ?benchmark ?bm_title ?bm_desc ?metric_status ?contact_orcid ?contact_name 
 ?contact_mail ?applicable_for ?supported_by 
 WHERE {
     ?s a dqv:Metric .
     ?s dcterms:title ?title .
     ?s rdfs:label ?label .
     ?s dcterms:description ?description .
-    ?s dcterms:publisher ?publisher .
+    ?s dcterms:publisher ?publisher_uri .
+    ?publisher_uri rdfs:label ?publisher_label .
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
     ?s dcterms:license ?license .
@@ -182,7 +184,6 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
     """Create a html file from a ttl file"""
     g = Graph()
     g.parse(path_ttl, format="turtle")
-    # Ejecutar la consulta
     results = g.query(pquery)
 
     data = {
@@ -211,9 +212,11 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
 
     keywords = []
 
-    # lo mismo ocurre con los creadores que son dos
     creators = []
     creators_orcid = []
+
+    publishers = []
+    publishers_link = []
 
     contacts = []
     contacts_orcid = []
@@ -229,7 +232,7 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         data['test_indicator'] = row.label_indicator
         data['test_desc_indicator'] = row.desc_indicator
         data['test_license'] = row.license
-        data['test_publisher'] = row.publisher
+        # data['test_publisher'] = row.publisher
         data['test_metric'] = row.metric
         data['test_repository'] = row.web_repository
         data['test_turtle'] = row.label + '.ttl'
@@ -256,6 +259,12 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         if str(row.contact_mail) not in contacts_mail:
             contacts_mail.append(str(row.contact_mail))
 
+        if str(row.publisher_label) not in publishers:
+            publishers.append(str(row.publisher_label))
+
+        if str(row.publisher_uri) not in publishers_link:
+            publishers_link.append(str(row.publisher_uri))
+
     all_keywords = ", ".join(keywords)
 
     # hay que hacer una transformación porque ahora tenemos dos arrays con los nombres
@@ -271,12 +280,20 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         result_contacts.append(
             f'<a href="{orcid}" target="_blank">{nombre}</a> at <a href="https://www.upm.es" target="_blank">upm.es</a>')
 
+    result_publishers = []
+    for name, uri in zip(publishers, publishers_link):
+        result_publishers.append(f'<a href="{uri}" target="_blank">{name}</a>')
+
+
     all_creators = ', '.join(result)
     all_contacts = ', '.join(result_contacts)
+    all_publishers = ', '.join(result_publishers)
 
     data['test_keywords'] = all_keywords
     data['test_creators'] = all_creators
     data['test_contactPoint'] = all_contacts
+    data['test_publishers'] = all_publishers
+
     # Cargar la plantilla mustache
     with open(path_mustache, 'r', encoding="utf-8") as template_file:
         template_content = template_file.read()
@@ -306,7 +323,7 @@ def ttl_to_jsonld(path_ttl):
     with open(path_jsonld, "w", encoding="utf-8") as f:
         f.write(jsonld_data)
 
-    print(f'Archivo creado: {path_jsonld}')
+    print(f'Archivo jsonld creado: {path_jsonld}')
 
 
 def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
@@ -473,6 +490,9 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
     creators = []
     creators_orcid = []
 
+    publishers = []
+    publishers_link = []
+
     contacts = []
     contacts_orcid = []
     contacts_mail = []
@@ -488,7 +508,7 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         data['metric_uri_inDimension'] = row.indimension
         data['metric_inDimension'] = row.label_dimension
         data['metric_desc_dimension'] = row.desc_indimension
-        data['metric_publisher'] = row.publisher
+        # data['metric_publisher'] = row.publisher
         data['metric_test'] = row.test
         data['metric_landing_page'] = row.landing_page
         data['metric_status'] = row.metric_status
@@ -519,6 +539,11 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         if str(row.contact_mail) not in contacts_mail:
             contacts_mail.append(str(row.contact_mail))
 
+        if str(row.publisher_label) not in publishers:
+            publishers.append(str(row.publisher_label))
+        if str(row.publisher_uri) not in publishers_link:
+            publishers_link.append(str(row.publisher_uri))
+
     all_keywords = ", ".join(keywords)
 
     result = []
@@ -536,15 +561,21 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         # clean_mail = mail.replace('mailto:', '')
         result_contacts.append(
             f'<a href="{orcid}" target="_blank">{nombre}</a> at <a href="https://www.upm.es" target="_blank">upm.es</a>')
+    
+    result_publishers = []
+    for name, uri in zip(publishers, publishers_link):
+        result_publishers.append(f'<a href="{uri}" target="_blank">{name}</a>')
 
     all_creators = ', '.join(result)
     all_benchmarks = '<br>'.join(result_benchmarks)
     all_contacts = ', '.join(result_contacts)
+    all_publishers = ', '.join(result_publishers)
 
     data['metric_keywords'] = all_keywords
     data['metric_creators'] = all_creators
     data['metric_benchmarks'] = all_benchmarks
     data['metric_contactPoint'] = all_contacts
+    data['metric_publishers'] = all_publishers
     # Cargar la plantilla mustache
     with open(path_mustache, 'r', encoding="utf-8") as template_file:
         template_content = template_file.read()
