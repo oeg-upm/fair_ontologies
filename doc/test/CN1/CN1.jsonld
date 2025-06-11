@@ -1,5 +1,30 @@
 [
     {
+        "@id": "https://w3id.org/foops/repository",
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "Main repository for FOOPS! code and documentation"
+            }
+        ],
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/test/CN1",
         "@type": [
             "https://w3id.org/ftr#Test",
@@ -113,17 +138,6 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -137,6 +151,22 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
             }
         ]
     },
@@ -158,18 +188,13 @@
         ]
     },
     {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://w3id.org/foops/metric/CN1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/ns/dqv#Metric"
         ],
-        "http://purl.org/dc/terms/identifier": [
+        "http://semanticscience.org/resource/SIO_000234": [
             {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
+                "@id": "https://w3id.org/foops/test/CN1"
             }
         ]
     },
@@ -194,31 +219,6 @@
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "A1"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/CN1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ],
-        "http://semanticscience.org/resource/SIO_000234": [
-            {
-                "@id": "https://w3id.org/foops/test/CN1"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/repository",
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "Main repository for FOOPS! code and documentation"
-            }
-        ],
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     }
