@@ -17,25 +17,27 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dpv: <https://w3id.org/dpv#> 
 
-SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?indicator ?label_indicator ?desc_indicator ?license
-?publisher ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
-?applicable_for ?supported_by ?web_repository
+SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?dimension ?label_dimension ?desc_dimension ?license
+?publisher_uri ?publisher_label ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
+?applicable_for ?supported_by ?web_repository ?same_as
 WHERE {
     ?s a ftr:Test .
     ?s dcterms:title ?title .
     ?s rdfs:label ?label .
     ?s dcterms:description ?description .
     ?s dcterms:license ?license .
-    ?s dcterms:publisher ?publisher .
+    ?s dcterms:publisher ?publisher_uri .
+    ?publisher_uri rdfs:label ?publisher_label .
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
-    ?s ftr:indicator ?indicator .
+    ?s dqv:inDimension ?dimension .
     ?s dcat:endpointDescription ?endpoint_desc .
     ?s dcat:endpointURL ?endpoint_url .
     ?s dpv:isApplicableFor ?applicable_for .
     ?s ftr:supportedBy ?supported_by .
-    ?indicator rdfs:label ?label_indicator .
-    ?indicator dcterms:description ?desc_indicator .
+    OPTIONAL { ?s owl:sameAs ?same_as . }
+    ?dimension rdfs:label ?label_dimension .
+    ?dimension dcterms:description ?desc_dimension .
     ?metric a dqv:Metric .
     ?repository doap:repository ?repo .
     ?repo foaf:homePage ?web_repository .
@@ -57,21 +59,24 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dpv: <https://w3id.org/dpv#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 
 SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?license ?indimension ?label_dimension ?desc_indimension
-?publisher ?test ?creator_name ?creator_orcid ?landing_page ?benchmark ?bm_title ?bm_desc ?metric_status ?contact_orcid ?contact_name 
-?contact_mail ?applicable_for ?supported_by 
+?publisher_uri ?publisher_label ?test ?creator_name ?creator_orcid ?landing_page ?benchmark ?bm_title ?bm_desc ?metric_status ?contact_orcid ?contact_name 
+?contact_mail ?applicable_for ?supported_by ?same_as
 WHERE {
     ?s a dqv:Metric .
     ?s dcterms:title ?title .
     ?s rdfs:label ?label .
     ?s dcterms:description ?description .
-    ?s dcterms:publisher ?publisher .
+    ?s dcterms:publisher ?publisher_uri .
+    ?publisher_uri rdfs:label ?publisher_label .
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
     ?s dcterms:license ?license .
     ?s dcat:landingPage ?landing_page .
     ?s dqv:inDimension ?indimension .
+    OPTIONAL { ?s owl:sameAs ?same_as . }
     ?s ftr:status ?metric_status .
     ?s ftr:hasBenchmark ?benchmark .
     ?s dpv:isApplicableFor ?applicable_for .
@@ -99,9 +104,11 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 
 SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?license
  ?creator_name ?creator_orcid ?landing_page ?benchmark_status ?hasAssociatedMetric ?metricIdentifier ?metricLabel ?contact_orcid ?contact_name ?contact_mail
+ ?same_as
 WHERE {
     ?s a ftr:Benchmark .
     ?s dcterms:title ?title .
@@ -110,6 +117,7 @@ WHERE {
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
     ?s dcterms:license ?license .
+    OPTIONAL { ?s owl:sameAs ?same_as . }
     ?s dcat:landingPage ?landing_page .
     ?s ftr:status ?benchmark_status .
     ?s dcterms:creator ?creator_orcid .
@@ -182,7 +190,6 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
     """Create a html file from a ttl file"""
     g = Graph()
     g.parse(path_ttl, format="turtle")
-    # Ejecutar la consulta
     results = g.query(pquery)
 
     data = {
@@ -192,9 +199,9 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         'test_description': '',
         'test_keywords': '',
         'test_version': '',
-        'test_uri_indicator': '',
-        'test_indicator': '',
-        'test_desc_indicator': '',
+        'test_uri_dimension': '',
+        'test_dimension': '',
+        'test_desc_dimension': '',
         'test_license': '',
         'test_publisher': '',
         'test_metric': '',
@@ -206,14 +213,17 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         'test_endpoint_desc': '',
         'test_endpoint_url': '',
         'test_applicable_for': '',
-        'test_supported_by': ''
+        'test_supported_by': '',
+        'test_same_as': ''
     }
 
     keywords = []
 
-    # lo mismo ocurre con los creadores que son dos
     creators = []
     creators_orcid = []
+
+    publishers = []
+    publishers_link = []
 
     contacts = []
     contacts_orcid = []
@@ -225,11 +235,11 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         data['test_name'] = row.label
         data['test_description'] = markdown.markdown(row.description)
         data['test_version'] = row.version
-        data['test_uri_indicator'] = row.indicator
-        data['test_indicator'] = row.label_indicator
-        data['test_desc_indicator'] = row.desc_indicator
+        data['test_uri_dimension'] = row.dimension
+        data['test_dimension'] = row.label_dimension
+        data['test_desc_dimension'] = row.desc_dimension
         data['test_license'] = row.license
-        data['test_publisher'] = row.publisher
+        # data['test_publisher'] = row.publisher
         data['test_metric'] = row.metric
         data['test_repository'] = row.web_repository
         data['test_turtle'] = row.label + '.ttl'
@@ -237,6 +247,7 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         data['test_endpoint_url'] = row.endpoint_url
         data['test_applicable_for'] = row.applicable_for
         data['test_supported_by'] = row.supported_by
+        data['test_same_as'] = row.same_as
 
         if str(row.keywords) not in keywords:
             keywords.append(str(row.keywords))
@@ -256,6 +267,12 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         if str(row.contact_mail) not in contacts_mail:
             contacts_mail.append(str(row.contact_mail))
 
+        if str(row.publisher_label) not in publishers:
+            publishers.append(str(row.publisher_label))
+
+        if str(row.publisher_uri) not in publishers_link:
+            publishers_link.append(str(row.publisher_uri))
+
     all_keywords = ", ".join(keywords)
 
     # hay que hacer una transformación porque ahora tenemos dos arrays con los nombres
@@ -271,12 +288,20 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         result_contacts.append(
             f'<a href="{orcid}" target="_blank">{nombre}</a> at <a href="https://www.upm.es" target="_blank">upm.es</a>')
 
+    result_publishers = []
+    for name, uri in zip(publishers, publishers_link):
+        result_publishers.append(f'<a href="{uri}" target="_blank">{name}</a>')
+
+
     all_creators = ', '.join(result)
     all_contacts = ', '.join(result_contacts)
+    all_publishers = ', '.join(result_publishers)
 
     data['test_keywords'] = all_keywords
     data['test_creators'] = all_creators
     data['test_contactPoint'] = all_contacts
+    data['test_publishers'] = all_publishers
+
     # Cargar la plantilla mustache
     with open(path_mustache, 'r', encoding="utf-8") as template_file:
         template_content = template_file.read()
@@ -306,7 +331,7 @@ def ttl_to_jsonld(path_ttl):
     with open(path_jsonld, "w", encoding="utf-8") as f:
         f.write(jsonld_data)
 
-    print(f'Archivo creado: {path_jsonld}')
+    print(f'Archivo jsonld creado: {path_jsonld}')
 
 
 def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
@@ -332,7 +357,8 @@ def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
         'benchmark_status': '',
         'benchmark_turtle': '',
         'benchmark_contactName': '',
-        'benchmark_contactMail': ''
+        'benchmark_contactMail': '',
+        'benchmark_same_as': ''
     }
 
     # como hay varias keywords normalemnte, las meto en un array y
@@ -360,9 +386,9 @@ def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
         data['benchmark_landing_page'] = row.landing_page
         data['benchmark_status'] = row.benchmark_status
         data['benchmark_turtle'] = row.label.replace('Benchmark ', '') + '.ttl'
+        data['benchmark_same_as'] = row.same_as
 
-        if str(row.keywords) not in keywords:
-            
+        if str(row.keywords) not in keywords: 
             keywords.append(str(row.keywords))
 
         if str(row.creator_name) not in creators:
@@ -460,7 +486,8 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         'metric_contactName': '',
         'metric_contactMail': '',
         'metric_applicable_for': '',
-        'metric_supported_by': ''
+        'metric_supported_by': '',
+        'metric_same_as': ''
     }
 
     # como hay varias keywords normalemnte, las meto en un array y
@@ -472,6 +499,9 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
     # lo mismo ocurre con los creadores que son dos
     creators = []
     creators_orcid = []
+
+    publishers = []
+    publishers_link = []
 
     contacts = []
     contacts_orcid = []
@@ -488,13 +518,14 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         data['metric_uri_inDimension'] = row.indimension
         data['metric_inDimension'] = row.label_dimension
         data['metric_desc_dimension'] = row.desc_indimension
-        data['metric_publisher'] = row.publisher
+        # data['metric_publisher'] = row.publisher
         data['metric_test'] = row.test
         data['metric_landing_page'] = row.landing_page
         data['metric_status'] = row.metric_status
         data['metric_turtle'] = row.label.replace('Metric ', '') + '.ttl'
         data['metric_applicable_for'] = row.applicable_for
         data['metric_supported_by'] = row.supported_by
+        data['metric_same_as'] = row.same_as
 
         if str(row.keywords) not in keywords:
             keywords.append(str(row.keywords))
@@ -519,6 +550,11 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         if str(row.contact_mail) not in contacts_mail:
             contacts_mail.append(str(row.contact_mail))
 
+        if str(row.publisher_label) not in publishers:
+            publishers.append(str(row.publisher_label))
+        if str(row.publisher_uri) not in publishers_link:
+            publishers_link.append(str(row.publisher_uri))
+
     all_keywords = ", ".join(keywords)
 
     result = []
@@ -536,15 +572,21 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         # clean_mail = mail.replace('mailto:', '')
         result_contacts.append(
             f'<a href="{orcid}" target="_blank">{nombre}</a> at <a href="https://www.upm.es" target="_blank">upm.es</a>')
+    
+    result_publishers = []
+    for name, uri in zip(publishers, publishers_link):
+        result_publishers.append(f'<a href="{uri}" target="_blank">{name}</a>')
 
     all_creators = ', '.join(result)
     all_benchmarks = '<br>'.join(result_benchmarks)
     all_contacts = ', '.join(result_contacts)
+    all_publishers = ', '.join(result_publishers)
 
     data['metric_keywords'] = all_keywords
     data['metric_creators'] = all_creators
     data['metric_benchmarks'] = all_benchmarks
     data['metric_contactPoint'] = all_contacts
+    data['metric_publishers'] = all_publishers
     # Cargar la plantilla mustache
     with open(path_mustache, 'r', encoding="utf-8") as template_file:
         template_content = template_file.read()

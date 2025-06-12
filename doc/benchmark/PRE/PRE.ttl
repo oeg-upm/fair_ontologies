@@ -21,7 +21,7 @@
     dcat:keyword "General Benchmark"@en , "Benchmark"@en , "Pre"@en ;
 	dcat:landingPage <https://w3id.org/foops/benchmark/PRE> ; 
     dcat:version "0.0.1"^^xsd:string ;
-	dcterms:license <http://creativecommons.org/licenses/by/2.0/> ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	ftr:status "Active"@en ;
     ftr:hasAssociatedMetric 
         <https://w3id.org/foops/metric/FIND1> ,
