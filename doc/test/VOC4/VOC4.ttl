@@ -18,7 +18,7 @@
 	rdfs:label "VOC4"^^xsd:string ;
 	vivo:abbreviation "VOC4"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	ftr:indicator <https://w3id.org/fair/principles/terms/R1> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
 	dcterms:description """ This check verifies whether all ontology terms have descriptions (rdfs:comment in OWL vocabularies, skos:definition in SKOS vocabularies) """@en ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
@@ -36,7 +36,7 @@
 <https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
 	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
-<https://w3id.org/fair/principles/terms/R1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+<https://w3id.org/fair/principles/terms/R1>  a dqv:Dimension, <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
 	rdfs:label "R1"^^xsd:string ;
 	vivo:abbreviation "R1"^^xsd:string ;
 	dcterms:description "meta(data) are richly described with a plurality of accurate and relevant attributes"@en .

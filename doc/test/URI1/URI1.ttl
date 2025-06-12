@@ -18,7 +18,7 @@
 	rdfs:label "URI1"^^xsd:string ;
 	vivo:abbreviation "URI1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	ftr:indicator <https://w3id.org/fair/principles/terms/F1> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
 	dcterms:description """ This check verifies if the ontology URI found within the ontology document is resolvable. The test will PASS if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. """@en ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
@@ -36,7 +36,7 @@
 <https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
 	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
-<https://w3id.org/fair/principles/terms/F1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+<https://w3id.org/fair/principles/terms/F1> a dqv:Dimension, <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
 	rdfs:label "F1"^^xsd:string ;
 	vivo:abbreviation "F1"^^xsd:string ;
 	dcterms:description "(meta)data are assigned a globally unique and persistent identifier."@en .

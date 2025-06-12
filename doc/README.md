@@ -32,7 +32,7 @@ dcterms:creator <https://orcid.org/0000-0000-0000-0000> ;
 dcterms:title "Title New1"@en ; --> TITLE TEST
 rdfs:label "NEW1"; --> LABEL
 dcterms:license <http://creativecommons.org/licenses/by/4.0/> ; --> LICENSE
-ftr:indicator <https://w3id.org/fair/principles/terms/R1> ; --> INDICATOR
+dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ; --> INDICATOR
 dcterms:description """ Description New1 """@en ; --> TEST DESCRIPCION
 dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ; --> PUBLISHER
 dcat:version "0.0.1"^^xsd:string ; --> VERSION

@@ -18,7 +18,7 @@
 	rdfs:label "OM4.1"^^xsd:string ;
 	vivo:abbreviation "OM4.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	ftr:indicator <https://w3id.org/fair/principles/terms/R1.1> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;
 	dcterms:description """ This check verifies if a license associated with the ontology """@en ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
@@ -36,7 +36,7 @@
 <https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
 	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
-<https://w3id.org/fair/principles/terms/R1.1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+<https://w3id.org/fair/principles/terms/R1.1> a dqv:Dimension, <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
 	rdfs:label "R1.1"^^xsd:string ;
 	vivo:abbreviation "R1.1"^^xsd:string ;
 	dcterms:description "(meta)data are released with a clear and accessible data usage license"@en .

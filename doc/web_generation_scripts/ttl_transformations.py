@@ -17,7 +17,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dpv: <https://w3id.org/dpv#> 
 
-SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?indicator ?label_indicator ?desc_indicator ?license
+SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?dimension ?label_dimension ?desc_dimension ?license
 ?publisher_uri ?publisher_label ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
 ?applicable_for ?supported_by ?web_repository ?same_as
 WHERE {
@@ -30,14 +30,14 @@ WHERE {
     ?publisher_uri rdfs:label ?publisher_label .
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
-    ?s ftr:indicator ?indicator .
+    ?s dqv:inDimension ?dimension .
     ?s dcat:endpointDescription ?endpoint_desc .
     ?s dcat:endpointURL ?endpoint_url .
     ?s dpv:isApplicableFor ?applicable_for .
     ?s ftr:supportedBy ?supported_by .
     OPTIONAL { ?s owl:sameAs ?same_as . }
-    ?indicator rdfs:label ?label_indicator .
-    ?indicator dcterms:description ?desc_indicator .
+    ?dimension rdfs:label ?label_dimension .
+    ?dimension dcterms:description ?desc_dimension .
     ?metric a dqv:Metric .
     ?repository doap:repository ?repo .
     ?repo foaf:homePage ?web_repository .
@@ -199,9 +199,9 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         'test_description': '',
         'test_keywords': '',
         'test_version': '',
-        'test_uri_indicator': '',
-        'test_indicator': '',
-        'test_desc_indicator': '',
+        'test_uri_dimension': '',
+        'test_dimension': '',
+        'test_desc_dimension': '',
         'test_license': '',
         'test_publisher': '',
         'test_metric': '',
@@ -235,9 +235,9 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         data['test_name'] = row.label
         data['test_description'] = markdown.markdown(row.description)
         data['test_version'] = row.version
-        data['test_uri_indicator'] = row.indicator
-        data['test_indicator'] = row.label_indicator
-        data['test_desc_indicator'] = row.desc_indicator
+        data['test_uri_dimension'] = row.dimension
+        data['test_dimension'] = row.label_dimension
+        data['test_desc_dimension'] = row.desc_dimension
         data['test_license'] = row.license
         # data['test_publisher'] = row.publisher
         data['test_metric'] = row.metric
