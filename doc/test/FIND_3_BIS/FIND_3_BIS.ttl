@@ -18,7 +18,7 @@
 	rdfs:label "FIND_3_BIS"^^xsd:string ;
 	vivo:abbreviation "FIND_3_BIS"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	ftr:indicator <https://w3id.org/fair/principles/terms/A2> ;
+	dqv:inDimension <https://w3id.org/fair/principles/terms/A2> ;
 	dcterms:description """ Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this check verifies whether the ontology is registered in a public metadata registry (LOV) """@en ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
@@ -36,7 +36,7 @@
 <https://orcid.org/0000-0003-3587-0367> a vcard:Individual;
 	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
-<https://w3id.org/fair/principles/terms/A2> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+<https://w3id.org/fair/principles/terms/A2> a dqv:Dimension, <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
 	rdfs:label "A2"^^xsd:string ;
 	vivo:abbreviation "A2"^^xsd:string ;
 	dcterms:description "metadata are accessible, even when the data are no longer available"@en .
