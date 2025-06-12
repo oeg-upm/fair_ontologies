@@ -195,14 +195,26 @@ public class FOOPSController {
         //return ("TO DO assessment of test "+ test_identifier + " on "+targetResource);
     }
 
+//    @ApiOperation(
+//            value = "Run a test result set on a resource",
+//            notes = "Returns a set of test results according to the the FTR specification. The result sets available are" +
+//                    "ALL and PRE, according to the benchmark information in " +
+//                    "https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#benchmark"
+//    )
+//    @PostMapping(path = "assess/resultset/{identifier}",  produces = "text/plain")
+//    public String postResultSetAssessment(@PathVariable String identifier) {
+//        String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
+//        return ("TO DO assessment of test result set "+ url);
+//    }
+
     @ApiOperation(
-            value = "Run a test on a resource",
-            notes = "return test description following the FTR specification."
+            value = "Run an algorithm on a resource",
+            notes = "Returns the results of an algorithm for a given resource "
     )
-    @PostMapping(path = "assess/benchmark/{identifier}",  produces = "text/plain")
-    public String postBenchmarkAssessment(@PathVariable String identifier) {
-        String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
-        return ("TO DO assessment of test "+ url);
+    @PostMapping(path = "assess/algorithm/{identifier}",  produces = "text/plain")
+    public String postAlgorithmAssessment(@PathVariable String identifier) {
+        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
+        return ("TO DO assessment of algorithm");// "+ url);
     }
 
     @ApiOperation(

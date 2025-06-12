@@ -482,6 +482,9 @@ public class Constants {
                     "    \"identifier\": {\n" +
                     "        \"@id\": \"$RESULT_ID\"\n" +
                     "    },\n" +
+                    "      \"license\": {\n" +
+                    "        \"@id\": \"http://creativecommons.org/licenses/by/4.0/\"\n" +
+                    "      },\n" +
                     "    \"title\": \"$RESULT_TITLE\",\n" +
                     "    \"generatedAtTime\": {\n" +
                     "        \"@type\": \"http://www.w3.org/2001/XMLSchema#date\",\n" +
@@ -492,16 +495,26 @@ public class Constants {
                     "        \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
                     "      },\n" +
                     "    \"completion\": {\n" +
-                    "        \"@value\": \"$RESULT_COMPLETION\"\n" +
+                    "        \"@value\": $RESULT_COMPLETION\n" +
                     "     },\n" +
                     "    \"log\": \"$RESULT_LOG\",\n" +
+                    "    \"wasGeneratedBy\": {\n" +
+                    "       \"@type\": \"TestExecutionActivity\",\n" +
+                    "           \"used\": {\n" +
+                    "               \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
+                    "           },\n" +
+                    "           \"wasAssociatedWith\": {\n" +
+                    "               \"@id\": \"$TEST_ID\",\n" +
+                    "               \"description\": \"$TEST_DESCRIPTION\"\n" +
+                    "        }\n" +
+                    "      },\n" +
                     "    \"outputFromTest\": {\n" +
                     "      \"@id\": \"$TEST_ID\",\n" +
                     "      \"@type\": \"Test\",\n" +
                     "      \"description\": \"$TEST_DESCRIPTION\",\n" +
                     "      \"identifier\": \"$TEST_ID\",\n" +
                     "      \"license\": {\n" +
-                    "        \"@id\": \" http://creativecommons.org/licenses/by/2.0/ \"\n" +
+                    "        \"@id\": \" http://creativecommons.org/licenses/by/4.0/ \"\n" +
                     "      },\n" +
                     "      \"title\": \"$TEST_TITLE\",\n" +
                     "      \"isImplementationOf\": {\n" +
@@ -513,14 +526,7 @@ public class Constants {
                     "      \"endpointURL\": {\n" +
                     "        \"@id\": \"https://w3id.org/foops/api/assess/test/$TEST_ABBRV\"\n" +
                     "      },\n" +
-                    "      \"version\": \"0.0.1\",\n" +
-                    "      \"wasGeneratedBy\": {\n" +
-                    "        \"@type\": \"TestExecutionActivity\",\n" +
-                    "        \"wasAssociatedWith\": {\n" +
-                    "        \"@id\": \"https://w3id.org/foops\",\n" +
-                    "        \"title\": \"FOOPS!: Ontology Pitfall Scanner for FAIR\"\n" +
-                    "        }\n" +
-                    "      }\n" +
+                    "      \"version\": \"0.0.1\"\n" +
                     "    }\n" +
                     "}";
 }
