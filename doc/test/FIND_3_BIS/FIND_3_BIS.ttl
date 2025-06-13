@@ -41,11 +41,13 @@
 	vivo:abbreviation "A2"^^xsd:string ;
 	dcterms:description "metadata are accessible, even when the data are no longer available"@en .
 <https://oeg.fi.upm.es> a vcard:Organization ;
-    rdfs:label "Ontology Engineering Group" .
+    rdfs:label "Ontology Engineering Group" ;
+    vcard:url <https://oeg.fi.upm.es/> .
 <https://ror.org/03n6nwv02> a vcard:Organization;
     dcterms:identifier  "https://ror.org/02h3v0f81" ;
-    rdfs:label "Universidad Politécnica de Madrid" .
+    rdfs:label "Universidad Politécnica de Madrid" ;
+    vcard:url <https://www.upm.es/> .
 <https://w3id.org/foops/repository>
-foaf:homePage <https://github.com/oeg-upm/fair_ontologies> .
+	foaf:homePage <https://github.com/oeg-upm/fair_ontologies> .
 <https://w3id.org/foops/metric/FIND_3_BIS> a dqv:Metric .
 

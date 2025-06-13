@@ -59,10 +59,12 @@ The license must have a functional URL that leads to a license document (e.g., C
 	vivo:abbreviation "R1.1"^^xsd:string ;
 	dcterms:description "(meta)data are released with a clear and accessible data usage license"@en .
 <https://oeg.fi.upm.es> a vcard:Organization ;
-    rdfs:label "Ontology Engineering Group" .
-<https://ror.org/03n6nwv02> a vcard:Organization;
-    dcterms:identifier  "https://ror.org/02h3v0f81" ;
-    rdfs:label "Universidad Politécnica de Madrid" .
+    rdfs:label "Ontology Engineering Group" ;
+	vcard:url <https://oeg.fi.upm.es/> .
+<https://ror.org/03n6nwv02> a vcard:Organization ;
+    dcterms:identifier  "https://ror.org/03n6nwv02>" ;
+    rdfs:label "Universidad Politécnica de Madrid" ;
+	vcard:url <https://www.upm.es/> .
 <https://w3id.org/foops/test/OM4.2> a ftr:Test .
 <https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark;
     dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
