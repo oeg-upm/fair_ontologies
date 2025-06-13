@@ -153,7 +153,7 @@
     "category_id": "Findable",
     "status": "ok",
     "title": "Prefix is in registry",
-    "explanation": "Prefix declaration found with correct namespace (in prefic.cc)",
+    "explanation": "Prefix declaration found with correct namespace (in prefix.cc)",
     "description": "This check verifies if the ontology prefix can be found in prefix.cc or LOV registries. This check also verifies if the prefix resolves to the same namespaceprefix found in the ontology.",
     "total_passed_tests": 2,
     "total_tests_run": 2

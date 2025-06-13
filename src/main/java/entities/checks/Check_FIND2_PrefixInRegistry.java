@@ -19,19 +19,19 @@
 package entities.checks;
 
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import entities.Check;
-import entities.Ontology;
-import fair.Constants;
-import org.apache.commons.io.IOUtils;
-
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import org.apache.commons.io.IOUtils;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import entities.Check;
+import entities.Ontology;
+import fair.Constants;
 
 /**
  * This check verifies whether the ontology can be found in prefix.cc or not.
@@ -88,7 +88,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             URL url = new URL(urlAPI);
             String platform;
             if (urlAPI.contains("prefix.cc")){
-                platform = "prefic.cc";
+                platform = "prefix.cc";
             }else{
                 platform = "LOV";
             }
