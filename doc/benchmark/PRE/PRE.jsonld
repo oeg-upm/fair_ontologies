@@ -1,74 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/metric/VOC1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/metric/VOC1"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC1"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/VOC2",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/metric/VOC2"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC2"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/VER1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/metric/VER1"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VER1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VER1"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/OM5.2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -92,48 +23,25 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/OM4.1",
+        "@id": "https://w3id.org/foops/metric/PURL1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/OM4.1"
+                "@id": "https://w3id.org/foops/metric/PURL1"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.1"
+                "@value": "Metric PURL1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.1"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/RDF1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/metric/RDF1"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric FIND1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric RDF1"
+                "@value": "Metric PURL1"
             }
         ]
     },
@@ -269,105 +177,94 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/PURL1",
+        "@id": "https://w3id.org/foops/metric/RDF1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/PURL1"
+                "@id": "https://w3id.org/foops/metric/RDF1"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric PURL1"
+                "@value": "Metric FIND1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric PURL1"
+                "@value": "Metric RDF1"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/VOC3",
+        "@id": "https://w3id.org/foops/metric/VER1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/VOC3"
+                "@id": "https://w3id.org/foops/metric/VER1"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC3"
+                "@value": "Metric VER1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC3"
+                "@value": "Metric VER1"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/OM3",
+        "@id": "https://w3id.org/foops/metric/VOC4",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/OM3"
+                "@id": "https://w3id.org/foops/metric/VOC4"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM3"
+                "@value": "Metric VOC4"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM3"
+                "@value": "Metric VOC4"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/VOC1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/metric/VOC1"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric VOC1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric VOC1"
             }
         ]
     },
@@ -418,25 +315,48 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/OM5.1",
+        "@id": "https://w3id.org/foops/metric/OM4.2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/OM5.1"
+                "@id": "https://w3id.org/foops/metric/OM4.2"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM5.1"
+                "@value": "Metric OM4.2"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM5.1"
+                "@value": "Metric OM4.2"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/VOC2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/metric/VOC2"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric VOC2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric VOC2"
             }
         ]
     },
@@ -464,48 +384,128 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/OM4.2",
+        "@id": "https://w3id.org/foops/metric/OM4.1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/OM4.2"
+                "@id": "https://w3id.org/foops/metric/OM4.1"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.2"
+                "@value": "Metric OM4.1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.2"
+                "@value": "Metric OM4.1"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/VOC4",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/VOC3",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
         ],
         "http://purl.org/dc/terms/identifier": [
             {
-                "@id": "https://w3id.org/foops/metric/VOC4"
+                "@id": "https://w3id.org/foops/metric/VOC3"
             }
         ],
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC4"
+                "@value": "Metric VOC3"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC4"
+                "@value": "Metric VOC3"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/OM3",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/metric/OM3"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric OM3"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric OM3"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/OM5.1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/metric/OM5.1"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric OM5.1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Metric OM5.1"
             }
         ]
     }
