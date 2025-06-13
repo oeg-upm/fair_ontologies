@@ -1,25 +1,22 @@
 [
     {
-        "@id": "https://w3id.org/foops/test/VOC3",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://purl.org/dc/terms/identifier": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+                "@value": "https://ror.org/03n6nwv02>"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -48,30 +45,20 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "https://w3id.org/ftr#Benchmark"
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Ontology Engineering Group"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
             }
         ]
     },
@@ -89,22 +76,6 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
             }
         ]
     },
@@ -230,6 +201,45 @@
             {
                 "@id": "https://w3id.org/foops/"
             }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/VOC3",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     },
     {
