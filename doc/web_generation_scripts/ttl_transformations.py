@@ -823,13 +823,13 @@ def main():
     print(f"Using path_destination: {path_destination}")
 
     path_mustache_test = os.path.join(
-        current_dir, "templates/template_test.html")
+        current_dir, "templates" + os.sep + "template_test.html")
     path_mustache_metrics = os.path.join(
-        current_dir, "templates/template_metrics.html")
+        current_dir, "templates" + os.sep + "template_metrics.html")
     path_mustache_benchmarks = os.path.join(
-        current_dir, "templates/template_benchmark.html")
+        current_dir, "templates" + os.sep + "template_benchmark.html")
     path_mustache_catalogo = os.path.join(
-        current_dir, "templates/template_catalog.html")
+        current_dir, "templates" + os.sep + "template_catalog.html")
 
     iterate_paths(path_source, path_destination,
                   path_mustache_metrics, QUERY_METRICS, 'M')
