@@ -25,7 +25,7 @@
 	dcterms:identifier <https://w3id.org/foops/test/FIND1> ;
 	dcat:keyword "Ontology prefix"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND2> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/FIND1> ;
@@ -38,7 +38,8 @@
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
 <https://w3id.org/fair/principles/terms/F3> a dqv:Dimension, <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
 	rdfs:label "F3"^^xsd:string ;
-	vivo:abbreviation "F3"^^xsd:string .
+	vivo:abbreviation "F3"^^xsd:string ;
+	dcterms:description "metadata clearly and explicitly include the identifier of the data it describes"@en .
 <https://oeg.fi.upm.es> a vcard:Organization ;
     rdfs:label "Ontology Engineering Group" ;
     vcard:url <https://oeg.fi.upm.es/> .
