@@ -25,7 +25,7 @@
 	dcterms:identifier <https://w3id.org/foops/test/FIND2> ;
 	dcat:keyword "Prefix registry"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND1> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/FIND2> ;
