@@ -105,7 +105,8 @@ public class FOOPS {
 
     /**
      * This method writes the results as a JSON file using the FOOPS! format
-     * More information and example can be found here: https://github.com/oeg-upm/fair_ontologies/blob/main/sample.json
+     * More information and example can be found
+     * <a href="https://github.com/oeg-upm/fair_ontologies/blob/main/sample.json">here</a>
      */
     public String exportJSON(){
         String license, title;
@@ -135,7 +136,7 @@ public class FOOPS {
 
     /**
      * This function will return the results of a series of tests according to the FAIR testing resource specification
-     * available at https://w3id/org/ftr
+     * available at <a href="https://w3id/org/ftr">https://w3id/org/ftr</a>
      * @return The JSON-LD corresponding to the execution of a set of tests.
      */
     public String exportJSONLD(){
@@ -165,7 +166,7 @@ public class FOOPS {
         }else{
             template = Constants.JSON_LD_TEST_TEMPLATE_REDUCED;
         }
-        String resultId = "urn:foops:" + new Date().getTime();
+        String resultId = "urn:foops:" + java.util.UUID.randomUUID();
         template = template.replace("$TEST_ID",check.getId());
         template = template.replace("$TEST_ABBRV",check.getAbbreviation());
         template = template.replace("$RESULT_ID",resultId);
@@ -198,7 +199,7 @@ public class FOOPS {
     private String fillTestResultSetTemplate (){
         String resultSet = Constants.JSON_LD_TEST_SET_TEMPLATE;
         StringBuilder testResults = new StringBuilder();
-        String resultSetId = "urn:foops:" + new Date().getTime();
+        String resultSetId = "urn:foops:" + java.util.UUID.randomUUID();
         for (Check c:this.checksToRun.getChecks()){
             testResults.append(fillTestResultTemplate(c, false)).append(",");
         }
