@@ -47,7 +47,7 @@ vcard:hasEmail <mailto:name@mail.com> .
 rdfs:label "indicator"@en ; --> NAME INDICATOR
 dcterms:description "description indicator"@en . --> INDICATOR DESCRIPTION
 <https://oeg.fi.upm.es> a vcard:Organization ;
-    rdfs:label "Ontology Engineering Group" .
+    rdfs:label "Ontology Engineering Group" ;
 <https://ror.org/03n6nwv02> a vcard:Organization;
     dcterms:identifier  "https://ror.org/02h3v0f81" ;
     rdfs:label "Universidad Politécnica de Madrid" .
@@ -80,7 +80,7 @@ ftr:metricStatus "Active"@en .
 vcard:fn "Name Creator" ;
 vcard:hasEmail <mailto:name@mail.com> .
 <https://oeg.fi.upm.es> a vcard:Organization ;
-    rdfs:label "Ontology Engineering Group" .
+    rdfs:label "Ontology Engineering Group" ;
 <https://ror.org/03n6nwv02> a vcard:Organization;
     dcterms:identifier  "https://ror.org/02h3v0f81" ;
     rdfs:label "Universidad Politécnica de Madrid" .

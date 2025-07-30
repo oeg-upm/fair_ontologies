@@ -117,6 +117,12 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/metric/VOC3",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
             "http://www.w3.org/ns/dqv#Dimension",
@@ -142,6 +148,14 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -149,6 +163,11 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     },
@@ -200,19 +219,10 @@
             {
                 "@value": "Universidad Politécnica de Madrid"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/VOC3",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
+                "@id": "https://www.upm.es/"
             }
         ]
     }

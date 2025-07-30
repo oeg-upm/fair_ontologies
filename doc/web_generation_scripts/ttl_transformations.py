@@ -2,9 +2,11 @@ import os
 import shutil
 import configparser
 import argparse
-from rdflib import Graph
+import json
 import pystache
 import markdown
+from rdflib import Graph, RDF
+
 
 # query test
 QUERY = """
@@ -323,15 +325,48 @@ def ttl_to_jsonld(path_ttl):
     """Create a jsonld file from a ttl file"""
     g = Graph()
     g.parse(path_ttl, format="turtle")
-    # serializmos
+    # serialize
     jsonld_data = g.serialize(format="json-ld", indent=4)
-    # guardamos el json. El path es el mismo que el ttl pero cambiando la extension
     path_jsonld = os.path.splitext(path_ttl)[0] + '.jsonld'
-
     with open(path_jsonld, "w", encoding="utf-8") as f:
         f.write(jsonld_data)
 
     print(f'Archivo jsonld creado: {path_jsonld}')
+
+
+
+# def ttl_to_jsonld(path_ttl):
+#     """Transforma un archivo TTL en JSON-LD sin estructura de grafo y maneja listas automáticamente."""
+#     g = Graph()
+#     g.parse(path_ttl, format="turtle")
+
+#     jsonld_data = {
+#         "@context": "https://w3id.org/ftr/context"
+#     }
+
+#     entities = {}
+
+#     for s, p, o in g:
+#         s_str, p_str, o_str = str(s), str(p), str(o)
+
+#         if s_str not in entities:
+#             entities[s_str] = {"@id": s_str}
+
+#         # Si la propiedad ya existe, convertir en lista si es necesario
+#         if p_str in entities[s_str]:
+#             if not isinstance(entities[s_str][p_str], list):
+#                 entities[s_str][p_str] = [entities[s_str][p_str]]  # Convertir en lista si hay más de un valor
+#             entities[s_str][p_str].append(o_str)
+#         else:
+#             entities[s_str][p_str] = o_str  # Primer valor como string
+
+#     jsonld_data.update(entities)
+
+#     path_jsonld = os.path.splitext(path_ttl)[0] + '.jsonld'
+#     with open(path_jsonld, "w", encoding="utf-8") as f:
+#         json.dump(jsonld_data, f, indent=4)
+
+#     print(f'Archivo JSON-LD creado: {path_jsonld}')
 
 
 def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
@@ -788,13 +823,13 @@ def main():
     print(f"Using path_destination: {path_destination}")
 
     path_mustache_test = os.path.join(
-        current_dir, "templates/template_test.html")
+        current_dir, "templates" + os.sep + "template_test.html")
     path_mustache_metrics = os.path.join(
-        current_dir, "templates/template_metrics.html")
+        current_dir, "templates" + os.sep + "template_metrics.html")
     path_mustache_benchmarks = os.path.join(
-        current_dir, "templates/template_benchmark.html")
+        current_dir, "templates" + os.sep + "template_benchmark.html")
     path_mustache_catalogo = os.path.join(
-        current_dir, "templates/template_catalog.html")
+        current_dir, "templates" + os.sep + "template_catalog.html")
 
     iterate_paths(path_source, path_destination,
                   path_mustache_metrics, QUERY_METRICS, 'M')
