@@ -57,6 +57,7 @@ public class Check_VOC4_TermMetadataDescription extends Check {
             if (ontology.getTerms().size() == ontology.getTermsWithDescription().size()) {
                 this.status = Constants.OK;
                 this.explanation = Constants.VOC4_EXPLANATION_OK;
+                this.explanation += " ("+ontology.getTermsWithLabel().size()+" terms found)";
             } else {
                 this.status = Constants.ERROR;
                 this.explanation = Constants.VOC4_EXPLANATION_ERROR + ontology.getTermsWithDescription().size() + " out of " +

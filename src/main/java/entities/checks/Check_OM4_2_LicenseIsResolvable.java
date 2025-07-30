@@ -31,7 +31,7 @@ public class Check_OM4_2_LicenseIsResolvable extends Check {
     public Check_OM4_2_LicenseIsResolvable(Ontology o) {
         super(o);
         this.description = Constants.OM4_2_DESC;
-        this.id = Constants.OM42_URL;
+        this.id = Constants.OM4_2_URL;
         this.title = Constants.OM4_2_TITLE;
         this.category_id = Constants.REUSABLE;
         this.principle_id ="R1.1";

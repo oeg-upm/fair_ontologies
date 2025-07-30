@@ -39,6 +39,7 @@ public class Ontology {
     //metadata attributes
     private String ontologyURI;
     private String namespacePrefix;
+    private String namespaceUri;
     private String title;
     private String name;
     private String description;
@@ -223,6 +224,7 @@ public class Ontology {
                 break;
             case Constants.PROP_VANN_URI:
                 value = Utils.getValueAsLiteralOrURI(a.getValue());
+                this.namespaceUri = value;
                 this.supportedMetadata.add(Constants.FOOPS_NS_URI);
                 if (!this.ontologyURI.equals(value)) {
                     logger.warn("Ontology NS URI declared and annotated is not the same!");
@@ -455,7 +457,10 @@ public class Ontology {
     private void checkTermCoverage(OWLNamedObject a){
         String termNS = a.getIRI().getNamespace();
         if(termNS.equals(Constants.NS_OWL)) return; //We ignore OWL reuse.
-        if(!termNS.toLowerCase().contains(this.ontologyURI.toLowerCase())) {
+        // if the URI is not the same as the main ontology provided, we count reuse.
+        // we verify as well if the preferred ns prefix is used
+        if(!termNS.toLowerCase().contains(this.ontologyURI.toLowerCase())
+            && !termNS.toLowerCase().contains(this.namespaceUri)){
             if (!this.reusedVocabularies.contains(termNS)) {
                 this.reusedVocabularies.add(termNS);
             }

@@ -46,7 +46,7 @@ public class Check_VOC3_TermMetadataLabel extends Check {
         try {
             this.total_passed_tests = ontology.getTermsWithLabel().size();
             this.total_tests_run = ontology.getTerms().size();
-            if (ontology.getTerms().size() == 0){
+            if (ontology.getTerms().isEmpty()){
                 this.status = Constants.ERROR;
                 this.explanation = "No ontology terms found";
                 this.total_tests_run ++;
@@ -55,6 +55,7 @@ public class Check_VOC3_TermMetadataLabel extends Check {
             if (ontology.getTerms().size() == ontology.getTermsWithLabel().size()) {
                 this.status = Constants.OK;
                 this.explanation = Constants.VOC3_EXPLANATION_OK;
+                this.explanation += " ("+ontology.getTermsWithLabel().size()+" terms found)";
             } else {
                 this.status = Constants.ERROR;
                 this.explanation = Constants.VOC3_EXPLANATION_ERROR + ontology.getTermsWithLabel().size() + " out of " +

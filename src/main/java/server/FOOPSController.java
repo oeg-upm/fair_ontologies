@@ -21,6 +21,7 @@ package server;
 import com.google.gson.Gson;
 import entities.Response;
 import entities.ResponseResource;
+import fair.Constants;
 import fair.FOOPS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -137,8 +138,18 @@ public class FOOPSController {
             value = "Get test metadata (in JSON-LD)",
             notes = "return test description following the FTR specification."
     )
+    @GetMapping(path = "/tests",  produces = "application/ld+json")
+    public String getTests() {
+        return Constants.FULL_LIST_OF_TESTS;
+    }
+
+    @ApiOperation(
+            value = "Get test metadata (in JSON-LD)",
+            notes = "return test description following the FTR specification."
+    )
     @GetMapping(path = "/tests/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getTestMetadata(@PathVariable String identifier) {
+        //TO DO: should return the text in /doc/test/identifier/identifier.jsonld
         String url = "https://oeg-upm.github.io/fair_ontologies/doc/test/"+ identifier +"/"+ identifier +".jsonld" ;
         // https://w3id.org/foops/test/FIND1
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -192,20 +203,51 @@ public class FOOPSController {
                 f.removeTemporaryFolders();
             }
         }
-        //return ("TO DO assessment of test "+ test_identifier + " on "+targetResource);
     }
 
-//    @ApiOperation(
-//            value = "Run a test result set on a resource",
-//            notes = "Returns a set of test results according to the the FTR specification. The result sets available are" +
-//                    "ALL and PRE, according to the benchmark information in " +
-//                    "https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#benchmark"
-//    )
-//    @PostMapping(path = "assess/resultset/{identifier}",  produces = "text/plain")
-//    public String postResultSetAssessment(@PathVariable String identifier) {
-//        String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
-//        return ("TO DO assessment of test result set "+ url);
-//    }
+    @ApiOperation(
+            value = "Runs a set of tests on a resource, according to the metrics defined in a benchmark",
+            notes = "Returns a set of test results according to the FTR specification. The result sets that may be run" +
+                    "are ALL and PRE, according to the benchmark information in " +
+                    "https://w3id.org/foops/benchmark/"
+                    + "Example request JSON:\n"
+                    + "```\n"
+                    + "{\n"
+                    + " \"resource_identifier\": \"https://w3id.org/example#\"\n"
+                    + "}\n"
+                    + "```"
+    )
+    @PostMapping(path = "assess/resultset/{identifier}",  consumes = "application/json", produces = "application/json")
+    public String postResultSetAssessment(@PathVariable String identifier, @RequestBody String body) {
+        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
+        //return ("TO DO assessment of test result set "+ url);
+        String targetResource = "";
+        FOOPS f = null;
+        try{
+            try {
+                Gson gson = new Gson();
+                ResponseResource r = gson.fromJson(body, ResponseResource.class);
+                targetResource = r.getResourceIdentifier();
+                f = new FOOPS(targetResource, false);
+                f.fairTest();
+                return f.exportJSONLD();
+            }catch(Exception e){
+                logger.error("Error "+ e.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
+            }
+        }catch(ResponseStatusException e) {
+            throw e;
+        }catch(Exception e){
+            logger.error("Error while processing ontology." +e.getMessage());
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error while processing the ontology", e);
+        }finally{
+            if (f != null){
+                f.removeTemporaryFolders();
+            }
+        }
+    }
 
     @ApiOperation(
             value = "Run an algorithm on a resource",
