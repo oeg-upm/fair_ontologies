@@ -1,5 +1,13 @@
 [
     {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -13,144 +21,6 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/FIND2",
-        "@type": [
-            "https://w3id.org/ftr#Test",
-            "http://www.w3.org/ns/dcat#DataService"
-        ],
-        "http://purl.org/dc/terms/creator": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            },
-            {
-                "@id": "https://orcid.org/0000-0003-3587-0367"
-            }
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": " This check verifies if the ontology prefix can be found in prefix.cc or LOV registries. This check also verifies if the prefix resolves to the same namespaceprefix found in the ontology. "
-            }
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/test/FIND2"
-            }
-        ],
-        "http://purl.org/dc/terms/license": [
-            {
-                "@id": "http://creativecommons.org/licenses/by/4.0/"
-            }
-        ],
-        "http://purl.org/dc/terms/publisher": [
-            {
-                "@id": "https://oeg.fi.upm.es"
-            },
-            {
-                "@id": "https://ror.org/03n6nwv02"
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "Prefix is in registry"
-            }
-        ],
-        "http://semanticscience.org/resource/SIO_000233": [
-            {
-                "@id": "https://w3id.org/foops/metric/FIND2"
-            }
-        ],
-        "http://usefulinc.com/ns/doap#repository": [
-            {
-                "@id": "https://w3id.org/foops/repository"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "FIND2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "FIND2"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointDescription": [
-            {
-                "@id": "https://w3id.org/foops/api"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointURL": [
-            {
-                "@id": "https://w3id.org/foops/api/assess/test/FIND2"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#keyword": [
-            {
-                "@language": "en",
-                "@value": "Prefix registry"
-            },
-            {
-                "@language": "en",
-                "@value": "Test"
-            },
-            {
-                "@language": "en",
-                "@value": "Findable"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#version": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "0.0.1"
-            }
-        ],
-        "http://www.w3.org/ns/dqv#inDimension": [
-            {
-                "@id": "https://w3id.org/fair/principles/terms/F4"
-            }
-        ],
-        "https://w3id.org/dpv#isApplicableFor": [
-            {
-                "@id": "https://schema.org/DefinedTermSet"
-            }
-        ],
-        "https://w3id.org/ftr#supportedBy": [
-            {
-                "@id": "https://w3id.org/foops/"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -196,17 +66,134 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/FIND2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/FIND2",
+        "@type": [
+            "https://w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
+        ],
+        "http://purl.org/dc/terms/creator": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            },
+            {
+                "@id": "https://orcid.org/0000-0003-3587-0367"
+            }
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": " This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. \n\tThe test will pass if: \n\t* 1) there is a prefix declared in the assessed ontology, \n\t* 2) the prefix is found in LOV or prefix.cc \n\t* 3) if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)\n\tOtherwise, the test will fail. \n\t"
+            }
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/test/FIND2"
+            }
+        ],
+        "http://purl.org/dc/terms/license": [
+            {
+                "@id": "http://creativecommons.org/licenses/by/4.0/"
+            }
+        ],
+        "http://purl.org/dc/terms/publisher": [
+            {
+                "@id": "https://oeg.fi.upm.es"
+            },
+            {
+                "@id": "https://ror.org/03n6nwv02"
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "Ontology/vocabulary prefix is found in prefix.cc or LOV"
+            }
+        ],
+        "http://semanticscience.org/resource/SIO_000233": [
+            {
+                "@id": "https://w3id.org/foops/metric/FIND2"
+            }
+        ],
+        "http://usefulinc.com/ns/doap#repository": [
+            {
+                "@id": "https://w3id.org/foops/repository"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "FIND2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "FIND2 test: Ontology/vocabulary prefix is found in prefix.cc or LOV"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointDescription": [
+            {
+                "@id": "https://w3id.org/foops/api"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointURL": [
+            {
+                "@id": "https://w3id.org/foops/api/assess/test/FIND2"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#keyword": [
+            {
+                "@language": "en",
+                "@value": "Prefix"
+            },
+            {
+                "@language": "en",
+                "@value": "LOV"
+            },
+            {
+                "@language": "en",
+                "@value": "prefix.cc"
+            },
+            {
+                "@language": "en",
+                "@value": "Test"
+            },
+            {
+                "@language": "en",
+                "@value": "Findable"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#version": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "0.0.1"
+            }
+        ],
+        "http://www.w3.org/ns/dqv#inDimension": [
+            {
+                "@id": "https://w3id.org/fair/principles/terms/F4"
+            }
+        ],
+        "https://w3id.org/dpv#isApplicableFor": [
+            {
+                "@id": "https://schema.org/DefinedTermSet"
+            }
+        ],
+        "https://w3id.org/ftr#supportedBy": [
+            {
+                "@id": "https://w3id.org/foops/"
+            }
         ]
     },
     {
@@ -223,6 +210,27 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     }

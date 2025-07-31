@@ -1,5 +1,13 @@
 [
     {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -14,150 +22,6 @@
             {
                 "@id": "mailto:dgarijo@upm.es"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/FIND3",
-        "@type": [
-            "https://w3id.org/ftr#Test",
-            "http://www.w3.org/ns/dcat#DataService"
-        ],
-        "http://purl.org/dc/terms/creator": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            },
-            {
-                "@id": "https://orcid.org/0000-0003-3587-0367"
-            }
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": " This check verifies if the ontology can be found in a public registry (LOV) "
-            }
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/test/FIND3"
-            }
-        ],
-        "http://purl.org/dc/terms/license": [
-            {
-                "@id": "http://creativecommons.org/licenses/by/4.0/"
-            }
-        ],
-        "http://purl.org/dc/terms/publisher": [
-            {
-                "@id": "https://oeg.fi.upm.es"
-            },
-            {
-                "@id": "https://ror.org/03n6nwv02"
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "Ontology in metadata registry"
-            }
-        ],
-        "http://semanticscience.org/resource/SIO_000233": [
-            {
-                "@id": "https://w3id.org/foops/metric/FIND3"
-            }
-        ],
-        "http://usefulinc.com/ns/doap#repository": [
-            {
-                "@id": "https://w3id.org/foops/repository"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "FIND3"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "FIND3"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointDescription": [
-            {
-                "@id": "https://w3id.org/foops/api"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointURL": [
-            {
-                "@id": "https://w3id.org/foops/api/assess/test/FIND3"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#keyword": [
-            {
-                "@language": "en",
-                "@value": "Ontology in metadata registry"
-            },
-            {
-                "@language": "en",
-                "@value": "Test"
-            },
-            {
-                "@language": "en",
-                "@value": "Findable"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#version": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "0.0.1"
-            }
-        ],
-        "http://www.w3.org/ns/dqv#inDimension": [
-            {
-                "@id": "https://w3id.org/fair/principles/terms/F4"
-            }
-        ],
-        "https://w3id.org/dpv#isApplicableFor": [
-            {
-                "@id": "https://schema.org/DefinedTermSet"
-            }
-        ],
-        "https://w3id.org/ftr#supportedBy": [
-            {
-                "@id": "https://w3id.org/foops/"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/FIND3",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -202,11 +66,130 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
+        "@id": "https://w3id.org/foops/test/FIND3",
+        "@type": [
+            "https://w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
+        ],
+        "http://purl.org/dc/terms/creator": [
             {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            },
+            {
+                "@id": "https://orcid.org/0000-0003-3587-0367"
             }
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": " This check verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.\n\tThe test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.\n\tThe test will fail otherwise.   \n\t"
+            }
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/test/FIND3"
+            }
+        ],
+        "http://purl.org/dc/terms/license": [
+            {
+                "@id": "http://creativecommons.org/licenses/by/4.0/"
+            }
+        ],
+        "http://purl.org/dc/terms/publisher": [
+            {
+                "@id": "https://oeg.fi.upm.es"
+            },
+            {
+                "@id": "https://ror.org/03n6nwv02"
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "Ontology/vocabulary found in community registry"
+            }
+        ],
+        "http://semanticscience.org/resource/SIO_000233": [
+            {
+                "@id": "https://w3id.org/foops/metric/FIND3"
+            }
+        ],
+        "http://usefulinc.com/ns/doap#repository": [
+            {
+                "@id": "https://w3id.org/foops/repository"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "FIND3"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "FIND3 test: Ontology/vocabulary found in community registry"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointDescription": [
+            {
+                "@id": "https://w3id.org/foops/api"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointURL": [
+            {
+                "@id": "https://w3id.org/foops/api/assess/test/FIND3"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#keyword": [
+            {
+                "@language": "en",
+                "@value": "registry"
+            },
+            {
+                "@language": "en",
+                "@value": "LOV"
+            },
+            {
+                "@language": "en",
+                "@value": "Test"
+            },
+            {
+                "@language": "en",
+                "@value": "Findable"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#version": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "0.0.1"
+            }
+        ],
+        "http://www.w3.org/ns/dqv#inDimension": [
+            {
+                "@id": "https://w3id.org/fair/principles/terms/F4"
+            }
+        ],
+        "https://w3id.org/dpv#isApplicableFor": [
+            {
+                "@id": "https://schema.org/DefinedTermSet"
+            }
+        ],
+        "https://w3id.org/ftr#supportedBy": [
+            {
+                "@id": "https://w3id.org/foops/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/FIND3",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -223,6 +206,27 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     }
