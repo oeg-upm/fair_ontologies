@@ -16,7 +16,7 @@
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:title "Ontology/vocabulary prefix is found in prefix.cc or LOV"@en ;
 	rdfs:label "FIND2 test: Ontology/vocabulary prefix is found in prefix.cc or LOV"^^xsd:string ;
-	vivo:abbreviation "FIND2"^^xsd:string ;
+	vivo:abbreviation "FIND2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
 	dcterms:description """ This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 

@@ -34,7 +34,7 @@ An ontology URI, or a file.
 Valid results are ontologies with a registered persistent URL. Examples include a DOI pointing to the ontology publication or a W3ID redirecting to the ontology’s hosting service.
 	"""@en ; 
 	rdfs:label "PURL1 metric: Ontology/vocabulary has a persistent URL"^^xsd:string ;
-	vivo:abbreviation "PURL1"^^xsd:string ;	
+	vivo:abbreviation "PURL1-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

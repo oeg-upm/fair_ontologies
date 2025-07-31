@@ -14,16 +14,29 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "License availability"@en ;
-	rdfs:label "OM4.1"^^xsd:string ;
-	vivo:abbreviation "OM4.1"^^xsd:string ;
+	dcterms:title "Ontology/vocabulary has a license available"@en ;
+	rdfs:label "OM4.1 test: Ontology/vocabulary has a license available"^^xsd:string ;
+	vivo:abbreviation "OM4.1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;
-	dcterms:description """ This check verifies if a license associated with the ontology """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ 
+This test verifies if a license (or rights) are associated with the ontology.
+
+The test will pass if a license is declared using any of the following properties: dcterms:license, schema:license, doap:license or cc:license.
+If a license is not found, but rights are declared (dc:rights), the test will pass as well.
+Otherwise, the test will fail (i.e., no license or rights are declared).
+
+Namespaces:
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * schema: https://schema.org/ and http://schema.org/
+ * doap: http://usefulinc.com/ns/doap#
+ * cc: http://creativecommons.org/ns#
+	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/OM4.1> ;
-	dcat:keyword "License availability"@en , "Test"@en , "Reusable"@en ;
+	dcat:keyword "License"@en , "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

@@ -33,7 +33,7 @@ An ontology URI or a file.
 Declaring an ontology prefix in the ontology metadata.
 	"""@en ; 
 	rdfs:label "FIND1 metric: Ontology/vocabualry prefix is declared"^^xsd:string ;
-	vivo:abbreviation "FIND1"^^xsd:string ;
+	vivo:abbreviation "FIND1-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

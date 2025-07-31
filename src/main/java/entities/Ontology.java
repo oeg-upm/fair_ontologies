@@ -158,15 +158,6 @@ public class Ontology {
             case Constants.PROP_DC_TITLE:
             case Constants.PROP_DCTERMS_TITLE:
             case Constants.PROP_SCHEMA_NAME:
-                try {
-//                    valueLanguage = a.getValue().asLiteral().get().getLang();
-                    this.title = a.getValue().asLiteral().get().getLiteral();
-                    this.supportedMetadata.add(Constants.FOOPS_TITLE);
-                } catch (Exception e) {
-                    logger.error("Error while getting ontology title. No literal provided");
-                }
-                break;
-
             case Constants.PROP_SCHEMA_NAME_HTTP:
                 try {
 //                    valueLanguage = a.getValue().asLiteral().get().getLang();
@@ -341,9 +332,6 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_BIBLIOGRAPHIC_CIT:
             case Constants.PROP_SCHEMA_CITATION:
-                this.citation = Utils.getValueAsLiteralOrURI(a.getValue());
-                this.supportedMetadata.add(Constants.FOOPS_CITATION);
-                break;
             case Constants.PROP_SCHEMA_CITATION_HTTP:
                 this.citation = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_CITATION);
@@ -352,6 +340,13 @@ public class Ontology {
                 this.doi = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_DOI);
                 break;
+            case Constants.PROP_SCHEMA_IDENTIFIER:
+            case Constants.PROP_SCHEMA_IDENTIFIER_HTTP:
+            case Constants.PROP_DCTERMS_IDENTIFIER:
+                String identifier = Utils.getValueAsLiteralOrURI(a.getValue());
+                if (identifier.contains("doi.")){
+                    this.supportedMetadata.add(Constants.FOOPS_DOI);
+                }
             case Constants.PROP_BIBO_STATUS:
                 try {
                     if (a.getValue().isLiteral()) {
@@ -371,15 +366,13 @@ public class Ontology {
                 break;
             case Constants.PROP_FOAF_LOGO:
             case Constants.PROP_SCHEMA_SCHEMA_LOGO:
-                this.logo = Utils.getValueAsLiteralOrURI(a.getValue());
-                this.supportedMetadata.add(Constants.FOOPS_LOGO);
-                break;
             case Constants.PROP_SCHEMA_SCHEMA_LOGO_HTTP:
                 this.logo = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_LOGO);
                 break;
             case Constants.PROP_DC_SOURCE:
             case Constants.PROP_DCTERMS_SOURCE:
+            case Constants.PROP_PROV_HAD_ORIGINAL_SOURCE:
                 this.source = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_SOURCE);
                 break;

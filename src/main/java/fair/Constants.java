@@ -352,6 +352,7 @@ public class Constants {
     public static final String PROP_SCHEMA_CITATION = NS_SCHEMA + "citation";
     public static final String PROP_SCHEMA_DATE_CREATED = NS_SCHEMA + "dateCreated";
     public static final String PROP_SCHEMA_DATE_MODIFIED = NS_SCHEMA + "dateModified";
+    public static final String PROP_SCHEMA_IDENTIFIER = NS_SCHEMA + "identifier";
     public static final String PROP_SCHEMA_PUBLISHER = NS_SCHEMA + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION = NS_SCHEMA + "schemaVersion";
     public static final String PROP_SCHEMA_SCHEMA_LOGO = NS_SCHEMA + "logo";
@@ -364,6 +365,7 @@ public class Constants {
     public static final String PROP_SCHEMA_CITATION_HTTP = NS_SCHEMA_HTTP + "citation";
     public static final String PROP_SCHEMA_DATE_CREATED_HTTP = NS_SCHEMA_HTTP + "dateCreated";
     public static final String PROP_SCHEMA_DATE_MODIFIED_HTTP = NS_SCHEMA_HTTP + "dateModified";
+    public static final String PROP_SCHEMA_IDENTIFIER_HTTP = NS_SCHEMA_HTTP + "identifier";
     public static final String PROP_SCHEMA_PUBLISHER_HTTP = NS_SCHEMA_HTTP + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION_HTTP = NS_SCHEMA_HTTP + "schemaVersion";
     public static final String PROP_SCHEMA_SCHEMA_LOGO_HTTP = NS_SCHEMA_HTTP + "logo";
@@ -397,6 +399,7 @@ public class Constants {
     public static final String PROP_DCTERMS_MODIFIED = NS_DCTERMS + "modified";
     public static final String PROP_DCTERMS_BIBLIOGRAPHIC_CIT = NS_DCTERMS + "bibliographicCitation";
     public static final String PROP_DCTERMS_ISSUED = NS_DCTERMS + "issued";
+    public static final String PROP_DCTERMS_IDENTIFIER = NS_DCTERMS + "identifier";
     public static final String PROP_DCTERMS_SOURCE = NS_DCTERMS + "source";
 
     public static final String PROP_BIBO_DOI = NS_BIBO + "doi";
@@ -405,6 +408,7 @@ public class Constants {
     public static final String PROP_PROV_WAS_REVISION_OF = NS_PROV + "wasRevisionOf";
     public static final String PROP_PROV_GENERATED_AT_TIME = NS_PROV + "generatedAtTime";
     public static final String PROP_PROV_ATTRIBUTED_TO = NS_PROV + "wasAttributedTo";
+    public static final String PROP_PROV_HAD_ORIGINAL_SOURCE = NS_PROV + "hadOriginalSource";
 
     public static final String PROP_VANN_PREFIX = NS_VANN + "preferredNamespacePrefix";
     public static final String PROP_VANN_URI = NS_VANN + "preferredNamespaceUri";

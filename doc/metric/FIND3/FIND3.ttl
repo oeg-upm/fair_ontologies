@@ -14,7 +14,7 @@
 	dcterms:identifier <https://w3id.org/foops/metric/FIND3> ;
 	dcterms:title "Ontology in metadata registry"@en ;
 	rdfs:label "FIND3 metric: Ontology/vocabulary found in community registry"^^xsd:string ;
-	vivo:abbreviation "FIND3"^^xsd:string ;
+	vivo:abbreviation "FIND3-M"^^xsd:string ;
 	dcterms:description """ 
 This metric ensures that ontologies are registered in recognized public repositories, like the Linked Open Vocabularies (LOV). 
 

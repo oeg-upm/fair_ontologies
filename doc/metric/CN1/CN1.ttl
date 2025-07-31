@@ -14,16 +14,15 @@
 	dcterms:identifier <https://w3id.org/foops/metric/CN1> ;
 	dcterms:title "Ontology/vocabulary enables content negotiation for RDF"@en ;
 	dcterms:description """ 
-
-This metric ensures that the vocabulary is accessible in recognized RDF serialization formats.
+This metric ensures that the vocabulary is accessible in HTML and recognized RDF serialization formats.
 
 **What is being measured?**
 
-The accessibility of the vocabulary in any RDF serialization, such as RDF/XML or Turtle.
+The accessibility of the vocabulary in HTML and any RDF serialization, such as RDF/XML or Turtle.
 
 **Why should we measure it?**
 
-RDF serializations are key for semantic web technologies. Ensuring accessibility in at least one RDF serialization allows tools and systems to process the vocabulary effectively.
+RDF serializations are key for semantic web technologies. Ensuring accessibility in at least one RDF serialization allows tools and systems to process the vocabulary effectively. HTML is crucial for having a human-readable version of an ontology.
 
 **What must be provided for the measurement?**
 
@@ -31,10 +30,10 @@ An ontology URI.
 
 **What are considered valid results?**
 
-Valid results occur if the ontology is accessible in at least one specified RDF serialization. The test fails if no recognized serialization is returned or the serialization does not match the required formats.
+Valid results occur if the ontology is accessible in HTML and at least one specified RDF serialization. The test fails if no recognized serialization is returned or no HTML representation could be retrieved.
 	"""@en ;
 	rdfs:label "CN1 metric: Ontology/vocabulary enables content negotiation for RDF"^^xsd:string ;
-	vivo:abbreviation "CN1"^^xsd:string ;	
+	vivo:abbreviation "CN1-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

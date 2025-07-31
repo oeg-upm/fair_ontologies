@@ -12,9 +12,9 @@
 
 <https://w3id.org/foops/metric/OM1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM1> ;
-	dcterms:title "Minimum metadata"@en ;
+	dcterms:title "Ontology/Vocabulary minimum metadata is declared"@en ;
 	dcterms:description """ 
-This metric verifies whether the ontology includes a set of required metadata fields essential for its effective use and FAIR compliance.
+This metric verifies whether the ontology includes a set of required metadata fields to ease findability and reusability.
 
 **What is being measured?**
 
@@ -25,7 +25,6 @@ The presence of the following minimum metadata in the ontology:
 * License
 * Version IRI
 * Creator
-* Creation Date
 * Namespace URI
 
 **Why should we measure it?**
@@ -34,14 +33,14 @@ To ensure the ontology provides sufficient context for reuse, versioning, and co
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology must contain all specified metadata fields. If any field is missing or incomplete, the ontology fails this benchmark.
+The ontology must contain all specified metadata fields. 
 	"""@en ;
-	rdfs:label "Metric OM1"^^xsd:string ;
-	vivo:abbreviation "Metric OM1"^^xsd:string ;
+	rdfs:label "OM1 Metric: Ontology/vocabulary minimum metadata is declared"^^xsd:string ;
+	vivo:abbreviation "OM1-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

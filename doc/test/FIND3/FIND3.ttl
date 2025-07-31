@@ -16,10 +16,10 @@
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:title "Ontology/vocabulary found in community registry"@en ;
 	rdfs:label "FIND3 test: Ontology/vocabulary found in community registry"^^xsd:string ;
-	vivo:abbreviation "FIND3"^^xsd:string ;
+	vivo:abbreviation "FIND3-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
-	dcterms:description """ This check verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
+	dcterms:description """ This test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
 	The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
 	The test will fail otherwise.   
 	"""@en ; 
