@@ -14,12 +14,12 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Version IRI"@en ;
-	rdfs:label "VER1"^^xsd:string ;
-	vivo:abbreviation "VER1"^^xsd:string ;
+	dcterms:title "A version IRI is declared in the ontology/vocabulary metadata"@en ;
+	rdfs:label "VER1 test: A version IRI is declared in the ontology/vocabulary metadata"^^xsd:string ;
+	vivo:abbreviation "VER1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
-	dcterms:description """ This check verifies if there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI) """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if 1) the ontology has a versionIRI (owl:versionIRI) and 2) the versionIRI used is different from the ontology URI.Otherwise the test will fail."""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/VER1> ;

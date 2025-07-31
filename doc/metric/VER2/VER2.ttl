@@ -12,28 +12,28 @@
 
 <https://w3id.org/foops/metric/VER2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VER2> ;
-	dcterms:title "Version IRI resolves"@en ;
+	dcterms:title "Ontology version IRI resolves"@en ;
 	dcterms:description """ 
-This metric ensures the existence of a version-specific identifier (IRI) for the ontology, promoting precise versioning and accurate referencing.
+This metric ensures that the version IRI used within the ontology metadata resolves.
 
 **What is being measured?**
 
-The presence and uniqueness of the ontology’s version IRI, verifying that it is distinct from the general ontology URI.
+The presence of the ontology’s version IRI, verifying that it resolves when issuing a request.
 
 **Why should we measure it?**
 
-Version IRIs are crucial for managing updates and ensuring that users and systems can identify and work with the correct version of an ontology.
+Version IRIs are important for users and systems to identify and work with the correct version of an ontology. As such, version IRIs should work corectly.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology includes a distinct version IRI separate from the general ontology URI, resolvable to a meaningful resource.
+An ontology including a distinct version IRI, resolvable to its corresponding ontology version.
 	"""@en ; 
-	rdfs:label "Metric VER2"^^xsd:string ;
-	vivo:abbreviation "Metric VER2"^^xsd:string ;
+	rdfs:label "VER2 metric: Ontology version IRI resolves"^^xsd:string ;
+	vivo:abbreviation "VER2-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
@@ -41,7 +41,7 @@ The ontology includes a distinct version IRI separate from the general ontology 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Version IRI resolves"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
+	dcat:keyword "Version IRI"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VER2> ;

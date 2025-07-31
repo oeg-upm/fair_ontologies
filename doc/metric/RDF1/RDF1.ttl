@@ -30,7 +30,7 @@ An ontology URI or file.
 
 **What are considered valid results?**
 
-The metric is considered successful if the ontology is accessible and returned in any of the specified RDF serializations.
+The metric is considered successful if the ontology has any the specified RDF serializations.
 	"""@en ;
 	rdfs:label "Metric RDF1"^^xsd:string ;
 	vivo:abbreviation "Metric RDF1"^^xsd:string ;	

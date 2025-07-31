@@ -15,11 +15,12 @@
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:title "Consistent ontology IDs"@en ;
-	rdfs:label "URI2"^^xsd:string ;
-	vivo:abbreviation "URI2"^^xsd:string ;
+	rdfs:label "URI2 test: Consistent ontology IDs"^^xsd:string ;
+	vivo:abbreviation "URI2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
-	dcterms:description """ This check verifies if the ontology URI is equal to the ontology ID """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """
+This check verifies if the ontology URI is equal to the ontology ID. The test passes if the ontology URI used to load the ontology document is the same as the ontology id found in the document itself. Otherwise the test will fail."""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/URI2> ;

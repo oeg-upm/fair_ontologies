@@ -15,15 +15,15 @@
 	dcterms:identifier <https://w3id.org/foops/metric/URI2> ;
 	dcterms:title "Consistent ontology IDs"@en ;
 	dcterms:description """ 
-This metric ensures alignment between the ontology’s URI and its ID, promoting accurate and reliable identification.
+This metric ensures alignment between the ontology’s URI and its ID.
 
 **What is being measured?**
 
-The consistency between the ontology’s URI and its declared ID, ensuring that the ontology can be uniquely identified and referenced.
+The consistency between the URI used to invoke the FAIR assessment tool and the URI used within the ontology document.
 
 **Why should we measure it?**
 
-Inconsistent IDs can lead to confusion, misidentification, and errors in ontology usage. Verifying consistency ensures smooth integration and usage in semantic web applications.
+While the ontology URI (e.g., a URI pointing to a Turtle serialization) may be different from the ontology namespace URI, it is recommended to have a unique identifier and redirect to the serialization with content negotiation. 
 
 **What must be provided for the measurement?**
 
@@ -31,10 +31,10 @@ An ontology URI.
 
 **What are considered valid results?**
 
-The ontology’s URI and ID are consistent, properly aligned, and follow the expected format.
+The ontology’s URI and ID are consistent.
 	"""@en ;
-	rdfs:label "Metric URI2"^^xsd:string ;
-	vivo:abbreviation "Metric URI2"^^xsd:string ;	
+	rdfs:label "URI2 metric: Consistent ontology IDs"^^xsd:string ;
+	vivo:abbreviation "URI2-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

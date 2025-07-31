@@ -14,11 +14,11 @@
 	dcterms:identifier <https://w3id.org/foops/metric/URI1> ;
 	dcterms:title "Ontology URI is resolvable"@en ;
 	dcterms:description """
-This metric ensures that the ontology’s URI is resolvable and provides accessible content in recognized RDF serialization formats.
+This metric ensures that the URI of an ontology (as used within the document) is resolvable and provides accessible content in recognized RDF serialization formats.
 
 **What is being measured?**
 
-The resolvability of the ontology URI within the ontology document, ensuring it can provide content in RDF serializations like RDF/XML, TTL, N-Triples, or JSON-LD.
+The resolvability of the ontology URI used within the ontology document, ensuring it can provide content in RDF serializations like RDF/XML, TTL, N-Triples, or JSON-LD. This URI may be different from the URL given to the assessment tool as input.
 
 **Why should we measure it?**
 
@@ -26,14 +26,14 @@ A resolvable ontology URI guarantees that users and systems can access and use t
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology URI provides accessible content in recognized RDF serialization formats (e.g., RDF/XML, TTL, N-Triples, JSON-LD), ensuring interoperability and usability.
+The ontology URI provides accessible content in recognized RDF serialization formats (e.g., RDF/XML, TTL, N-Triples, JSON-LD).
 	"""@en ;
-	rdfs:label "Metric URI1"^^xsd:string ;
-	vivo:abbreviation "Metric URI1"^^xsd:string ;	
+	rdfs:label "URI1 Metric: Ontology URI is resolvable"^^xsd:string ;
+	vivo:abbreviation "URI1-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
