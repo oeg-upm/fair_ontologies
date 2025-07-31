@@ -18,6 +18,40 @@
         ]
     },
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/R1.2",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -59,18 +93,23 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
         ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/03n6nwv02>"
+            }
+        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Ontology Engineering Group"
+                "@value": "Universidad Politécnica de Madrid"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@id": "https://oeg.fi.upm.es/"
+                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -90,7 +129,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric checks for the inclusion of essential provenance metadata, ensuring that the origin and authorship of the ontology are clear and traceable.\n\n**What is being measured?**\n\nThe presence of basic provenance metadata, specifically:\n\n* Mandatory: Author and creation date.\n* Optional: Contributor and previous version metadata elements.\n\n**Why should we measure it?**\n\nProvenance metadata is crucial for understanding the source and authorship of an ontology, supporting reusability and trust. While not all ontologies may have contributors or previous versions, their inclusion adds value.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nOntologies that explicitly state an author and a creation date satisfy the metric. Ontologies are encouraged, but not required, to include information on contributors and previous versions.\n\t\n\t"
+                "@value": " \nThis metric checks for the inclusion of essential provenance metadata, ensuring that the origin and authorship of the ontology are clear and traceable.\n\n**What is being measured?**\n\nThe presence of basic provenance metadata, specifically:\n\n* Mandatory: Author and creation date.\n* Optional: Contributor and previous version metadata elements.\n\n**Why should we measure it?**\n\nProvenance metadata is crucial for understanding the source and authorship of an ontology, supporting reusability and trust. \n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nOntologies that explicitly state an author and a creation date satisfy the metric. Ontologies are encouraged, but not required, to include information on contributors and previous versions.\n\t\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -114,7 +153,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Basic provenance metadata"
+                "@value": "Ontology/vocabulary declares basic provenance metadata"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -125,13 +164,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM5.1"
+                "@value": "OM5.1-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM5.1"
+                "@value": "OM5.1 metric: Ontology/vocabulary declares basic provenance metadata"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -142,7 +181,11 @@
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
-                "@value": "Basic provenance metadata"
+                "@value": "Metadata"
+            },
+            {
+                "@language": "en",
+                "@value": "Provenance"
             },
             {
                 "@language": "en",
@@ -199,24 +242,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -237,27 +262,6 @@
         "@id": "https://w3id.org/foops/test/OM5.1",
         "@type": [
             "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/03n6nwv02>"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
         ]
     }
 ]

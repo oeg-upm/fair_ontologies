@@ -38,16 +38,35 @@
             <div class="row">
                 <div class="col-md-12"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">OM3</h1>
+                    <h1 class="miClase text-center">OM3 test: Ontology/vocabulary declares detailed metadata</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if the following detailed metadata [doi, publisher, logo, status, source, issued date] are present in the ontology. It also checks if [previous version, backward compatibility, modified] are present, but with no penalty (as no all ontologies may have, e.g., a previous version) </p></div>
+                <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology includes the following detailed metadata:
+ * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (id a doi is provided) or dcterms:identifier (if a doi is provided)
+ * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
+ * logo: declared using foaf:logo or schema:logo
+ * status: declared using bibo:status
+ * source: declared using dcterms:source or prov:hadOriginalSource
+ * issued date: declared using dcterms:issued
+ * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
+ * backward compatibility (optional): declared using 
+ * modified date (optional): declared using </p>
+<p>The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).</p>
+<p>Namespaces used: 
+ * bibo: http://purl.org/ontology/bibo/ 
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * foaf: http://xmlns.com/foaf/0.1/
+ * schema: https://schema.org/ and http://schema.org/
+ * owl: http://www.w3.org/2002/07/owl#
+ * pav: http://purl.org/pav/
+ * prov: http://www.w3.org/ns/prov#</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
-                    <a href="OM3.ttl" title="RDF Resource Description
+                    <a href="OM3 test: Ontology/vocabulary declares detailed metadata.ttl" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 
@@ -79,7 +98,7 @@
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
-                <div class="col-md-9 well"> Detailed metadata, Test, Reusable </div>
+                <div class="col-md-9 well"> Detailed metadata, metadata, Test, Reusable </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Publisher</strong></div>

@@ -1,5 +1,21 @@
 [
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/repository",
         "http://xmlns.com/foaf/0.1/homePage": [
             {
@@ -50,18 +66,23 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
         ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Ontology Engineering Group"
+                "@value": "Universidad Politécnica de Madrid"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@id": "https://oeg.fi.upm.es/"
+                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -105,7 +126,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This check verifies if basic provenance is available for the ontology: [author, creation date]. This check also verifies whether [contributor, previous version] are present, but with no penalty (as no all ontologies may have a previous version or a contributor) "
+                "@value": " \nThis check verifies if basic provenance metadata is available for the ontology:  \n\t* creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer\n\t* creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn\n\t* contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.\n\t* previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion\n\nThe test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.\n\nNamespaces used:\n\t* dc: http://purl.org/dc/elements/1.1/\n\t* dcterms: http://purl.org/dc/terms/\n\t* schema: https://schema.org/ and http://schema.org/\n\t* doap: http://usefulinc.com/ns/doap#\n\t* owl: http://www.w3.org/2002/07/owl#\n\t* pav: http://purl.org/pav/\n\t* prov: http://www.w3.org/ns/prov#\n\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -129,7 +150,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Basic provenance metadata"
+                "@value": "Ontology/vocabulary declares basic provenance metadata"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -145,13 +166,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "OM5.1"
+                "@value": "OM5.1-T"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "OM5.1"
+                "@value": "OM5.1 test: Ontology/vocabulary declares basic provenance metadata"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -172,7 +193,11 @@
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
-                "@value": "Basic provenance metadata"
+                "@value": "Provenance"
+            },
+            {
+                "@language": "en",
+                "@value": "Metadata"
             },
             {
                 "@language": "en",
@@ -202,27 +227,6 @@
         "https://w3id.org/ftr#supportedBy": [
             {
                 "@id": "https://w3id.org/foops/"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
             }
         ]
     }

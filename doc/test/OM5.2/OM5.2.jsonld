@@ -1,55 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/R1.2",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Dimension",
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are associated with detailed provenance"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1.2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1.2"
-            }
-        ]
-    },
-    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -66,9 +16,11 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/OM5.2",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
         ]
     },
     {
@@ -88,7 +40,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This check verifies if detailed provenance information is available for the ontology: [issued date, publisher]"
+                "@value": " \nThis check verifies if detailed provenance information is available for the ontology: [issued date, publisher]\n * issued date: declared using dcterms:issued\n * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher\n\nThe test will pass if both metadata fields are present. The test will fail otherwise, indicating the properties that are missing.\n\nNamespaces used:\n * dc: http://purl.org/dc/elements/1.1/\n * dcterms: http://purl.org/dc/terms/\n * schema: https://schema.org/ and http://schema.org/\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -128,13 +80,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "OM5.2"
+                "@value": "OM5.2-T"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "OM5.2"
+                "@value": "OM5.2 test: Ontology/vocabulary declares detailed provenance metadata"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -155,7 +107,11 @@
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
-                "@value": "Detailed provenance metadata"
+                "@value": "Provenance"
+            },
+            {
+                "@language": "en",
+                "@value": "Metadata"
             },
             {
                 "@language": "en",
@@ -189,19 +145,44 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://w3id.org/fair/principles/terms/R1.2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Dimension",
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are associated with detailed provenance"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1.2"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1.2"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@value": "Daniel Garijo"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -223,6 +204,29 @@
         "http://www.w3.org/2006/vcard/ns#url": [
             {
                 "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/OM5.2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     }

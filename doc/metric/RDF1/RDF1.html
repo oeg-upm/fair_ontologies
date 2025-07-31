@@ -73,19 +73,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 16px;"> <p>This test evaluates whether an ontology is available in at least one recognized RDF serialization format.</p>
-<p><strong>What does the test do?</strong></p>
-<p>It sends a request to the ontology URI and inspects the content returned to determine if it is served using one of the accepted RDF formats:
-- RDF/XML
-- Turtle (TTL)
-- N-Triples
-- JSON-LD</p>
-<p><strong>Why is this important?</strong></p>
+                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric evaluates whether an ontology is available in at least one recognized valid RDF serialization format.</p>
+<p><strong>What is being measured?</strong></p>
+<p>Whether the ontology provided is available in any valid RDF serialization, such as RDF/XML or Turtle</p>
+<p><strong>Why should we measure it?</strong></p>
 <p>RDF serializations are the backbone of data representation on the Semantic Web. Ensuring that an ontology is available in one of these formats guarantees that it can be parsed, reused, and integrated by external applications and services.</p>
-<p><strong>How does the test work?</strong></p>
-<p>The system checks the content negotiation or the actual content returned by the ontology URI. If at least one valid serialization format is detected, the test passes. Otherwise, it fails.</p>
-<p><strong>Valid outcome</strong></p>
-<p>The test is considered successful if the ontology is accessible and returned in any of the specified RDF serializations.</p></div>
+<p><strong>What must be provided for the measurement?</strong></p>
+<p>An ontology URI or file.</p>
+<p><strong>What are considered valid results?</strong></p>
+<p>The metric is considered successful if the ontology is accessible and returned in any of the specified RDF serializations.</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
@@ -97,7 +93,7 @@
             </div>
             <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> RDF Availability </div>
+                <div class="col-md-9 well"> Ontology/vocabulary is available in RDF </div>
             </div>
             <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
