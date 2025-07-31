@@ -55,7 +55,7 @@ public class FOOPSController {
                 "curl -X POST \"https://foops.linkeddata.es/assessOntology\" -H \"accept: application/json;" +
                 "charset=UTF-8\" " +
                 "-H \"Content-Type: application/json;charset=UTF-8\" -d " +
-                "\"{ \"ontURI\": \"https://w3id.org/okn/o/sd#\"}\"";
+                "\"{ \"ontologyUri\": \"https://w3id.org/example\"}\"";
     }
 
     /**
