@@ -19,12 +19,7 @@ This metric evaluates whether the ontology has a persistent URL, ensuring reliab
 
 **What is being measured?**
 
-The presence of a persistent URL, such as:
-
-* W3ID
-* PURL
-* DOI
-* W3C URL
+The presence of a persistent URL, such as w3id, purl, etc.
 
 **Why should we measure it?**
 
@@ -36,7 +31,7 @@ An ontology URI.
 
 **What are considered valid results?**
 
-Valid results are ontologies with a registered persistent URL that is resolvable and points to the ontology’s location or metadata. Examples include a DOI pointing to the ontology publication or a W3ID redirecting to the ontology’s hosting service.
+Valid results are ontologies with a registered persistent URL. Examples include a DOI pointing to the ontology publication or a W3ID redirecting to the ontology’s hosting service.
 	"""@en ; 
 	rdfs:label "Metric PURL1"^^xsd:string ;
 	vivo:abbreviation "Metric PURL1"^^xsd:string ;	
