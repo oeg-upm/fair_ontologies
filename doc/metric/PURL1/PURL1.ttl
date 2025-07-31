@@ -13,7 +13,7 @@
 
 <https://w3id.org/foops/metric/PURL1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/PURL1> ;
-	dcterms:title "PURL1 metric: Ontology/vocabulary has a persistent URL"@en ;
+	dcterms:title "Ontology/vocabulary has a persistent URL"@en ;
 	dcterms:description """ 
 This metric evaluates whether the ontology has a persistent URL, ensuring reliable and long-term access.
 
@@ -27,7 +27,7 @@ Persistent URLs provide a stable reference to the ontology, essential for long-t
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI, or a file.
 
 **What are considered valid results?**
 
@@ -42,7 +42,7 @@ Valid results are ontologies with a registered persistent URL. Examples include 
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcat:keyword "Persistent URL"@en , "Metric"@en , "Accesible"@en, "FAIR"@en ;
+	dcat:keyword "Persistent URL"@en , "Metric"@en , "purl"@en,  "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/PURL1> ;

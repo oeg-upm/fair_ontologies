@@ -13,10 +13,10 @@
 <https://w3id.org/foops/metric/FIND3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND3> ;
 	dcterms:title "Ontology in metadata registry"@en ;
-	rdfs:label "Metric FIND3"^^xsd:string ;
-	vivo:abbreviation "Metric FIND3"^^xsd:string ;
+	rdfs:label "FIND3 metric: Ontology/vocabulary found in community registry"^^xsd:string ;
+	vivo:abbreviation "FIND3"^^xsd:string ;
 	dcterms:description """ 
-This metric ensures that ontologies are registered in recognized public repositories, like the Linked Open Vocabularies (LOV). It evaluates whether an ontology is accessible and discoverable through such registries.
+This metric ensures that ontologies are registered in recognized public repositories, like the Linked Open Vocabularies (LOV). 
 
 **What is being measured?**
 
@@ -24,18 +24,15 @@ The registration of the ontology in trusted metadata registries.
 
 **Why should we measure it?**
 
-To enhance discoverability and ensure long-term access to ontology metadata, promoting reuse and interoperability.
+Metadata of ontologies should be available even when the ontology is no longer available in its source URI. Public registries enable this functionality, providing long term preservation and archiving different ontology versions.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology must:
-
-* Be listed in a recognized public registry (e.g., LOV).
-* Provide accessible and accurate metadata through the registry.
+The ontology is found within a community registry.
 	"""@en ; 
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
@@ -44,7 +41,7 @@ The ontology must:
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Ontology in metadata registry"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
+	dcat:keyword "registry"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	dcat:landingPage <https://w3id.org/foops/metric/FIND3> ; 

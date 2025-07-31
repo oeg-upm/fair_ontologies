@@ -15,7 +15,7 @@
     dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
     dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:title "Ontology/vocabulary enables content negotiation for RDF in RDF/XML, TTL, NTriples or JSON-LD"@en ;
-    rdfs:label "CN1: Ontology/vocabulary enables content negotiation for RDF"^^xsd:string ;
+    rdfs:label "CN1 test: Ontology/vocabulary enables content negotiation for RDF"^^xsd:string ;
 	vivo:abbreviation "CN1"^^xsd:string ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dqv:inDimension <https://w3id.org/fair/principles/terms/A1> ;
@@ -30,7 +30,7 @@
     dcterms:publisher <https://oeg.fi.upm.es> , <https://ror.org/03n6nwv02>;
     dcat:version "0.0.1"^^xsd:string ;
     dcterms:identifier <https://w3id.org/foops/test/CN1> ;
-    dcat:keyword "Content negotiation"@en ,"Test"@en ;
+    dcat:keyword "Content negotiation"@en ,"Test"@en, "RDF", "serialization"@en ;
     dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/CN1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

@@ -12,17 +12,17 @@
 
 <https://w3id.org/foops/metric/DOC1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/DOC1> ;
-	dcterms:title "HTML availability"@en ;
+	dcterms:title "Ontology/vocabulary has HTML documentation"@en ;
 	dcterms:description """ 
 This metric evaluates the presence and accessibility of HTML documentation to ensure that users can easily access and understand the resource’s structure and content.
 
 **What is being measured?**
 
-The availability and quality of HTML documentation for an ontology or resource.
+The availability of HTML documentation for an ontology or vocabulary.
 
 **Why should we measure it?**
 
-HTML documentation enhances usability, transparency, and accessibility, aligning with FAIR principles.
+HTML documentation enhances usability, aligning with FAIR principles.
 
 **What must be provided for the measurement?**
 
@@ -30,11 +30,10 @@ An ontology URI.
 
 **What are considered valid results?**
 
-The existence of an accessible, online HTML page providing clear and detailed documentation of the ontology.
-
+The existence of an accessible, online HTML page providing detailed documentation of the ontology.
 	"""@en ;
-	rdfs:label "Metric DOC1"^^xsd:string ;
-	vivo:abbreviation "Metric DOC1"^^xsd:string ;
+	rdfs:label "DOC1 metric: Ontology/vocabulary has HTML documentation"^^xsd:string ;
+	vivo:abbreviation "DOC1"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

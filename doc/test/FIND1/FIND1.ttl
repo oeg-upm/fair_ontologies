@@ -14,16 +14,18 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology prefix"@en ;
-	rdfs:label "FIND1"^^xsd:string ;
+	dcterms:title "Ontology/vocabualry prefix is declared"@en ;
+	rdfs:label "FIND1 test: Ontology/vocabualry prefix is declared"^^xsd:string ;
 	vivo:abbreviation "FIND1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F3> ;
-	dcterms:description """ This check verifies if an ontology prefix is available"""@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ This check verifies if an ontology prefix is declared in the ontology metadata. 
+	The test will pass if a vann:preferredNamespacePrefix is declared (vann: http://purl.org/vocab/vann/).
+	Otherwise, the test will fail. """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/FIND1> ;
-	dcat:keyword "Ontology prefix"@en , "Test"@en , "Findable"@en ;
+	dcat:keyword "prefix"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
