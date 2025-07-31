@@ -73,15 +73,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric ensures that the vocabulary is accessible in recognized RDF serialization formats.</p>
+                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric ensures that the vocabulary is accessible in HTML and recognized RDF serialization formats.</p>
 <p><strong>What is being measured?</strong></p>
-<p>The accessibility of the vocabulary in any RDF serialization, such as RDF/XML or Turtle.</p>
+<p>The accessibility of the vocabulary in HTML and any RDF serialization, such as RDF/XML or Turtle.</p>
 <p><strong>Why should we measure it?</strong></p>
-<p>RDF serializations are key for semantic web technologies. Ensuring accessibility in at least one RDF serialization allows tools and systems to process the vocabulary effectively.</p>
+<p>RDF serializations are key for semantic web technologies. Ensuring accessibility in at least one RDF serialization allows tools and systems to process the vocabulary effectively. HTML is crucial for having a human-readable version of an ontology.</p>
 <p><strong>What must be provided for the measurement?</strong></p>
 <p>An ontology URI.</p>
 <p><strong>What are considered valid results?</strong></p>
-<p>Valid results occur if the ontology is accessible in at least one specified RDF serialization. The test fails if no recognized serialization is returned or the serialization does not match the required formats.</p></div>
+<p>Valid results occur if the ontology is accessible in HTML and at least one specified RDF serialization. The test fails if no recognized serialization is returned or no HTML representation could be retrieved.</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 

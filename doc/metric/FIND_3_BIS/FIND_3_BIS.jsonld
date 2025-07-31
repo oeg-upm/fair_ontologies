@@ -18,23 +18,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -48,12 +31,6 @@
             {
                 "@id": "https://oeg.fi.upm.es/"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/FIND_3_BIS",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -81,23 +58,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/FIND_3_BIS",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -113,7 +73,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric ensures that metadata remain accessible even if the ontology itself becomes unavailable. It verifies that the ontology is registered in a public metadata registry like the Linked Open Vocabularies (LOV) to guarantee persistent access to its metadata.\n\n**What is being measured?** \n\nThe accessibility of metadata independently of the ontology’s availability.\n\n**Why should we measure it?**\n\nEnsuring metadata accessibility supports reusability, discoverability, and long-term FAIR compliance.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nMetadata registered and accessible via a persistent public registry such as LOV.\n\t\n\t"
+                "@value": " \nThis metric ensures that metadata remain accessible even if the ontology itself becomes unavailable. It verifies that the ontology is registered in a public metadata registry like the Linked Open Vocabularies (LOV) to guarantee persistent access to its metadata.\n\n**What is being measured?** \n\nThe accessibility of metadata independently of the ontology’s availability.\n\n**Why should we measure it?**\n\nEnsuring metadata accessibility supports reusability, discoverability, and long-term FAIR compliance.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nMetadata registered and accessible via a persistent public registry such as LOV.\n\t\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -137,7 +97,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Metadata are accessible, even when ontology is not"
+                "@value": "Ontology metadata are accessible, even when ontology is not"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -148,13 +108,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric FIND_3_BIS"
+                "@value": "FIND_3_BIS-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric FIND_3_BIS"
+                "@value": "FIND_3_BIS metric: Ontology metadata are accessible, even when ontology is not"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -219,6 +179,23 @@
         ]
     },
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://ror.org/03n6nwv02",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -237,6 +214,29 @@
             {
                 "@id": "https://www.upm.es/"
             }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/FIND_3_BIS",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     }
 ]

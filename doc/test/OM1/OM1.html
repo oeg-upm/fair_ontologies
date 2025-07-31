@@ -38,23 +38,41 @@
             <div class="row">
                 <div class="col-md-12"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">OM1</h1>
+                    <h1 class="miClase text-center">OM1 test: Ontology/Vocabulary minimum metadata is declared</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if the The following  minimum metadata [title, description, license, version iri, creator, creationDate, namespace URI] are present in the ontology </p></div>
+                <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if the following  minimum metadata are present in the ontology metadata:
+    * title: declared using dc:title, dcterms:title or schema:name
+    * description: declared using dc:abstract, dcterms:abstract, dc:description, dcterms:description, schema:description, rdfs:comment, doap:description, doap:shortdesc or skos:note
+    * license: declared using dcterms:license, schema:license, doap:license or cc:license.
+    * version iri: declared using owl:versionIRI
+    * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
+    * namespace URI: declared using  vann:preferredNamespaceUri</p>
+<p>The test will pass if all ontology metadata are present. The test will fail otherwise, indicating the properties that are missing.</p>
+<p>Namespaces used:
+    * dc: http://purl.org/dc/elements/1.1/
+    * dcterms: http://purl.org/dc/terms/
+    * schema: https://schema.org/ and http://schema.org/
+    * rdfs: http://www.w3.org/2000/01/rdf-schema#
+    * doap: http://usefulinc.com/ns/doap#
+    * skos: http://www.w3.org/2004/02/skos/core#
+    * cc: http://creativecommons.org/ns#
+    * owl: http://www.w3.org/2002/07/owl#
+    * pav: http://purl.org/pav/
+    * prov: http://www.w3.org/ns/prov#</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
-                    <a href="OM1.ttl" title="RDF Resource Description
+                    <a href="OM1 test: Ontology/Vocabulary minimum metadata is declared.ttl" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> Minimum metadata </div>
+                <div class="col-md-9 well"> Ontology/Vocabulary minimum metadata is declared </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>

@@ -38,23 +38,36 @@
             <div class="row">
                 <div class="col-md-12"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">OM5.1</h1>
+                    <h1 class="miClase text-center">OM5.1 test: Ontology/vocabulary declares basic provenance metadata</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if basic provenance is available for the ontology: [author, creation date]. This check also verifies whether [contributor, previous version] are present, but with no penalty (as no all ontologies may have a previous version or a contributor) </p></div>
+                <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if basic provenance metadata is available for the ontology:<br />
+    * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
+    * creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
+    * contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
+    * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion</p>
+<p>The test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.</p>
+<p>Namespaces used:
+    * dc: http://purl.org/dc/elements/1.1/
+    * dcterms: http://purl.org/dc/terms/
+    * schema: https://schema.org/ and http://schema.org/
+    * doap: http://usefulinc.com/ns/doap#
+    * owl: http://www.w3.org/2002/07/owl#
+    * pav: http://purl.org/pav/
+    * prov: http://www.w3.org/ns/prov#</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
-                    <a href="OM5.1.ttl" title="RDF Resource Description
+                    <a href="OM5.1 test: Ontology/vocabulary declares basic provenance metadata.ttl" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> Basic provenance metadata </div>
+                <div class="col-md-9 well"> Ontology/vocabulary declares basic provenance metadata </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
@@ -79,7 +92,7 @@
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
-                <div class="col-md-9 well"> Basic provenance metadata, Test, Reusable </div>
+                <div class="col-md-9 well"> Provenance, Metadata, Test, Reusable </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Publisher</strong></div>
