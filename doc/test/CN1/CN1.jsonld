@@ -1,67 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "Main repository for FOOPS! code and documentation"
-            }
-        ],
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/CN1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ],
-        "http://semanticscience.org/resource/SIO_000234": [
-            {
-                "@id": "https://w3id.org/foops/test/CN1"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/fair/principles/terms/A1",
         "@type": [
             "http://www.w3.org/ns/dqv#Dimension",
@@ -104,6 +42,54 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/metric/CN1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ],
+        "http://semanticscience.org/resource/SIO_000234": [
+            {
+                "@id": "https://w3id.org/foops/test/CN1"
+            }
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/test/CN1",
         "@type": [
             "https://w3id.org/ftr#Test",
@@ -120,7 +106,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "This test verifies whether an RDF representation is available for the target vocabulary. The test will PASS if the vocabulary is available in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."
+                "@value": "\n    This test verifies whether an RDF representation is available for the target vocabulary. The test will pass if the vocabulary is available in any of the following RDF serializations: \n    \n    * RDF/XML (application/rdf+xml), \n    * TTL (text/turtle), \n    * N-Triples (text/n3), \n    * JSON-LD (application/ld+json)\n    The test will fail if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -144,7 +130,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Content negotiation for RDF"
+                "@value": "Ontology/vocabulary enables content negotiation for RDF in RDF/XML, TTL, NTriples or JSON-LD"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -166,7 +152,7 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "CN1"
+                "@value": "CN1: Ontology/vocabulary enables content negotiation for RDF"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -213,6 +199,20 @@
         "https://w3id.org/ftr#supportedBy": [
             {
                 "@id": "https://w3id.org/foops/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "Main repository for FOOPS! code and documentation"
+            }
+        ],
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },
