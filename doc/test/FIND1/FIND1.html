@@ -33,19 +33,38 @@
             .text-separation { 
                 margin-right: 10px; 
             }   
+            .cell-title {
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+            }
+            .cell-button {
+                display: table-cell;
+                vertical-align: middle;
+                width: 10%;
+                text-align: right;
+            }
+            h1.miClase {
+                margin: 0;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
         </style>
         <div class="container">
             <div class="row">
-                <div class="col-md-12"> 
+                <div class="cell-title"> 
+                   <h1 class="miClase text-center">FIND1 test: Ontology/vocabualry prefix is declared</h1>
+                </div>
+                <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">FIND1 test: Ontology/vocabualry prefix is declared</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if an ontology prefix is declared in the ontology metadata. 
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if an ontology prefix is declared in the ontology metadata. 
     The test will pass if a vann:preferredNamespacePrefix is declared (vann: http://purl.org/vocab/vann/).
     Otherwise, the test will fail. </p></div>
             </div>
+
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 

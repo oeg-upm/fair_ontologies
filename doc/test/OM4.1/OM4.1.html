@@ -33,16 +33,34 @@
             .text-separation { 
                 margin-right: 10px; 
             }   
+            .cell-title {
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+            }
+            .cell-button {
+                display: table-cell;
+                vertical-align: middle;
+                width: 10%;
+                text-align: right;
+            }
+            h1.miClase {
+                margin: 0;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
         </style>
         <div class="container">
             <div class="row">
-                <div class="col-md-12"> 
+                <div class="cell-title"> 
+                   <h1 class="miClase text-center">OM4.1 test: Ontology/vocabulary has a license available</h1>
+                </div>
+                <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">OM4.1 test: Ontology/vocabulary has a license available</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if a license (or rights) are associated with the ontology.</p>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if a license (or rights) are associated with the ontology.</p>
 <p>The test will pass if a license is declared using any of the following properties: dcterms:license, schema:license, doap:license or cc:license.
 If a license is not found, but rights are declared (dc:rights), the test will pass as well.
 Otherwise, the test will fail (i.e., no license or rights are declared).</p>
@@ -53,6 +71,7 @@ Otherwise, the test will fail (i.e., no license or rights are declared).</p>
  * doap: http://usefulinc.com/ns/doap#
  * cc: http://creativecommons.org/ns#</p></div>
             </div>
+
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 

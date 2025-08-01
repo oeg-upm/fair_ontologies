@@ -66,22 +66,6 @@
                 } 
                 showSection(currentHash || "#test");
 
-                // function showSection(uri) {
-                //     const sections = {
-                //         "https://w3id.org/foops/test/": "#div_test",
-                //         "https://w3id.org/foops/metric/": "#div_metric",
-                //         "https://w3id.org/foops/benchmark/": "#div_benchmark"
-                //     };
-
-                //     $("#div_test, #div_metric, #div_benchmark").hide();
-
-                //     // Mostrar el div correspondiente al URI o la de "Test" por defecto
-                //     const sectionToShow = sections[uri] || "#div_test";
-                //     $(sectionToShow).show();
-                // }
-       
-                // const currentURI = window.location.href;
-                // showSection(currentURI);
 
                 $("#btn_metric").click(function(){
                     updateURL("metric"); 
@@ -96,6 +80,10 @@
                 $("#btn_benchmark").click(function(){
                     updateURL("benchmark"); 
                     showSection("#benchmark");
+                });
+
+                $("#btn_about").click(function(){
+                    window.location.href = 'about.html';
                 });
             });
             
