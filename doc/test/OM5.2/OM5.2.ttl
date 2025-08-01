@@ -21,12 +21,14 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
 	dcterms:description """ 
 This check verifies if detailed provenance information is available for the ontology: [issued date, publisher]
+
  * issued date: declared using dcterms:issued
  * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
 
 The test will pass if both metadata fields are present. The test will fail otherwise, indicating the properties that are missing.
 
 Namespaces used:
+
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/

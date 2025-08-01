@@ -27,6 +27,7 @@ If a license is not found, but rights are declared (dc:rights), the test will pa
 Otherwise, the test will fail (i.e., no license or rights are declared).
 
 Namespaces:
+
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/

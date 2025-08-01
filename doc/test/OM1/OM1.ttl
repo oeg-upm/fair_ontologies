@@ -21,26 +21,28 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F2> ;
 	dcterms:description """
 This check verifies if the following  minimum metadata are present in the ontology metadata:
-	* title: declared using dc:title, dcterms:title or schema:name
-	* description: declared using dc:abstract, dcterms:abstract, dc:description, dcterms:description, schema:description, rdfs:comment, doap:description, doap:shortdesc or skos:note
-	* license: declared using dcterms:license, schema:license, doap:license or cc:license.
-	* version iri: declared using owl:versionIRI
-	* creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
-	* namespace URI: declared using  vann:preferredNamespaceUri
+
+ * title: declared using dc:title, dcterms:title or schema:name
+ * description: declared using dc:abstract, dcterms:abstract, dc:description, dcterms:description, schema:description, rdfs:comment, doap:description, doap:shortdesc or skos:note
+ * license: declared using dcterms:license, schema:license, doap:license or cc:license.
+ * version iri: declared using owl:versionIRI
+ * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
+ * namespace URI: declared using  vann:preferredNamespaceUri
 
 The test will pass if all ontology metadata are present. The test will fail otherwise, indicating the properties that are missing.
 
 Namespaces used:
-	* dc: http://purl.org/dc/elements/1.1/
-	* dcterms: http://purl.org/dc/terms/
-	* schema: https://schema.org/ and http://schema.org/
-	* rdfs: http://www.w3.org/2000/01/rdf-schema#
-	* doap: http://usefulinc.com/ns/doap#
-	* skos: http://www.w3.org/2004/02/skos/core#
-	* cc: http://creativecommons.org/ns#
-	* owl: http://www.w3.org/2002/07/owl#
-	* pav: http://purl.org/pav/
-	* prov: http://www.w3.org/ns/prov#
+
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * schema: https://schema.org/ and http://schema.org/
+ * rdfs: http://www.w3.org/2000/01/rdf-schema#
+ * doap: http://usefulinc.com/ns/doap#
+ * skos: http://www.w3.org/2004/02/skos/core#
+ * cc: http://creativecommons.org/ns#
+ * owl: http://www.w3.org/2002/07/owl#
+ * pav: http://purl.org/pav/
+ * prov: http://www.w3.org/ns/prov#
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
