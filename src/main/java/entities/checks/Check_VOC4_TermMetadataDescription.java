@@ -25,7 +25,7 @@ import fair.Constants;
 import java.util.ArrayList;
 
 /**
- * Given an ontology, this check will verify whether all terms are correctly annotated with label and description
+ * Given an ontology, this check will verify whether all terms are correctly annotated with description
  * (reusability)
  *
  * TO DO
@@ -48,7 +48,7 @@ public class Check_VOC4_TermMetadataDescription extends Check {
         try {
             this.total_passed_tests = ontology.getTermsWithDescription().size();
             this.total_tests_run = ontology.getTerms().size();
-            if (ontology.getTerms().size() == 0){
+            if (ontology.getTerms().isEmpty()){
                 this.status = Constants.ERROR;
                 this.explanation = "No ontology terms found";
                 this.total_tests_run ++;

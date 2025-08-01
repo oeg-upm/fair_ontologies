@@ -22,6 +22,7 @@
 	dcterms:description """ 
 This test verifies the extent to which all ontology terms have labels.
 The test will pass if all classes, properties and data properties have either an rdfs:label or skos:prefLabel.
+For skos vocabularies, only the skos:Concepts are assessed.
 Otherwise, the test will fail, indicating the level of completeness found (i.e., percentage of documented terms) """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
