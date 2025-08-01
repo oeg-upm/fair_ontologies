@@ -1,38 +1,5 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -50,9 +17,147 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/test/VOC3",
+        "@type": [
+            "https://w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
+        ],
+        "http://purl.org/dc/terms/creator": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            },
+            {
+                "@id": "https://orcid.org/0000-0003-3587-0367"
+            }
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": " \nThis test verifies the extent to which all ontology terms have labels.\nThe test will pass if all classes, properties and data properties have either an rdfs:label or skos:prefLabel.\nOtherwise, the test will fail, indicating the level of completeness found (i.e., percentage of documented terms) "
+            }
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/test/VOC3"
+            }
+        ],
+        "http://purl.org/dc/terms/license": [
+            {
+                "@id": "http://creativecommons.org/licenses/by/4.0/"
+            }
+        ],
+        "http://purl.org/dc/terms/publisher": [
+            {
+                "@id": "https://oeg.fi.upm.es"
+            },
+            {
+                "@id": "https://ror.org/03n6nwv02"
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "Ontology documentation: all terms have labels"
+            }
+        ],
+        "http://semanticscience.org/resource/SIO_000233": [
+            {
+                "@id": "https://w3id.org/foops/metric/VOC3"
+            }
+        ],
+        "http://usefulinc.com/ns/doap#repository": [
+            {
+                "@id": "https://w3id.org/foops/repository"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "VOC3-T"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "VOC3 test: Ontology documentation: all terms have labels"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointDescription": [
+            {
+                "@id": "https://w3id.org/foops/api"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointURL": [
+            {
+                "@id": "https://w3id.org/foops/api/assess/test/VOC3"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#keyword": [
+            {
+                "@language": "en",
+                "@value": "Labels"
+            },
+            {
+                "@language": "en",
+                "@value": "Documentation"
+            },
+            {
+                "@language": "en",
+                "@value": "Test"
+            },
+            {
+                "@language": "en",
+                "@value": "Reusable"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#version": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "0.0.1"
+            }
+        ],
+        "http://www.w3.org/ns/dqv#inDimension": [
+            {
+                "@id": "https://w3id.org/fair/principles/terms/R1"
+            }
+        ],
+        "https://w3id.org/dpv#isApplicableFor": [
+            {
+                "@id": "https://schema.org/DefinedTermSet"
+            }
+        ],
+        "https://w3id.org/ftr#supportedBy": [
+            {
+                "@id": "https://w3id.org/foops/"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/VOC3",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
         ]
     },
     {
@@ -110,119 +215,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/VOC3",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/ftr#Test",
-            "http://www.w3.org/ns/dcat#DataService"
-        ],
-        "http://purl.org/dc/terms/creator": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            },
-            {
-                "@id": "https://orcid.org/0000-0003-3587-0367"
-            }
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": " This check verifies the extent to which all ontology terms have labels (rdfs:label in OWL vocabularies, skos:prefLabel in SKOS vocabularies) "
-            }
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/test/VOC3"
-            }
-        ],
-        "http://purl.org/dc/terms/license": [
-            {
-                "@id": "http://creativecommons.org/licenses/by/4.0/"
-            }
-        ],
-        "http://purl.org/dc/terms/publisher": [
-            {
-                "@id": "https://oeg.fi.upm.es"
-            },
-            {
-                "@id": "https://ror.org/03n6nwv02"
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "Documentation: labels"
-            }
-        ],
-        "http://semanticscience.org/resource/SIO_000233": [
-            {
-                "@id": "https://w3id.org/foops/metric/VOC3"
-            }
-        ],
-        "http://usefulinc.com/ns/doap#repository": [
-            {
-                "@id": "https://w3id.org/foops/repository"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "VOC3"
-            }
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "VOC3"
+                "@value": "Ontology Engineering Group"
             }
         ],
-        "http://www.w3.org/ns/dcat#contactPoint": [
+        "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointDescription": [
-            {
-                "@id": "https://w3id.org/foops/api"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointURL": [
-            {
-                "@id": "https://w3id.org/foops/api/assess/test/VOC3"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#keyword": [
-            {
-                "@language": "en",
-                "@value": "Documentation labels"
-            },
-            {
-                "@language": "en",
-                "@value": "Test"
-            },
-            {
-                "@language": "en",
-                "@value": "Reusable"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#version": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "0.0.1"
-            }
-        ],
-        "http://www.w3.org/ns/dqv#inDimension": [
-            {
-                "@id": "https://w3id.org/fair/principles/terms/R1"
-            }
-        ],
-        "https://w3id.org/dpv#isApplicableFor": [
-            {
-                "@id": "https://schema.org/DefinedTermSet"
-            }
-        ],
-        "https://w3id.org/ftr#supportedBy": [
-            {
-                "@id": "https://w3id.org/foops/"
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     }

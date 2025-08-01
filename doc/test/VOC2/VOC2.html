@@ -53,27 +53,30 @@
         <div class="container">
             <div class="row">
                 <div class="cell-title"> 
-                   <h1 class="miClase text-center">VOC2</h1>
+                   <h1 class="miClase text-center">VOC2 test: Ontology imports or reuses well established vocabularies</h1>
                 </div>
                 <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS)</p></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).
+The test will pass if other vocabularies are imported (owl:imports), or if classes, properties or data properties 
+outside the ontology URI or namespace URI are used.</p>
+<p>The test wil fail if no terms are reused.</p></div>
             </div>
 
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
-                    <a href="VOC2.ttl" title="RDF Resource Description
+                    <a href="VOC2 test: Ontology imports or reuses well established vocabularies.ttl" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> Vocabulary reuse </div>
+                <div class="col-md-9 well"> Ontology imports or reuses well established vocabularies </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>

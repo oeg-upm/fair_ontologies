@@ -1,34 +1,36 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
+                "@value": "Maria Poveda"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     },
@@ -48,7 +50,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric defines criteria to ensure that the ontology imports or extends other vocabularies besides RDF, OWL, and RDFS. The metric verifies the presence of imported or extended vocabularies, promoting interoperability and reuse of existing ontological structures.\n\n**What is being measured?**\n\nThe presence and usage of external vocabularies that the ontology imports or extends, beyond RDF, OWL, and RDFS.\n\n**Why should we measure it?**\n\nReusing existing vocabularies ensures interoperability, reduces redundancy, and fosters a collaborative and standardized approach to ontology development.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology imports or extends one or more vocabularies in addition to RDF, OWL, and RDFS, ensuring enhanced interoperability and reuse.\n\t"
+                "@value": " \nThis metric checks if an ontology imports or extends other vocabularies besides RDF, OWL, and RDFS in its classes, properties or data properties. \n\n**What is being measured?**\n\nThe presence and usage of external vocabularies that the ontology imports or extends, beyond RDF, OWL, and RDFS.\n\n**Why should we measure it?**\n\nReusing existing vocabularies improves interoperability, reduces redundancy, and fosters resuability.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nThe ontology imports or extends one or more vocabularies in addition to RDF, OWL, and RDFS.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -72,7 +74,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Vocabulary reuse"
+                "@value": "Ontology imports or reuses well established vocabularies"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -83,13 +85,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC2"
+                "@value": "VOC2-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC2"
+                "@value": "VOC2 metric: Ontology imports or reuses well established vocabularies"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -157,29 +159,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/VOC2",
-        "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
         "@id": "https://w3id.org/fair/principles/terms/I2",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -200,6 +179,41 @@
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "I2"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
             }
         ]
     },
@@ -225,39 +239,25 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/ftr#Benchmark"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+                "@value": "Ontology Engineering Group"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@id": "https://w3id.org/foops/test/VOC2",
         "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
+            "https://w3id.org/ftr#Test"
         ]
     }
 ]

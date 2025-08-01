@@ -1,38 +1,5 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -50,9 +17,21 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/VOC1",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
-            "https://w3id.org/ftr#Test"
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
         ]
     },
     {
@@ -80,45 +59,6 @@
         ]
     },
     {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/03n6nwv02>"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/VOC1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -134,7 +74,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric evaluates the extent to which the ontology reuses established vocabularies for metadata declaration, fostering interoperability and adherence to standards.\n\n**What is being measured?**\n\nThe reuse of standard vocabularies (e.g., Dublin Core, FOAF, or SKOS) in the ontology’s metadata declarations.\n\n**Why should we measure it?**\n\nReusing well-known vocabularies enhances interoperability, reduces redundancy, and ensures compatibility with tools and datasets that rely on these standards.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nValid results indicate the extent of vocabulary reuse, ranging from high alignment (extensive reuse) to low alignment (minimal reuse), providing insights into interoperability and areas for improvement.\n\t"
+                "@value": " \nThis metric evaluates the extent to which the ontology reuses established vocabularies for metadata declaration.\n\n**What is being measured?**\n\nThe reuse of standard vocabularies (e.g., Dublin Core, FOAF, or SKOS) in the ontology’s metadata declarations.\n\n**Why should we measure it?**\n\nReusing well-known vocabularies enhances interoperability and ensures compatibility with tools and datasets that rely on these standards.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file\n\n**What are considered valid results?**\n\nAn ontology reusing established vocabularies for metadata annotations.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -158,7 +98,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Vocabulary reuse (metadata)"
+                "@value": "Ontology reuses existing vocabularies for metadata annotations"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -169,13 +109,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC1"
+                "@value": "VOC1-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric VOC1"
+                "@value": "VOC1 metric: Ontology reuses existing vocabularies for metadata annotations"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -186,7 +126,7 @@
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
-                "@value": "Vocabulary reuse metadata"
+                "@value": "Vocabulary reuse"
             },
             {
                 "@language": "en",
@@ -243,6 +183,29 @@
         ]
     },
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/VOC1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -257,6 +220,43 @@
             {
                 "@language": "en",
                 "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/03n6nwv02>"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     }

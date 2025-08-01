@@ -14,16 +14,31 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Vocabulary reuse (metadata)"@en ;
-	rdfs:label "VOC1"^^xsd:string ;
-	vivo:abbreviation "VOC1"^^xsd:string ;
+	dcterms:title " Ontology reuses existing vocabularies for metadata annotations"@en ;
+	rdfs:label "VOC1 test: Ontology reuses existing vocabularies for metadata annotations"^^xsd:string ;
+	vivo:abbreviation "VOC1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/I2> ;
-	dcterms:description """ This check verifies if the ontology reuses other vocabularies for declaring metadata terms """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ 
+This test verifies if the ontology reuses other vocabularies for declaring metadata terms (see tests OM1... OM5).
+The test will pass if metadata annotations using properties from any of the following vocabularies are used:
+ * Dublin Core (dc, dcterms)
+ * Schema.org (schema)
+ * Vocabulary for annotating vocabulary descriptions (vann)
+ * W3C Provenance standard (prov)
+ * Bibliographic Ontology (bibo)
+ * Provenance, Authoring and Versioning (pav)
+ * Firend of a friend (foaf)
+ * Description of a project (DOAP)
+ * Web Ontology Language (owl)
+ * Resource description framework (rdfs)
+
+The test will also return the vocabularies that were found. If none are found, the test will fail.
+	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/VOC1> ;
-	dcat:keyword "Vocabulary reuse metadata"@en , "Test"@en , "Interoperable"@en ;
+	dcat:keyword "Vocabulary reuse"@en , "Test"@en , "Interoperable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
