@@ -14,8 +14,8 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology/Vocabulary minimum metadata is declared"@en ;
-	rdfs:label "OM1 test: Ontology/Vocabulary minimum metadata is declared"^^xsd:string ;
+	dcterms:title "Ontology minimum metadata is declared"@en ;
+	rdfs:label "OM1 test: Ontology minimum metadata is declared"^^xsd:string ;
 	vivo:abbreviation "OM1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F2> ;

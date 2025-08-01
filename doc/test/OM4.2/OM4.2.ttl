@@ -14,7 +14,7 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology/vocabulary license is resolvable"@en ;
+	dcterms:title "Ontology license is resolvable"@en ;
 	rdfs:label "OM4.2 test: Ontology license is resolvable"^^xsd:string ;
 	vivo:abbreviation "OM4.2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;

@@ -14,8 +14,8 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology/vocabulary has HTML documentation"@en ;
-	rdfs:label "DOC1 test: Ontology/vocabulary has HTML documentation"^^xsd:string ;
+	dcterms:title "Ontology has HTML documentation"@en ;
+	rdfs:label "DOC1 test: Ontology has HTML documentation"^^xsd:string ;
 	vivo:abbreviation "DOC1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;

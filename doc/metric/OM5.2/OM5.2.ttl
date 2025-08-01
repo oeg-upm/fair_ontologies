@@ -12,7 +12,7 @@
 
 <https://w3id.org/foops/metric/OM5.2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM5.2> ;
-	dcterms:title "Ontology/vocabulary declares detailed provenance metadata"@en ;
+	dcterms:title "Ontology declares detailed provenance metadata"@en ;
 	dcterms:description """ 
 This metric evaluates whether detailed provenance information about an ontology is provided, enabling users to understand its creation context.
 
@@ -32,7 +32,7 @@ An ontology URI or file.
 
 Ontologies that include the issued date and publisher meet the metric’s requirements.
 	"""@en ;
-	rdfs:label "OM5.2 metric: Ontology/vocabulary declares detailed provenance metadata"^^xsd:string ;
+	rdfs:label "OM5.2 metric: Ontology declares detailed provenance metadata"^^xsd:string ;
 	vivo:abbreviation "OM5.2-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;

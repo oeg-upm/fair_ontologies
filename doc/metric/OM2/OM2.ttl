@@ -12,7 +12,7 @@
 
 <https://w3id.org/foops/metric/OM2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM2> ;
-	dcterms:title "Ontology/vocabulary declares recommended metadata"@en ;
+	dcterms:title "Ontology declares recommended metadata"@en ;
 	dcterms:description """ 
 	
 This metric evaluates whether the ontology includes a set of additional recommended metadata fields that enhance its usability and documentation quality.
@@ -39,7 +39,7 @@ An ontology URI or file.
 
 The ontology should include all recommended fields except the contributor field, which is optional. 
 	"""@en ;
-	rdfs:label "OM2 Metric: Ontology/vocabulary declares recommended metadata"^^xsd:string ;
+	rdfs:label "OM2 Metric: Ontology declares recommended metadata"^^xsd:string ;
 	vivo:abbreviation "OM2-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;

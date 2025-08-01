@@ -14,8 +14,8 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology/vocabulary prefix is found in prefix.cc or LOV"@en ;
-	rdfs:label "FIND2 test: Ontology/vocabulary prefix is found in prefix.cc or LOV"^^xsd:string ;
+	dcterms:title "Ontology prefix is found in prefix.cc or LOV"@en ;
+	rdfs:label "FIND2 test: Ontology prefix is found in prefix.cc or LOV"^^xsd:string ;
 	vivo:abbreviation "FIND2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
