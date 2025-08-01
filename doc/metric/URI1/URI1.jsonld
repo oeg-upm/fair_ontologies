@@ -1,62 +1,18 @@
 [
     {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/03n6nwv02>"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/F1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are assigned a globally unique and persistent identifier."
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F1"
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F1"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -76,7 +32,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "\nThis metric ensures that the ontology’s URI is resolvable and provides accessible content in recognized RDF serialization formats.\n\n**What is being measured?**\n\nThe resolvability of the ontology URI within the ontology document, ensuring it can provide content in RDF serializations like RDF/XML, TTL, N-Triples, or JSON-LD.\n\n**Why should we measure it?**\n\nA resolvable ontology URI guarantees that users and systems can access and use the ontology efficiently. It is essential for semantic web interoperability and for maintaining the credibility and usability of the ontology.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology URI provides accessible content in recognized RDF serialization formats (e.g., RDF/XML, TTL, N-Triples, JSON-LD), ensuring interoperability and usability.\n\t"
+                "@value": "\nThis metric ensures that the URI of an ontology (as used within the document) is resolvable and provides accessible content in recognized RDF serialization formats.\n\n**What is being measured?**\n\nThe resolvability of the ontology URI used within the ontology document, ensuring it can provide content in RDF serializations like RDF/XML, TTL, N-Triples, or JSON-LD. This URI may be different from the URL given to the assessment tool as input.\n\n**Why should we measure it?**\n\nA resolvable ontology URI guarantees that users and systems can access and use the ontology efficiently. It is essential for semantic web interoperability and for maintaining the credibility and usability of the ontology.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nThe ontology URI provides accessible content in recognized RDF serialization formats (e.g., RDF/XML, TTL, N-Triples, JSON-LD).\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -111,13 +67,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric URI1"
+                "@value": "URI1-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric URI1"
+                "@value": "URI1 Metric: Ontology URI is resolvable"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -182,26 +138,64 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/identifier": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
+                "@value": "https://ror.org/03n6nwv02>"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/URI1",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/ftr#Test"
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/fair/principles/terms/F1",
+        "@type": [
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are assigned a globally unique and persistent identifier."
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F1"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F1"
+            }
         ]
     },
     {
@@ -237,6 +231,12 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/URI1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     }
 ]

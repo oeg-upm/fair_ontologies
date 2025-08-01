@@ -14,12 +14,12 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Open protocol"@en ;
-	rdfs:label "HTTP1"^^xsd:string ;
-	vivo:abbreviation "HTTP1"^^xsd:string ;
+	dcterms:title "Ontology/vocabulary uses an open protocol"@en ;
+	rdfs:label "HTTP1 test: Ontology/vocabulary uses an open protocol"^^xsd:string ;
+	vivo:abbreviation "HTTP1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/A1.1> ;
-	dcterms:description """ This check verifies if the ontology uses an open protocol (HTTP or HTTPS)"""@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ This check verifies if the ontology uses an open protocol (HTTP or HTTPS). The test will pass if the ontology URI starts with http or https. It will fail otherwise."""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/HTTP1> ;

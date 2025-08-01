@@ -14,16 +14,25 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Persistent URL"@en ;
-	rdfs:label "PURL1"^^xsd:string ;
-	vivo:abbreviation "PURL1"^^xsd:string ;
+	dcterms:title "Ontology/vocabulary has a persistent URL"@en ;
+	rdfs:label "PURL1 test: Ontology/vocabulary has a persistent URL"^^xsd:string ;
+	vivo:abbreviation "PURL1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
-	dcterms:description """This check verifies if the ontology has a persistent URL (w3id, purl, DOI, or a W3C URL). """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """This test verifies if the ontology has a persistent URL. We do so by checking if the ontology URI follows any of the following URI schemes:
+
+	* w3id.org
+	* doi.org
+	* purl.org (or purl.something.org)  
+	* linked.data.gov.au
+	* dbpedia.org
+	* www.w3.org
+	* perma.cc
+	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/PURL1> ;
-	dcat:keyword "Persistent URL"@en , "Test"@en , "Accesible"@en ;
+	dcat:keyword "Persistent URL"@en , "Test"@en , "purl"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/PURL1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

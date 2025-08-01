@@ -14,16 +14,34 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Basic provenance metadata"@en ;
-	rdfs:label "OM5.1"^^xsd:string ;
-	vivo:abbreviation "OM5.1"^^xsd:string ;
+	dcterms:title "Ontology/vocabulary declares basic provenance metadata"@en ;
+	rdfs:label "OM5.1 test: Ontology/vocabulary declares basic provenance metadata"^^xsd:string ;
+	vivo:abbreviation "OM5.1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
-	dcterms:description """ This check verifies if basic provenance is available for the ontology: [author, creation date]. This check also verifies whether [contributor, previous version] are present, but with no penalty (as no all ontologies may have a previous version or a contributor) """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ 
+This check verifies if basic provenance metadata is available for the ontology:  
+	* creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
+	* creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
+	* contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
+	* previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
+
+The test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.
+
+Namespaces used:
+	* dc: http://purl.org/dc/elements/1.1/
+	* dcterms: http://purl.org/dc/terms/
+	* schema: https://schema.org/ and http://schema.org/
+	* doap: http://usefulinc.com/ns/doap#
+	* owl: http://www.w3.org/2002/07/owl#
+	* pav: http://purl.org/pav/
+	* prov: http://www.w3.org/ns/prov#
+
+	"""@en ; # Falta explicar PASS y FAIL
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/OM5.1> ;
-	dcat:keyword "Basic provenance metadata"@en , "Test"@en , "Reusable"@en ;
+	dcat:keyword "Provenance"@en , "Metadata"@en, "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM5.1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

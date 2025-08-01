@@ -1,5 +1,46 @@
 [
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/OM3",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
         "@id": "https://ror.org/03n6nwv02",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -37,6 +78,41 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
             "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
@@ -55,74 +131,15 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "_:n2252f2800f0e4274bef95e61591a78efb1"
+                "@id": "_:n9c8d646c685f42bb9c2ac7186b576f7fb1"
             }
         ]
     },
     {
-        "@id": "_:n2252f2800f0e4274bef95e61591a78efb1",
+        "@id": "_:n9c8d646c685f42bb9c2ac7186b576f7fb1",
         "http://www.w3.org/2001/XMLSchema#string": [
             {
                 "@value": "R1"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/OM3",
-        "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     },
@@ -142,7 +159,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \n\t\nThis metric evaluates whether an ontology includes a comprehensive set of metadata elements that provide in-depth information for improved usability, provenance tracking, and interoperability.\n\n**What is being measured?**\n\nThe presence of the following detailed metadata fields:\n\n* DOI (Digital Object Identifier)\n* Publisher\n* Logo\n* Status\n* Source\n* Issued Date\n\nAdditionally, optional fields are checked but not penalized if absent:\n\n* Previous Version\n* Backward Compatibility\n* Modified Date\n\n**Why should we measure it?**\n\nDetailed metadata enhances the ontology’s credibility, accessibility, and traceability, aligning with FAIR principles to ensure its longevity and adaptability in diverse applications.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology should include all mandatory fields. Optional fields like previous version, backward compatibility, and modified date are recommended but their absence does not lead to a failure of this benchmark.\n\t"
+                "@value": " \t\nThis metric assesses whether an ontology/vocabulary includes a comprehensive set of metadata elements that provide in-depth information for improved usability and provenance tracking.\n\n**What is being measured?**\n\nThe presence in the ontology metadata of the following detailed fields:\n\n* DOI (Digital Object Identifier)\n* Publisher\n* Logo\n* Status\n* Source\n* Issued Date\n\nAdditionally, optional fields are checked but not penalized if absent:\n\n* Previous Version\n* Backward Compatibility\n* Modified Date\n\n**Why should we measure it?**\n\nDetailed metadata enhances the ontology’s traceability and understandability, aligning with FAIR principles.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nThe ontology should include all mandatory fields. Optional fields like previous version, backward compatibility, and modified date are recommended.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -166,7 +183,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Detailed metadata"
+                "@value": "Ontology/vocabulary declares detailed metadata"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -177,13 +194,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM3"
+                "@value": "OM3-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM3"
+                "@value": "OM3 metric: Ontology/vocabulary declares detailed metadata"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -247,23 +264,6 @@
         "https://w3id.org/ftr#supportedBy": [
             {
                 "@id": "https://w3id.org/foops/"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     }

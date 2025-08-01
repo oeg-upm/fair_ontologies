@@ -12,28 +12,28 @@
 
 <https://w3id.org/foops/metric/OM4.2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM4.2> ;
-	dcterms:title "License is resolvable"@en ;
+	dcterms:title "Ontology/vocabulary license is resolvable"@en ;
 	dcterms:description """ 
 This metric ensures that the license associated with an ontology is accessible via a resolvable URL, allowing users to easily verify the terms of use.
 
 **What is being measured?**
 
-The accessibility of the license through a functional and resolvable URL. This guarantees that users can view and confirm the ontology’s licensing terms.
+The accessibility of the license through a resolvable URL. 
 
 **Why should we measure it?**
 
-Resolvable licenses ensure transparency and trust in the use of the ontology, aligning with FAIR principles by clearly defining and verifying usage rights.
+Resolvable licenses ensure transparency and trust in the use of the ontology, aligning with FAIR principles by clearly defining usage rights.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The license must have a functional URL that leads to a license document (e.g., Creative Commons, MIT License, etc.). If the URL is broken or unavailable, the ontology fails this benchmark.
+The license must have a functional URL that leads to a license document (e.g., Creative Commons, MIT License, etc.). 
 	"""@en ; 
-	rdfs:label "Metric OM4.2"^^xsd:string ;
-	vivo:abbreviation "Metric OM4.2"^^xsd:string ;	
+	rdfs:label "OM4.2 metric: Ontology/vocabulary license is resolvable"^^xsd:string ;
+	vivo:abbreviation "OM4.2-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

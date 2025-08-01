@@ -12,28 +12,28 @@
 
 <https://w3id.org/foops/metric/FIND1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND1> ;
-	dcterms:title "Ontology prefix"@en ;
+	dcterms:title "Ontology/vocabualry prefix is declared"@en ;
 	dcterms:description """ 
-This metric ensures the availability and accessibility of ontology prefixes. It verifies that the prefix is registered and resolvable, enabling consistent usage across datasets and applications.
+This metric verifies that an ontology prefix is declared in the ontology metadata.
 
 **What is being measured?**
 
-The registration and accessibility of the ontology prefix.
+An ontology prefix is available in the ontology metadata.
 
 **Why should we measure it?**
 
-To ensure interoperability and consistent reference in diverse datasets and tools.
+The ontology prefix is commonly used to refer to the ontology in RDF documents. Declaring it helps its reusability and findability.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or a file.
 
 **What are considered valid results?**
 
-A registered ontology prefix that resolves correctly and aligns with public registries.
+Declaring an ontology prefix in the ontology metadata.
 	"""@en ; 
-	rdfs:label "Metric FIND1"^^xsd:string ;
-	vivo:abbreviation "Metric FIND1"^^xsd:string ;
+	rdfs:label "FIND1 metric: Ontology/vocabualry prefix is declared"^^xsd:string ;
+	vivo:abbreviation "FIND1-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

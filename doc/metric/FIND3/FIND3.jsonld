@@ -1,22 +1,18 @@
 [
     {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/identifier": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "https://ror.org/03n6nwv02>"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -41,6 +37,27 @@
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "F4"
+            }
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/03n6nwv02>"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -76,7 +93,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric ensures that ontologies are registered in recognized public repositories, like the Linked Open Vocabularies (LOV). It evaluates whether an ontology is accessible and discoverable through such registries.\n\n**What is being measured?**\n\nThe registration of the ontology in trusted metadata registries.\n\n**Why should we measure it?**\n\nTo enhance discoverability and ensure long-term access to ontology metadata, promoting reuse and interoperability.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe ontology must:\n\n* Be listed in a recognized public registry (e.g., LOV).\n* Provide accessible and accurate metadata through the registry.\n\t"
+                "@value": " \nThis metric ensures that ontologies are registered in recognized public repositories, like the Linked Open Vocabularies (LOV). \n\n**What is being measured?**\n\nThe registration of the ontology in trusted metadata registries.\n\n**Why should we measure it?**\n\nMetadata of ontologies should be available even when the ontology is no longer available in its source URI. Public registries enable this functionality, providing long term preservation and archiving different ontology versions.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nThe ontology is found within a community registry.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -111,13 +128,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric FIND3"
+                "@value": "FIND3-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric FIND3"
+                "@value": "FIND3 metric: Ontology/vocabulary found in community registry"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -128,7 +145,7 @@
         "http://www.w3.org/ns/dcat#keyword": [
             {
                 "@language": "en",
-                "@value": "Ontology in metadata registry"
+                "@value": "registry"
             },
             {
                 "@language": "en",
@@ -182,29 +199,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/FIND3",
-        "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -237,6 +231,12 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/FIND3",
+        "@type": [
+            "https://w3id.org/ftr#Test"
         ]
     }
 ]

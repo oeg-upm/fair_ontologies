@@ -3,6 +3,7 @@ package fair.Benchmarks;
 import entities.Ontology;
 import entities.checks.*;
 import fair.Benchmark;
+import fair.Constants;
 
 import java.util.ArrayList;
 
@@ -47,5 +48,7 @@ public class FileBenchmark extends Benchmark {
         checks.add(voc4);
         checks.add(ver1);
         this.setChecks(checks);
+        this.setName(Constants.BENCHMARK_PRE_NAME);
+        this.setDescription(Constants.BENCHMARK_PRE_DESCRIPTION);
     }
 }

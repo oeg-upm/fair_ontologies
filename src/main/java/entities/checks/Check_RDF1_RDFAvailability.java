@@ -29,12 +29,12 @@ import fair.Constants;
 public class Check_RDF1_RDFAvailability extends Check {
     public Check_RDF1_RDFAvailability(Ontology o) {
         super(o);
-        this.id = Constants.RDF1;
+        this.id = Constants.RDF1_URL;
         this.title = Constants.RDF1_TITLE;
         this.category_id = Constants.INTEROPERABLE;
         this.principle_id ="I1";
         this.description = Constants.RDF1_DESC;
-        this.abbreviation = Constants.RDF1; // TODO no hay enlace
+        this.abbreviation = Constants.RDF1;
     }
 
     @Override

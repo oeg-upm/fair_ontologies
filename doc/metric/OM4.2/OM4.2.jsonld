@@ -1,38 +1,42 @@
 [
     {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/identifier": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "https://ror.org/03n6nwv02>"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/fair/principles/terms/R1.1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are released with a clear and accessible data usage license"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1.1"
+            }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1.1"
             }
         ]
     },
@@ -55,6 +59,33 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/test/OM4.2",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/03n6nwv02>"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/metric/OM4.2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -70,7 +101,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric ensures that the license associated with an ontology is accessible via a resolvable URL, allowing users to easily verify the terms of use.\n\n**What is being measured?**\n\nThe accessibility of the license through a functional and resolvable URL. This guarantees that users can view and confirm the ontology’s licensing terms.\n\n**Why should we measure it?**\n\nResolvable licenses ensure transparency and trust in the use of the ontology, aligning with FAIR principles by clearly defining and verifying usage rights.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nThe license must have a functional URL that leads to a license document (e.g., Creative Commons, MIT License, etc.). If the URL is broken or unavailable, the ontology fails this benchmark.\n\t"
+                "@value": " \nThis metric ensures that the license associated with an ontology is accessible via a resolvable URL, allowing users to easily verify the terms of use.\n\n**What is being measured?**\n\nThe accessibility of the license through a resolvable URL. \n\n**Why should we measure it?**\n\nResolvable licenses ensure transparency and trust in the use of the ontology, aligning with FAIR principles by clearly defining usage rights.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nThe license must have a functional URL that leads to a license document (e.g., Creative Commons, MIT License, etc.). \n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -94,7 +125,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "License is resolvable"
+                "@value": "Ontology/vocabulary license is resolvable"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -105,13 +136,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.2"
+                "@value": "OM4.2-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric OM4.2"
+                "@value": "OM4.2 metric: Ontology/vocabulary license is resolvable"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -176,49 +207,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/OM4.2",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/R1.1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are released with a clear and accessible data usage license"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1.1"
-            }
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1.1"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
+                "@value": "Ontology Engineering Group"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     },

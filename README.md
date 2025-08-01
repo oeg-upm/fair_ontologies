@@ -27,6 +27,9 @@ The client application has been integrated from the work in https://github.com/j
 ## Demo
 A public demo of FOOPS! is available here: [https://w3id.org/foops/](https://w3id.org/foops/)
 
+## Metrics and tests
+The metrics (i.e., conceptual description of what is being assessed) and tests (i.e., implementation of a metric) supported by the tool are available at [https://w3id.org/foops/catalog](https://w3id.org/foops/catalog), along with a detail description of their rationale and means of verification.
+
 ## Installation instructions
 The project was build and tested with JDK 11.0.11 in Ubuntu.
 

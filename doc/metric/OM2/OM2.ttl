@@ -12,7 +12,7 @@
 
 <https://w3id.org/foops/metric/OM2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM2> ;
-	dcterms:title "Recommended metadata"@en ;
+	dcterms:title "Ontology/vocabulary declares recommended metadata"@en ;
 	dcterms:description """ 
 	
 This metric evaluates whether the ontology includes a set of additional recommended metadata fields that enhance its usability and documentation quality.
@@ -21,7 +21,7 @@ This metric evaluates whether the ontology includes a set of additional recommen
 
 The presence of the following recommended metadata fields:
 
-* Namespace Prefix (NS Prefix)
+* Namespace Prefix
 * Version Info
 * Creation Date
 * Citation
@@ -33,14 +33,14 @@ Recommended metadata ensures richer documentation and better support for reusabi
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology should include all recommended fields except the contributor field, which is optional and does not result in a penalty if absent. Missing other fields will cause the ontology to fail this benchmark.
+The ontology should include all recommended fields except the contributor field, which is optional. 
 	"""@en ;
-	rdfs:label "Metric OM2"^^xsd:string ;
-	vivo:abbreviation "Metric OM2"^^xsd:string ;
+	rdfs:label "OM2 Metric: Ontology/vocabulary declares recommended metadata"^^xsd:string ;
+	vivo:abbreviation "OM2-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

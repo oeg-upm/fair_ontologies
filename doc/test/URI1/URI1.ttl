@@ -15,11 +15,13 @@
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:title "Ontology URI is resolvable"@en ;
-	rdfs:label "URI1"^^xsd:string ;
-	vivo:abbreviation "URI1"^^xsd:string ;
+	rdfs:label "URI1 test: Ontology URI is resolvable"^^xsd:string ;
+	vivo:abbreviation "URI1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
-	dcterms:description """ This check verifies if the ontology URI found within the ontology document is resolvable. The test will PASS if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will FAIL if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. """@en ;
+	dcterms:description """This test verifies if the ontology URI that was found within the ontology document is resolvable. 
+	Note that the ontology URI found in the ontology may be different from the URI used in the assessment.
+	The test will pass if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will fail if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. """@en ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/URI1> ;

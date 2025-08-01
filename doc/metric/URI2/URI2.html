@@ -69,24 +69,24 @@
             <div class="row">
                 <div class="col-md-12"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#metric'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">Metric URI2</h1>
+                    <h1 class="miClase text-center">URI2 metric: Consistent ontology IDs</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric ensures alignment between the ontology’s URI and its ID, promoting accurate and reliable identification.</p>
+                <div class="col-md-12 well" style="font-size: 16px;"> <p>This metric ensures alignment between the ontology’s URI and its ID.</p>
 <p><strong>What is being measured?</strong></p>
-<p>The consistency between the ontology’s URI and its declared ID, ensuring that the ontology can be uniquely identified and referenced.</p>
+<p>The consistency between the URI used to invoke the FAIR assessment tool and the URI used within the ontology document.</p>
 <p><strong>Why should we measure it?</strong></p>
-<p>Inconsistent IDs can lead to confusion, misidentification, and errors in ontology usage. Verifying consistency ensures smooth integration and usage in semantic web applications.</p>
+<p>While the ontology URI (e.g., a URI pointing to a Turtle serialization) may be different from the ontology namespace URI, it is recommended to have a unique identifier and redirect to the serialization with content negotiation. </p>
 <p><strong>What must be provided for the measurement?</strong></p>
 <p>An ontology URI.</p>
 <p><strong>What are considered valid results?</strong></p>
-<p>The ontology’s URI and ID are consistent, properly aligned, and follow the expected format.</p></div>
+<p>The ontology’s URI and ID are consistent.</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">METRIC INFORMATION</h4> 
-                    <a href="URI2.ttl" title="RDF Resource Description
+                    <a href="URI2 metric: Consistent ontology IDs.ttl" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 
@@ -100,11 +100,9 @@
                 <div class="col-md-9 well"><a href="https://w3id.org/foops/metric/URI2" target="_blank">https://w3id.org/foops/metric/URI2</a></div>
                 <!-- <div class="col-md-9 well"><a href="https://w3id.org/foops/test/URI1" target="_blank">https://w3id.org/foops/test/URI1</a></div> -->
             </div>
-            <div class="row row-equal" >
+            <div class="row row-equal" style="display: none;" >
                 <div class="col-md-3 well tag_div"> <strong>Creator</strong></div>
                 <div class="col-md-9 well"> <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>, <a href="https://orcid.org/0000-0003-3587-0367" target="_blank">Maria Poveda</a> </div>
-                <!--  debe añadir el href y el label de todos los creadores. 
-                  <a href="https://orcid.org/0000-0003-0454-7145" target="_blank">Daniel Garijo</a>, <a href="https://orcid.org/0000-0003-3587-0367" target="_blank">María Poveda</a>  -->
             </div>
             <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>

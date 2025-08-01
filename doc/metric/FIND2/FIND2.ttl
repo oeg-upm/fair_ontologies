@@ -12,31 +12,28 @@
 
 <https://w3id.org/foops/metric/FIND2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND2> ;
-	dcterms:title "Prefix is in registry"@en ;
+	dcterms:title "Ontology/vocabulary prefix is found in registry"@en ;
 	dcterms:description """ 
-This metric ensures that ontology prefixes are discoverable and consistently aligned with recognized registries. It verifies that the prefix is registered in platforms such as prefix.cc or LOV and resolves to the same namespace as declared in the ontology.
+This metric ensures that ontology prefixes are discoverable and consistently aligned with recognized registries. 
 
 **What is being measured?**
 
-The registration and resolution of the ontology prefix in trusted registries.
+A prefix is declared in the ontology metadata and found in community registries.
 
 **Why should we measure it?**
 
-To guarantee accurate and consistent references across datasets and to promote interoperability.
+To guarantee that prefixes used are consistent with community practices, and resolve to the right URL.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology prefix must:
-
-* Be registered in recognized registries (e.g., prefix.cc, LOV).
-* Resolve to the same namespace prefix as declared in the ontology.
+The ontology prefix should be available in a community registry and resolve to the ontology URI.
 	"""@en ;
-	rdfs:label "Metric FIND2"^^xsd:string ;
-	vivo:abbreviation "Metric FIND2"^^xsd:string ;
+	rdfs:label "FIND2 metric: Ontology/vocabulary prefix is found in registry"^^xsd:string ;
+	vivo:abbreviation "FIND2-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
@@ -44,7 +41,7 @@ The ontology prefix must:
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Prefix registry"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
+	dcat:keyword "Prefix"@en , "Registry"@en, "Metric"@en , "Findable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	dcat:landingPage <https://w3id.org/foops/metric/FIND2> ; 

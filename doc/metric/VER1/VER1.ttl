@@ -14,7 +14,7 @@
 	dcterms:identifier <https://w3id.org/foops/metric/VER1> ;
 	dcterms:title "Version IRI"@en ;
 	dcterms:description """ 
-This metric ensures the existence of a version-specific identifier (IRI) for the ontology, promoting precise versioning and accurate referencing.
+This metric ensures the existence of a version-specific identifier (IRI) for the ontology.
 
 **What is being measured?**
 
@@ -22,18 +22,18 @@ The presence and uniqueness of the ontology’s version IRI, verifying that it i
 
 **Why should we measure it?**
 
-Version IRIs are crucial for managing updates and ensuring that users and systems can identify and work with the correct version of an ontology.
+Having an IRI for the current version of an ontology makes it easy for users and systems to identify and work with its correct version.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology includes a distinct, resolvable version IRI that differs from the general ontology URI.
+The ontology includes a version IRI that differs from the general ontology URI.
 	"""@en ; 
-	rdfs:label "Metric VER1"^^xsd:string ;
-	vivo:abbreviation "Metric VER1"^^xsd:string ;	
+	rdfs:label "VER1 metric: A version IRI is declared in the ontology/vocabulary metadata"^^xsd:string ;
+	vivo:abbreviation "VER1-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

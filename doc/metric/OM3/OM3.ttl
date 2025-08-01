@@ -12,14 +12,13 @@
 
 <https://w3id.org/foops/metric/OM3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM3> ;
-	dcterms:title "Detailed metadata"@en ;
-	dcterms:description """ 
-	
-This metric evaluates whether an ontology includes a comprehensive set of metadata elements that provide in-depth information for improved usability, provenance tracking, and interoperability.
+	dcterms:title "Ontology/vocabulary declares detailed metadata"@en ;
+	dcterms:description """ 	
+This metric assesses whether an ontology/vocabulary includes a comprehensive set of metadata elements that provide in-depth information for improved usability and provenance tracking.
 
 **What is being measured?**
 
-The presence of the following detailed metadata fields:
+The presence in the ontology metadata of the following detailed fields:
 
 * DOI (Digital Object Identifier)
 * Publisher
@@ -36,18 +35,18 @@ Additionally, optional fields are checked but not penalized if absent:
 
 **Why should we measure it?**
 
-Detailed metadata enhances the ontology’s credibility, accessibility, and traceability, aligning with FAIR principles to ensure its longevity and adaptability in diverse applications.
+Detailed metadata enhances the ontology’s traceability and understandability, aligning with FAIR principles.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology should include all mandatory fields. Optional fields like previous version, backward compatibility, and modified date are recommended but their absence does not lead to a failure of this benchmark.
+The ontology should include all mandatory fields. Optional fields like previous version, backward compatibility, and modified date are recommended.
 	"""@en ;
-	rdfs:label "Metric OM3"^^xsd:string ;
-	vivo:abbreviation "Metric OM3"^^xsd:string ;	
+	rdfs:label "OM3 metric: Ontology/vocabulary declares detailed metadata"^^xsd:string ;
+	vivo:abbreviation "OM3-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

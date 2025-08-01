@@ -38,16 +38,30 @@
             <div class="row">
                 <div class="col-md-12"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">OM2</h1>
+                    <h1 class="miClase text-center">OM2 test: Ontology/vocabulary declares recommended metadata</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if the following recommended metadata [NS Prefix, version info, creation date, citation] are present in the ontology. It also checks if [contributor] is present, but with no penalty (as no all ontologies may have a contributor) </p></div>
+                <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the following recommended metadata are present in the ontology metadata: 
+    * Namespace prefix: declared using vann:preferredNamespacePrefix
+    * Version info: declared using owl:versionInfo or schema:schemaVersion
+    * Creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
+    * Citation: declared using dcterms:bibliographicCitation
+    * Contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.</p>
+<p>The test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).</p>
+<p>Namespaces used: 
+    * dc: http://purl.org/dc/elements/1.1/
+    * dcterms: http://purl.org/dc/terms/
+    * schema: https://schema.org/ and http://schema.org/
+    * doap: http://usefulinc.com/ns/doap#
+    * owl: http://www.w3.org/2002/07/owl#
+    * pav: http://purl.org/pav/
+    * prov: http://www.w3.org/ns/prov#</p></div>
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
-                    <a href="OM2.ttl" title="RDF Resource Description
+                    <a href="OM2 test: Ontology/vocabulary declares recommended metadata.ttl" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 

@@ -14,16 +14,18 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "License is resolvable"@en ;
-	rdfs:label "OM4.2"^^xsd:string ;
-	vivo:abbreviation "OM4.2"^^xsd:string ;
+	dcterms:title "Ontology/vocabulary license is resolvable"@en ;
+	rdfs:label "OM4.2 test: Ontology license is resolvable"^^xsd:string ;
+	vivo:abbreviation "OM4.2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;
-	dcterms:description """ This check verifies if the ontology license is resolvable """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """
+This test verifies if the ontology license is resolvable. The test will pass if the license available in the ontology metadata resolves to a resource. The test will fail if no license is declared (OM4.1), if the license is not a URI/URL, or if the response when requesting is 404 or an error. 
+	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/OM4.2> ;
-	dcat:keyword "License resolvable"@en , "Test"@en , "Reusable"@en ;
+	dcat:keyword "License resolvable"@en , "License"@en, "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM4.2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

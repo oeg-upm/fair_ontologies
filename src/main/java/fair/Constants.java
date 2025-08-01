@@ -18,6 +18,8 @@
 
 package fair;
 
+import java.util.ArrayList;
+
 public class Constants {
 
     public static final String CN1_URL = "https://w3id.org/foops/test/RDF1";
@@ -40,9 +42,9 @@ public class Constants {
 
     public static final String OM3_URL= "https://w3id.org/foops/test/OM3";
 
-    public static final String OM41_URL = "https://w3id.org/foops/test/OM4.1";
+    public static final String OM4_1_URL = "https://w3id.org/foops/test/OM4.1";
 
-    public static final String OM42_URL = "https://w3id.org/foops/test/OM4.2";
+    public static final String OM4_2_URL = "https://w3id.org/foops/test/OM4.2";
 
     public static final String OM5_1_URL = "https://w3id.org/foops/test/OM5.1";
 
@@ -65,6 +67,8 @@ public class Constants {
     public static final String VOC3_URL = "https://w3id.org/foops/test/VOC3";
 
     public static final String VOC4_URL = "https://w3id.org/foops/test/VOC4";
+
+    public static final String RDF1_URL = "https://w3id.org/foops/test/RDF1";
 
 
 
@@ -348,6 +352,7 @@ public class Constants {
     public static final String PROP_SCHEMA_CITATION = NS_SCHEMA + "citation";
     public static final String PROP_SCHEMA_DATE_CREATED = NS_SCHEMA + "dateCreated";
     public static final String PROP_SCHEMA_DATE_MODIFIED = NS_SCHEMA + "dateModified";
+    public static final String PROP_SCHEMA_IDENTIFIER = NS_SCHEMA + "identifier";
     public static final String PROP_SCHEMA_PUBLISHER = NS_SCHEMA + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION = NS_SCHEMA + "schemaVersion";
     public static final String PROP_SCHEMA_SCHEMA_LOGO = NS_SCHEMA + "logo";
@@ -360,6 +365,7 @@ public class Constants {
     public static final String PROP_SCHEMA_CITATION_HTTP = NS_SCHEMA_HTTP + "citation";
     public static final String PROP_SCHEMA_DATE_CREATED_HTTP = NS_SCHEMA_HTTP + "dateCreated";
     public static final String PROP_SCHEMA_DATE_MODIFIED_HTTP = NS_SCHEMA_HTTP + "dateModified";
+    public static final String PROP_SCHEMA_IDENTIFIER_HTTP = NS_SCHEMA_HTTP + "identifier";
     public static final String PROP_SCHEMA_PUBLISHER_HTTP = NS_SCHEMA_HTTP + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION_HTTP = NS_SCHEMA_HTTP + "schemaVersion";
     public static final String PROP_SCHEMA_SCHEMA_LOGO_HTTP = NS_SCHEMA_HTTP + "logo";
@@ -393,6 +399,7 @@ public class Constants {
     public static final String PROP_DCTERMS_MODIFIED = NS_DCTERMS + "modified";
     public static final String PROP_DCTERMS_BIBLIOGRAPHIC_CIT = NS_DCTERMS + "bibliographicCitation";
     public static final String PROP_DCTERMS_ISSUED = NS_DCTERMS + "issued";
+    public static final String PROP_DCTERMS_IDENTIFIER = NS_DCTERMS + "identifier";
     public static final String PROP_DCTERMS_SOURCE = NS_DCTERMS + "source";
 
     public static final String PROP_BIBO_DOI = NS_BIBO + "doi";
@@ -401,6 +408,7 @@ public class Constants {
     public static final String PROP_PROV_WAS_REVISION_OF = NS_PROV + "wasRevisionOf";
     public static final String PROP_PROV_GENERATED_AT_TIME = NS_PROV + "generatedAtTime";
     public static final String PROP_PROV_ATTRIBUTED_TO = NS_PROV + "wasAttributedTo";
+    public static final String PROP_PROV_HAD_ORIGINAL_SOURCE = NS_PROV + "hadOriginalSource";
 
     public static final String PROP_VANN_PREFIX = NS_VANN + "preferredNamespacePrefix";
     public static final String PROP_VANN_URI = NS_VANN + "preferredNamespaceUri";
@@ -439,6 +447,11 @@ public class Constants {
     public static final String FOOPS_ISSUED = "issued";
     public static final String FOOPS_NAME = "name";
 
+    public static final String BENCHMARK_ALL_NAME = "General Benchmark for FAIR Principles";
+    public static final String BENCHMARK_ALL_DESCRIPTION = "Set of test results that includes all tests included in FOOPS! for FAIR assessment of ontologies.";
+    public static final String BENCHMARK_PRE_NAME = "Pre-assessment benchmark for FAIR principles";
+    public static final String BENCHMARK_PRE_DESCRIPTION = "Set of test results that includes tests for files and ontology code. No accessibility tests are performed, since this is meant for aiding researchers that have not made their ontologies available online yet. ";
+
 
     // metadata (using local names to avoid problems)
     public static final String[] MINIMUM_METADATA = {FOOPS_TITLE, FOOPS_DESCRIPTION, FOOPS_LICENSE, FOOPS_VERSION_IRI,
@@ -473,60 +486,113 @@ public class Constants {
             "http://www.hozo.jp/owl/YAMATO20210604.miz.owl#"
     };
 
-    public static String FTR_CONTEXT = "  \t\"@context\":\"https://w3id.org/ftr/context\",\n";
-    public static String JSON_LD_TEST_TEMPLATE =
+    /*
+    * Constants for exporting test results in JSON-LD. The default JSON-LD export from libraries
+    * is really hard to read, so this simplified version with context aims to aid this
+    * process. A templating approach was chosen.
+    * */
+    public static String FTR_CONTEXT = " \"@context\":\"https://w3id.org/ftr/context\",\n";
+    public static String JSON_LD_TEST_CONTENT_REDUCED =
+            "\n" + FTR_CONTEXT +
+            "    \"@id\": \"$RESULT_ID\",\n" +
+            "    \"@type\": \"https://w3id.org/ftr#TestResult\",\n" +
+            "    \"description\": \"$RESULT_DESCRIPTION\",\n" +
+            "    \"identifier\": {\n" +
+            "        \"@id\": \"$RESULT_ID\"\n" +
+            "    },\n" +
+            "      \"license\": {\n" +
+            "        \"@id\": \"http://creativecommons.org/licenses/by/4.0/\"\n" +
+            "      },\n" +
+            "    \"title\": \"$RESULT_TITLE\",\n" +
+            "    \"value\": \"$RESULT_VALUE\",\n" +
+            "    \"assessmentTarget\": {\n" +
+            "        \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
+            "      },\n" +
+            "    \"completion\": {\n" +
+            "        \"@value\": $RESULT_COMPLETION\n" +
+            "     },\n" +
+            "    \"log\": \"$RESULT_LOG\",\n" +
+            "    \"outputFromTest\": {\n" +
+            "      \"@id\": \"$TEST_ID\",\n" +
+            "      \"@type\": \"Test\",\n" +
+            "      \"description\": \"$TEST_DESCRIPTION\",\n" +
+            "      \"identifier\": \"$TEST_ID\",\n" +
+            "      \"title\": \"$TEST_TITLE\"\n" +
+            "    }";
+    public static String JSON_LD_TEST_CONTENT_FULL =
+            JSON_LD_TEST_CONTENT_REDUCED+
+            ",\n" +
+            "    \"generatedAtTime\": {\n" +
+            "        \"@type\": \"http://www.w3.org/2001/XMLSchema#date\",\n" +
+            "        \"@value\": \"$RESULT_DATE\"\n" +
+            "     },\n" +
+            "    \"wasGeneratedBy\": {\n" +
+            "       \"@type\": \"TestExecutionActivity\",\n" +
+            "           \"used\": {\n" +
+            "               \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
+            "           },\n" +
+            "           \"wasAssociatedWith\": {\n" +
+            "               \"@id\": \"$TEST_ID\",\n" +
+            "               \"description\": \"$TEST_DESCRIPTION\",\n" +
+            "               \"endpointDescription\": {\n" +
+            "                   \"@id\": \"https://w3id.org/foops/api\"\n" +
+            "               },\n" +
+            "               \"endpointURL\": {\n" +
+            "                   \"@id\": \"https://w3id.org/foops/api/assess/test/$TEST_ABBRV\"\n" +
+            "               }\n" +
+            "        }\n" +
+            "      }\n";
+    public static String JSON_LD_TEST_TEMPLATE_REDUCED =
+            "{" +JSON_LD_TEST_CONTENT_REDUCED + "\n}";
+    public static String JSON_LD_TEST_TEMPLATE_FULL =
+            "{\n" + JSON_LD_TEST_CONTENT_FULL + "\n}";
+    public static String JSON_LD_TEST_SET_TEMPLATE =
             "{\n" + FTR_CONTEXT +
-                    "    \"@id\": \"$RESULT_ID\",\n" +
-                    "    \"@type\": \"https://w3id.org/ftr#TestResult\",\n" +
-                    "    \"description\": \"$RESULT_DESCRIPTION\",\n" +
-                    "    \"identifier\": {\n" +
-                    "        \"@id\": \"$RESULT_ID\"\n" +
-                    "    },\n" +
-                    "      \"license\": {\n" +
-                    "        \"@id\": \"http://creativecommons.org/licenses/by/4.0/\"\n" +
-                    "      },\n" +
-                    "    \"title\": \"$RESULT_TITLE\",\n" +
-                    "    \"generatedAtTime\": {\n" +
-                    "        \"@type\": \"http://www.w3.org/2001/XMLSchema#date\",\n" +
-                    "        \"@value\": \"$RESULT_DATE\"\n" +
-                    "     },\n" +
-                    "    \"value\": \"$RESULT_VALUE\",\n" +
-                    "    \"wasDerivedFrom\": {\n" +
-                    "        \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
-                    "      },\n" +
-                    "    \"completion\": {\n" +
-                    "        \"@value\": $RESULT_COMPLETION\n" +
-                    "     },\n" +
-                    "    \"log\": \"$RESULT_LOG\",\n" +
-                    "    \"wasGeneratedBy\": {\n" +
-                    "       \"@type\": \"TestExecutionActivity\",\n" +
-                    "           \"used\": {\n" +
-                    "               \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
-                    "           },\n" +
-                    "           \"wasAssociatedWith\": {\n" +
-                    "               \"@id\": \"$TEST_ID\",\n" +
-                    "               \"description\": \"$TEST_DESCRIPTION\"\n" +
-                    "        }\n" +
-                    "      },\n" +
-                    "    \"outputFromTest\": {\n" +
-                    "      \"@id\": \"$TEST_ID\",\n" +
-                    "      \"@type\": \"Test\",\n" +
-                    "      \"description\": \"$TEST_DESCRIPTION\",\n" +
-                    "      \"identifier\": \"$TEST_ID\",\n" +
-                    "      \"license\": {\n" +
-                    "        \"@id\": \" http://creativecommons.org/licenses/by/4.0/ \"\n" +
-                    "      },\n" +
-                    "      \"title\": \"$TEST_TITLE\",\n" +
-                    "      \"isImplementationOf\": {\n" +
-                    "        \"@id\": \"https://w3id.org/foops/metric/$TEST_ABBRV\"\n" +
-                    "      },\n" +
-                    "      \"endpointDescription\": {\n" +
-                    "        \"@id\": \"https://w3id.org/foops/api\"\n" +
-                    "      },\n" +
-                    "      \"endpointURL\": {\n" +
-                    "        \"@id\": \"https://w3id.org/foops/api/assess/test/$TEST_ABBRV\"\n" +
-                    "      },\n" +
-                    "      \"version\": \"0.0.1\"\n" +
-                    "    }\n" +
-                    "}";
+            "    \"@id\": \"$RESULT_ID\",\n" +
+            "    \"@type\": \"https://w3id.org/ftr#TestResultSet\",\n" +
+            "    \"description\": \"$RESULT_DESCRIPTION\",\n" +
+            "    \"identifier\": {\n" +
+            "        \"@id\": \"$RESULT_ID\"\n" +
+            "    },\n" +
+            "    \"assessmentTarget\": {\n" +
+            "        \"@id\": \"$ORIGINAL_RESOURCE\"\n" +
+            "      },\n" +
+            "      \"license\": {\n" +
+            "        \"@id\": \"http://creativecommons.org/licenses/by/4.0/\"\n" +
+            "      },\n" +
+            "    \"title\": \"$RESULT_TITLE\",\n" +
+            "    \"generatedAtTime\": {\n" +
+            "        \"@type\": \"http://www.w3.org/2001/XMLSchema#date\",\n" +
+            "        \"@value\": \"$RESULT_DATE\"\n" +
+            "     },\n" +
+            "    \"hadMember\": [" +
+            "     $LIST_TEST_RESULTS" +
+            "     ]" +
+            "     }\n";
+    public static final String FULL_LIST_OF_TESTS =
+            "[" +
+               "\""+FIND1_URL+"\","+
+               "\""+URI1_URL+"\","+
+               "\""+CN1_URL+"\","+
+               "\""+DOC1_URL+"\","+
+               "\""+RDF1_URL+"\","+
+               "\""+OM1_URL+"\","+
+               "\""+OM2_URL+"\","+
+               "\""+OM3_URL+"\","+
+               "\""+ OM4_1_URL +"\","+
+               "\""+ OM4_2_URL +"\","+
+               "\""+ OM5_1_URL +"\","+
+               "\""+ OM5_2_URL +"\","+
+               "\""+ FIND2_URL +"\","+
+               "\""+ FIND3_URL +"\","+
+               "\""+ FIND3_BIS_URL +"\","+
+               "\""+ HTTP1_URL +"\","+
+               "\""+ VOC1_URL +"\","+
+               "\""+ VOC2_URL +"\","+
+               "\""+ VOC3_URL +"\","+
+               "\""+ VOC4_URL +"\","+
+               "\""+ VER1_URL +"\","+
+               "\""+ VER2_URL +"\","+
+               "\""+ URI2_URL +"\""+
+            "]";
 }

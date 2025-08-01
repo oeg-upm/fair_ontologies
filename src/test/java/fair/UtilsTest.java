@@ -54,7 +54,9 @@ public class UtilsTest {
     }
 
 
-    //Meter mas tests
+    // additional tests are needed:
+    // example: for sulo (https://w3id.org/sulo/sulo.ttl) the namespace URI is declared through the annotation.
+    // do the example to load from a local file
 
 
 }

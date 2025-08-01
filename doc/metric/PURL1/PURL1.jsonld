@@ -1,26 +1,5 @@
 [
     {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/03n6nwv02>"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/metric/PURL1",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
@@ -36,7 +15,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric evaluates whether the ontology has a persistent URL, ensuring reliable and long-term access.\n\n**What is being measured?**\n\nThe presence of a persistent URL, such as:\n\n* W3ID\n* PURL\n* DOI\n* W3C URL\n\n**Why should we measure it?**\n\nPersistent URLs provide a stable reference to the ontology, essential for long-term usability and citation. They ensure that users can reliably access the ontology, even as web structures or hosting services change.\n\n**What must be provided for the measurement?**\n\nAn ontology URI.\n\n**What are considered valid results?**\n\nValid results are ontologies with a registered persistent URL that is resolvable and points to the ontology’s location or metadata. Examples include a DOI pointing to the ontology publication or a W3ID redirecting to the ontology’s hosting service.\n\t"
+                "@value": " \nThis metric evaluates whether the ontology has a persistent URL, ensuring reliable and long-term access.\n\n**What is being measured?**\n\nThe presence of a persistent URL, such as w3id, purl, etc.\n\n**Why should we measure it?**\n\nPersistent URLs provide a stable reference to the ontology, essential for long-term usability and citation. They ensure that users can reliably access the ontology, even as web structures or hosting services change.\n\n**What must be provided for the measurement?**\n\nAn ontology URI, or a file.\n\n**What are considered valid results?**\n\nValid results are ontologies with a registered persistent URL. Examples include a DOI pointing to the ontology publication or a W3ID redirecting to the ontology’s hosting service.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -60,7 +39,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Persistent URL"
+                "@value": "Ontology/vocabulary has a persistent URL"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -71,13 +50,13 @@
         "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric PURL1"
+                "@value": "PURL1-M"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Metric PURL1"
+                "@value": "PURL1 metric: Ontology/vocabulary has a persistent URL"
             }
         ],
         "http://www.w3.org/2002/07/owl#sameAs": [
@@ -101,7 +80,7 @@
             },
             {
                 "@language": "en",
-                "@value": "Accesible"
+                "@value": "purl"
             },
             {
                 "@language": "en",
@@ -150,6 +129,23 @@
         ]
     },
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/benchmark/PRE",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -168,6 +164,33 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/test/PURL1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/03n6nwv02>"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -181,12 +204,6 @@
             {
                 "@id": "https://oeg.fi.upm.es/"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/PURL1",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -210,23 +227,6 @@
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "F1"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },

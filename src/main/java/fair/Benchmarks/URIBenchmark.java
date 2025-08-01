@@ -3,6 +3,7 @@ package fair.Benchmarks;
 import entities.Ontology;
 import entities.checks.*;
 import fair.Benchmark;
+import fair.Constants;
 
 import java.util.ArrayList;
 
@@ -65,5 +66,7 @@ public class URIBenchmark extends Benchmark {
             checks.add(ver2);
             checks.add(uri2);
             this.setChecks(checks);
+            this.setName(Constants.BENCHMARK_ALL_NAME);
+            this.setDescription(Constants.BENCHMARK_ALL_DESCRIPTION);
     }
 }

@@ -44,7 +44,7 @@ import java.util.Date;
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
 
-    private ArrayList<Check> checks;
+    private Benchmark checksToRun;
     private Path tmpFolder;
     private Ontology ontology;
 
@@ -56,16 +56,16 @@ public class FOOPS {
     public FOOPS(String o, ArrayList<String> testsToRun){
         initTempFolder();
         this.ontology = new Ontology(o, false, tmpFolder);
-        checks = new CustomBenchmark(ontology,o,testsToRun).getChecks();
+        checksToRun = new CustomBenchmark(ontology,o,testsToRun);
     }
     public FOOPS(String o, boolean isFromFile){
         initTempFolder();
         this.ontology = new Ontology(o, isFromFile, tmpFolder);
         if(!isFromFile ){
-            checks = new URIBenchmark(ontology,o).getChecks();
+            checksToRun = new URIBenchmark(ontology,o);
         }
         else {
-            checks = new FileBenchmark(ontology).getChecks();
+            checksToRun = new FileBenchmark(ontology);
         }
     }
 
@@ -85,7 +85,7 @@ public class FOOPS {
      */
     public void fairTest(){
         try {
-            checks.forEach(Check::check);
+            this.checksToRun.getChecks().forEach(Check::check);
         }catch(Exception e){
             logger.error("Error with check");
         }
@@ -94,6 +94,7 @@ public class FOOPS {
     
     private float getTotalScore(){
         float totalNum = 0;
+        ArrayList<Check> checks = this.checksToRun.getChecks();
         for (Check check : checks) {
             totalNum += (float)check.getTotal_passed_tests()/(float)check.getTotal_tests_run();
         }
@@ -104,7 +105,8 @@ public class FOOPS {
 
     /**
      * This method writes the results as a JSON file using the FOOPS! format
-     * More information and example can be found here: https://github.com/oeg-upm/fair_ontologies/blob/main/sample.json
+     * More information and example can be found
+     * <a href="https://github.com/oeg-upm/fair_ontologies/blob/main/sample.json">here</a>
      */
     public String exportJSON(){
         String license, title;
@@ -127,52 +129,94 @@ public class FOOPS {
                 excludeFieldsWithoutExposeAnnotation().
                 setPrettyPrinting().
                 create();
-        String jsonChecks = gson.toJson(checks);
+        String jsonChecks = gson.toJson(this.checksToRun.getChecks());
         out += jsonChecks +"\n}";
         return out;
     }
 
     /**
      * This function will return the results of a series of tests according to the FAIR testing resource specification
-     * available at https://w3id/org/ftr
+     * available at <a href="https://w3id/org/ftr">https://w3id/org/ftr</a>
      * @return The JSON-LD corresponding to the execution of a set of tests.
      */
     public String exportJSONLD(){
         // if there is a single check, we return a simple JSONLD from an activity.
-        //Otherwise, we return a full test set.
-        String template = Constants.JSON_LD_TEST_TEMPLATE;
-        String resultId = "urn:foops:" + new Date().getTime();
-        if(this.checks.size() == 1){
+        // Otherwise, we return a full test set.
+        ArrayList<Check> checks = this.checksToRun.getChecks();
+        if(checks.size() == 1){
             Check check = checks.get(0);
-            template = template.replace("$TEST_ID",check.getId());
-            template = template.replace("$TEST_ABBRV",check.getAbbreviation());
-            template = template.replace("$RESULT_ID",resultId);
-            template = template.replace("$RESULT_DESCRIPTION",check.getExplanation());
-            template = template.replace("$RESULT_TITLE",
-                    "Output from running test: "+check.getAbbreviation()+" ("+ check.getId()+")");
-            template = template.replace("$RESULT_DATE",""+new Date().toString());
-            template = template.replace("$RESULT_VALUE",check.getStatus());// Status should be consistent with pass/fail
-            template = template.replace("$ORIGINAL_RESOURCE",check.getOntology_URI());
-            float completion = (float) (check.getTotal_passed_tests() * 100) /check.getTotal_tests_run();
-            template = template.replace("$RESULT_COMPLETION",""+completion);
-            StringBuilder explanation = new StringBuilder(check.getExplanation());
-            ArrayList<String> referenceResources = check.getReference_resources();
-            if (referenceResources!=null && !referenceResources.isEmpty()){
-                explanation.append(" Evidence: ");
-                for (String i:referenceResources){
-                    explanation.append(i).append("-");
-                }
-            }
-            template = template.replace("$RESULT_LOG",explanation.toString());
-            template = template.replace("$TEST_DESCRIPTION",check.getDescription());
-            template = template.replace("$TEST_TITLE",check.getTitle());
-            template = template.replace("$ORIGINAL_RESOURCE",check.getOntology_URI());
-            template = template.replace("$ORIGINAL_RESOURCE",check.getOntology_URI());
-            return template;
+            return fillTestResultTemplate(check,true);
         }
-        return "TO DOOOOOOOOOOOOOoo";
-
+        else{
+            return fillTestResultSetTemplate();
+        }
     }
+
+    /**
+     * This method fills in a test result template from the
+     * @param check the check with metadata we will use to fill up the template
+     * @param fillWithFullMetadata boolean indicating if the template should be filled with full metadata
+     *        (i.e., the result is returned by itself) or is part of a result set.
+     * @return a filled JSON-LD template from the check metadata
+     */
+    private String fillTestResultTemplate (Check check, boolean fillWithFullMetadata){
+        String template;
+        if (fillWithFullMetadata){
+            template = Constants.JSON_LD_TEST_TEMPLATE_FULL;
+        }else{
+            template = Constants.JSON_LD_TEST_TEMPLATE_REDUCED;
+        }
+        String resultId = "urn:foops:" + java.util.UUID.randomUUID();
+        template = template.replace("$TEST_ID",check.getId());
+        template = template.replace("$TEST_ABBRV",check.getAbbreviation());
+        template = template.replace("$RESULT_ID",resultId);
+        template = template.replace("$RESULT_DESCRIPTION",check.getExplanation());
+        template = template.replace("$RESULT_TITLE",
+                "Output from running test: "+check.getAbbreviation()+" ("+ check.getId()+")");
+        template = template.replace("$RESULT_DATE",""+new Date().toString());
+        template = template.replace("$RESULT_VALUE",check.getStatus());// Status should be consistent with pass/fail
+        float completion = (float) (check.getTotal_passed_tests() * 100) /check.getTotal_tests_run();
+        template = template.replace("$RESULT_COMPLETION",""+completion);
+        StringBuilder explanation = new StringBuilder(check.getExplanation());
+        ArrayList<String> referenceResources = check.getReference_resources();
+        if (referenceResources!=null && !referenceResources.isEmpty()){
+            explanation.append(" Evidence: ");
+            for (String i:referenceResources){
+                explanation.append(i).append("-");
+            }
+        }
+        template = template.replace("$RESULT_LOG",explanation.toString());
+        template = template.replace("$TEST_DESCRIPTION",check.getDescription());
+        template = template.replace("$TEST_TITLE",check.getTitle());
+        template = template.replace("$ORIGINAL_RESOURCE",ontology.getOntologyURI());
+        return template;
+    }
+
+    /**
+     * Method that will return a filled template of a test result set
+     * @return a JSON-LD serialization of a test result set
+     */
+    private String fillTestResultSetTemplate (){
+        String resultSet = Constants.JSON_LD_TEST_SET_TEMPLATE;
+        StringBuilder testResults = new StringBuilder();
+        String resultSetId = "urn:foops:" + java.util.UUID.randomUUID();
+        for (Check c:this.checksToRun.getChecks()){
+            testResults.append(fillTestResultTemplate(c, false)).append(",");
+        }
+        //remove last comma
+        testResults = new StringBuilder(testResults.substring(0, testResults.length() - 1));
+        //remove context from test result template
+        testResults = new StringBuilder(testResults.toString().replace(Constants.FTR_CONTEXT, ""));
+        resultSet = resultSet.replace("$LIST_TEST_RESULTS",testResults);
+        resultSet = resultSet.replace("$RESULT_ID",resultSetId);
+        resultSet = resultSet.replace("$RESULT_DESCRIPTION",checksToRun.getDescription());
+        resultSet = resultSet.replace("$ORIGINAL_RESOURCE",ontology.getOntologyURI());
+        resultSet = resultSet.replace("$RESULT_TITLE",
+                "Results from running FOOPS! tests for benchmark: "+checksToRun.getName());
+        resultSet = resultSet.replace("$RESULT_DATE",""+new Date().toString());
+        return resultSet;
+    }
+
 
     /**
      * This function will export a summary of the ontology metadata we were able to find.

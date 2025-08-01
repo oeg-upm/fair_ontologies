@@ -1,5 +1,147 @@
 [
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/VER2",
+        "@type": [
+            "https://w3id.org/ftr#Test",
+            "http://www.w3.org/ns/dcat#DataService"
+        ],
+        "http://purl.org/dc/terms/creator": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            },
+            {
+                "@id": "https://orcid.org/0000-0003-3587-0367"
+            }
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This test verifies if the version IRI resolves. The test will pass if there is a version IRI for the ontology/vocabulary (detected using owl:versionIRI in the ontology metadata) and whether doing a request to said IRI returns a resource. The test will fail if the resource is not found (404 response) or returns an error."
+            }
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@id": "https://w3id.org/foops/test/VER2"
+            }
+        ],
+        "http://purl.org/dc/terms/license": [
+            {
+                "@id": "http://creativecommons.org/licenses/by/4.0/"
+            }
+        ],
+        "http://purl.org/dc/terms/publisher": [
+            {
+                "@id": "https://oeg.fi.upm.es"
+            },
+            {
+                "@id": "https://ror.org/03n6nwv02"
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "Ontology version IRI resolves"
+            }
+        ],
+        "http://semanticscience.org/resource/SIO_000233": [
+            {
+                "@id": "https://w3id.org/foops/metric/VER2"
+            }
+        ],
+        "http://usefulinc.com/ns/doap#repository": [
+            {
+                "@id": "https://w3id.org/foops/repository"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "VER2-T"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "VER2 test: Ontology version IRI resolves"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#contactPoint": [
+            {
+                "@id": "https://orcid.org/0000-0003-0454-7145"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointDescription": [
+            {
+                "@id": "https://w3id.org/foops/api"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#endpointURL": [
+            {
+                "@id": "https://w3id.org/foops/api/assess/test/VER2"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#keyword": [
+            {
+                "@language": "en",
+                "@value": "Version IRI"
+            },
+            {
+                "@language": "en",
+                "@value": "Test"
+            },
+            {
+                "@language": "en",
+                "@value": "Findable"
+            }
+        ],
+        "http://www.w3.org/ns/dcat#version": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "0.0.1"
+            }
+        ],
+        "http://www.w3.org/ns/dqv#inDimension": [
+            {
+                "@id": "https://w3id.org/fair/principles/terms/F1"
+            }
+        ],
+        "https://w3id.org/dpv#isApplicableFor": [
+            {
+                "@id": "https://schema.org/DefinedTermSet"
+            }
+        ],
+        "https://w3id.org/ftr#supportedBy": [
+            {
+                "@id": "https://w3id.org/foops/"
+            }
+        ]
+    },
+    {
         "@id": "https://ror.org/03n6nwv02",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -37,129 +179,6 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/VER2",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/VER2",
-        "@type": [
-            "https://w3id.org/ftr#Test",
-            "http://www.w3.org/ns/dcat#DataService"
-        ],
-        "http://purl.org/dc/terms/creator": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            },
-            {
-                "@id": "https://orcid.org/0000-0003-3587-0367"
-            }
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": " This check verifies if the version IRI resolves "
-            }
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@id": "https://w3id.org/foops/test/VER2"
-            }
-        ],
-        "http://purl.org/dc/terms/license": [
-            {
-                "@id": "http://creativecommons.org/licenses/by/4.0/"
-            }
-        ],
-        "http://purl.org/dc/terms/publisher": [
-            {
-                "@id": "https://oeg.fi.upm.es"
-            },
-            {
-                "@id": "https://ror.org/03n6nwv02"
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "Version IRI resolves"
-            }
-        ],
-        "http://semanticscience.org/resource/SIO_000233": [
-            {
-                "@id": "https://w3id.org/foops/metric/VER2"
-            }
-        ],
-        "http://usefulinc.com/ns/doap#repository": [
-            {
-                "@id": "https://w3id.org/foops/repository"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "VER2"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "VER2"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#contactPoint": [
-            {
-                "@id": "https://orcid.org/0000-0003-0454-7145"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointDescription": [
-            {
-                "@id": "https://w3id.org/foops/api"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#endpointURL": [
-            {
-                "@id": "https://w3id.org/foops/api/assess/test/VER2"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#keyword": [
-            {
-                "@language": "en",
-                "@value": "Version IRI resolves"
-            },
-            {
-                "@language": "en",
-                "@value": "Test"
-            },
-            {
-                "@language": "en",
-                "@value": "Findable"
-            }
-        ],
-        "http://www.w3.org/ns/dcat#version": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "0.0.1"
-            }
-        ],
-        "http://www.w3.org/ns/dqv#inDimension": [
-            {
-                "@id": "https://w3id.org/fair/principles/terms/F1"
-            }
-        ],
-        "https://w3id.org/dpv#isApplicableFor": [
-            {
-                "@id": "https://schema.org/DefinedTermSet"
-            }
-        ],
-        "https://w3id.org/ftr#supportedBy": [
-            {
-                "@id": "https://w3id.org/foops/"
-            }
-        ]
-    },
-    {
         "@id": "https://w3id.org/fair/principles/terms/F1",
         "@type": [
             "http://www.w3.org/ns/dqv#Dimension",
@@ -185,31 +204,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -224,6 +218,12 @@
             {
                 "@id": "mailto:m.poveda@upm.es"
             }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/VER2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     }
 ]

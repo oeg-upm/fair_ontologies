@@ -15,11 +15,29 @@
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
 	dcterms:title "Recommended metadata"@en ;
-	rdfs:label "OM2"^^xsd:string ;
-	vivo:abbreviation "OM2"^^xsd:string ;
+	rdfs:label "OM2 test: Ontology/vocabulary declares recommended metadata"^^xsd:string ;
+	vivo:abbreviation "OM2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
-	dcterms:description """ This check verifies if the following recommended metadata [NS Prefix, version info, creation date, citation] are present in the ontology. It also checks if [contributor] is present, but with no penalty (as no all ontologies may have a contributor) """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ 
+This test verifies if the following recommended metadata are present in the ontology metadata: 
+	* Namespace prefix: declared using vann:preferredNamespacePrefix
+	* Version info: declared using owl:versionInfo or schema:schemaVersion
+	* Creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
+	* Citation: declared using dcterms:bibliographicCitation
+	* Contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
+
+The test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).
+
+Namespaces used: 
+	* dc: http://purl.org/dc/elements/1.1/
+	* dcterms: http://purl.org/dc/terms/
+	* schema: https://schema.org/ and http://schema.org/
+	* doap: http://usefulinc.com/ns/doap#
+	* owl: http://www.w3.org/2002/07/owl#
+	* pav: http://purl.org/pav/
+	* prov: http://www.w3.org/ns/prov#
+	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/OM2> ;
