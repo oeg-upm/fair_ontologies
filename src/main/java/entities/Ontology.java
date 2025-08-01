@@ -411,14 +411,18 @@ public class Ontology {
                 EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosLabel).forEach(ann -> {
                     OWLAnnotationValue val = ann.getValue();
                     if(val instanceof OWLLiteral) {
-                        this.termsWithLabel.add(a.toStringID());
+                        if(!termsWithLabel.contains(a.toStringID())) {
+                            this.termsWithLabel.add(a.toStringID());
+                        }
                     }
                 });
                 OWLAnnotationProperty skosDescription = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty(Constants.PROP_SKOS_PREF_DEFINITION);
                 EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosDescription).forEach(ann -> {
                     OWLAnnotationValue val = ann.getValue();
                     if(val instanceof OWLLiteral) {
-                        this.termsWithDescription.add(a.toStringID());
+                        if(!termsWithDescription.contains(a.toStringID())) {
+                            this.termsWithDescription.add(a.toStringID());
+                        }
                     }
                 });
             });
@@ -459,6 +463,7 @@ public class Ontology {
             }
         }else{
             //get label/def coverage for the ontology URI considered
+            // for labels: rdfs:label, skos:prefLabel, obo:IAO_0000118
             String termIRI = a.getIRI().getIRIString();
             if(!this.terms.contains(termIRI)) { // to avoid duplicates
                 this.terms.add(termIRI);
@@ -472,11 +477,40 @@ public class Ontology {
                     }
                 }
             });
+            OWLAnnotationProperty skosLabel = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty(Constants.PROP_SKOS_PREF_LABEL);
+            EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosLabel).forEach(ann -> {
+                OWLAnnotationValue val = ann.getValue();
+                if(val instanceof OWLLiteral) {
+                    if(!termsWithLabel.contains(termIRI)) {
+                        this.termsWithLabel.add(termIRI);
+                        }
+                }
+            });
+            OWLAnnotationProperty oboLabel = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty(Constants.PROP_OBO_ALT_LABEL);
+            EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), oboLabel).forEach(ann -> {
+                OWLAnnotationValue val = ann.getValue();
+                if(val instanceof OWLLiteral) {
+                    if(!termsWithLabel.contains(termIRI)) {
+                        this.termsWithLabel.add(termIRI);
+                    }
+                }
+            });
+            // descriptions: rdfs:comment, skos:definition
             OWLAnnotationProperty description = ontologyModel.getOWLOntologyManager().getOWLDataFactory().
                     getRDFSComment();
             EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), description).forEach(ann -> {
                 OWLAnnotationValue val = ann.getValue();
                 if (val instanceof OWLLiteral) {
+                    if(!termsWithDescription.contains(termIRI)) {
+                        this.termsWithDescription.add(termIRI);
+                    }
+                }
+            });
+
+            OWLAnnotationProperty skosDescription = ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLAnnotationProperty(Constants.PROP_SKOS_PREF_DEFINITION);
+            EntitySearcher.getAnnotations((OWLEntity) a, this.getOntologyModel(), skosDescription).forEach(ann -> {
+                OWLAnnotationValue val = ann.getValue();
+                if(val instanceof OWLLiteral) {
                     if(!termsWithDescription.contains(termIRI)) {
                         this.termsWithDescription.add(termIRI);
                     }

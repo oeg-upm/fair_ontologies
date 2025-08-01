@@ -22,6 +22,7 @@
 	dcterms:description """
 This check verifies whether all ontology terms have descriptions. 
 The test will pass if all classes, properties and data properties have at least one rdfs:comment, skos:definition or obo:IAO_0000118 annotation.
+For skos vocabularies, only the skos:Concepts are assessed.
 The test will fail otherwise, showing the level of completeness obtained (i.e. the percentage of documented terms).
 	"""@en ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
