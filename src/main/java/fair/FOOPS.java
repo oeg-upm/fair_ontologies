@@ -44,9 +44,9 @@ import java.util.Date;
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
 
-    private Benchmark checksToRun;
+    private final Benchmark checksToRun;
     private Path tmpFolder;
-    private Ontology ontology;
+    private final Ontology ontology;
 
     /**
      * Constructor for running FOOPS! in a single test mode. Useful when invoking the API
@@ -67,6 +67,10 @@ public class FOOPS {
         else {
             checksToRun = new FileBenchmark(ontology);
         }
+    }
+
+    public Ontology getOntology(){
+        return this.ontology;
     }
 
     private void initTempFolder(){
@@ -170,7 +174,7 @@ public class FOOPS {
         template = template.replace("$TEST_ID",check.getId());
         template = template.replace("$TEST_ABBRV",check.getAbbreviation());
         template = template.replace("$RESULT_ID",resultId);
-        template = template.replace("$RESULT_DESCRIPTION",check.getExplanation());
+        template = template.replace("$RESULT_DESCRIPTION",Utils.escapeJson(check.getExplanation()));
         template = template.replace("$RESULT_TITLE",
                 "Output from running test: "+check.getAbbreviation()+" ("+ check.getId()+")");
         template = template.replace("$RESULT_DATE",""+new Date().toString());
@@ -186,7 +190,7 @@ public class FOOPS {
             }
         }
         template = template.replace("$RESULT_LOG",explanation.toString());
-        template = template.replace("$TEST_DESCRIPTION",check.getDescription());
+        template = template.replace("$TEST_DESCRIPTION",Utils.escapeJson(check.getDescription()));
         template = template.replace("$TEST_TITLE",check.getTitle());
         template = template.replace("$ORIGINAL_RESOURCE",ontology.getOntologyURI());
         return template;

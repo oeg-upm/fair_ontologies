@@ -96,6 +96,7 @@
             <artifactId>owlapi-distribution</artifactId>
             <version>5.1.14</version>
         </dependency>
+
     </dependencies>
 
     <build>

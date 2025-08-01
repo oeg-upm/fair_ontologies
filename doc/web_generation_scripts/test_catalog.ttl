@@ -1,0 +1,954 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix ns1: <http://semanticscience.org/resource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/fair/principles/terms/A1> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "A1"^^xsd:string ;
+    dcterms:description "(meta)data are retrievable by their identifier using a standardized communications protocol"@en ;
+    vivo:abbreviation "A1"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/A1.1> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "A1.1"^^xsd:string ;
+    dcterms:description "the protocol is open, free, and universally implementable"@en ;
+    vivo:abbreviation "A1.1"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/A2> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "A2"^^xsd:string ;
+    dcterms:description "metadata are accessible, even when the data are no longer available"@en ;
+    vivo:abbreviation "A2"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/F2> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "F2"^^xsd:string ;
+    dcterms:description "data are described with rich metadata (defined by R1 below)"@en ;
+    vivo:abbreviation "F2"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/F3> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "F3"^^xsd:string ;
+    dcterms:description "metadata clearly and explicitly include the identifier of the data it describes"@en ;
+    vivo:abbreviation "F3"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/I1> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "I1"^^xsd:string ;
+    dcterms:description "(meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation"@en ;
+    vivo:abbreviation "I1"^^xsd:string .
+
+<https://w3id.org/foops/metric/CN1> a dqv:Metric ;
+    ns1:SIO_000234 <https://w3id.org/foops/test/CN1> .
+
+<https://w3id.org/foops/metric/DOC1> a dqv:Metric ;
+    ns1:SIO_000234 <https://w3id.org/foops/test/DOC1> .
+
+<https://w3id.org/foops/metric/FIND1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/FIND2> a dqv:Metric .
+
+<https://w3id.org/foops/metric/FIND3> a dqv:Metric .
+
+<https://w3id.org/foops/metric/FIND_3_BIS> a dqv:Metric .
+
+<https://w3id.org/foops/metric/HTTP1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/OM1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/OM2> a dqv:Metric .
+
+<https://w3id.org/foops/metric/OM3> a dqv:Metric .
+
+<https://w3id.org/foops/metric/OM4.1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/OM4.2> a dqv:Metric .
+
+<https://w3id.org/foops/metric/OM5.1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/OM5.2> a dqv:Metric .
+
+<https://w3id.org/foops/metric/PURL1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/RDF1> a dqv:Metric ;
+    ns1:SIO_000234 <https://w3id.org/foops/test/RDF1> .
+
+<https://w3id.org/foops/metric/URI1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/URI2> a dqv:Metric .
+
+<https://w3id.org/foops/metric/VER1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/VER2> a dqv:Metric .
+
+<https://w3id.org/foops/metric/VOC1> a dqv:Metric .
+
+<https://w3id.org/foops/metric/VOC2> a dqv:Metric .
+
+<https://w3id.org/foops/metric/VOC3> a dqv:Metric .
+
+<https://w3id.org/foops/metric/VOC4> a dqv:Metric .
+
+<https://w3id.org/foops/test/FIND1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "FIND1 test: Ontology prefix is declared"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ This check verifies if an ontology prefix is declared in the ontology metadata. 
+	The test will pass if a vann:preferredNamespacePrefix is declared (vann: http://purl.org/vocab/vann/).
+	Otherwise, the test will fail. """@en ;
+    dcterms:identifier <https://w3id.org/foops/test/FIND1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology prefix is declared"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/FIND1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "FIND1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND1> ;
+    dcat:keyword "Findable"@en,
+        "Test"@en,
+        "prefix"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F3> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/FIND2> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "FIND2 test: Ontology prefix is found in prefix.cc or LOV"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 
+	The test will pass if: 
+	* 1) there is a prefix declared in the assessed ontology, 
+	* 2) the prefix is found in LOV or prefix.cc 
+	* 3) if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
+	Otherwise, the test will fail. 
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/FIND2> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology prefix is found in prefix.cc or LOV"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/FIND2> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "FIND2-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND2> ;
+    dcat:keyword "Findable"@en,
+        "LOV"@en,
+        "Prefix"@en,
+        "Test"@en,
+        "prefix.cc"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/FIND3> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "FIND3 test: Ontology found in community registry"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ This test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
+	The test will pass if the assessed ontology URI is found in the LOV list of vocabularies.
+	The test will fail otherwise.   
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/FIND3> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontologyfound in community registry"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/FIND3> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "FIND3-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND3> ;
+    dcat:keyword "Findable"@en,
+        "LOV"@en,
+        "Test"@en,
+        "registry"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/FIND_3_BIS> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "FIND_3_BIS test: Ontology metadata are accessible, even when the ontology is not"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
+	The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
+	The test will fail otherwise. """@en ;
+    dcterms:identifier <https://w3id.org/foops/test/FIND_3_BIS> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology metadata are accessible, even when the ontology is not"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/FIND_3_BIS> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "FIND_3_BIS-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND_3_BIS> ;
+    dcat:keyword "Accesible"@en,
+        "Metadata accesible"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/A2> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/HTTP1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "HTTP1 test: Ontology uses an open protocol"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description " This check verifies if the ontology uses an open protocol (HTTP or HTTPS). The test will pass if the ontology URI starts with http or https. It will fail otherwise."@en ;
+    dcterms:identifier <https://w3id.org/foops/test/HTTP1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology uses an open protocol"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/HTTP1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "HTTP1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/HTTP1> ;
+    dcat:keyword "Accesible"@en,
+        "Open protocol"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/A1.1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/OM1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "OM1 test: Ontology minimum metadata is declared"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This check verifies if the following  minimum metadata are present in the ontology metadata:
+
+ * title: declared using dc:title, dcterms:title or schema:name
+ * description: declared using dc:abstract, dcterms:abstract, dc:description, dcterms:description, schema:description, rdfs:comment, doap:description, doap:shortdesc or skos:note
+ * license: declared using dcterms:license, schema:license, doap:license or cc:license.
+ * version iri: declared using owl:versionIRI
+ * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
+ * namespace URI: declared using  vann:preferredNamespaceUri
+
+The test will pass if all ontology metadata are present. The test will fail otherwise, indicating the properties that are missing.
+
+Namespaces used:
+
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * schema: https://schema.org/ and http://schema.org/
+ * rdfs: http://www.w3.org/2000/01/rdf-schema#
+ * doap: http://usefulinc.com/ns/doap#
+ * skos: http://www.w3.org/2004/02/skos/core#
+ * cc: http://creativecommons.org/ns#
+ * owl: http://www.w3.org/2002/07/owl#
+ * pav: http://purl.org/pav/
+ * prov: http://www.w3.org/ns/prov#
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/OM1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology minimum metadata is declared"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/OM1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "OM1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM1> ;
+    dcat:keyword "Findable"@en,
+        "Minimum metadata"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F2> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/OM2> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "OM2 test: Ontology declares recommended metadata"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ 
+This test verifies if the following recommended metadata are present in the ontology metadata: 
+
+ * Namespace prefix: declared using vann:preferredNamespacePrefix
+ * Version info: declared using owl:versionInfo or schema:schemaVersion
+ * Creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
+ * Citation: declared using dcterms:bibliographicCitation
+ * Contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
+
+The test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).
+
+Namespaces used: 
+
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * schema: https://schema.org/ and http://schema.org/
+ * doap: http://usefulinc.com/ns/doap#
+ * owl: http://www.w3.org/2002/07/owl#
+ * pav: http://purl.org/pav/
+ * prov: http://www.w3.org/ns/prov#
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/OM2> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology declares recommended metadata"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/OM2> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "OM2-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM2> ;
+    dcat:keyword "Recommended metadata"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/OM3> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "OM3 test: Ontology declares detailed metadata"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This test verifies if the ontology includes the following detailed metadata:
+
+ * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (id a doi is provided) or dcterms:identifier (if a doi is provided)
+ * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
+ * logo: declared using foaf:logo or schema:logo
+ * status: declared using bibo:status
+ * source: declared using dcterms:source or prov:hadOriginalSource
+ * issued date: declared using dcterms:issued
+ * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
+ * backward compatibility (optional): declared using 
+ * modified date (optional): declared using 
+
+The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).
+
+Namespaces used: 
+
+ * bibo: http://purl.org/ontology/bibo/ 
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * foaf: http://xmlns.com/foaf/0.1/
+ * schema: https://schema.org/ and http://schema.org/
+ * owl: http://www.w3.org/2002/07/owl#
+ * pav: http://purl.org/pav/
+ * prov: http://www.w3.org/ns/prov#
+ 
+ """@en ;
+    dcterms:identifier <https://w3id.org/foops/test/OM3> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology declares detailed metadata"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/OM3> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "OM3-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM3> ;
+    dcat:keyword "Detailed metadata"@en,
+        "Reusable"@en,
+        "Test"@en,
+        "metadata"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/OM4.1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "OM4.1 test: Ontology has a license available"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ 
+This test verifies if a license (or rights) are associated with the ontology.
+
+The test will pass if a license is declared using any of the following properties: dcterms:license, schema:license, doap:license or cc:license.
+If a license is not found, but rights are declared (dc:rights), the test will pass as well.
+Otherwise, the test will fail (i.e., no license or rights are declared).
+
+Namespaces:
+
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * schema: https://schema.org/ and http://schema.org/
+ * doap: http://usefulinc.com/ns/doap#
+ * cc: http://creativecommons.org/ns#
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/OM4.1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology has a license available"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/OM4.1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "OM4.1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM1> ;
+    dcat:keyword "License"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/OM4.2> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "OM4.2 test: Ontology license is resolvable"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This test verifies if the ontology license is resolvable. The test will pass if the license available in the ontology metadata resolves to a resource. The test will fail if no license is declared (OM4.1), if the license is not a URI/URL, or if the response when requesting is 404 or an error. 
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/OM4.2> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology license is resolvable"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/OM4.2> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "OM4.2-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM4.2> ;
+    dcat:keyword "License"@en,
+        "License resolvable"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/OM5.1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "OM5.1 test: Ontology declares basic provenance metadata"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ 
+This check verifies if basic provenance metadata is available for the ontology:  
+
+ * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
+ * creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
+ * contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
+ * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
+
+The test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.
+
+Namespaces used:
+
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * schema: https://schema.org/ and http://schema.org/
+ * doap: http://usefulinc.com/ns/doap#
+ * owl: http://www.w3.org/2002/07/owl#
+ * pav: http://purl.org/pav/
+ * prov: http://www.w3.org/ns/prov#
+
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/OM5.1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology declares basic provenance metadata"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/OM5.1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "OM5.1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM5.1> ;
+    dcat:keyword "Metadata"@en,
+        "Provenance"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/OM5.2> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "OM5.2 test: Ontology declares detailed provenance metadata"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ 
+This check verifies if detailed provenance information is available for the ontology: [issued date, publisher]
+
+ * issued date: declared using dcterms:issued
+ * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
+
+The test will pass if both metadata fields are present. The test will fail otherwise, indicating the properties that are missing.
+
+Namespaces used:
+
+ * dc: http://purl.org/dc/elements/1.1/
+ * dcterms: http://purl.org/dc/terms/
+ * schema: https://schema.org/ and http://schema.org/
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/OM5.2> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology declares detailed provenance metadata"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/OM5.2> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "OM5.2-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM5.2> ;
+    dcat:keyword "Metadata"@en,
+        "Provenance"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/PURL1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "PURL1 test: Ontology has a persistent URL"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """This test verifies if the ontology has a persistent URL. We do so by checking if the ontology URI follows any of the following URI schemes:
+
+	* w3id.org
+	* doi.org
+	* purl.org (or purl.something.org)  
+	* linked.data.gov.au
+	* dbpedia.org
+	* www.w3.org
+	* perma.cc
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/PURL1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology has a persistent URL"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/PURL1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "PURL1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/PURL1> ;
+    dcat:keyword "Persistent URL"@en,
+        "Test"@en,
+        "purl"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/URI1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "URI1 test: Ontology URI is resolvable"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """This test verifies if the ontology URI that was found within the ontology document is resolvable. 
+	Note that the ontology URI found in the ontology may be different from the URI used in the assessment.
+	The test will pass if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will fail if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. """@en ;
+    dcterms:identifier <https://w3id.org/foops/test/URI1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology URI is resolvable"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/URI1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "URI1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/URL1> ;
+    dcat:keyword "Resolvable"@en,
+        "Test"@en,
+        "URI resolvable"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/URI2> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "URI2 test: Consistent ontology IDs are employed"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This check verifies if the ontology URI is equal to the ontology ID. The test passes if the ontology URI used to load the ontology document is the same as the ontology id found in the document itself. Otherwise the test will fail."""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/URI2> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Consistent ontology IDs are employed"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/URI2> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "URI2-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/URL2> ;
+    dcat:keyword "Consistent ontology ID"@en,
+        "Findable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/VER1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "VER1 test: A version IRI is declared in the ontology metadata"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description "This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if 1) the ontology has a versionIRI (owl:versionIRI) and 2) the versionIRI used is different from the ontology URI.Otherwise the test will fail."@en ;
+    dcterms:identifier <https://w3id.org/foops/test/VER1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "A version IRI is declared in the ontology metadata"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/VER1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "VER1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VER1> ;
+    dcat:keyword "Findable"@en,
+        "Test"@en,
+        "Version IRI"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/VER2> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "VER2 test: Ontology version IRI resolves"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description "This test verifies if the version IRI resolves. The test will pass if there is a version IRI for the ontology/vocabulary (detected using owl:versionIRI in the ontology metadata) and whether doing a request to said IRI returns a resource. The test will fail if the resource is not found (404 response) or returns an error."@en ;
+    dcterms:identifier <https://w3id.org/foops/test/VER2> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology version IRI resolves"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/VER2> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "VER2-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VER2> ;
+    dcat:keyword "Findable"@en,
+        "Test"@en,
+        "Version IRI"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/VOC1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "VOC1 test: Ontology reuses existing vocabularies for metadata annotations"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ 
+This test verifies if the ontology reuses other vocabularies for declaring metadata terms (see tests OM1... OM5).
+The test will pass if metadata annotations using properties from any of the following vocabularies are used:
+ * Dublin Core (dc, dcterms)
+ * Schema.org (schema)
+ * Vocabulary for annotating vocabulary descriptions (vann)
+ * W3C Provenance standard (prov)
+ * Bibliographic Ontology (bibo)
+ * Provenance, Authoring and Versioning (pav)
+ * Firend of a friend (foaf)
+ * Description of a project (DOAP)
+ * Web Ontology Language (owl)
+ * Resource description framework (rdfs)
+
+The test will also return the vocabularies that were found. If none are found, the test will fail.
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/VOC1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title " Ontology reuses existing vocabularies for metadata annotations"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/VOC1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "VOC1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC1> ;
+    dcat:keyword "Interoperable"@en,
+        "Test"@en,
+        "Vocabulary reuse"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/I2> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/VOC2> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "VOC2 test: Ontology imports or reuses well established vocabularies"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).
+The test will pass if other vocabularies are imported (owl:imports), or if classes, properties or data properties 
+outside the ontology URI or namespace URI are used.
+
+The test wil fail if no terms are reused.
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/VOC2> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology imports or reuses well established vocabularies"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/VOC2> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "VOC2-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC2> ;
+    dcat:keyword "Interoperable"@en,
+        "Test"@en,
+        "Vocabulary reuse"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/I2> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/VOC3> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "VOC3 test: Ontology documentation: all terms have labels"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """ 
+This test verifies the extent to which all ontology terms have labels.
+The test will pass if all classes, properties and data properties have either an rdfs:label or skos:prefLabel.
+For skos vocabularies, only the skos:Concepts are assessed.
+Otherwise, the test will fail, indicating the level of completeness found (i.e., percentage of documented terms) """@en ;
+    dcterms:identifier <https://w3id.org/foops/test/VOC3> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology documentation: all terms have labels"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/VOC3> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "VOC3-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC3> ;
+    dcat:keyword "Documentation"@en,
+        "Labels"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/VOC4> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "VOC4 test: Ontology documentation: all terms have definitions"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This check verifies whether all ontology terms have descriptions. 
+The test will pass if all classes, properties and data properties have at least one rdfs:comment, skos:definition or obo:IAO_0000118 annotation.
+For skos vocabularies, only the skos:Concepts are assessed.
+The test will fail otherwise, showing the level of completeness obtained (i.e. the percentage of documented terms).
+	"""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/VOC4> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology documentation: all terms have definitions"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/VOC4> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "VOC4-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC4> ;
+    dcat:keyword "Documentation definitions"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/fair/principles/terms/F4> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "F4"^^xsd:string ;
+    dcterms:description "(meta)data are registered or indexed in a searchable resource"@en ;
+    vivo:abbreviation "F4"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/I2> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "I2"^^xsd:string ;
+    dcterms:description "(meta)data use vocabularies that follow FAIR principles"@en ;
+    vivo:abbreviation "I2"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/R1.1> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "R1.1"^^xsd:string ;
+    dcterms:description "(meta)data are released with a clear and accessible data usage license"@en ;
+    vivo:abbreviation "R1.1"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/R1.2> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "R1.2"^^xsd:string ;
+    dcterms:description "(meta)data are associated with detailed provenance"@en ;
+    vivo:abbreviation "R1.2"^^xsd:string .
+
+<https://w3id.org/foops/test/CN1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "CN1 test: Ontology has content negotiation for RDF in RDF/XML, TTL, NTriples or JSON-LD serializations"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This test verifies whether HTML and an RDF representation is available for the target vocabulary by doing content negotiation on the ontology URI. The test will pass if the vocabulary is available in HTML and in any of the following RDF serializations: 
+
+ * RDF/XML (application/rdf+xml), 
+ * TTL (text/turtle), 
+ * N-Triples (text/n3), 
+ * JSON-LD (application/ld+json)
+
+The test will fail if no HTML is returned, if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."""@en ;
+    dcterms:identifier <https://w3id.org/foops/test/CN1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology has content negotiation for RDF in RDF/XML, TTL, NTriples or JSON-LD serializations"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/CN1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "CN1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/CN1> ;
+    dcat:keyword "RDF",
+        "Content negotiation"@en,
+        "Test"@en,
+        "serialization"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/A1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/DOC1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "DOC1 test: Ontology has HTML documentation"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description " This test verifies if the ontology has an HTML documentation. The test will attempt to download an HTML representation using the ontology URI, with content negotiation "@en ;
+    dcterms:identifier <https://w3id.org/foops/test/DOC1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology has HTML documentation"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/DOC1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "DOC1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/DOC1> ;
+    dcat:keyword "HTML availability"@en,
+        "Reusable"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/foops/test/RDF1> a dcat:DataService,
+        ftr:Test ;
+    rdfs:label "RDF1 test: Ontology is available in RDF (TTL, N3, RDF/XML or JSON-LD)"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
+        <https://orcid.org/0000-0003-3587-0367> ;
+    dcterms:description """
+This test verifies if the ontology has a valid RDF serialization (TTL, N3, RDF/XML or JSON-LD are supported).
+The test will fail if no RDF serialization could be loaded for analysis (e.g., the ontology has typos that prevent its parsing).
+The test uses the OWLAPI to load ontologies or vocabularies.
+    """@en ;
+    dcterms:identifier <https://w3id.org/foops/test/RDF1> ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://oeg.fi.upm.es>,
+        <https://ror.org/03n6nwv02> ;
+    dcterms:title "Ontology is available in RDF (TTL, N3, RDF/XML or JSON-LD)"@en ;
+    ns1:SIO_000233 <https://w3id.org/foops/metric/RDF1> ;
+    doap:repository <https://w3id.org/foops/repository> ;
+    vivo:abbreviation "RDF1-T"^^xsd:string ;
+    dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
+    dcat:endpointDescription <https://w3id.org/foops/api> ;
+    dcat:endpointURL <https://w3id.org/foops/api/assess/test/RDF1> ;
+    dcat:keyword "RDF"@en,
+        "RDF serialization"@en,
+        "Test"@en ;
+    dcat:version "0.0.1"^^xsd:string ;
+    dqv:inDimension <https://w3id.org/fair/principles/terms/I1> ;
+    dpv:isApplicableFor schema:DefinedTermSet ;
+    ftr:supportedBy <https://w3id.org/foops/> .
+
+<https://w3id.org/fair/principles/terms/F1> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "F1"^^xsd:string ;
+    dcterms:description "(meta)data are assigned a globally unique and persistent identifier"@en,
+        "(meta)data are assigned a globally unique and persistent identifier."@en ;
+    vivo:abbreviation "F1"^^xsd:string .
+
+<https://w3id.org/fair/principles/terms/R1> a dqv:Dimension,
+        <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
+    rdfs:label "R1"^^xsd:string ;
+    dcterms:description "meta(data) are richly described with a plurality of accurate and relevant attributes"@en,
+        "meta(data) are richly described with a plurality of accurate and relevant attributes."@en ;
+    vivo:abbreviation "R1"^^xsd:string .
+
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" ;
+    vcard:url <https://oeg.fi.upm.es/> .
+
+<https://orcid.org/0000-0003-3587-0367> a vcard:Individual ;
+    vcard:fn "Maria Poveda"^^xsd:string ;
+    vcard:hasEmail <mailto:m.poveda@upm.es> .
+
+<https://ror.org/03n6nwv02> a vcard:Organization ;
+    rdfs:label "Universidad Politécnica de Madrid" ;
+    dcterms:identifier "https://ror.org/02h3v0f81" ;
+    vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/foops/repository> dcterms:description "Main repository for FOOPS! code and documentation"@en ;
+    foaf:homePage <https://github.com/oeg-upm/fair_ontologies> .
+
+<https://orcid.org/0000-0003-0454-7145> a vcard:Individual ;
+    vcard:fn "Daniel Garijo"^^xsd:string ;
+    vcard:hasEmail <mailto:dgarijo@upm.es> .
+
