@@ -48,7 +48,7 @@ public class Check_VOC2_VocabReuse extends Check {
             //first, if there are imports, we are done.
             List<OWLImportsDeclaration> imports = this.ontology.getImportedVocabularies();
             this.reference_resources = new ArrayList<>();
-            if (imports.size()>0) {
+            if (!imports.isEmpty()) {
                 for (OWLImportsDeclaration imp:imports){
                     reference_resources.add(imp.getIRI().getIRIString());
                 }
@@ -58,7 +58,7 @@ public class Check_VOC2_VocabReuse extends Check {
             }else {
                 reference_resources = this.ontology.getReusedVocabularies();
                 //check if other vocabularies are extended
-                if (reference_resources.size() > 0) {
+                if (!reference_resources.isEmpty()) {
                     this.total_passed_tests++;
                     status = Constants.OK;
                     explanation = Constants.VOC2_EXPLANATION_OK_EXTEND;
@@ -72,7 +72,7 @@ public class Check_VOC2_VocabReuse extends Check {
             explanation = Constants.VOC2_EXPLANATION_ERROR;
         }
         //to avoid returning empty lists
-        if(reference_resources.size() == 0){
+        if(reference_resources.isEmpty()){
             reference_resources = null;
         }else{
             for(String f : Constants.FOUNDATIONAL_ONTOLOGIES){

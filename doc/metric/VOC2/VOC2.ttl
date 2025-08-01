@@ -12,9 +12,9 @@
 
 <https://w3id.org/foops/metric/VOC2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC2> ;
-	dcterms:title "Vocabulary reuse"@en ;
+	dcterms:title "Ontology imports or reuses well established vocabularies"@en ;
 	dcterms:description """ 
-This metric defines criteria to ensure that the ontology imports or extends other vocabularies besides RDF, OWL, and RDFS. The metric verifies the presence of imported or extended vocabularies, promoting interoperability and reuse of existing ontological structures.
+This metric checks if an ontology imports or extends other vocabularies besides RDF, OWL, and RDFS in its classes, properties or data properties. 
 
 **What is being measured?**
 
@@ -22,18 +22,18 @@ The presence and usage of external vocabularies that the ontology imports or ext
 
 **Why should we measure it?**
 
-Reusing existing vocabularies ensures interoperability, reduces redundancy, and fosters a collaborative and standardized approach to ontology development.
+Reusing existing vocabularies improves interoperability, reduces redundancy, and fosters resuability.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-The ontology imports or extends one or more vocabularies in addition to RDF, OWL, and RDFS, ensuring enhanced interoperability and reuse.
+The ontology imports or extends one or more vocabularies in addition to RDF, OWL, and RDFS.
 	"""@en ;
-	rdfs:label "Metric VOC2"^^xsd:string ;
-	vivo:abbreviation "Metric VOC2"^^xsd:string ;
+	rdfs:label "VOC2 metric: Ontology imports or reuses well established vocabularies"^^xsd:string ;
+	vivo:abbreviation "VOC2-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

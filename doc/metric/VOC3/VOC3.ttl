@@ -12,28 +12,28 @@
 
 <https://w3id.org/foops/metric/VOC3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC3> ;
-	dcterms:title "Documentation: labels"@en ;
+	dcterms:title "Ontology documentation: all terms have labels"@en ;
 	dcterms:description """ 
-This metric defines criteria to evaluate the extent to which all ontology terms have labels. The metric verifies that ontology terms are labeled using rdfs:label in OWL vocabularies and skos:prefLabel in SKOS vocabularies, ensuring that each term has a human-readable identifier.
+This metric evaluates the extent to which all ontology terms have a human readable label. 
 
 **What is being measured?**
 
-The presence of human-readable labels for all ontology terms, using rdfs:label for OWL vocabularies and skos:prefLabel for SKOS vocabularies.
+The presence of human-readable labels for all ontology terms.
 
 **Why should we measure it?**
 
-Having labels for ontology terms improves usability, accessibility, and understanding, making ontologies easier to work with for humans and systems.
+Having labels for ontology terms improves usability and understanding, making ontologies easier to work with for humans and systems.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file.
 
 **What are considered valid results?**
 
-All ontology terms have labels defined using rdfs:label or skos:prefLabel, ensuring that the ontology is understandable and usable.
+All ontology terms have labels defined.
 	"""@en ; 
-	rdfs:label "Metric VOC3"^^xsd:string ;
-	vivo:abbreviation "Metric VOC3"^^xsd:string ;
+	rdfs:label "VOC3 metric: Ontology documentation: all terms have labels"^^xsd:string ;
+	vivo:abbreviation "VOC3-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
@@ -41,7 +41,7 @@ All ontology terms have labels defined using rdfs:label or skos:prefLabel, ensur
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Documentation labels"@en , "Metric"@en , "Reusable"@en, "FAIR"@en ;
+	dcat:keyword "Labels"@en , "Documentation"@en, "Metric"@en , "Reusable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC3> ;

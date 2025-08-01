@@ -14,16 +14,19 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Documentation: labels"@en ;
-	rdfs:label "VOC3"^^xsd:string ;
-	vivo:abbreviation "VOC3"^^xsd:string ;
+	dcterms:title "Ontology documentation: all terms have labels"@en ;
+	rdfs:label "VOC3 test: Ontology documentation: all terms have labels"^^xsd:string ;
+	vivo:abbreviation "VOC3-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
-	dcterms:description """ This check verifies the extent to which all ontology terms have labels (rdfs:label in OWL vocabularies, skos:prefLabel in SKOS vocabularies) """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """ 
+This test verifies the extent to which all ontology terms have labels.
+The test will pass if all classes, properties and data properties have either an rdfs:label or skos:prefLabel.
+Otherwise, the test will fail, indicating the level of completeness found (i.e., percentage of documented terms) """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/VOC3> ;
-	dcat:keyword "Documentation labels"@en , "Test"@en , "Reusable"@en ;
+	dcat:keyword "Labels"@en , "Documentation"@en, "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC3> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

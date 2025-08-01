@@ -12,9 +12,9 @@
 
 <https://w3id.org/foops/metric/VOC1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC1> ;
-	dcterms:title "Vocabulary reuse (metadata)"@en ;
+	dcterms:title "Ontology reuses existing vocabularies for metadata annotations"@en ;
 	dcterms:description """ 
-This metric evaluates the extent to which the ontology reuses established vocabularies for metadata declaration, fostering interoperability and adherence to standards.
+This metric evaluates the extent to which the ontology reuses established vocabularies for metadata declaration.
 
 **What is being measured?**
 
@@ -22,18 +22,18 @@ The reuse of standard vocabularies (e.g., Dublin Core, FOAF, or SKOS) in the ont
 
 **Why should we measure it?**
 
-Reusing well-known vocabularies enhances interoperability, reduces redundancy, and ensures compatibility with tools and datasets that rely on these standards.
+Reusing well-known vocabularies enhances interoperability and ensures compatibility with tools and datasets that rely on these standards.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file
 
 **What are considered valid results?**
 
-Valid results indicate the extent of vocabulary reuse, ranging from high alignment (extensive reuse) to low alignment (minimal reuse), providing insights into interoperability and areas for improvement.
+An ontology reusing established vocabularies for metadata annotations.
 	"""@en ;
-	rdfs:label "Metric VOC1"^^xsd:string ;
-	vivo:abbreviation "Metric VOC1"^^xsd:string ;
+	rdfs:label "VOC1 metric: Ontology reuses existing vocabularies for metadata annotations"^^xsd:string ;
+	vivo:abbreviation "VOC1-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
@@ -41,7 +41,7 @@ Valid results indicate the extent of vocabulary reuse, ranging from high alignme
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Vocabulary reuse metadata"@en , "Metric"@en , "Interoperable"@en, "FAIR"@en ;
+	dcat:keyword "Vocabulary reuse"@en , "Metric"@en , "Interoperable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC1> ;

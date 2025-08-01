@@ -12,28 +12,28 @@
 
 <https://w3id.org/foops/metric/VOC4> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/VOC4> ;
-	dcterms:title "Documentation: definitions"@en ;
+	dcterms:title "Ontology documentation: all terms have definitions"@en ;
 	dcterms:description """ 
-This metric verifies that ontology terms are described using rdfs:comment in OWL vocabularies and skos:definition in SKOS vocabularies, providing clear and detailed explanations for each term.
+This metric verifies that ontology terms provide a definition for each term.
 
 **What is being measured?**
 
-The presence of detailed descriptions for ontology terms, using rdfs:comment for OWL vocabularies and skos:definition for SKOS vocabularies.
+The presence of descriptions for all ontology terms.
 
 **Why should we measure it?**
 
-Definitions help ensure the clarity and comprehension of ontology terms, supporting better understanding and use, particularly for systems and humans who need precise meanings.
+Definitions help ensure the clarity and comprehension of ontology terms, supporting better understanding and use.
 
 **What must be provided for the measurement?**
 
-An ontology URI.
+An ontology URI or file
 
 **What are considered valid results?**
 
-All ontology terms have clear and detailed definitions provided via rdfs:comment or skos:definition.
+All ontology terms have clear and detailed definitions.
 	"""@en ; 
-	rdfs:label "Metric VOC4"^^xsd:string ;
-	vivo:abbreviation "Metric VOC4"^^xsd:string ;
+	rdfs:label "VOC4 test: Ontology documentation: all terms have definitions"^^xsd:string ;
+	vivo:abbreviation "VOC4-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;

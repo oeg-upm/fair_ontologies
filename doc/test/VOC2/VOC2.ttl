@@ -14,12 +14,18 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Vocabulary reuse"@en ;
-	rdfs:label "VOC2"^^xsd:string ;
-	vivo:abbreviation "VOC2"^^xsd:string ;
+	dcterms:title "Ontology imports or reuses well established vocabularies"@en ;
+	rdfs:label "VOC2 test: Ontology imports or reuses well established vocabularies"^^xsd:string ;
+	vivo:abbreviation "VOC2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/I2> ;
-	dcterms:description """ This check verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS)"""@en ; # Falta explicar PASS y FAIL
+	dcterms:description """
+This test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).
+The test will pass if other vocabularies are imported (owl:imports), or if classes, properties or data properties 
+outside the ontology URI or namespace URI are used.
+
+The test wil fail if no terms are reused.
+	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/VOC2> ;

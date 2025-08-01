@@ -14,12 +14,16 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Documentation: definitions"@en ;
-	rdfs:label "VOC4"^^xsd:string ;
-	vivo:abbreviation "VOC4"^^xsd:string ;
+	dcterms:title "Ontology documentation: all terms have definitions"@en ;
+	rdfs:label "VOC4 test: Ontology documentation: all terms have definitions"^^xsd:string ;
+	vivo:abbreviation "VOC4-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
-	dcterms:description """ This check verifies whether all ontology terms have descriptions (rdfs:comment in OWL vocabularies, skos:definition in SKOS vocabularies) """@en ; # Falta explicar PASS y FAIL
+	dcterms:description """
+This check verifies whether all ontology terms have descriptions. 
+The test will pass if all classes, properties and data properties have at least one rdfs:comment, skos:definition or obo:IAO_0000118 annotation.
+The test will fail otherwise, showing the level of completeness obtained (i.e. the percentage of documented terms).
+	"""@en ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/VOC4> ;
