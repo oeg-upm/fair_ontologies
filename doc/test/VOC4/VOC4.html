@@ -53,27 +53,29 @@
         <div class="container">
             <div class="row">
                 <div class="cell-title"> 
-                   <h1 class="miClase text-center">VOC4</h1>
+                   <h1 class="miClase text-center">VOC4 test: Ontology documentation: all terms have definitions</h1>
                 </div>
                 <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies whether all ontology terms have descriptions (rdfs:comment in OWL vocabularies, skos:definition in SKOS vocabularies) </p></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies whether all ontology terms have descriptions. 
+The test will pass if all classes, properties and data properties have at least one rdfs:comment, skos:definition or obo:IAO_0000118 annotation.
+The test will fail otherwise, showing the level of completeness obtained (i.e. the percentage of documented terms).</p></div>
             </div>
 
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 
-                    <a href="VOC4.ttl" title="RDF Resource Description
+                    <a href="VOC4 test: Ontology documentation: all terms have definitions.ttl" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
                 </div> 
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> Documentation: definitions </div>
+                <div class="col-md-9 well"> Ontology documentation: all terms have definitions </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
