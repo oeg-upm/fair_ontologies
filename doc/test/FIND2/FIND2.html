@@ -33,22 +33,41 @@
             .text-separation { 
                 margin-right: 10px; 
             }   
+            .cell-title {
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+            }
+            .cell-button {
+                display: table-cell;
+                vertical-align: middle;
+                width: 10%;
+                text-align: right;
+            }
+            h1.miClase {
+                margin: 0;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
         </style>
         <div class="container">
             <div class="row">
-                <div class="col-md-12"> 
+                <div class="cell-title"> 
+                   <h1 class="miClase text-center">FIND2 test: Ontology/vocabulary prefix is found in prefix.cc or LOV</h1>
+                </div>
+                <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
-                    <h1 class="miClase text-center">FIND2 test: Ontology/vocabulary prefix is found in prefix.cc or LOV</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 
     The test will pass if: 
     * 1) there is a prefix declared in the assessed ontology, 
     * 2) the prefix is found in LOV or prefix.cc 
     * 3) if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
     Otherwise, the test will fail. </p></div>
             </div>
+
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
                     <h4 class="miClase text-left text-separation">TEST INFORMATION</h4> 

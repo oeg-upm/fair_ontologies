@@ -1,5 +1,21 @@
 [
     {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -17,63 +33,19 @@
         ]
     },
     {
-        "@id": "https://w3id.org/fair/principles/terms/F4",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are registered or indexed in a searchable resource"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F4"
+                "@value": "Maria Poveda"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F4"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/03n6nwv02>"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -199,6 +171,33 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/test/FIND3",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/03n6nwv02>"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
             "https://w3id.org/ftr#Benchmark"
@@ -217,26 +216,27 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://w3id.org/fair/principles/terms/F4",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are registered or indexed in a searchable resource"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@value": "F4"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F4"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/FIND3",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     }
 ]
