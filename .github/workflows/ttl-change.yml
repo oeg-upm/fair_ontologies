@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'doc/**/*.ttl'
+      - 'doc/catalog.html'
       
 permissions:
   contents: write  
