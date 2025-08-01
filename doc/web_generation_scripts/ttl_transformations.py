@@ -18,14 +18,16 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dpv: <https://w3id.org/dpv#> 
+PREFIX vivo: <http://vivoweb.org/ontology/core#> 
 
-SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?dimension ?label_dimension ?desc_dimension ?license
+SELECT DISTINCT ?s ?title ?label ?abbreviation ?description ?keywords ?version ?dimension ?label_dimension ?desc_dimension ?license
 ?publisher_uri ?publisher_label ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
 ?applicable_for ?supported_by ?web_repository ?same_as
 WHERE {
     ?s a ftr:Test .
     ?s dcterms:title ?title .
     ?s rdfs:label ?label .
+    ?s vivo:abbreviation ?abbreviation .
     ?s dcterms:description ?description .
     ?s dcterms:license ?license .
     ?s dcterms:publisher ?publisher_uri .
@@ -62,14 +64,16 @@ PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dpv: <https://w3id.org/dpv#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX vivo: <http://vivoweb.org/ontology/core#> 
 
-SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?license ?indimension ?label_dimension ?desc_indimension
+SELECT DISTINCT ?s ?title ?label ?abbreviation ?description ?keywords ?version ?license ?indimension ?label_dimension ?desc_indimension
 ?publisher_uri ?publisher_label ?test ?creator_name ?creator_orcid ?landing_page ?benchmark ?bm_title ?bm_desc ?metric_status ?contact_orcid ?contact_name 
 ?contact_mail ?applicable_for ?supported_by ?same_as
 WHERE {
     ?s a dqv:Metric .
     ?s dcterms:title ?title .
     ?s rdfs:label ?label .
+    ?s vivo:abbreviation ?abbreviation .
     ?s dcterms:description ?description .
     ?s dcterms:publisher ?publisher_uri .
     ?publisher_uri rdfs:label ?publisher_label .
@@ -107,14 +111,16 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX vivo: <http://vivoweb.org/ontology/core#> 
 
-SELECT DISTINCT ?s ?title ?label ?description ?keywords ?version ?license
+SELECT DISTINCT ?s ?title ?label ?abbreviation ?description ?keywords ?version ?license
  ?creator_name ?creator_orcid ?landing_page ?benchmark_status ?hasAssociatedMetric ?metricIdentifier ?metricLabel ?contact_orcid ?contact_name ?contact_mail
  ?same_as
 WHERE {
     ?s a ftr:Benchmark .
     ?s dcterms:title ?title .
     ?s rdfs:label ?label .
+    ?s vivo:abbreviation ?abbreviation .
     ?s dcterms:description ?description .
     ?s dcat:keyword ?keywords .
     ?s dcat:version ?version .
@@ -138,12 +144,13 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ftr: <https://w3id.org/ftr#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#> 
+PREFIX vivo: <http://vivoweb.org/ontology/core#> 
 
-SELECT DISTINCT ?s ?title ?label ?version ?keywords ?license ?license_label
+SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label
 WHERE {
     ?s a ftr:Test .
     ?s dcterms:title ?title .
-    ?s rdfs:label ?label .
+    ?s vivo:abbreviation ?abbreviation .
     ?s dcat:version ?version .
     ?s dcat:keyword ?keywords .
     ?s dcterms:license ?license .
@@ -155,12 +162,13 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#> 
+PREFIX vivo: <http://vivoweb.org/ontology/core#> 
 
-SELECT DISTINCT ?s ?title ?label ?version ?keywords ?license ?license_label
+SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label
 WHERE {
     ?s a dqv:Metric .
     ?s dcterms:title ?title .
-    ?s rdfs:label ?label .
+    ?s vivo:abbreviation ?abbreviation .
     ?s dcat:version ?version .
     ?s dcat:keyword ?keywords .
     ?s dcterms:license ?license .
@@ -174,12 +182,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#> 
 PREFIX ftr: <https://w3id.org/ftr#>
+PREFIX vivo: <http://vivoweb.org/ontology/core#> 
 
-SELECT DISTINCT ?s ?title ?label ?version ?keywords ?license ?license_label
+SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label
 WHERE {
     ?s a ftr:Benchmark .
     ?s dcterms:title ?title .
-    ?s rdfs:label ?label .
+    ?s vivo:abbreviation ?abbreviation .
     ?s dcat:version ?version .
     ?s dcat:keyword ?keywords .
     ?s dcterms:license ?license .
@@ -244,7 +253,10 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         # data['test_publisher'] = row.publisher
         data['test_metric'] = row.metric
         data['test_repository'] = row.web_repository
-        data['test_turtle'] = row.label + '.ttl'
+        name_ttl = data['test_identifier']
+        basename_ttl = name_ttl.rsplit('/', 1)[-1]
+        data['test_turtle'] = basename_ttl + '.ttl'
+        # data['test_turtle'] = row.label + '.ttl'
         data['test_endpoint_desc'] = row.endpoint_desc
         data['test_endpoint_url'] = row.endpoint_url
         data['test_applicable_for'] = row.applicable_for
@@ -420,7 +432,10 @@ def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
         data['benchmark_license'] = row.license
         data['benchmark_landing_page'] = row.landing_page
         data['benchmark_status'] = row.benchmark_status
-        data['benchmark_turtle'] = row.label.replace('Benchmark ', '') + '.ttl'
+        name_ttl = data['benchmark_identifier']
+        basename_ttl = name_ttl.rsplit('/', 1)[-1]
+        data['benchmark_turtle'] = basename_ttl + '.ttl'
+        # data['benchmark_turtle'] = row.label.replace('Benchmark ', '') + '.ttl'
         data['benchmark_same_as'] = row.same_as
 
         if str(row.keywords) not in keywords: 
@@ -557,7 +572,10 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         data['metric_test'] = row.test
         data['metric_landing_page'] = row.landing_page
         data['metric_status'] = row.metric_status
-        data['metric_turtle'] = row.label.replace('Metric ', '') + '.ttl'
+        name_ttl = data['metric_identifier']
+        basename_ttl = name_ttl.rsplit('/', 1)[-1]
+        data['metric_turtle'] = basename_ttl + '.ttl'
+        # data['metric_turtle'] = row.label.replace('Metric ', '') + '.ttl'
         data['metric_applicable_for'] = row.applicable_for
         data['metric_supported_by'] = row.supported_by
         data['metric_same_as'] = row.same_as
@@ -771,7 +789,7 @@ def ttl_to_item_catalogue(path_ttl, pquery):
         data = {
             'identifier': row.s,
             'title': row.title,
-            'name': row.label,
+            'name': row.abbreviation,
             'version': row.version,
             'license': row.license
         }
