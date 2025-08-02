@@ -1,19 +1,8 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/foops/metric/VOC2",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -33,25 +22,23 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/VOC2",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/identifier": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@value": "https://ror.org/02h3v0f81"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -72,7 +59,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "\nThis test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).\nThe test will pass if other vocabularies are imported (owl:imports), or if classes, properties or data properties \noutside the ontology URI or namespace URI are used.\n\nThe test wil fail if no terms are reused.\n\t"
+                "@value": "\nThis test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).\nThe test will pass if other vocabularies are imported (owl:imports), or if classes, properties or data properties \noutside the ontology URI or namespace URI are used.\nThe test wil fail if no terms are reused.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -181,23 +168,19 @@
         ]
     },
     {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/identifier": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "https://ror.org/02h3v0f81"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -223,6 +206,23 @@
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "I2"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     }

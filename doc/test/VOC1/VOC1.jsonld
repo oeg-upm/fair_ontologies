@@ -16,7 +16,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis test verifies if the ontology reuses other vocabularies for declaring metadata terms (see tests OM1... OM5).\nThe test will pass if metadata annotations using properties from any of the following vocabularies are used:\n * Dublin Core (dc, dcterms)\n * Schema.org (schema)\n * Vocabulary for annotating vocabulary descriptions (vann)\n * W3C Provenance standard (prov)\n * Bibliographic Ontology (bibo)\n * Provenance, Authoring and Versioning (pav)\n * Firend of a friend (foaf)\n * Description of a project (DOAP)\n * Web Ontology Language (owl)\n * Resource description framework (rdfs)\n\nThe test will also return the vocabularies that were found. If none are found, the test will fail.\n\t"
+                "@value": " \nThis test verifies if the ontology reuses other vocabularies for declaring metadata terms (see tests OM1... OM5).\nThe test will pass if metadata annotations using properties from any of the following vocabularies are used:\n * Dublin Core (dc, dcterms)\n * Schema.org (schema)\n * Vocabulary for annotating vocabulary descriptions (vann)\n * W3C Provenance standard (prov)\n * Bibliographic Ontology (bibo)\n * Provenance, Authoring and Versioning (pav)\n * Firend of a friend (foaf)\n * Description of a project (DOAP)\n * Web Ontology Language (owl)\n * Resource description framework (rdfs)\nThe test will also return the vocabularies that were found. If none are found, the test will fail.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -117,23 +117,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -150,19 +133,54 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/VOC1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@value": "Daniel Garijo"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -192,38 +210,20 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/identifier": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
-                "@value": "https://ror.org/02h3v0f81"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@value": "Universidad Politécnica de Madrid"
+                "@id": "mailto:m.poveda@upm.es"
             }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/VOC1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
         ]
     }
 ]
