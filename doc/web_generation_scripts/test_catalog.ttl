@@ -104,9 +104,10 @@
     rdfs:label "FIND1 test: Ontology prefix is declared"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description """ This check verifies if an ontology prefix is declared in the ontology metadata. 
-	The test will pass if a vann:preferredNamespacePrefix is declared (vann: http://purl.org/vocab/vann/).
-	Otherwise, the test will fail. """@en ;
+    dcterms:description """
+This check verifies if an ontology prefix is declared in the ontology metadata. 
+The test will pass if a vann:preferredNamespacePrefix is declared (vann: http://purl.org/vocab/vann/).
+Otherwise, the test will fail. """@en ;
     dcterms:identifier <https://w3id.org/foops/test/FIND1> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dcterms:publisher <https://oeg.fi.upm.es>,
@@ -131,12 +132,13 @@
     rdfs:label "FIND2 test: Ontology prefix is found in prefix.cc or LOV"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description """ This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 
-	The test will pass if: 
-	* 1) there is a prefix declared in the assessed ontology, 
-	* 2) the prefix is found in LOV or prefix.cc 
-	* 3) if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
-	Otherwise, the test will fail. 
+    dcterms:description """
+This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 
+The test will pass if: 
+	1) there is a prefix declared in the assessed ontology, 
+	2) the prefix is found in LOV or prefix.cc 
+	3) if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
+Otherwise, the test will fail. 
 	"""@en ;
     dcterms:identifier <https://w3id.org/foops/test/FIND2> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
@@ -164,15 +166,16 @@
     rdfs:label "FIND3 test: Ontology found in community registry"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description """ This test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
-	The test will pass if the assessed ontology URI is found in the LOV list of vocabularies.
-	The test will fail otherwise.   
+    dcterms:description """
+This test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
+The test will pass if the assessed ontology URI is found in the LOV list of vocabularies.
+The test will fail otherwise.   
 	"""@en ;
     dcterms:identifier <https://w3id.org/foops/test/FIND3> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dcterms:publisher <https://oeg.fi.upm.es>,
         <https://ror.org/03n6nwv02> ;
-    dcterms:title "Ontologyfound in community registry"@en ;
+    dcterms:title "Ontology found in community registry"@en ;
     ns1:SIO_000233 <https://w3id.org/foops/metric/FIND3> ;
     doap:repository <https://w3id.org/foops/repository> ;
     vivo:abbreviation "FIND3-T"^^xsd:string ;
@@ -193,9 +196,10 @@
     rdfs:label "FIND_3_BIS test: Ontology metadata are accessible, even when the ontology is not"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description """ Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
-	The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
-	The test will fail otherwise. """@en ;
+    dcterms:description """
+Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
+The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
+The test will fail otherwise. """@en ;
     dcterms:identifier <https://w3id.org/foops/test/FIND_3_BIS> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dcterms:publisher <https://oeg.fi.upm.es>,
@@ -247,7 +251,6 @@
         <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:description """
 This check verifies if the following  minimum metadata are present in the ontology metadata:
-
  * title: declared using dc:title, dcterms:title or schema:name
  * description: declared using dc:abstract, dcterms:abstract, dc:description, dcterms:description, schema:description, rdfs:comment, doap:description, doap:shortdesc or skos:note
  * license: declared using dcterms:license, schema:license, doap:license or cc:license.
@@ -258,7 +261,6 @@ This check verifies if the following  minimum metadata are present in the ontolo
 The test will pass if all ontology metadata are present. The test will fail otherwise, indicating the properties that are missing.
 
 Namespaces used:
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/
@@ -296,17 +298,14 @@ Namespaces used:
         <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:description """ 
 This test verifies if the following recommended metadata are present in the ontology metadata: 
-
  * Namespace prefix: declared using vann:preferredNamespacePrefix
  * Version info: declared using owl:versionInfo or schema:schemaVersion
  * Creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
  * Citation: declared using dcterms:bibliographicCitation
  * Contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
-
 The test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).
 
 Namespaces used: 
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/
@@ -341,7 +340,6 @@ Namespaces used:
         <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:description """
 This test verifies if the ontology includes the following detailed metadata:
-
  * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (id a doi is provided) or dcterms:identifier (if a doi is provided)
  * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
  * logo: declared using foaf:logo or schema:logo
@@ -351,11 +349,9 @@ This test verifies if the ontology includes the following detailed metadata:
  * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
  * backward compatibility (optional): declared using 
  * modified date (optional): declared using 
-
 The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).
 
 Namespaces used: 
-
  * bibo: http://purl.org/ontology/bibo/ 
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
@@ -393,13 +389,10 @@ Namespaces used:
         <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:description """ 
 This test verifies if a license (or rights) are associated with the ontology.
-
 The test will pass if a license is declared using any of the following properties: dcterms:license, schema:license, doap:license or cc:license.
 If a license is not found, but rights are declared (dc:rights), the test will pass as well.
 Otherwise, the test will fail (i.e., no license or rights are declared).
-
 Namespaces:
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/
@@ -460,16 +453,13 @@ This test verifies if the ontology license is resolvable. The test will pass if 
         <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:description """ 
 This check verifies if basic provenance metadata is available for the ontology:  
-
  * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
  * creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
  * contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
  * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
-
 The test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.
 
 Namespaces used:
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/
@@ -505,15 +495,12 @@ Namespaces used:
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:description """ 
-This check verifies if detailed provenance information is available for the ontology: [issued date, publisher]
-
+This check verifies if detailed provenance information is available for the ontology: 
  * issued date: declared using dcterms:issued
  * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
-
 The test will pass if both metadata fields are present. The test will fail otherwise, indicating the properties that are missing.
 
 Namespaces used:
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/
@@ -543,8 +530,8 @@ Namespaces used:
     rdfs:label "PURL1 test: Ontology has a persistent URL"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description """This test verifies if the ontology has a persistent URL. We do so by checking if the ontology URI follows any of the following URI schemes:
-
+    dcterms:description """
+This test verifies if the ontology has a persistent URL. We do so by checking if the ontology URI follows any of the following URI schemes:
 	* w3id.org
 	* doi.org
 	* purl.org (or purl.something.org)  
@@ -577,9 +564,10 @@ Namespaces used:
     rdfs:label "URI1 test: Ontology URI is resolvable"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description """This test verifies if the ontology URI that was found within the ontology document is resolvable. 
-	Note that the ontology URI found in the ontology may be different from the URI used in the assessment.
-	The test will pass if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will fail if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. """@en ;
+    dcterms:description """
+This test verifies if the ontology URI that was found within the ontology document is resolvable. 
+Note that the ontology URI found in the ontology may be different from the URI used in the assessment.
+The test will pass if the vocabulary is resolvable in any of the following RDF serializations: RDF/XML, TTL, N-Triples, JSON-LD. The test will fail if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned. """@en ;
     dcterms:identifier <https://w3id.org/foops/test/URI1> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dcterms:publisher <https://oeg.fi.upm.es>,
@@ -630,7 +618,11 @@ This check verifies if the ontology URI is equal to the ontology ID. The test pa
     rdfs:label "VER1 test: A version IRI is declared in the ontology metadata"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description "This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if 1) the ontology has a versionIRI (owl:versionIRI) and 2) the versionIRI used is different from the ontology URI.Otherwise the test will fail."@en ;
+    dcterms:description """
+This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if: 
+1) the ontology has a versionIRI (owl:versionIRI) and 
+2) the versionIRI used is different from the ontology URI.
+Otherwise the test will fail."""@en ;
     dcterms:identifier <https://w3id.org/foops/test/VER1> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dcterms:publisher <https://oeg.fi.upm.es>,
@@ -655,7 +647,9 @@ This check verifies if the ontology URI is equal to the ontology ID. The test pa
     rdfs:label "VER2 test: Ontology version IRI resolves"^^xsd:string ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145>,
         <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:description "This test verifies if the version IRI resolves. The test will pass if there is a version IRI for the ontology/vocabulary (detected using owl:versionIRI in the ontology metadata) and whether doing a request to said IRI returns a resource. The test will fail if the resource is not found (404 response) or returns an error."@en ;
+    dcterms:description """
+This test verifies if the version IRI resolves. The test will pass if there is a version IRI for the ontology/vocabulary (detected using owl:versionIRI in the ontology metadata) and whether doing a request to said IRI returns a resource. 
+The test will fail if the resource is not found (404 response) or returns an error."""@en ;
     dcterms:identifier <https://w3id.org/foops/test/VER2> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dcterms:publisher <https://oeg.fi.upm.es>,
@@ -693,7 +687,6 @@ The test will pass if metadata annotations using properties from any of the foll
  * Description of a project (DOAP)
  * Web Ontology Language (owl)
  * Resource description framework (rdfs)
-
 The test will also return the vocabularies that were found. If none are found, the test will fail.
 	"""@en ;
     dcterms:identifier <https://w3id.org/foops/test/VOC1> ;
@@ -724,7 +717,6 @@ The test will also return the vocabularies that were found. If none are found, t
 This test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).
 The test will pass if other vocabularies are imported (owl:imports), or if classes, properties or data properties 
 outside the ontology URI or namespace URI are used.
-
 The test wil fail if no terms are reused.
 	"""@en ;
     dcterms:identifier <https://w3id.org/foops/test/VOC2> ;
@@ -837,12 +829,10 @@ The test will fail otherwise, showing the level of completeness obtained (i.e. t
         <https://orcid.org/0000-0003-3587-0367> ;
     dcterms:description """
 This test verifies whether HTML and an RDF representation is available for the target vocabulary by doing content negotiation on the ontology URI. The test will pass if the vocabulary is available in HTML and in any of the following RDF serializations: 
-
  * RDF/XML (application/rdf+xml), 
  * TTL (text/turtle), 
  * N-Triples (text/n3), 
  * JSON-LD (application/ld+json)
-
 The test will fail if no HTML is returned, if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."""@en ;
     dcterms:identifier <https://w3id.org/foops/test/CN1> ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;

@@ -32,7 +32,6 @@ The test will pass if metadata annotations using properties from any of the foll
  * Description of a project (DOAP)
  * Web Ontology Language (owl)
  * Resource description framework (rdfs)
-
 The test will also return the vocabularies that were found. If none are found, the test will fail.
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;

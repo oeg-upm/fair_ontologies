@@ -21,16 +21,13 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.2> ;
 	dcterms:description """ 
 This check verifies if basic provenance metadata is available for the ontology:  
-
  * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
  * creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
  * contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
  * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
-
 The test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.
 
 Namespaces used:
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/

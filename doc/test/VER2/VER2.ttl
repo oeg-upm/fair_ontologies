@@ -19,7 +19,9 @@
 	vivo:abbreviation "VER2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
-	dcterms:description """This test verifies if the version IRI resolves. The test will pass if there is a version IRI for the ontology/vocabulary (detected using owl:versionIRI in the ontology metadata) and whether doing a request to said IRI returns a resource. The test will fail if the resource is not found (404 response) or returns an error."""@en ; 
+	dcterms:description """
+This test verifies if the version IRI resolves. The test will pass if there is a version IRI for the ontology/vocabulary (detected using owl:versionIRI in the ontology metadata) and whether doing a request to said IRI returns a resource. 
+The test will fail if the resource is not found (404 response) or returns an error."""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/VER2> ;

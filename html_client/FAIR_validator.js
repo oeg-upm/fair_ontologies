@@ -483,7 +483,7 @@ function loadInfo(result) {
 function loadCategory(category, result) {
   var checks_div = document.getElementById(category + "-checks");
   checks_div.innerHTML = getLineHTMLNoLine();
-  checks_div.style ="display: none";
+  // checks_div.style ="display: none";
   checks = getCategoryChecks(category, result);
   // console.log(result)
   //if a category does not have any results (depends on the benchmark, return a special body)
@@ -648,7 +648,7 @@ function getCheckHTML(check_info) {
             <div class="row mx-0 mt-2 w-100">
               <dl>
                 <dt>Description</dt>
-                <dd>${check_info.description}</dd>
+                <dd><pre style="white-space:pre-wrap; word-wrap:break-word;">${check_info.description}</pre></dd>
                 <dt>Explanation</dt>
                 <dd>${check_info.explanation}</dd>
               </dl>
@@ -686,7 +686,7 @@ function getCheckHTML(check_info) {
             <div class="row mx-0 mt-2 w-100">
               <dl>
                 <dt>Description</dt>
-                <dd>${check_info.description}</dd>
+                <dd><pre style="white-space:pre-wrap; word-wrap:break-word;">${check_info.description}</pre></dd>
                 <dt>Explanation</dt>
                 <dd>${check_info.explanation}</dd>
               </dl>

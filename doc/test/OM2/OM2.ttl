@@ -21,17 +21,14 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
 	dcterms:description """ 
 This test verifies if the following recommended metadata are present in the ontology metadata: 
-
  * Namespace prefix: declared using vann:preferredNamespacePrefix
  * Version info: declared using owl:versionInfo or schema:schemaVersion
  * Creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
  * Citation: declared using dcterms:bibliographicCitation
  * Contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
-
 The test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).
 
 Namespaces used: 
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/

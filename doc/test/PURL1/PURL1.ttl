@@ -19,8 +19,8 @@
 	vivo:abbreviation "PURL1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
-	dcterms:description """This test verifies if the ontology has a persistent URL. We do so by checking if the ontology URI follows any of the following URI schemes:
-
+	dcterms:description """
+This test verifies if the ontology has a persistent URL. We do so by checking if the ontology URI follows any of the following URI schemes:
 	* w3id.org
 	* doi.org
 	* purl.org (or purl.something.org)  

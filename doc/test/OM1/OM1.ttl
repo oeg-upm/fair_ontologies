@@ -21,7 +21,6 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F2> ;
 	dcterms:description """
 This check verifies if the following  minimum metadata are present in the ontology metadata:
-
  * title: declared using dc:title, dcterms:title or schema:name
  * description: declared using dc:abstract, dcterms:abstract, dc:description, dcterms:description, schema:description, rdfs:comment, doap:description, doap:shortdesc or skos:note
  * license: declared using dcterms:license, schema:license, doap:license or cc:license.
@@ -32,7 +31,6 @@ This check verifies if the following  minimum metadata are present in the ontolo
 The test will pass if all ontology metadata are present. The test will fail otherwise, indicating the properties that are missing.
 
 Namespaces used:
-
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/
