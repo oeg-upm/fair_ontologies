@@ -19,8 +19,8 @@ package server;
 
 
 import com.google.gson.Gson;
-import entities.Response;
-import entities.ResponseResource;
+//import entities.Response;
+//import entities.ResponseResource;
 import fair.Constants;
 import fair.FOOPS;
 import org.slf4j.Logger;
@@ -69,7 +69,7 @@ public class FOOPSController {
         + "Example request JSON:\n" 
         + "```\n" 
         + "{\n" 
-        + " \"ontologyUri\": \"https://w3id.org/okn/o/sd#\"\n" 
+        + " \"ontologyUri\": \"https://w3id.org/example#\"\n"
         + "}\n" 
         + "```"
         )
@@ -77,17 +77,14 @@ public class FOOPSController {
     @PostMapping(path = "/assessOntology", consumes = "application/json", produces = "application/json")
     public String assessPOST(
         @ApiParam(value = "Ontology request object", required = true)
-        @RequestBody String body) {
-        Response r = null;
+        @RequestBody OntologyAssessmentRequestLegacy body) {
         FOOPS f = null;
         Path ontologyPath = null;
         
         try{
             try { //has an onto URI been provided?
-                Gson gson = new Gson();
-                r = gson.fromJson(body, Response.class);
-                if (r.getOntologyUri() != null) {
-                    f = new FOOPS(r.getOntologyUri(), false);
+                if (body.getOntologyUri() != null) {
+                    f = new FOOPS(body.getOntologyUri(), false);
                 }
             }catch(Exception e){
                 logger.error("Error "+ e.getMessage());
@@ -95,7 +92,7 @@ public class FOOPSController {
                         HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
             }
             try{ //is there content?
-                if (f == null && body!=null && !"".equals(body)){
+                if (f == null){// && body!=null && !"".equals(body)){
                     ontologyPath = Path.of("ontology");
                     try (PrintWriter out = new PrintWriter(String.valueOf(ontologyPath))) {
                         out.println(body);
@@ -173,19 +170,19 @@ public class FOOPSController {
     )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "assess/test/{test_identifier}", consumes = "application/json", produces = "application/json")
-    public String postTestAssessment(@PathVariable String test_identifier, @RequestBody String body) {
+    public String postTestAssessment(@PathVariable String test_identifier,
+                                     @RequestBody OntologyAssessmentRequest body) {
         String targetResource = "";
         FOOPS f = null;
         try{
             try { //has an onto URI been provided?
                 Gson gson = new Gson();
-                ResponseResource r = gson.fromJson(body, ResponseResource.class);
-                targetResource = r.getResourceIdentifier();
+//                ResponseResource r = gson.fromJson(body, ResponseResource.class);
+                targetResource = body.getResourceIdentifier();
                 ArrayList<String> testIDs = new ArrayList<>();
                 testIDs.add(test_identifier);
                 f = new FOOPS(targetResource, testIDs);
                 f.fairTest();
-                //return f.exportJSON();
                 return f.exportJSONLD();
             }catch(Exception e){
                 logger.error("Error "+ e.getMessage());
@@ -218,16 +215,17 @@ public class FOOPSController {
                     + "```"
     )
     @PostMapping(path = "assess/resultset/{identifier}",  consumes = "application/json", produces = "application/json")
-    public String postResultSetAssessment(@PathVariable String identifier, @RequestBody String body) {
+    public String postResultSetAssessment(@PathVariable String identifier,
+                                          @RequestBody OntologyAssessmentRequest body) {
         //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
         //return ("TO DO assessment of test result set "+ url);
         String targetResource = "";
         FOOPS f = null;
         try{
             try {
-                Gson gson = new Gson();
-                ResponseResource r = gson.fromJson(body, ResponseResource.class);
-                targetResource = r.getResourceIdentifier();
+//                Gson gson = new Gson();
+//                ResponseResource r = gson.fromJson(body, ResponseResource.class);
+                targetResource = body.getResourceIdentifier();
                 f = new FOOPS(targetResource, false);
                 f.fairTest();
                 return f.exportJSONLD();
