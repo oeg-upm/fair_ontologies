@@ -107,7 +107,12 @@ public class Utils {
             return v.asIRI().get().getIRIString();
         } catch (Exception e) {
             // instead of a resource, it was added as a String
-            return v.asLiteral().get().getLiteral();
+            try {
+                return v.asLiteral().get().getLiteral();
+            }catch (Exception e2){
+                // the value is a blank node
+                return v.annotationValue().toString();
+            }
         }
     }
 

@@ -22,4 +22,17 @@ public class FOOPSTest {
         assertEquals (61,f.getOntology().getTermsWithDescription().size());
         f.removeTemporaryFolders();
     }
+
+    /**
+     * This test verifies that an ontology with a blank node as an author works
+     */
+    @Test
+    public void blankNodesInAnnotations(){
+        ClassLoader classLoader = getClass().getClassLoader();
+        File is = new File(classLoader.getResource("test_blank_node.ttl").getFile());
+        FOOPS f = new FOOPS(is.toString(), true);
+        // there must be one author
+        assertEquals (1,f.getOntology().getAuthors().size());
+        f.removeTemporaryFolders();
+    }
 }
