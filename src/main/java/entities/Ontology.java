@@ -315,13 +315,6 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_MODIFIED:
             case Constants.PROP_SCHEMA_DATE_MODIFIED:
-                try {
-                    this.modifiedDate = a.getValue().asLiteral().get().getLiteral();
-                    this.supportedMetadata.add(Constants.FOOPS_MODIFIED);
-                } catch (Exception e) {
-                    logger.error("Error while getting the date. No literal provided");
-                }
-                break;
             case Constants.PROP_SCHEMA_DATE_MODIFIED_HTTP:
                 try {
                     this.modifiedDate = a.getValue().asLiteral().get().getLiteral();

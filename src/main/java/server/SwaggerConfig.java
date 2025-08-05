@@ -10,7 +10,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfig {
 
-    //swagger config to remove the default error controller
+    // swagger config to remove the default error controller.
+    // this gets used by the swagger client, no need to use it in an object.
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
