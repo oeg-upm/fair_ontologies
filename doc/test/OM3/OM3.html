@@ -61,15 +61,15 @@
             </div>
             <div class="row">
                     <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology includes the following detailed metadata:
- * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (id a doi is provided) or dcterms:identifier (if a doi is provided)
+ * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (if a doi is provided) or dcterms:identifier (if a doi is provided)
  * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
  * logo: declared using foaf:logo or schema:logo
  * status: declared using bibo:status
  * source: declared using dcterms:source or prov:hadOriginalSource
  * issued date: declared using dcterms:issued
- * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
- * backward compatibility (optional): declared using 
- * modified date (optional): declared using 
+ * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion or pav:previousVersion
+ * backward compatibility (optional): declared using owl:backwardCompatibleWith
+ * modified date (optional): declared using dcterms:modified or schema:dateModified
 The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).</p>
 <p>Namespaces used: 
  * bibo: http://purl.org/ontology/bibo/ 
