@@ -122,7 +122,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :combinesFrame rdf:type owl:ObjectProperty ;
                rdfs:domain :CombinedFrame ;
                rdfs:range :Frame ;
-               rdfs:label "combines frame" ;
+               <http://purl.obolibrary.org/obo/IAO_0000118> "combines frame" ;
                <http://www.w3.org/2004/02/skos/core#definition> "A relationship between a combined frame and the frames it combines" .
 
 

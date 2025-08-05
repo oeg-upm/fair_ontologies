@@ -21,6 +21,7 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
 	dcterms:description """
 This test verifies if the ontology includes the following detailed metadata:
+
  * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (if a doi is provided) or dcterms:identifier (if a doi is provided)
  * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
  * logo: declared using foaf:logo or schema:logo
@@ -30,6 +31,7 @@ This test verifies if the ontology includes the following detailed metadata:
  * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion or pav:previousVersion
  * backward compatibility (optional): declared using owl:backwardCompatibleWith
  * modified date (optional): declared using dcterms:modified or schema:dateModified
+
 The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).
 
 Namespaces used: 
