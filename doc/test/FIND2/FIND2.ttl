@@ -20,12 +20,12 @@
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
 	dcterms:description """
-This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 
+This test verifies whether the ontology prefix is available in [prefix.cc]((https://prefix.cc/)) or the [Linked Open Vocabularies (LOV)]((https://lov.linkeddata.es/)) registries. 
 The test will pass if: 
 
-	1. there is a prefix declared in the assessed ontology, 
-	2. the prefix is found in LOV or prefix.cc 
-	3. if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
+ 1. there is a prefix declared in the assessed ontology, 
+ 2. the prefix is found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) 
+ 3. if found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) , the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
 
 Otherwise, the test will fail. 
 	"""@en ; 

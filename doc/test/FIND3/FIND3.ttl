@@ -22,7 +22,7 @@
 	dcterms:description """
 This test verifies if the ontology can be found in a public registry like the Linked Open Vocabularies (LOV) public registry.
 The test will pass if the assessed ontology URI is found in the list of vocabularies returned by LOV.
-Alternatively, if there is a schema:includedInDataCatalog annotation (schema: https://schema.org/), the test will pass.
+Alternatively, if there is a [schema:includedInDataCatalog](https://schema.org/includedInDataCatalog) annotation, the test will pass.
 The test will fail otherwise.   
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;

@@ -20,8 +20,9 @@
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/A2> ;
 	dcterms:description """
-Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
+Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this test verifies if the ontology can be found in the [Linked Open Vocabularies (LOV) public registry](https://lov.linkeddata.es).
 The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
+Alternatively, if there is a [schema:includedInDataCatalog](https://schema.org/includedInDataCatalog) annotation, the test will pass.
 The test will fail otherwise. """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;

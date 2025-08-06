@@ -21,7 +21,7 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F3> ;
 	dcterms:description """
 This check verifies if an ontology prefix is declared in the ontology metadata. 
-The test will pass if a vann:preferredNamespacePrefix is declared (vann: http://purl.org/vocab/vann/).
+The test will pass if a [vann:preferredNamespacePrefix](http://purl.org/vocab/vann/) is declared.
 Otherwise, the test will fail. """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
