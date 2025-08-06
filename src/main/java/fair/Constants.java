@@ -373,9 +373,11 @@ public class Constants {
     public static final String NS_FOAF = "http://xmlns.com/foaf/0.1/";
     public static final String NS_CC = "http://creativecommons.org/ns#";
     public static final String NS_DOAP = "http://usefulinc.com/ns/doap#";
+    public static final String NS_MOD = "https://w3id.org/mod#";
+
 
     public static final String[] VOCS_REUSE_METADATA = {NS_DC, NS_SCHEMA, NS_DCTERMS, NS_VANN, NS_PROV,
-            NS_BIBO, NS_PAV, NS_FOAF, NS_RDFS, NS_OWL, NS_DOAP };
+            NS_BIBO, NS_PAV, NS_FOAF, NS_RDFS, NS_OWL, NS_DOAP, NS_MOD };
 
 
     public static final String SKOS_CONCEPT = NS_SKOS + "Concept";
@@ -491,6 +493,7 @@ public class Constants {
 
     public static final String PROP_CC_LICENSE = NS_CC + "license";
 
+    public static final String PROP_MOD_STATUS = NS_MOD + "status";
     /*metadata names*/
     public static final String FOOPS_TITLE = "title";
     public static final String FOOPS_DESCRIPTION = "description";

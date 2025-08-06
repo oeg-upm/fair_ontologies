@@ -25,7 +25,7 @@ This test verifies if the ontology includes the following detailed metadata:
  * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (if a doi is provided) or dcterms:identifier (if a doi is provided)
  * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
  * logo: declared using foaf:logo or schema:logo
- * status: declared using bibo:status
+ * status: declared using bibo:status or mod:status
  * source: declared using dcterms:source or prov:hadOriginalSource
  * issued date: declared using dcterms:issued
  * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion or pav:previousVersion
@@ -44,6 +44,7 @@ Namespaces used:
  * owl: http://www.w3.org/2002/07/owl#
  * pav: http://purl.org/pav/
  * prov: http://www.w3.org/ns/prov#
+ * mod: https://w3id.org/mod#
  
  """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;

@@ -118,4 +118,25 @@ public class FOOPSTest {
             fail();
         }
     }
+
+    /**
+     * This test verifies that an ontology with a link to a pdf and access right correctly defines a license
+     * Even if the license does not resolve
+     */
+    @Test
+    public void ontologyWithStrangeLicense(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("weird_license.owl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_OM4_1_License ch1 = new Check_OM4_1_License(f.getOntology());
+            ch1.check();
+            // all metadata is in the ontology
+            assertEquals(Constants.OK, ch1.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
 }

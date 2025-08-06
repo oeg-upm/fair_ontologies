@@ -343,6 +343,7 @@ public class Ontology {
                     this.supportedMetadata.add(Constants.FOOPS_DOI);
                 }
             case Constants.PROP_BIBO_STATUS:
+            case Constants.PROP_MOD_STATUS:
                 try {
                     if (a.getValue().isLiteral()) {
                         this.status = a.getValue().asLiteral().get().getLiteral();
