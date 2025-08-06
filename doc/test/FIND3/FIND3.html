@@ -60,8 +60,9 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
-The test will pass if the assessed ontology URI is found in the LOV list of vocabularies.
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology can be found in a public registry like the Linked Open Vocabularies (LOV) public registry.
+The test will pass if the assessed ontology URI is found in the list of vocabularies returned by LOV.
+Alternatively, if there is a schema:includedInDataCatalog annotation (schema: https://schema.org/), the test will pass.
 The test will fail otherwise.   </p></div>
             </div>
 
