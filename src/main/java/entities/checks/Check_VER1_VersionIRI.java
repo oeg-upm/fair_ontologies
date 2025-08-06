@@ -43,22 +43,28 @@ public class Check_VER1_VersionIRI extends Check {
         super.check();
         try {
             String versionIRI = this.ontology.getVersionIRI();
+            String versionInfo = this.ontology.getVersionInfo();
             String explanation;
-            if (versionIRI != null && !"".equals(versionIRI)) {
+            String versionInfoExplanation = " Version information not found. " +
+                    " Please consider adding it to describe the version number of the ontology.";
+            if  (versionInfo !=null && !versionInfo.isEmpty()){
+                versionInfoExplanation = " Version info found ("+versionInfo+").";
+            }
+            if (versionIRI != null && !versionIRI.isEmpty()) {
                 this.total_passed_tests++;
                 if (!versionIRI.equals(this.ontology_URI)) {
                     this.total_passed_tests++;
                     this.status = Constants.OK;
-                    this.explanation = Constants.VER1_EXPLANATION_OK;
+                    this.explanation = Constants.VER1_EXPLANATION_OK + "."+ versionInfoExplanation;
                     return;
                 } else {
-                    explanation = " defined but equal to ontology id";
+                    explanation = " defined but equal to ontology id.";
                 }
             } else {
-                explanation = " not defined";
+                explanation = " not defined.";
             }
             this.status = Constants.ERROR;
-            this.explanation = Constants.VER1_EXPLANATION_ERROR + explanation;
+            this.explanation = Constants.VER1_EXPLANATION_ERROR + explanation + versionInfoExplanation;
         }catch(Exception e){
             status = Constants.ERROR;
             explanation = Constants.ERROR_METADATA;

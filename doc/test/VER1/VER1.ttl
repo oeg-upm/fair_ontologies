@@ -21,9 +21,12 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F1> ;
 	dcterms:description """
 This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if: 
-1) the ontology has a versionIRI (owl:versionIRI) and 
-2) the versionIRI used is different from the ontology URI.
-Otherwise the test will fail."""@en ; 
+
+ 1. The ontology has a versionIRI (owl:versionIRI) and 
+ 2. The versionIRI used is different from the ontology URI.
+
+Otherwise the test will fail. The test will also verify whether version information is present (through owl:versionInfo), but this is optional.
+	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/VER1> ;
