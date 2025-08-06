@@ -44,6 +44,7 @@ public class Check_PURL1_PersistentURIs extends Check {
                 this.ontology_URI.contains("linked.data.gov.au") ||
                 this.ontology_URI.contains("dbpedia.org") ||
                 this.ontology_URI.contains("perma.cc") ||
+                this.ontology_URI.contains("data.europa.eu") ||
                 this.ontology_URI.contains("www.w3.org")){
             this.status = Constants.OK;
             this.explanation = Constants.PURL1_EXPLANATION_OK;

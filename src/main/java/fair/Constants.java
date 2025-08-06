@@ -103,8 +103,9 @@ public class Constants {
     public static String PURL1_DESC;// = " This check verifies if the ontology has a persistent URL " +
             //"(w3id, purl, DOI, or a W3C URL)";
     public static final String PURL1_EXPLANATION_OK = "Ontology URI is persistent";
-    public static final String PURL1_EXPLANATION_ERROR = "Ontology URI is not using a persistent id. " +
-            "We checked w3id, purl, DOI and W3C";
+    public static final String PURL1_EXPLANATION_ERROR = "the ontology URI does not follow any of the schemes " +
+            "followed by known registers of persistent URIs. " +
+            "We checked w3id, purl, DOI, W3C, perma.cc, linked.data.gov.au, data.europa.eu and dbpedia.org";
 
     // Ontology metadata
     //minimum
