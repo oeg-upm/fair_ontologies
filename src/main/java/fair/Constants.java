@@ -416,7 +416,9 @@ public class Constants {
     public static final String PROP_SCHEMA_IDENTIFIER = NS_SCHEMA + "identifier";
     public static final String PROP_SCHEMA_PUBLISHER = NS_SCHEMA + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION = NS_SCHEMA + "schemaVersion";
-    public static final String PROP_SCHEMA_SCHEMA_LOGO = NS_SCHEMA + "logo";
+    public static final String PROP_SCHEMA_LOGO = NS_SCHEMA + "logo";
+    public static final String PROP_SCHEMA_DATE_PUBLISHED = NS_SCHEMA + "datePublished";
+    public static final String PROP_SCHEMA_DATE_RELEASED = NS_SCHEMA + "releaseDate";
 
     public static final String PROP_SCHEMA_NAME_HTTP = NS_SCHEMA_HTTP + "name";
     public static final String PROP_SCHEMA_CREATOR_HTTP = NS_SCHEMA_HTTP + "creator";
@@ -429,7 +431,9 @@ public class Constants {
     public static final String PROP_SCHEMA_IDENTIFIER_HTTP = NS_SCHEMA_HTTP + "identifier";
     public static final String PROP_SCHEMA_PUBLISHER_HTTP = NS_SCHEMA_HTTP + "publisher";
     public static final String PROP_SCHEMA_SCHEMA_VERSION_HTTP = NS_SCHEMA_HTTP + "schemaVersion";
-    public static final String PROP_SCHEMA_SCHEMA_LOGO_HTTP = NS_SCHEMA_HTTP + "logo";
+    public static final String PROP_SCHEMA_LOGO_HTTP = NS_SCHEMA_HTTP + "logo";
+    public static final String PROP_SCHEMA_DATE_PUBLISHED_HTTP = NS_SCHEMA_HTTP + "datePublished";
+    public static final String PROP_SCHEMA_DATE_RELEASED_HTTP = NS_SCHEMA_HTTP + "releaseDate";
 
     public static final String PROP_OWL_VERSION_INFO = NS_OWL + "versionInfo";
 
@@ -462,6 +466,7 @@ public class Constants {
     public static final String PROP_DCTERMS_MODIFIED = NS_DCTERMS + "modified";
     public static final String PROP_DCTERMS_BIBLIOGRAPHIC_CIT = NS_DCTERMS + "bibliographicCitation";
     public static final String PROP_DCTERMS_ISSUED = NS_DCTERMS + "issued";
+    public static final String PROP_DCTERMS_SUBMITTED = NS_DCTERMS + "submitted";
     public static final String PROP_DCTERMS_IDENTIFIER = NS_DCTERMS + "identifier";
     public static final String PROP_DCTERMS_SOURCE = NS_DCTERMS + "source";
 

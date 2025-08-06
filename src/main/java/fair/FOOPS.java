@@ -298,7 +298,7 @@ public class FOOPS {
                 Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_BIBO_DOI, ontology.getDoi());
             }
             if(this.ontology.getLogo()!=null){
-                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_SCHEMA_LOGO, ontology.getLogo());
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_LOGO, ontology.getLogo());
             }
             if(this.ontology.getAuthors()!=null && !this.ontology.getAuthors().isEmpty()){
                 for(String author: this.ontology.getAuthors()) {

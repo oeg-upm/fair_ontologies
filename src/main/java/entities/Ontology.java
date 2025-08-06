@@ -360,8 +360,8 @@ public class Ontology {
                 this.supportedMetadata.add(Constants.FOOPS_B_COMPATIBILITY);
                 break;
             case Constants.PROP_FOAF_LOGO:
-            case Constants.PROP_SCHEMA_SCHEMA_LOGO:
-            case Constants.PROP_SCHEMA_SCHEMA_LOGO_HTTP:
+            case Constants.PROP_SCHEMA_LOGO:
+            case Constants.PROP_SCHEMA_LOGO_HTTP:
                 this.logo = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_LOGO);
                 break;
@@ -372,6 +372,9 @@ public class Ontology {
                 this.supportedMetadata.add(Constants.FOOPS_SOURCE);
                 break;
             case Constants.PROP_DCTERMS_ISSUED:
+            case Constants.PROP_DCTERMS_SUBMITTED:
+            case Constants.PROP_SCHEMA_DATE_PUBLISHED:
+            case Constants.PROP_SCHEMA_DATE_PUBLISHED_HTTP:
                 this.issuedDate = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_ISSUED);
                 break;
