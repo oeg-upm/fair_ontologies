@@ -162,4 +162,24 @@ public class FOOPSTest {
             fail();
         }
     }
+
+    /**
+     * This test verifies that if an ontology extends metadata properties, they still get accepted.
+     */
+    @Test
+    public void testExtendedProperties(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("test_extended_annotation_properties.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_OM1_MinimumMetadata ch1 = new Check_OM1_MinimumMetadata(f.getOntology());
+            ch1.check();
+            // all metadata is in the ontology
+            assertEquals(Constants.OK, ch1.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
 }

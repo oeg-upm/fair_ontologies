@@ -148,6 +148,28 @@ public class Ontology {
                 logger.info("No version IRI detected");
             }
             this.ontologyModel.annotations().forEach(this::completeMetadata);
+            // extension for those axioms that extend properties but are annotation properties.
+            // see https://github.com/dgarijo/Widoco/issues/530 for context
+            for (OWLAxiom axiom : ontologyModel.getAxioms()) {
+                String subject = "", predicate ="", object ="";
+                if (axiom instanceof OWLDataPropertyAssertionAxiom) {
+                    OWLDataPropertyAssertionAxiom dataPropertyAssertionAxiom = (OWLDataPropertyAssertionAxiom) axiom;
+                    subject = dataPropertyAssertionAxiom.getSubject().toStringID();
+                    predicate = dataPropertyAssertionAxiom.getProperty().asOWLDataProperty().toStringID();
+                    object = dataPropertyAssertionAxiom.getObject().getLiteral();
+                } else if (axiom instanceof OWLObjectPropertyAssertionAxiom) {
+                    OWLObjectPropertyAssertionAxiom objectPropertyAssertionAxiom = (OWLObjectPropertyAssertionAxiom) axiom;
+                    subject = objectPropertyAssertionAxiom.getSubject().toStringID();
+                    predicate = objectPropertyAssertionAxiom.getProperty().asOWLObjectProperty().toStringID();
+                    object = objectPropertyAssertionAxiom.getObject().toStringID();
+                }
+                if (subject.equals(this.ontologyURI)){
+                    OWLDataFactory dataFactory = this.ontologyModel.getOWLOntologyManager().getOWLDataFactory();
+                    OWLAnnotationProperty pAux = dataFactory.getOWLAnnotationProperty(IRI.create(predicate));
+                    OWLAnnotationValue oAux = dataFactory.getOWLLiteral(object);
+                    completeMetadata(dataFactory.getOWLAnnotation(pAux,oAux));
+                }
+            }
         }
     }
 
@@ -194,13 +216,6 @@ public class Ontology {
                 break;
             case Constants.PROP_OWL_VERSION_INFO:
             case Constants.PROP_SCHEMA_SCHEMA_VERSION:
-                try {
-                    this.versionInfo = a.getValue().asLiteral().get().getLiteral();
-                    this.supportedMetadata.add(Constants.FOOPS_VERSION_INFO);
-                } catch (Exception e) {
-                    logger.error("Error while getting ontology abstract. No literal provided");
-                }
-                break;
             case Constants.PROP_SCHEMA_SCHEMA_VERSION_HTTP:
                 try {
                     this.versionInfo = a.getValue().asLiteral().get().getLiteral();
