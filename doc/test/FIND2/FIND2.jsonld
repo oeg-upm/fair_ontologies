@@ -1,17 +1,9 @@
 [
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },
@@ -33,49 +25,25 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Universidad Politécnica de Madrid"
+                "@value": "Ontology Engineering Group"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@id": "https://www.upm.es/"
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     },
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
+        "@id": "https://w3id.org/foops/metric/FIND2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -95,7 +63,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "\nThis test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. \nThe test will pass if: \n\n\t1. there is a prefix declared in the assessed ontology, \n\t2. the prefix is found in LOV or prefix.cc \n\t3. if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)\n\nOtherwise, the test will fail. \n\t"
+                "@value": "\nThis test verifies whether the ontology prefix is available in [prefix.cc]((https://prefix.cc/)) or the [Linked Open Vocabularies (LOV)]((https://lov.linkeddata.es/)) registries. \nThe test will pass if: \n\n 1. there is a prefix declared in the assessed ontology, \n 2. the prefix is found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) \n 3. if found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) , the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)\n\nOtherwise, the test will fail. \n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -204,6 +172,23 @@
         ]
     },
     {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/F4",
         "@type": [
             "http://www.w3.org/ns/dqv#Dimension",
@@ -229,9 +214,24 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/FIND2",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
         ]
     }
 ]
