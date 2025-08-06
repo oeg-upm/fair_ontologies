@@ -20,8 +20,9 @@
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
 	dcterms:description """
-This test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
-The test will pass if the assessed ontology URI is found in the LOV list of vocabularies.
+This test verifies if the ontology can be found in a public registry like the Linked Open Vocabularies (LOV) public registry.
+The test will pass if the assessed ontology URI is found in the list of vocabularies returned by LOV.
+Alternatively, if there is a schema:includedInDataCatalog annotation (schema: https://schema.org/), the test will pass.
 The test will fail otherwise.   
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;

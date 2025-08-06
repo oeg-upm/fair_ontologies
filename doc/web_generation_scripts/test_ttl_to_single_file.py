@@ -3,6 +3,7 @@ script to create a single ttl files with all test info.
 
 '''
 import os
+import markdown
 from rdflib import Graph, Namespace, RDF, RDFS, Literal
 
 # Folder containing Turtle files
@@ -61,7 +62,7 @@ with open(output_properties, "w", encoding="utf-8") as f:
     for i, row in enumerate(results, start=1):
         test_id = row.get("ab", Literal("")).value.replace("-T","")
         name = escape_properties_value(row.get("name", Literal("")).value)
-        desc = escape_properties_value(row.get("description", Literal("")).value)
+        desc = escape_properties_value(markdown.markdown(row.get("description", Literal("")).value))
         f.write(f"{test_id}.name={name}\n")
         f.write(f"{test_id}.description={desc}\n\n")
 

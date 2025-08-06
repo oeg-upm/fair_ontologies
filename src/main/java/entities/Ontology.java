@@ -374,11 +374,16 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_ISSUED:
             case Constants.PROP_DCTERMS_SUBMITTED:
+            case Constants.PROP_SCHEMA_DATE_RELEASED:
+            case Constants.PROP_SCHEMA_DATE_RELEASED_HTTP:
             case Constants.PROP_SCHEMA_DATE_PUBLISHED:
             case Constants.PROP_SCHEMA_DATE_PUBLISHED_HTTP:
                 this.issuedDate = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_ISSUED);
                 break;
+            case Constants.PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG_HTTP:
+            case Constants.PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG:
+                this.supportedMetadata.add(Constants.FOOPS_INCLUDED_IN_DATA_CATALOG);
             case Constants.PROP_RDFS_LABEL:
             case Constants.PROP_DOAP_NAME:
                 this.name = Utils.getValueAsLiteralOrURI(a.getValue());
@@ -644,5 +649,10 @@ public class Ontology {
 
     public String getSource() {
         return source;
+    }
+
+    public String getNamespaceUri(){
+        if (namespaceUri.isEmpty()) return "unknown";
+        else return namespaceUri;
     }
 }

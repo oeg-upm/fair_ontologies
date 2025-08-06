@@ -50,7 +50,7 @@ public class Check_OM5_2_ProvenanceMetadataFull extends Check {
                 optional.append(m).append(", ");
             }
         }
-        if ("".equals(exp.toString())) {
+        if (exp.toString().isEmpty()) {
             explanation = "All detailed provenance metadata found!";
             this.status = Constants.OK;
         } else {

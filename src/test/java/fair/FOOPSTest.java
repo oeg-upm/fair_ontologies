@@ -120,6 +120,27 @@ public class FOOPSTest {
     }
 
     /**
+     * This test verifies that an ontology passes the availability in registry through an annotation
+     * (schema:includedInDataCatalog)
+     */
+    @Test
+    public void ontologyInDataCatalog(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("ontology_included_in_catalog.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_FIND3_FindOntologyInRegistry ch1 = new Check_FIND3_FindOntologyInRegistry(f.getOntology());
+            ch1.check();
+            // all metadata is in the ontology
+            assertEquals(Constants.OK, ch1.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
+
+    /**
      * This test verifies that an ontology with a link to a pdf and access right correctly defines a license
      * Even if the license does not resolve
      */
@@ -130,7 +151,9 @@ public class FOOPSTest {
             File is = new File(classLoader.getResource("weird_license.owl").getFile());
             FOOPS f = new FOOPS(is.toString(), true);
             Check_OM4_1_License ch1 = new Check_OM4_1_License(f.getOntology());
+            Check_OM4_2_LicenseIsResolvable ch2 = new Check_OM4_2_LicenseIsResolvable(f.getOntology());
             ch1.check();
+            ch2.check();
             // all metadata is in the ontology
             assertEquals(Constants.OK, ch1.getStatus());
             f.removeTemporaryFolders();

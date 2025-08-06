@@ -183,7 +183,8 @@ public class Constants {
     public static final String FIND3 = "FIND3";
     public static String FIND3_TITLE;//  = "Ontology in metadata registry";
     public static String FIND3_DESC;//  = "This check verifies if the ontology can be found in a public registry (LOV)";
-    public static final String FIND3_EXPLANATION_OK= "Ontology namespace found in";
+    public static final String FIND3_EXPLANATION_OK= "Ontology namespace URI found in";
+    public static final String FIND3_EXPLANATION_OK_ANN = "Otology is included in a data catalog.";
     public static final String FIND3_EXPLANATION_ERROR= "Ontology not found in a public registry";
 
     public static final String FIND3_BIS = "FIND_3_BIS";
@@ -374,6 +375,7 @@ public class Constants {
     public static final String NS_CC = "http://creativecommons.org/ns#";
     public static final String NS_DOAP = "http://usefulinc.com/ns/doap#";
     public static final String NS_MOD = "https://w3id.org/mod#";
+    public static final String NS_DCAT = "http://www.w3.org/ns/dcat#";
 
 
     public static final String[] VOCS_REUSE_METADATA = {NS_DC, NS_SCHEMA, NS_DCTERMS, NS_VANN, NS_PROV,
@@ -421,6 +423,7 @@ public class Constants {
     public static final String PROP_SCHEMA_LOGO = NS_SCHEMA + "logo";
     public static final String PROP_SCHEMA_DATE_PUBLISHED = NS_SCHEMA + "datePublished";
     public static final String PROP_SCHEMA_DATE_RELEASED = NS_SCHEMA + "releaseDate";
+    public static final String PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG = NS_SCHEMA + "includedInDataCatalog";
 
     public static final String PROP_SCHEMA_NAME_HTTP = NS_SCHEMA_HTTP + "name";
     public static final String PROP_SCHEMA_CREATOR_HTTP = NS_SCHEMA_HTTP + "creator";
@@ -436,6 +439,7 @@ public class Constants {
     public static final String PROP_SCHEMA_LOGO_HTTP = NS_SCHEMA_HTTP + "logo";
     public static final String PROP_SCHEMA_DATE_PUBLISHED_HTTP = NS_SCHEMA_HTTP + "datePublished";
     public static final String PROP_SCHEMA_DATE_RELEASED_HTTP = NS_SCHEMA_HTTP + "releaseDate";
+    public static final String PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG_HTTP = NS_SCHEMA_HTTP + "includedInDataCatalog";
 
     public static final String PROP_OWL_VERSION_INFO = NS_OWL + "versionInfo";
 
@@ -494,6 +498,7 @@ public class Constants {
     public static final String PROP_CC_LICENSE = NS_CC + "license";
 
     public static final String PROP_MOD_STATUS = NS_MOD + "status";
+
     /*metadata names*/
     public static final String FOOPS_TITLE = "title";
     public static final String FOOPS_DESCRIPTION = "description";
@@ -517,6 +522,7 @@ public class Constants {
     public static final String FOOPS_SOURCE = "source";
     public static final String FOOPS_ISSUED = "issued";
     public static final String FOOPS_NAME = "name";
+    public static final String FOOPS_INCLUDED_IN_DATA_CATALOG = "includedInDataCatalog";
 
     public static final String BENCHMARK_ALL_NAME = "General Benchmark for FAIR Principles";
     public static final String BENCHMARK_ALL_DESCRIPTION = "Set of test results that includes all tests included in FOOPS! for FAIR assessment of ontologies.";
