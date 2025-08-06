@@ -648,7 +648,7 @@ function getCheckHTML(check_info) {
             <div class="row mx-0 mt-2 w-100">
               <dl>
                 <dt>Description</dt>
-                <dd><pre style="white-space:pre-wrap; word-wrap:break-word;">${check_info.description}</pre></dd>
+                <dd>${check_info.description}</dd>
                 <dt>Explanation</dt>
                 <dd>${check_info.explanation}</dd>
               </dl>
@@ -686,7 +686,7 @@ function getCheckHTML(check_info) {
             <div class="row mx-0 mt-2 w-100">
               <dl>
                 <dt>Description</dt>
-                <dd><pre style="white-space:pre-wrap; word-wrap:break-word;">${check_info.description}</pre></dd>
+                <dd>${check_info.description}</dd>
                 <dt>Explanation</dt>
                 <dd>${check_info.explanation}</dd>
               </dl>

@@ -5,7 +5,7 @@
 
 Authors: Daniel Garijo and María Poveda, with contributions from Jacobo Mata.
 
-FOOPS! is an application for validating whether a vocabulary (OWL or SKOS) conforms with the FAIR data principles.
+FOOPS! is an application for assessing whether a vocabulary (OWL or SKOS) conforms with the FAIR data principles.
 
 Our [ISWC 2021 demo paper](html_client/assets/iswc_2021_demo.pdf) (**best demo award**) provides an overview of the FOOPS! service. Please cite our work as follows:
 ```
@@ -80,3 +80,7 @@ As a result, you should see a JSON in your folder, such as the one in sample.jso
 
 
 If you want to change the out file path you can use the flag -out
+
+## Expanding the list of supported persistent registries
+Test [FIND3](https://w3id.org/foops/test/FIND3) assesses whether an ontology complies to a certain URI scheme, based on persistent identifier registries like w3id.org or purl.org. However, your organization may issue persistent URIs too. If you would like us to add your registry scheme into the supported URI schemes, please [open an issue](https://github.com/oeg-upm/fair_ontologies/issues) describing the URI scheme you want to support in FOOPS! and a link to a policy page describing the intention of the organization to support the resources in the long term. A reviewer will check and add it into the tool.
+
