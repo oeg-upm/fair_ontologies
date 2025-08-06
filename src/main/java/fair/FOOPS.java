@@ -113,7 +113,7 @@ public class FOOPS {
      * <a href="https://github.com/oeg-upm/fair_ontologies/blob/main/sample.json">here</a>
      */
     public String exportJSON(){
-        String license, title;
+        String license, title, isOntology = "ontology";
         if (this.ontology.getLicense()!=null && !"".equals(ontology.getLicense())){
             license = "\"ontology_license\": \""+this.ontology.getLicense()+"\",\n";
         }else{
@@ -124,9 +124,13 @@ public class FOOPS {
         }else{
             title = "\"ontology_title\": \"unknown\",\n";
         }
+        if (this.ontology.isSKOS()){
+            isOntology = "skos";
+        }
         String out = "{\n\"ontology_URI\": \""+this.ontology.getOntologyURI()+"\",\n" +
                 title +
                 license +
+                "\"resource_found\":\""+isOntology+"\",\n" +
                 "\"overall_score\":"+this.getTotalScore()+",\n" +
                 "\"checks\":";
         Gson gson = new GsonBuilder().
