@@ -139,7 +139,7 @@ public class Constants {
     public static String OM4_1_TITLE; // = "License availability";
     public static String OM4_1_DESC; // = "This check verifies if a license associated with the ontology";
     public static final String OM4_1_EXPLANATION_OK = "A license was found";
-    public static final String OM4_1_EXPLANATION_OK_RIGHTS = "A license was found, but we found a rights statement";
+    public static final String OM4_1_EXPLANATION_OK_RIGHTS = "A license was not found, but we found a rights statement: ";
     public static final String OM4_1_EXPLANATION_ERROR = "License or rights not found";
 
     //license_resolvable
@@ -447,6 +447,8 @@ public class Constants {
     public static final String PROP_DC_PUBLISHER = NS_DC + "publisher";
     public static final String PROP_DC_SOURCE = NS_DC + "source";
 
+    public static final String PROP_DCTERMS_RIGHTS = NS_DCTERMS + "rights";
+    public static final String PROP_DCTERMS_ACCESS_RIGHTS = NS_DCTERMS + "accessRights";
     public static final String PROP_DCTERMS_REPLACES = NS_DCTERMS + "replaces";
     public static final String PROP_DCTERMS_DESCRIPTION = NS_DCTERMS + "description";
     public static final String PROP_DCTERMS_LICENSE = NS_DCTERMS + "license";

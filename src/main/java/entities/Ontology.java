@@ -235,6 +235,8 @@ public class Ontology {
                 }
                 break;
             case Constants.PROP_DC_RIGHTS:
+            case Constants.PROP_DCTERMS_RIGHTS:
+            case Constants.PROP_DCTERMS_ACCESS_RIGHTS:
                 try {
                     this.rights = Utils.getValueAsLiteralOrURI(a.getValue());
                     this.supportedMetadata.add(Constants.FOOPS_RIGHTS);

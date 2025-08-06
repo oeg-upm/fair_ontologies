@@ -22,9 +22,13 @@
 	dcterms:description """ 
 This test verifies if a license (or rights) are associated with the ontology.
 The test will pass if a license is declared using any of the following properties: dcterms:license, schema:license, doap:license or cc:license.
-If a license is not found, but rights are declared (dc:rights), the test will pass as well.
+
+If a license is not found, but rights are declared (using dc:rights, dcterms:rights or dcterms:accessRights), the test will pass as well.
+
 Otherwise, the test will fail (i.e., no license or rights are declared).
+
 Namespaces:
+
  * dc: http://purl.org/dc/elements/1.1/
  * dcterms: http://purl.org/dc/terms/
  * schema: https://schema.org/ and http://schema.org/
