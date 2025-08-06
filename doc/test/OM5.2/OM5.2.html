@@ -60,14 +60,18 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if detailed provenance information is available for the ontology: 
- * issued date: declared using dcterms:issued
- * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
-The test will pass if both metadata fields are present. The test will fail otherwise, indicating the properties that are missing.</p>
-<p>Namespaces used:
- * dc: http://purl.org/dc/elements/1.1/
- * dcterms: http://purl.org/dc/terms/
- * schema: https://schema.org/ and http://schema.org/</p></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if detailed provenance information is available for the ontology: </p>
+<ul>
+<li>issued date: declared using dcterms:issued, dcterms:submitted or schema:datePublished</li>
+<li>publisher: declared using dc:publisher, dcterms:publisher or schema:publisher</li>
+</ul>
+<p>The test will pass if both metadata fields are present. The test will fail otherwise, indicating the properties that are missing.</p>
+<p>Namespaces used:</p>
+<ul>
+<li>dc: http://purl.org/dc/elements/1.1/</li>
+<li>dcterms: http://purl.org/dc/terms/</li>
+<li>schema: https://schema.org/ and http://schema.org/</li>
+</ul></div>
             </div>
 
             <div class="row flex-space-between"> 
