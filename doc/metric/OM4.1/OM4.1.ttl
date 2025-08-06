@@ -14,11 +14,11 @@
 	dcterms:identifier <https://w3id.org/foops/metric/OM4.1> ;
 	dcterms:title "Ontology has a license available"@en ;
 	dcterms:description """ 
-This metric evaluates whether an ontology clearly defines its licensing terms, ensuring that users are informed about how the ontology can be used and shared.
+This metric evaluates whether an ontology clearly defines its licensing terms or rights, ensuring that users are informed about how the ontology can be used and shared.
 
 **What is being measured?**
 
-The presence of a clearly defined license for the ontology within the ontology metadata.
+The presence of a clearly defined license (or rights) for the ontology within the ontology metadata.
 
 **Why should we measure it?**
 
