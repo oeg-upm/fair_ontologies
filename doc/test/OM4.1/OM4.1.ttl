@@ -21,19 +21,11 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1.1> ;
 	dcterms:description """ 
 This test verifies if a license (or rights) are associated with the ontology.
-The test will pass if a license is declared using any of the following properties: dcterms:license, schema:license, doap:license or cc:license.
+The test will pass if a license is declared using any of the following properties: [dcterms:license](http://purl.org/dc/terms/license), [schema:license](https://schema.org/license), [doap:license](http://usefulinc.com/ns/doap#license) or [cc:license](http://creativecommons.org/ns#license).
 
-If a license is not found, but rights are declared (using dc:rights, dcterms:rights or dcterms:accessRights), the test will pass as well.
+If a license is not found, but rights are declared (using [dc:rights](http://purl.org/dc/elements/1.1/rights), [dcterms:rights](http://purl.org/dc/terms/rights) or [dcterms:accessRights](http://purl.org/dc/terms/accessRights)), the test will pass as well.
 
 Otherwise, the test will fail (i.e., no license or rights are declared).
-
-Namespaces:
-
- * dc: http://purl.org/dc/elements/1.1/
- * dcterms: http://purl.org/dc/terms/
- * schema: https://schema.org/ and http://schema.org/
- * doap: http://usefulinc.com/ns/doap#
- * cc: http://creativecommons.org/ns#
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;

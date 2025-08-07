@@ -22,30 +22,17 @@
 	dcterms:description """
 This test verifies if the ontology includes the following detailed metadata:
 
- * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (if a doi is provided) or dcterms:identifier (if a doi is provided)
- * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
- * logo: declared using foaf:logo or schema:logo
- * status: declared using bibo:status or mod:status
- * source: declared using dcterms:source or prov:hadOriginalSource
- * issued date: declared using dcterms:issued
- * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion or pav:previousVersion
- * backward compatibility (optional): declared using owl:backwardCompatibleWith
- * modified date (optional): declared using dcterms:modified or schema:dateModified
+ * Digital Object Identifier (DOI): declared using  [bibo:doi](http://purl.org/ontology/bibo/doi), [schema:identifier](https://schema.org/identifier) (if a doi is provided) or [dcterms:identifier](http://purl.org/dc/terms/identifier) (if a doi is provided)
+ * publisher: declared using [dc:publisher](http://purl.org/dc/elements/1.1/publisher), [dcterms:publisher](http://purl.org/dc/terms/publisher) or [schema:publisher](https://schema.org/publisher)
+ * logo: declared using [foaf:logo](http://xmlns.com/foaf/0.1/logo) or [schema:logo](https://schema.org/logo)
+ * status: declared using [bibo:status](http://purl.org/ontology/bibo/status) or [mod:status](https://w3id.org/mod#status)
+ * source: declared using [dcterms:source](http://purl.org/dc/terms/source) or [prov:hadOriginalSource](http://www.w3.org/ns/prov#hadOriginalSource)
+ * issued date: declared using [dcterms:issued](http://purl.org/dc/terms/issued)
+ * previous version (optional): declared using  [dc:replaces](http://purl.org/dc/elements/1.1/replaces), [dcterms:replaces](http://purl.org/dc/terms/replaces), [prov:wasRevisionOf](http://www.w3.org/ns/prov#wasRevisionOf), [owl:priorVersion](http://www.w3.org/2002/07/owl#priorVersion) or [pav:previousVersion](http://purl.org/pav/previousVersion)
+ * backward compatibility (optional): declared using [owl:backwardCompatibleWith](http://www.w3.org/2002/07/owl#backwardCompatibleWith)
+ * modified date (optional): declared using [dcterms:modified](http://purl.org/dc/terms/modified) or [schema:dateModified](https://schema.org/dateModified)
 
-The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).
-
-Namespaces used: 
-
- * bibo: http://purl.org/ontology/bibo/ 
- * dc: http://purl.org/dc/elements/1.1/
- * dcterms: http://purl.org/dc/terms/
- * foaf: http://xmlns.com/foaf/0.1/
- * schema: https://schema.org/ and http://schema.org/
- * owl: http://www.w3.org/2002/07/owl#
- * pav: http://purl.org/pav/
- * prov: http://www.w3.org/ns/prov#
- * mod: https://w3id.org/mod#
- 
+The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version). 
  """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;

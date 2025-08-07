@@ -100,7 +100,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             try {
                 JsonObject jsonObjectAlt = JsonParser.parseString(writer.toString()).getAsJsonObject();
                 String ns = jsonObjectAlt.getAsJsonObject().get(fieldToRetrieveNs).getAsString();
-                if (ns != null && !"".equals(ns)){
+                if (ns != null && !ns.isEmpty()){
                     if (ns.endsWith("/") || ns.endsWith("#")){
                         ns = ns.substring(0, ns.length()-1);
                     }

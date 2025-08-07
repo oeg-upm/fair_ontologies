@@ -341,8 +341,8 @@ public class Ontology {
                 }
                 break;
             case Constants.PROP_DCTERMS_BIBLIOGRAPHIC_CIT:
-            case Constants.PROP_SCHEMA_CITATION:
-            case Constants.PROP_SCHEMA_CITATION_HTTP:
+//            case Constants.PROP_SCHEMA_CITATION: this refers to citing another work
+//            case Constants.PROP_SCHEMA_CITATION_HTTP:
                 this.citation = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_CITATION);
                 break;

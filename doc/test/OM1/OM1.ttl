@@ -21,6 +21,7 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F2> ;
 	dcterms:description """
 This check verifies if the following  minimum metadata are present in the ontology metadata:
+
  * title: declared using [dc:title](http://purl.org/dc/elements/1.1/title), [dcterms:title](http://purl.org/dc/terms/title) or [schema:name](http://schema.org/name)
  * description: declared using [dc:abstract](http://purl.org/dc/elements/1.1/abstract), [dcterms:abstract](http://purl.org/dc/terms/abstract), [dc:description](http://purl.org/dc/elements/1.1/description), [dcterms:description](http://purl.org/dc/terms/description), [schema:description](http://schema.org/description), [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment), [doap:description](http://usefulinc.com/ns/doap#description), [doap:shortdesc](http://usefulinc.com/ns/doap#shortdesc) or [skos:note](http://www.w3.org/2004/02/skos/core#note)
  * license: declared using [dcterms:license](http://purl.org/dc/terms/license), [schema:license](http://schema.org/licesne), [doap:license](http://usefulinc.com/ns/doap#license) or [cc:license](http://creativecommons.org/ns#license).
