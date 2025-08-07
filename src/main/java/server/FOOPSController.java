@@ -86,22 +86,31 @@ public class FOOPSController {
                 if (body.getOntologyUri() != null) {
                     f = new FOOPS(body.getOntologyUri(), false);
                 }
-            }catch(Exception e){
+            }catch(FileTooLargeException el){
+                logger.error("Error "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
+            }
+            catch(Exception e){
                 logger.error("Error "+ e.getMessage());
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
             }
             try{ //is there content?
                 if (f == null){// && body!=null && !"".equals(body)){
-                    ontologyPath = Path.of("ontology");
-                    try (PrintWriter out = new PrintWriter(String.valueOf(ontologyPath))) {
-                        out.println(body);
+                    try {
+                        ontologyPath = Path.of("ontology");
+                        f = new FOOPS(String.valueOf(ontologyPath), true);
+                    }catch(FileTooLargeException el){
+                        logger.error("Error "+ el.getMessage());
+                        throw new ResponseStatusException(
+                                HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                                new Exception("File sent for assessment is too big (max 50MB)"));
+                    }catch(Exception e){
+                        throw new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
                     }
-                    f = new FOOPS(String.valueOf(ontologyPath), true);
-                }
-                if (f == null){ //no ontology or content could be loaded
-                    throw new ResponseStatusException(
-                            HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
                 }
                 f.fairTest();
                 return f.exportJSON();
@@ -177,13 +186,17 @@ public class FOOPSController {
         try{
             try { //has an onto URI been provided?
                 Gson gson = new Gson();
-//                ResponseResource r = gson.fromJson(body, ResponseResource.class);
                 targetResource = body.getResourceIdentifier();
                 ArrayList<String> testIDs = new ArrayList<>();
                 testIDs.add(test_identifier);
                 f = new FOOPS(targetResource, testIDs);
                 f.fairTest();
                 return f.exportJSONLD();
+            }catch(FileTooLargeException el){
+                logger.error("Error: ontology is too big! "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
             }catch(Exception e){
                 logger.error("Error "+ e.getMessage());
                 throw new ResponseStatusException(
@@ -223,13 +236,17 @@ public class FOOPSController {
         FOOPS f = null;
         try{
             try {
-//                Gson gson = new Gson();
-//                ResponseResource r = gson.fromJson(body, ResponseResource.class);
                 targetResource = body.getResourceIdentifier();
                 f = new FOOPS(targetResource, false);
                 f.fairTest();
                 return f.exportJSONLD();
-            }catch(Exception e){
+            }catch(FileTooLargeException el){
+                logger.error("Error: ontology too big! "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
+            }
+            catch(Exception e){
                 logger.error("Error "+ e.getMessage());
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
@@ -307,7 +324,12 @@ public class FOOPSController {
                 f.fairTest();
                 tempFile.delete();
                 return f.exportJSON();
-            } catch (Exception e) {
+            } catch(FileTooLargeException el){
+                logger.error("Error: ontology is too big! "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
+            }catch (Exception e) {
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST, "Error while processing the file", e);
             }

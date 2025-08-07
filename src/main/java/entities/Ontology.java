@@ -89,7 +89,7 @@ public class Ontology {
             this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
             logger.info("Ontology URI to assess: "+ontologyURI);
         }catch(FileTooLargeException e) {
-             throw e;
+            throw e;
         }
         catch(Exception e){
             if(ontologyURI == null && ontologyModel !=null){

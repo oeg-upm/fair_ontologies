@@ -60,13 +60,17 @@ public class FOOPS {
         checksToRun = new CustomBenchmark(ontology,o,testsToRun);
     }
     public FOOPS(String o, boolean isFromFile)throws FileTooLargeException {
-        initTempFolder();
-        this.ontology = new Ontology(o, isFromFile, tmpFolder);
-        if(!isFromFile ){
-            checksToRun = new URIBenchmark(ontology,o);
-        }
-        else {
-            checksToRun = new FileBenchmark(ontology);
+        try {
+            initTempFolder();
+            this.ontology = new Ontology(o, isFromFile, tmpFolder);
+            if (!isFromFile) {
+                checksToRun = new URIBenchmark(ontology, o);
+            } else {
+                checksToRun = new FileBenchmark(ontology);
+            }
+        }catch(FileTooLargeException e){
+            this.removeTemporaryFolders();
+            throw e;
         }
     }
 

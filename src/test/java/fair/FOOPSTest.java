@@ -11,6 +11,7 @@ import server.FileTooLargeException;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -193,8 +194,9 @@ public class FOOPSTest {
      */
     @Test
     public void testFileTooBig(){
+        Path tempDir = null;
         try {
-            Path tempDir = Files.createTempDirectory("test");
+            tempDir = Files.createTempDirectory("test");
             File testFile = tempDir.resolve("large_test_file.bin").toFile();
 
             // Create a file slightly larger than 50 MB (51 MB)
@@ -209,6 +211,15 @@ public class FOOPSTest {
             });
         }catch(Exception e){
             throw new RuntimeException("Test failed due to IOException: " + e.getMessage(), e);
+        }finally {
+            if (tempDir != null && Files.exists(tempDir)) {
+                try {
+                    Files.delete(tempDir);
+                } catch (IOException ignored) {
+                    // Swallow exception if tempDir isn't empty
+                    tempDir.toFile().deleteOnExit();
+                }
+            }
         }
     }
 }

@@ -72,10 +72,14 @@
                     var file = fileInput.files[0];
                     if(!file){
                         alert('A file has not been selected');
+                        $('#loader').hide();
+                        $('#run_button').show();
                         return;
                     }
                     if (file.size > MAX_FILE_SIZE) {
-                        alert('The file is too big');
+                        alert('File to assess is too big');
+                        $('#loader').hide();
+                        $('#run_button').show();
                         return;
                     }
                     var formData = new FormData();
@@ -463,7 +467,7 @@
                 <br>
                 Built with <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
                 <br>
-                Latest revision June, 2025
+                Latest revision August, 2025
                 <br>
                 Licensed under the <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
             </div>
