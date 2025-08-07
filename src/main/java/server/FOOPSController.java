@@ -217,8 +217,8 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Runs a set of tests on a resource, according to the metrics defined in a benchmark",
-            notes = "Returns a set of test results according to the FTR specification. The result sets that may be run" +
-                    "are ALL and PRE, according to the benchmark information in " +
+            notes = "Returns a set of test results according to the FTR specification. The result sets that may be run " +
+                    "have identifiers ALL and PRE, according to the benchmark information in " +
                     "https://w3id.org/foops/benchmark/"
                     + "Example request JSON:\n"
                     + "```\n"
@@ -230,8 +230,6 @@ public class FOOPSController {
     @PostMapping(path = "assess/resultset/{identifier}",  consumes = "application/json", produces = "application/json")
     public String postResultSetAssessment(@PathVariable String identifier,
                                           @RequestBody OntologyAssessmentRequest body) {
-        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
-        //return ("TO DO assessment of test result set "+ url);
         String targetResource = "";
         FOOPS f = null;
         try{
@@ -264,15 +262,15 @@ public class FOOPSController {
         }
     }
 
-    @ApiOperation(
-            value = "Run an algorithm on a resource",
-            notes = "Returns the results of an algorithm for a given resource "
-    )
-    @PostMapping(path = "assess/algorithm/{identifier}",  produces = "text/plain")
-    public String postAlgorithmAssessment(@PathVariable String identifier) {
-        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
-        return ("TO DO assessment of algorithm");// "+ url);
-    }
+//    @ApiOperation(
+//            value = "Run an algorithm on a resource",
+//            notes = "Returns the results of an algorithm for a given resource "
+//    )
+//    @PostMapping(path = "assess/algorithm/{identifier}",  produces = "text/plain")
+//    public String postAlgorithmAssessment(@PathVariable String identifier) {
+//        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
+//        return ("TO DO assessment of algorithm");// "+ url);
+//    }
 
     @ApiOperation(
             value = "Get metric metadata (in JSON-LD)",
@@ -308,6 +306,11 @@ public class FOOPSController {
      * @param otherData String other data sent.
      * @return JSON with FOOPS! response.
      */
+    @ApiOperation(
+            value = "Assess an ontology against a set of FOOPS! tests for pre-assessment. This is the original FOOPS! call for assessment",
+            notes = "This call returns a JSON response obtained by FOOPS. " +
+                    "The ontology for assessment is in the body of the POST request"
+    )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntologyFile",consumes = "multipart/form-data", produces = "application/json")
     public String assessPOST(

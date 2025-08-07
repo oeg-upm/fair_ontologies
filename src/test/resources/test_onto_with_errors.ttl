@@ -1,0 +1,216 @@
+@prefix : <https://w3id.org/sri#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/sri#> .
+
+<https://w3id.org/sriexample> rdf:type owl:Ontology ;
+                        owl:versionIRI <https://w3id.org/sri/1.0> ;
+                        <http://purl.org/dc/terms/bibliographicCitation> "Stefan Bischof, Erwin Filtz, Josiane Xavier Parreira. Smart Readiness Indicator Vocabulary. Revision: 1.0.0. Retrieved from: https://w3id.org/sri/1.0"@en ;
+                        <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0002-3050-159X> ,
+                                                               <https://orcid.org/0000-0003-3445-0504> ;
+                        <http://purl.org/dc/terms/created> "2022-02-02"^^xsd:date ;
+                        <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0001-9521-8907> ;
+                        <http://purl.org/dc/terms/description> "A vocabulary specifying concepts and structures needed to represent different data cubes needed for the Smart Readiness Indicator." ;
+                        <http://purl.org/dc/terms/issued> "2023-11-30"^^xsd:date ;
+                        <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                        <http://purl.org/dc/terms/modified> "2023-11-30"^^xsd:date ;
+                        <http://purl.org/dc/terms/publisher> <https://www.siemens.at/> ;
+                        <http://purl.org/dc/terms/source> <https://data.europa.eu/doi/10.2833/41100> ;
+                        <http://purl.org/dc/terms/title> "Smart Readiness Indicator Vocabulary"@en ;
+                        <http://purl.org/ontology/bibo/doi> "10.5281/zenodo.10047286" ;
+                        <http://purl.org/ontology/bibo/status> <http://purl.org/ontology/bibo/status/published> ;
+                        <http://purl.org/vocab/vann/preferredNamespacePrefix> "sri" ;
+                        <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/sri#" ;
+                        <https://schema.org/includedInDataCatalog> "https://lov.linkeddata.es/dataset/lov/vocabs/sri";
+                        rdfs:label "Smart Readiness Indicator Vocabulary"@en ;
+                        rdfs:seeAlso <https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficient-buildings/smart-readiness-indicator_en> ;
+                        owl:versionInfo "1.0.0" ;
+                        <https://schema.org/funding> <https://cordis.europa.eu/project/id/893079> ;
+                        <https://schema.org/image> <https://raw.githubusercontent.com/stefanbischof/sri/main/sridiagram.svg> ;
+                        <https://schema.org/logo> <https://raw.githubusercontent.com/stefanbischof/sri/main/srilogo.svg> 
+                        There is a missing dot above!
+              
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/ontology/bibo/doi
+<http://purl.org/ontology/bibo/doi> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/affiliation
+<https://schema.org/affiliation> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/funding
+<https://schema.org/funding> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/image
+<https://schema.org/image> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/logo
+<https://schema.org/logo> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#broader
+<http://www.w3.org/2004/02/skos/core#broader> rdf:type owl:ObjectProperty .
+
+
+:logText rdf:type owl:DatatypeProperty ;
+	rdfs:label "logText" ;
+	rdfs:comment "Textual information describing the logged event." ;
+	rdfs:range xsd:string ;
+ 	rdfs:subPropertyOf <http://purl.org/dc/terms/title>.
+
+
+###  https://w3id.org/sri#additionalLevel
+:additionalLevel rdf:type owl:ObjectProperty ;
+                 rdfs:range :Level ;
+                 rdfs:comment "Additional Level if share is < 100%."@en ;
+                 rdfs:label "additional level"@en .
+
+
+###  https://w3id.org/sri#assessment
+:assessment rdf:type owl:ObjectProperty ;
+            rdfs:range <http://purl.org/linked-data/cube#DataSet> ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty <http://purl.org/linked-data/cube#structure> ;
+                         owl:hasValue :dsd-assessment
+                       ] ;
+            rdfs:comment "Relates something to an assessment dataset."@en ;
+            rdfs:label "assessment"@en .
+
+
+###  https://w3id.org/sri#building
+:building rdf:type owl:ObjectProperty ;
+          rdfs:range :Building ;
+          rdfs:comment "Relates something to a Building."@en ;
+          rdfs:label "building"@en .
+
+
+###  https://w3id.org/sri#function
+:function rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:range :FunctionalThing .
+
+
+###  https://w3id.org/sri#impact
+:impact rdf:type owl:ObjectProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:range :ImpactThing .
+
+
+###  https://w3id.org/sri#level
+:level rdf:type owl:ObjectProperty ,
+                owl:FunctionalProperty ;
+       rdfs:range :Level .
+
+
+###  https://w3id.org/sri#serviceCatalogue
+:serviceCatalogue rdf:type owl:ObjectProperty ;
+                  rdfs:range :ServiceCatalogue ;
+                  rdfs:comment "Relates something to a ServiceCatalogue."@en ;
+                  rdfs:label "service catalogue"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/linked-data/sdmx/2009/measure#obsValue
+<http://purl.org/linked-data/sdmx/2009/measure#obsValue> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/sri#icscore
+:icscore rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf <http://purl.org/linked-data/sdmx/2009/measure#obsValue> ;
+         rdfs:range xsd:integer .
+
+
+###  https://w3id.org/sri#max
+:max rdf:type owl:DatatypeProperty ;
+     rdfs:range xsd:integer .
+
+
+###  https://w3id.org/sri#score
+:score rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf <http://purl.org/linked-data/sdmx/2009/measure#obsValue> ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:range [ rdf:type rdfs:Datatype ;
+                    owl:unionOf ( xsd:decimal
+                                  xsd:double
+                                  xsd:float
+                                )
+                  ] .
+
+
+###  https://w3id.org/sri#share
+:share rdf:type owl:DatatypeProperty ,
+                owl:FunctionalProperty ;
+       rdfs:range [ rdf:type rdfs:Datatype ;
+                    owl:unionOf ( xsd:decimal
+                                  xsd:double
+                                  xsd:float
+                                )
+                  ] ;
+       rdfs:comment "A percentage (value between 0.0 and 1.0) which expresses that parts of a building are assessed with different levels wrt. a Service. If share is < 100% then additionalLevel has to be defined."@en ;
+       rdfs:label "share"@en .
+
+
+###  https://w3id.org/sri#weight
+:weight rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf <http://purl.org/linked-data/sdmx/2009/measure#obsValue> ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:range [ rdf:type rdfs:Datatype ;
+                     owl:unionOf ( xsd:decimal
+                                   xsd:double
+                                   xsd:float
+                                 )
+                   ] .
+

@@ -1,0 +1,24 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<http://vocab.linkeddata.es/datosabiertos/kos/comercio/periodo-funcionamiento> a skos:ConceptScheme;
+    skos:hasTopConcept <http://vocab.linkeddata.es/datosabiertos/kos/comercio/periodo-funcionamiento/anual> ;
+    skos:hasTopConcept <http://vocab.linkeddata.es/datosabiertos/kos/comercio/periodo-funcionamiento/estacional> ;
+    dc:creator "Paola Espinoza Arias (Universidad Politécnica de Madrid)" ;
+    dc:date "2018-11-02"^^xsd:date ;
+    skos:prefLabel "Periodo de Funcionamiento" ;
+    dc:title "Tesauro que recoge los tipos de periodos de funcionamiento de las terrazas."@es .
+
+<http://vocab.linkeddata.es/datosabiertos/kos/comercio/periodo-funcionamiento/anual> a skos:Concept ;
+	skos:inScheme <http://vocab.linkeddata.es/datosabiertos/kos/comercio/periodo-funcionamiento> ;
+  skos:notation "anual" ;
+	skos:prefLabel "anual" .
+
+<http://vocab.linkeddata.es/datosabiertos/kos/comercio/periodo-funcionamiento/estacional> a skos:Concept ;
+	skos:inScheme <http://vocab.linkeddata.es/datosabiertos/kos/comercio/periodo-funcionamiento> ;
+  skos:notation "estacional" ;
+	skos:prefLabel "estacional" .

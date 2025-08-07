@@ -47,7 +47,7 @@ public class Check_PURL1_PersistentURIs extends Check {
                 this.ontology_URI.contains("data.europa.eu") ||
                 this.ontology_URI.contains("www.w3.org")){
             this.status = Constants.OK;
-            this.explanation = Constants.PURL1_EXPLANATION_OK;
+            this.explanation = Constants.PURL1_EXPLANATION_OK + " (URI: "+this.ontology_URI+" )";
             this.total_passed_tests +=1;
         }else{
             this.status = Constants.ERROR;

@@ -190,6 +190,42 @@ public class FOOPSTest {
     }
 
     /**
+     * This test tries to load an ontology with errors (should fail)
+     */
+    @Test
+    public void testOntologyWithErrors(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("test_onto_with_errors.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            assertEquals(null,f.getOntology().getOntologyModel());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
+
+    /**
+     * This test tries to load a skos vocabulary
+     */
+    @Test
+    public void testSKOS(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("skos_example.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_VOC3_TermMetadataLabel l = new Check_VOC3_TermMetadataLabel(f.getOntology());
+            l.check();
+            assertEquals(Constants.OK,l.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
+
+    /**
      *  Local Test to verify exceptions when files are too big.
      */
     @Test
@@ -207,7 +243,7 @@ public class FOOPSTest {
                 }
             }
             assertThrows(FileTooLargeException.class, () -> {
-                FOOPS f = new FOOPS(testFile.getAbsolutePath(), true);
+                new FOOPS(testFile.getAbsolutePath(), true);
             });
         }catch(Exception e){
             throw new RuntimeException("Test failed due to IOException: " + e.getMessage(), e);
