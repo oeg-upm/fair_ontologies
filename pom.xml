@@ -10,7 +10,7 @@
     </parent>
     <groupId>es.oeg</groupId>
     <artifactId>fair_ontologies</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <packaging>jar</packaging>
     <name>fair_ontologies</name>
     <description>FOOPS!: An Ontology Pitfall scanner for the FAIR principles</description>
