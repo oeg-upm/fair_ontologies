@@ -24,20 +24,23 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
-            "https://w3id.org/ftr#Benchmark"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://purl.org/dc/terms/identifier": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+                "@value": "https://ror.org/03n6nwv02>"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -59,6 +62,30 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/test/DOC1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -72,22 +99,6 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     },
@@ -213,29 +224,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/test/DOC1",
-        "@type": [
-            "https://w3id.org/ftr#Test"
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/03n6nwv02>"
-            }
-        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Universidad Politécnica de Madrid"
+                "@value": "Ontology Engineering Group"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@id": "https://www.upm.es/"
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     }
