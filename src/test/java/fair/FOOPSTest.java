@@ -3,12 +3,17 @@ package fair;
 import entities.Ontology;
 import entities.checks.*;
 import org.junit.Test;
+import org.junit.jupiter.api.io.TempDir;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import server.FOOPSController;
+import server.FileTooLargeException;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static org.junit.Assert.*;
 
@@ -180,6 +185,30 @@ public class FOOPSTest {
         } catch (Exception e) {
             logger.error("Could not load the resource file");
             fail();
+        }
+    }
+
+    /**
+     *  Local Test to verify exceptions when files are too big.
+     */
+    @Test
+    public void testFileTooBig(){
+        try {
+            Path tempDir = Files.createTempDirectory("test");
+            File testFile = tempDir.resolve("large_test_file.bin").toFile();
+
+            // Create a file slightly larger than 50 MB (51 MB)
+            try (FileOutputStream fos = new FileOutputStream(testFile)) {
+                byte[] buffer = new byte[1024 * 1024]; // 1 MB buffer
+                for (int i = 0; i < 51; i++) {
+                    fos.write(buffer);
+                }
+            }
+            assertThrows(FileTooLargeException.class, () -> {
+                FOOPS f = new FOOPS(testFile.getAbsolutePath(), true);
+            });
+        }catch(Exception e){
+            throw new RuntimeException("Test failed due to IOException: " + e.getMessage(), e);
         }
     }
 }

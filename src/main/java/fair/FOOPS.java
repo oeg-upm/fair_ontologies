@@ -31,6 +31,7 @@ import org.semanticweb.owlapi.formats.TurtleDocumentFormat;
 import org.semanticweb.owlapi.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.FileTooLargeException;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -53,12 +54,12 @@ public class FOOPS {
      * @param o URI of
      * @param testsToRun arraylist with the ids of the tests to run. A new benchmark
      */
-    public FOOPS(String o, ArrayList<String> testsToRun){
+    public FOOPS(String o, ArrayList<String> testsToRun) throws FileTooLargeException {
         initTempFolder();
         this.ontology = new Ontology(o, false, tmpFolder);
         checksToRun = new CustomBenchmark(ontology,o,testsToRun);
     }
-    public FOOPS(String o, boolean isFromFile){
+    public FOOPS(String o, boolean isFromFile)throws FileTooLargeException {
         initTempFolder();
         this.ontology = new Ontology(o, isFromFile, tmpFolder);
         if(!isFromFile ){

@@ -25,6 +25,7 @@ import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.search.EntitySearcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.FileTooLargeException;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -75,7 +76,7 @@ public class Ontology {
      * @param isFromFile flag to indicate whether the ontology should be loaded from file or URL
      * @param tmpFolder temporary folder where to store the downloaded ontology
      */
-    public Ontology(String o, boolean isFromFile, Path tmpFolder){
+    public Ontology(String o, boolean isFromFile, Path tmpFolder) throws FileTooLargeException {
         supportedMetadata = new ArrayList<>();
         reusedMetadataVocabularies = new ArrayList<>();
         reusedVocabularies = new ArrayList<>();
@@ -87,7 +88,10 @@ public class Ontology {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
             this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
             logger.info("Ontology URI to assess: "+ontologyURI);
-        }catch(Exception e){
+        }catch(FileTooLargeException e) {
+             throw e;
+        }
+        catch(Exception e){
             if(ontologyURI == null && ontologyModel !=null){
                 logger.error("Could load the ontology, but no owl:Ontology declared!");
                 //check if this is a SKOS vocabulary: skos:ConceptScheme
