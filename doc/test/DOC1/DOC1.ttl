@@ -26,7 +26,7 @@ This test verifies if the ontology has an HTML documentation. The test will atte
 	dcterms:identifier <https://w3id.org/foops/test/DOC1> ;
 	dcat:keyword "HTML availability"@en , "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/DOC1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/DOC1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/DOC1> ;

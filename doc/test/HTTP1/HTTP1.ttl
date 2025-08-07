@@ -25,7 +25,7 @@
 	dcterms:identifier <https://w3id.org/foops/test/HTTP1> ;
 	dcat:keyword "Open protocol"@en , "Test"@en , "Accesible"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/HTTP1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/HTTP1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/HTTP1> ;

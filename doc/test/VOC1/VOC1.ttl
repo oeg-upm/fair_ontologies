@@ -42,7 +42,7 @@ The test will also return the vocabularies that were found. If none are found, t
 	dcterms:identifier <https://w3id.org/foops/test/VOC1> ;
 	dcat:keyword "Vocabulary reuse"@en , "Test"@en , "Interoperable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/VOC1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/VOC1> ;

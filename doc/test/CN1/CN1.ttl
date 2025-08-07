@@ -33,7 +33,7 @@ The test will fail if no HTML is returned, if no known RDF serialization is retu
     dcterms:identifier <https://w3id.org/foops/test/CN1> ;
     dcat:keyword "Content negotiation"@en ,"Test"@en, "RDF", "serialization"@en ;
     dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/CN1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/CN1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
     <http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/CN1> ; 

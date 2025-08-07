@@ -36,7 +36,7 @@ This test verifies if the ontology has a persistent URL. We do so by checking if
 	dcterms:identifier <https://w3id.org/foops/test/PURL1> ;
 	dcat:keyword "Persistent URL"@en , "Test"@en , "purl"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/PURL1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/PURL1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/PURL1> ;

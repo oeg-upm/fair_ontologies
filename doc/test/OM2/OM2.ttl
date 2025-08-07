@@ -35,7 +35,7 @@ The test will pass if all the recommended metadata properties are available in t
 	dcterms:identifier <https://w3id.org/foops/test/OM2> ;
 	dcat:keyword "Recommended metadata"@en , "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM2> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/OM2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/OM2> ;

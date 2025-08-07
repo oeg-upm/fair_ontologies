@@ -28,7 +28,7 @@ The test will pass if the vocabulary is resolvable in any of the following RDF s
 	dcterms:identifier <https://w3id.org/foops/test/URI1> ;
 	dcat:keyword "URI resolvable"@en , "Test"@en , "Resolvable"@en;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/URL1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/URL1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/URI1> ;

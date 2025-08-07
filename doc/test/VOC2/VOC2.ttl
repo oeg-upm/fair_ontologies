@@ -30,7 +30,7 @@ The test wil fail if no terms are reused.
 	dcterms:identifier <https://w3id.org/foops/test/VOC2> ;
 	dcat:keyword "Vocabulary reuse"@en , "Test"@en , "Interoperable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC2> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/VOC2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/VOC2> ;

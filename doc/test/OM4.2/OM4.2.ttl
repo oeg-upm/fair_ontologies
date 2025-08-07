@@ -27,7 +27,7 @@ This test verifies if the ontology license is resolvable. The test will pass if 
 	dcterms:identifier <https://w3id.org/foops/test/OM4.2> ;
 	dcat:keyword "License resolvable"@en , "License"@en, "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM4.2> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/OM4.2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/OM4.2> ;

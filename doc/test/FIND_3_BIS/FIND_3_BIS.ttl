@@ -29,7 +29,7 @@ The test will fail otherwise. """@en ;
 	dcterms:identifier <https://w3id.org/foops/test/FIND_3_BIS> ;
 	dcat:keyword "Metadata accesible"@en , "Test"@en , "Accesible"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND_3_BIS> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/FIND_3_BIS> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/FIND_3_BIS> ;

@@ -36,7 +36,7 @@ The test will pass if all ontology metadata are present. The test will fail othe
 	dcterms:identifier <https://w3id.org/foops/test/OM1> ;
 	dcat:keyword "Minimum metadata"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/OM1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/OM1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/OM1> ;

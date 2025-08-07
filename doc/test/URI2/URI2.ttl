@@ -26,7 +26,7 @@ This check verifies if the ontology URI is equal to the ontology ID. The test pa
 	dcterms:identifier <https://w3id.org/foops/test/URI2> ;
 	dcat:keyword "Consistent ontology ID"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/URL2> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/URL2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/URI2> ;

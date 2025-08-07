@@ -27,7 +27,7 @@ The test will fail if the resource is not found (404 response) or returns an err
 	dcterms:identifier <https://w3id.org/foops/test/VER2> ;
 	dcat:keyword "Version IRI"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VER2> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/VER2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/VER2> ;
