@@ -22,10 +22,10 @@
 	dcterms:description """
 This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if: 
 
- 1. The ontology has a versionIRI (owl:versionIRI) and 
+ 1. The ontology has a versionIRI ([owl:versionIRI](http://www.w3.org/2002/07/owl#versionIRI)) and 
  2. The versionIRI used is different from the ontology URI.
 
-Otherwise the test will fail. The test will also verify whether version information is present (through owl:versionInfo), but this is optional.
+Otherwise the test will fail. The test will also verify whether version information is present (through [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo)), but this is optional.
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;

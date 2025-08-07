@@ -22,14 +22,14 @@
 	dcterms:description """
 This test verifies if the ontology has a persistent URL. We do so by checking if the ontology URI follows any of the following URI schemes:
 
-	* w3id.org
-	* doi.org
-	* purl.org (or purl.something.org)  
-	* linked.data.gov.au
-	* dbpedia.org
-	* www.w3.org
-	* perma.cc
-	* data.europa.eu
+ * w3id.org
+ * doi.org
+ * purl.org (or purl.something.org)  
+ * linked.data.gov.au
+ * dbpedia.org
+ * www.w3.org
+ * perma.cc
+ * data.europa.eu
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;

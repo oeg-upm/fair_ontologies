@@ -22,17 +22,19 @@
 	dcterms:description """ 
 This test verifies if the ontology reuses other vocabularies for declaring metadata terms (see tests OM1... OM5).
 The test will pass if metadata annotations using properties from any of the following vocabularies are used:
- * Dublin Core (dc, dcterms)
- * Schema.org (schema)
- * Vocabulary for annotating vocabulary descriptions (vann)
- * W3C Provenance standard (prov)
- * Bibliographic Ontology (bibo)
- * Provenance, Authoring and Versioning (pav)
- * Firend of a friend (foaf)
- * Description of a project (doap)
- * Metadata vocabulary for ontology descriptions (mod)
- * Web Ontology Language (owl)
- * Resource description framework (rdfs)
+
+ * [Dublin Core](http://purl.org/dc/elements/1.1/) (dc, dcterms)
+ * [Schema.org](https://schema.org/) (schema)
+ * [Vocabulary for annotating vocabulary descriptions](http://purl.org/vocab/vann/) (vann)
+ * [W3C Provenance standard](http://www.w3.org/ns/prov#) (prov)
+ * [Bibliographic Ontology](http://purl.org/ontology/bibo/) (bibo)
+ * [Provenance, Authoring and Versioning](http://purl.org/pav/) (pav)
+ * [Firend of a friend](http://xmlns.com/foaf/0.1/) (foaf)
+ * [Description of a project](http://usefulinc.com/ns/doap#) (doap)
+ * [Metadata vocabulary for ontology descriptions](https://w3id.org/mod#) (mod)
+ * [Web Ontology Language](http://www.w3.org/2002/07/owl#) (owl)
+ * [Resource description framework schema](http://www.w3.org/2000/01/rdf-schema#) (rdfs)
+ 
 The test will also return the vocabularies that were found. If none are found, the test will fail.
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;

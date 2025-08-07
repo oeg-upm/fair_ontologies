@@ -22,16 +22,10 @@
 	dcterms:description """ 
 This check verifies if detailed provenance information is available for the ontology: 
 
- * issued date: declared using dcterms:issued, dcterms:submitted or schema:datePublished
- * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher
+ * issued date: declared using [dcterms:issued](http://purl.org/dc/terms/issued), [dcterms:submitted](http://purl.org/dc/terms/submitted) or [schema:datePublished](https://schema.org/datePublished)
+ * publisher: declared using [dc:publisher](http://purl.org/dc/elements/1.1/publisher), [dcterms:publisher](http://purl.org/dc/terms/publisher) or [schema:publisher](https://schema.org/publisher)
  
 The test will pass if both metadata fields are present. The test will fail otherwise, indicating the properties that are missing.
-
-Namespaces used:
-
- * dc: http://purl.org/dc/elements/1.1/
- * dcterms: http://purl.org/dc/terms/
- * schema: https://schema.org/ and http://schema.org/
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
