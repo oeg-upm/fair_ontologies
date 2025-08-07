@@ -86,6 +86,7 @@ public class Ontology {
         try {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
             this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
+            logger.info("Ontology URI to assess: "+ontologyURI);
         }catch(Exception e){
             if(ontologyURI == null && ontologyModel !=null){
                 logger.error("Could load the ontology, but no owl:Ontology declared!");
