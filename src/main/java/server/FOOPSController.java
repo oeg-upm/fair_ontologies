@@ -65,7 +65,7 @@ public class FOOPSController {
      */
     @ApiOperation( 
         value = "Assess an ontology against a set of FOOPS! tests. This is the original FOOPS! call for assessment",
-        notes = "This call returns a JSON response obtained by FOOPS. To see an example, please see use the following JSON "
+        notes = "This call returns a JSON response obtained by FOOPS. To see an example, please see use the following JSON. "
         + "Example request JSON:\n" 
         + "```\n" 
         + "{\n" 
@@ -142,7 +142,7 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Get test metadata (in JSON-LD)",
-            notes = "return test description following the FTR specification."
+            notes = "Returns all tests supported by FOOPS!."
     )
     @GetMapping(path = "/tests",  produces = "application/ld+json")
     public String getTests() {
@@ -151,7 +151,7 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Get test metadata (in JSON-LD)",
-            notes = "return test description following the FTR specification."
+            notes = "Returns test description following the FTR specification."
     )
     @GetMapping(path = "/tests/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getTestMetadata(@PathVariable String identifier) {
@@ -166,11 +166,10 @@ public class FOOPSController {
 
 
     @ApiOperation(
-            value = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/)",
+            value = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/). ",
             notes = "This call returns a JSON response obtained by FOOPS. \n"
-                    + "To see all available FOOPS! tests, see https://w3id.org/foops/catalogue"
-                    + "To see an example, please see use the following JSON: "
-                    + "Example request JSON:\n"
+                    + "To see all available FOOPS! tests, see https://w3id.org/foops/catalogue. \n"
+                    + "To see an example, please see use the following JSON: \n"
                     + "```\n"
                     + "{\n"
                     + " \"resource_identifier\": \"https://w3id.org/example#\"\n"
@@ -216,10 +215,10 @@ public class FOOPSController {
     }
 
     @ApiOperation(
-            value = "Runs a set of tests on a resource, according to the metrics defined in a benchmark",
+            value = "Runs a set of tests on a resource, according to the metrics defined in a benchmark.",
             notes = "Returns a set of test results according to the FTR specification. The result sets that may be run " +
                     "have identifiers ALL and PRE, according to the benchmark information in " +
-                    "https://w3id.org/foops/benchmark/"
+                    "https://w3id.org/foops/benchmark/ \n"
                     + "Example request JSON:\n"
                     + "```\n"
                     + "{\n"
@@ -274,7 +273,7 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Get metric metadata (in JSON-LD)",
-            notes = "return metric description following the FTR specification."
+            notes = "Returns metric metadata following the FTR specification."
     )
     @GetMapping(path = "/metrics/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getMetricMetadata(@PathVariable String identifier) {
@@ -288,7 +287,7 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Get benchmark metadata (in JSON-LD)",
-            notes = "return benchmark descriptions following the FTR specification."
+            notes = "Returns benchmark metadata following the FTR specification."
     )
     @GetMapping(path = "/benchmarks/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getBenchmarkMetadata(@PathVariable String identifier) {
@@ -307,7 +306,7 @@ public class FOOPSController {
      * @return JSON with FOOPS! response.
      */
     @ApiOperation(
-            value = "Assess an ontology against a set of FOOPS! tests for pre-assessment. This is the original FOOPS! call for assessment",
+            value = "Assess an ontology against a set of FOOPS! tests for pre-assessment. This is the original FOOPS! call for assessment.",
             notes = "This call returns a JSON response obtained by FOOPS. " +
                     "The ontology for assessment is in the body of the POST request"
     )

@@ -13,7 +13,7 @@
 <https://w3id.org/foops/metric/OM3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM3> ;
 	dcterms:title "Ontology declares detailed metadata"@en ;
-	dcterms:description """ 	
+	dcterms:description """
 This metric assesses whether an ontology/vocabulary includes a comprehensive set of metadata elements that provide in-depth information for improved usability and provenance tracking.
 
 **What is being measured?**
