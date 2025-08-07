@@ -60,13 +60,15 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if the following  minimum metadata are present in the ontology metadata:
- * title: declared using <a href="http://purl.org/dc/elements/1.1/title">dc:title</a>, <a href="http://purl.org/dc/terms/title">dcterms:title</a> or <a href="http://schema.org/name">schema:name</a>
- * description: declared using <a href="http://purl.org/dc/elements/1.1/abstract">dc:abstract</a>, <a href="http://purl.org/dc/terms/abstract">dcterms:abstract</a>, <a href="http://purl.org/dc/elements/1.1/description">dc:description</a>, <a href="http://purl.org/dc/terms/description">dcterms:description</a>, <a href="http://schema.org/description">schema:description</a>, <a href="http://www.w3.org/2000/01/rdf-schema#comment">rdfs:comment</a>, <a href="http://usefulinc.com/ns/doap#description">doap:description</a>, <a href="http://usefulinc.com/ns/doap#shortdesc">doap:shortdesc</a> or <a href="http://www.w3.org/2004/02/skos/core#note">skos:note</a>
- * license: declared using <a href="http://purl.org/dc/terms/license">dcterms:license</a>, <a href="http://schema.org/licesne">schema:license</a>, <a href="http://usefulinc.com/ns/doap#license">doap:license</a> or <a href="http://creativecommons.org/ns#license">cc:license</a>.
- * version iri: declared using <a href="http://www.w3.org/2002/07/owl#versionIRI">owl:versionIRI</a>
- * creator: declared using <a href="http://purl.org/dc/elements/1.1/creator">dc:creator</a>, <a href="http://purl.org/dc/terms/creator">dcterms:creator</a>, <a href="http://purl.org/pav/createdBy">pav:createdBy</a>, <a href="http://purl.org/pav/authoredBy">pav:authoredBy</a>, <a href="http://schema.org/creator">schema:creator</a>, <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a> or <a href="http://usefulinc.com/ns/doap#developer">doap:developer</a>
- * namespace URI: declared using  <a href="https://purl.org/vocab/vann/">vann:preferredNamespaceUri</a></p>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if the following  minimum metadata are present in the ontology metadata:</p>
+<ul>
+<li>title: declared using <a href="http://purl.org/dc/elements/1.1/title">dc:title</a>, <a href="http://purl.org/dc/terms/title">dcterms:title</a> or <a href="http://schema.org/name">schema:name</a></li>
+<li>description: declared using <a href="http://purl.org/dc/elements/1.1/abstract">dc:abstract</a>, <a href="http://purl.org/dc/terms/abstract">dcterms:abstract</a>, <a href="http://purl.org/dc/elements/1.1/description">dc:description</a>, <a href="http://purl.org/dc/terms/description">dcterms:description</a>, <a href="http://schema.org/description">schema:description</a>, <a href="http://www.w3.org/2000/01/rdf-schema#comment">rdfs:comment</a>, <a href="http://usefulinc.com/ns/doap#description">doap:description</a>, <a href="http://usefulinc.com/ns/doap#shortdesc">doap:shortdesc</a> or <a href="http://www.w3.org/2004/02/skos/core#note">skos:note</a></li>
+<li>license: declared using <a href="http://purl.org/dc/terms/license">dcterms:license</a>, <a href="http://schema.org/licesne">schema:license</a>, <a href="http://usefulinc.com/ns/doap#license">doap:license</a> or <a href="http://creativecommons.org/ns#license">cc:license</a>.</li>
+<li>version iri: declared using <a href="http://www.w3.org/2002/07/owl#versionIRI">owl:versionIRI</a></li>
+<li>creator: declared using <a href="http://purl.org/dc/elements/1.1/creator">dc:creator</a>, <a href="http://purl.org/dc/terms/creator">dcterms:creator</a>, <a href="http://purl.org/pav/createdBy">pav:createdBy</a>, <a href="http://purl.org/pav/authoredBy">pav:authoredBy</a>, <a href="http://schema.org/creator">schema:creator</a>, <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a> or <a href="http://usefulinc.com/ns/doap#developer">doap:developer</a></li>
+<li>namespace URI: declared using  <a href="https://purl.org/vocab/vann/">vann:preferredNamespaceUri</a></li>
+</ul>
 <p>The test will pass if all ontology metadata are present. The test will fail otherwise, indicating the properties that are missing.</p></div>
             </div>
 

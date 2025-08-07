@@ -1,52 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/OM3",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
         "@id": "https://w3id.org/foops/test/OM3",
         "@type": [
             "https://w3id.org/ftr#Test",
@@ -63,7 +16,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "\nThis test verifies if the ontology includes the following detailed metadata:\n\n * Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (if a doi is provided) or dcterms:identifier (if a doi is provided)\n * publisher: declared using dc:publisher, dcterms:publisher or schema:publisher\n * logo: declared using foaf:logo or schema:logo\n * status: declared using bibo:status or mod:status\n * source: declared using dcterms:source or prov:hadOriginalSource\n * issued date: declared using dcterms:issued\n * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion or pav:previousVersion\n * backward compatibility (optional): declared using owl:backwardCompatibleWith\n * modified date (optional): declared using dcterms:modified or schema:dateModified\n\nThe test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).\n\nNamespaces used: \n\n * bibo: http://purl.org/ontology/bibo/ \n * dc: http://purl.org/dc/elements/1.1/\n * dcterms: http://purl.org/dc/terms/\n * foaf: http://xmlns.com/foaf/0.1/\n * schema: https://schema.org/ and http://schema.org/\n * owl: http://www.w3.org/2002/07/owl#\n * pav: http://purl.org/pav/\n * prov: http://www.w3.org/ns/prov#\n * mod: https://w3id.org/mod#\n \n "
+                "@value": "\nThis test verifies if the ontology includes the following detailed metadata:\n\n * Digital Object Identifier (DOI): declared using  [bibo:doi](http://purl.org/ontology/bibo/doi), [schema:identifier](https://schema.org/identifier) (if a doi is provided) or [dcterms:identifier](http://purl.org/dc/terms/identifier) (if a doi is provided)\n * publisher: declared using [dc:publisher](http://purl.org/dc/elements/1.1/publisher), [dcterms:publisher](http://purl.org/dc/terms/publisher) or [schema:publisher](https://schema.org/publisher)\n * logo: declared using [foaf:logo](http://xmlns.com/foaf/0.1/logo) or [schema:logo](https://schema.org/logo)\n * status: declared using [bibo:status](http://purl.org/ontology/bibo/status) or [mod:status](https://w3id.org/mod#status)\n * source: declared using [dcterms:source](http://purl.org/dc/terms/source) or [prov:hadOriginalSource](http://www.w3.org/ns/prov#hadOriginalSource)\n * issued date: declared using [dcterms:issued](http://purl.org/dc/terms/issued)\n * previous version (optional): declared using  [dc:replaces](http://purl.org/dc/elements/1.1/replaces), [dcterms:replaces](http://purl.org/dc/terms/replaces), [prov:wasRevisionOf](http://www.w3.org/ns/prov#wasRevisionOf), [owl:priorVersion](http://www.w3.org/2002/07/owl#priorVersion) or [pav:previousVersion](http://purl.org/pav/previousVersion)\n * backward compatibility (optional): declared using [owl:backwardCompatibleWith](http://www.w3.org/2002/07/owl#backwardCompatibleWith)\n * modified date (optional): declared using [dcterms:modified](http://purl.org/dc/terms/modified) or [schema:dateModified](https://schema.org/dateModified)\n\nThe test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version). \n "
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -168,6 +121,37 @@
         ]
     },
     {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/OM3",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -181,6 +165,43 @@
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
                 "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     },
@@ -206,27 +227,6 @@
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "R1"
-            }
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
             }
         ]
     }

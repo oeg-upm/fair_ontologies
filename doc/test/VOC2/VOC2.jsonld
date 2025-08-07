@@ -16,7 +16,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": "\nThis test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).\nThe test will pass if other vocabularies are imported (owl:imports), or if classes, properties or data properties \noutside the ontology URI or namespace URI are used.\nThe test wil fail if no terms are reused.\n\t"
+                "@value": "\nThis test verifies if the ontology imports/extends other vocabularies (besides RDF, OWL and RDFS).\nThe test will pass if other vocabularies are imported ([owl:imports](http://www.w3.org/2002/07/owl#imports)), or if classes, properties or data properties \noutside the ontology URI or namespace URI are used.\nThe test wil fail if no terms are reused.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -142,28 +142,6 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/VOC2",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -203,6 +181,28 @@
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "I2"
             }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/VOC2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {

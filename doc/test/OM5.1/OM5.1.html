@@ -60,20 +60,14 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if basic provenance metadata is available for the ontology:<br />
- * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer
- * creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
- * contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
- * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion
-The test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.</p>
-<p>Namespaces used:
- * dc: http://purl.org/dc/elements/1.1/
- * dcterms: http://purl.org/dc/terms/
- * schema: https://schema.org/ and http://schema.org/
- * doap: http://usefulinc.com/ns/doap#
- * owl: http://www.w3.org/2002/07/owl#
- * pav: http://purl.org/pav/
- * prov: http://www.w3.org/ns/prov#</p></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This check verifies if basic provenance metadata is available for the ontology:  </p>
+<ul>
+<li>creator: declared using <a href="http://purl.org/dc/elements/1.1/creator">dc:creator</a>, <a href="http://purl.org/dc/terms/creator">dcterms:creator</a>, <a href="http://purl.org/pav/createdBy">pav:createdBy</a>, <a href="http://purl.org/pav/authoredBy">pav:authoredBy</a>, <a href="https://schema.org/creator">schema:creator</a> or <a href="http://usefulinc.com/ns/doap#developer">doap:developer</a></li>
+<li>creation date: declared using <a href="http://purl.org/dc/terms/created">dcterms:created</a>, <a href="https://schema.org/dateCreated">schema:dateCreated</a>, <a href="http://usefulinc.com/ns/doap#created">doap:created</a>, <a href="http://www.w3.org/ns/prov#generatedAtTime">prov:generatedAtTime</a> or <a href="http://purl.org/pav/createdOn">pav:createdOn</a></li>
+<li>contributor (optional): declared using <a href="http://purl.org/dc/elements/1.1/contributor">dc:contributor</a>, <a href="http://purl.org/dc/terms/contributor">dcterms:contributor</a>, <a href="https://schema.org/contributor">schema:contributor</a>, <a href="http://usefulinc.com/ns/doap#documenter">doap:documenter</a>, <a href="http://usefulinc.com/ns/doap#maintainer">doap:maintainer</a>, <a href="http://usefulinc.com/ns/doap#helper">doap:helper</a>, <a href="http://usefulinc.com/ns/doap#translator">doap:translator</a> or <a href="http://purl.org/pav/contributedBy">pav:contributedBy</a>.</li>
+<li>previous version (optional): declared using  <a href="http://purl.org/dc/elements/1.1/replaces">dc:replaces</a>, <a href="http://purl.org/dc/terms/replaces">dcterms:replaces</a>, <a href="http://www.w3.org/ns/prov#wasRevisionOf">prov:wasRevisionOf</a>, <a href="http://www.w3.org/2002/07/owl#previousVersion">owl:priorVersion</a>, <a href="http://purl.org/pav/previousVersion">pav:previousVersion</a></li>
+</ul>
+<p>The test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.</p></div>
             </div>
 
             <div class="row flex-space-between"> 

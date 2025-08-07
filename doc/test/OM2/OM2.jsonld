@@ -1,13 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -25,18 +17,10 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },
@@ -57,7 +41,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis test verifies if the following recommended metadata are present in the ontology metadata: \n * Namespace prefix: declared using vann:preferredNamespacePrefix\n * Version info: declared using owl:versionInfo or schema:schemaVersion\n * Creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn\n * Citation: declared using dcterms:bibliographicCitation\n * Contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.\nThe test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).\n\nNamespaces used: \n * dc: http://purl.org/dc/elements/1.1/\n * dcterms: http://purl.org/dc/terms/\n * schema: https://schema.org/ and http://schema.org/\n * doap: http://usefulinc.com/ns/doap#\n * owl: http://www.w3.org/2002/07/owl#\n * pav: http://purl.org/pav/\n * prov: http://www.w3.org/ns/prov#\n\t"
+                "@value": " \nThis test verifies if the following recommended metadata are present in the ontology metadata: \n\n * Namespace prefix: declared using [vann:preferredNamespacePrefix](https://purl.org/vocab/vann/)\n * Version info: declared using [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo) or [schema:schemaVersion](http://schema.org/schemaVersion)\n * Creation date: declared using [dcterms:created](http://purl.org/dc/terms/created), [schema:dateCreated](http://schema.org/dateCreated), [doap:created](http://usefulinc.com/ns/doap#created), [prov:generatedAtTime](http://www.w3.org/ns/prov#generatedAtTime) or [pav:createdOn](http://purl.org/pav/)\n * Citation: declared using [dcterms:bibliographicCitation](http://purl.org/dc/terms/bibliographicCitation)\n * Contributor (optional): declared using [dc:contributor](http://purl.org/dc/elements/1.1/contributor), [dcterms:contributor](http://purl.org/dc/terms/contributor), schema:contributor, [doap:documenter](http://usefulinc.com/ns/doap#documenter), [doap:maintainer](http://usefulinc.com/ns/doap#maintainer), [doap:helper](http://usefulinc.com/ns/doap#helper), [doap:translator](http://usefulinc.com/ns/doap#translator) or [pav:contributedBy](http://purl.org/pav/).\n \nThe test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -175,6 +159,43 @@
         ]
     },
     {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
             "http://www.w3.org/ns/dqv#Dimension",
@@ -203,27 +224,6 @@
         "@id": "https://w3id.org/foops/metric/OM2",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
         ]
     }
 ]

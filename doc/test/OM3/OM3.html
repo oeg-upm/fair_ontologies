@@ -62,29 +62,17 @@
             <div class="row">
                     <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology includes the following detailed metadata:</p>
 <ul>
-<li>Digital Object Identifier (DOI): declared using  bibo:doi, schema:identifier (if a doi is provided) or dcterms:identifier (if a doi is provided)</li>
-<li>publisher: declared using dc:publisher, dcterms:publisher or schema:publisher</li>
-<li>logo: declared using foaf:logo or schema:logo</li>
-<li>status: declared using bibo:status or mod:status</li>
-<li>source: declared using dcterms:source or prov:hadOriginalSource</li>
-<li>issued date: declared using dcterms:issued</li>
-<li>previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion or pav:previousVersion</li>
-<li>backward compatibility (optional): declared using owl:backwardCompatibleWith</li>
-<li>modified date (optional): declared using dcterms:modified or schema:dateModified</li>
+<li>Digital Object Identifier (DOI): declared using  <a href="http://purl.org/ontology/bibo/doi">bibo:doi</a>, <a href="https://schema.org/identifier">schema:identifier</a> (if a doi is provided) or <a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a> (if a doi is provided)</li>
+<li>publisher: declared using <a href="http://purl.org/dc/elements/1.1/publisher">dc:publisher</a>, <a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a> or <a href="https://schema.org/publisher">schema:publisher</a></li>
+<li>logo: declared using <a href="http://xmlns.com/foaf/0.1/logo">foaf:logo</a> or <a href="https://schema.org/logo">schema:logo</a></li>
+<li>status: declared using <a href="http://purl.org/ontology/bibo/status">bibo:status</a> or <a href="https://w3id.org/mod#status">mod:status</a></li>
+<li>source: declared using <a href="http://purl.org/dc/terms/source">dcterms:source</a> or <a href="http://www.w3.org/ns/prov#hadOriginalSource">prov:hadOriginalSource</a></li>
+<li>issued date: declared using <a href="http://purl.org/dc/terms/issued">dcterms:issued</a></li>
+<li>previous version (optional): declared using  <a href="http://purl.org/dc/elements/1.1/replaces">dc:replaces</a>, <a href="http://purl.org/dc/terms/replaces">dcterms:replaces</a>, <a href="http://www.w3.org/ns/prov#wasRevisionOf">prov:wasRevisionOf</a>, <a href="http://www.w3.org/2002/07/owl#priorVersion">owl:priorVersion</a> or <a href="http://purl.org/pav/previousVersion">pav:previousVersion</a></li>
+<li>backward compatibility (optional): declared using <a href="http://www.w3.org/2002/07/owl#backwardCompatibleWith">owl:backwardCompatibleWith</a></li>
+<li>modified date (optional): declared using <a href="http://purl.org/dc/terms/modified">dcterms:modified</a> or <a href="https://schema.org/dateModified">schema:dateModified</a></li>
 </ul>
-<p>The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version).</p>
-<p>Namespaces used: </p>
-<ul>
-<li>bibo: http://purl.org/ontology/bibo/ </li>
-<li>dc: http://purl.org/dc/elements/1.1/</li>
-<li>dcterms: http://purl.org/dc/terms/</li>
-<li>foaf: http://xmlns.com/foaf/0.1/</li>
-<li>schema: https://schema.org/ and http://schema.org/</li>
-<li>owl: http://www.w3.org/2002/07/owl#</li>
-<li>pav: http://purl.org/pav/</li>
-<li>prov: http://www.w3.org/ns/prov#</li>
-<li>mod: https://w3id.org/mod#</li>
-</ul></div>
+<p>The test will pass if all the detailed metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if previosu version, backward compatibility and modified date are present, but with no penalty (as not all ontologies have a previous version). </p></div>
             </div>
 
             <div class="row flex-space-between"> 

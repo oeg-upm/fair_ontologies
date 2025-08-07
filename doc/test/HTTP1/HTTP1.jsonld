@@ -1,13 +1,5 @@
 [
     {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
-            }
-        ]
-    },
-    {
         "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
@@ -25,25 +17,11 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@value": "Ontology Engineering Group"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/HTTP1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
         ]
     },
     {
@@ -202,6 +180,28 @@
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
                 "@value": "A1.1"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/HTTP1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     },

@@ -60,21 +60,15 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the following recommended metadata are present in the ontology metadata: 
- * Namespace prefix: declared using vann:preferredNamespacePrefix
- * Version info: declared using owl:versionInfo or schema:schemaVersion
- * Creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn
- * Citation: declared using dcterms:bibliographicCitation
- * Contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.
-The test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).</p>
-<p>Namespaces used: 
- * dc: http://purl.org/dc/elements/1.1/
- * dcterms: http://purl.org/dc/terms/
- * schema: https://schema.org/ and http://schema.org/
- * doap: http://usefulinc.com/ns/doap#
- * owl: http://www.w3.org/2002/07/owl#
- * pav: http://purl.org/pav/
- * prov: http://www.w3.org/ns/prov#</p></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the following recommended metadata are present in the ontology metadata: </p>
+<ul>
+<li>Namespace prefix: declared using <a href="https://purl.org/vocab/vann/">vann:preferredNamespacePrefix</a></li>
+<li>Version info: declared using <a href="http://www.w3.org/2002/07/owl#versionInfo">owl:versionInfo</a> or <a href="http://schema.org/schemaVersion">schema:schemaVersion</a></li>
+<li>Creation date: declared using <a href="http://purl.org/dc/terms/created">dcterms:created</a>, <a href="http://schema.org/dateCreated">schema:dateCreated</a>, <a href="http://usefulinc.com/ns/doap#created">doap:created</a>, <a href="http://www.w3.org/ns/prov#generatedAtTime">prov:generatedAtTime</a> or <a href="http://purl.org/pav/">pav:createdOn</a></li>
+<li>Citation: declared using <a href="http://purl.org/dc/terms/bibliographicCitation">dcterms:bibliographicCitation</a></li>
+<li>Contributor (optional): declared using <a href="http://purl.org/dc/elements/1.1/contributor">dc:contributor</a>, <a href="http://purl.org/dc/terms/contributor">dcterms:contributor</a>, schema:contributor, <a href="http://usefulinc.com/ns/doap#documenter">doap:documenter</a>, <a href="http://usefulinc.com/ns/doap#maintainer">doap:maintainer</a>, <a href="http://usefulinc.com/ns/doap#helper">doap:helper</a>, <a href="http://usefulinc.com/ns/doap#translator">doap:translator</a> or <a href="http://purl.org/pav/">pav:contributedBy</a>.</li>
+</ul>
+<p>The test will pass if all the recommended metadata properties are available in the ontology metadata (using any of the vocabularies listed above). The test will also check if contributor is present, but with no penalty (as not all ontologies have a contributor).</p></div>
             </div>
 
             <div class="row flex-space-between"> 
