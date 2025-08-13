@@ -164,7 +164,7 @@
         ],
         "http://www.w3.org/2002/07/owl#sameAs": [
             {
-                "@id": "https://fairsharing.org/10938"
+                "@id": "https://fairsharing.org/6288"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
