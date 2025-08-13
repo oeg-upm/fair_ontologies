@@ -5,7 +5,7 @@
 
 Authors: Daniel Garijo and María Poveda, with contributions from Jacobo Mata.
 
-FOOPS! is an application for validating whether a vocabulary (OWL or SKOS) conforms with the FAIR data principles.
+FOOPS! is an application for assessing whether a vocabulary (OWL or SKOS) conforms with the FAIR data principles.
 
 Our [ISWC 2021 demo paper](html_client/assets/iswc_2021_demo.pdf) (**best demo award**) provides an overview of the FOOPS! service. Please cite our work as follows:
 ```
@@ -27,8 +27,6 @@ The client application has been integrated from the work in https://github.com/j
 ## Demo
 A public demo of FOOPS! is available here: [https://w3id.org/foops/](https://w3id.org/foops/)
 
-## Metrics and tests
-The metrics (i.e., conceptual description of what is being assessed) and tests (i.e., implementation of a metric) supported by the tool are available at [https://w3id.org/foops/catalog](https://w3id.org/foops/catalog), along with a detail description of their rationale and means of verification.
 
 ## Installation instructions
 The project was build and tested with JDK 11.0.11 in Ubuntu.
@@ -49,13 +47,17 @@ java -jar -Dserver.port=PORT fair_ontologies-0.0.1.jar
 
 Where PORT is the port you want to run the server
 
-to test the installation, just do a curl command:
+to test the installation, just do a curl command (if the application was run in the port 8083):
 
 ```
 curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json;charset=UTF-8" -H "Content-Type: application/json;charset=UTF-8" -d "{ \"ontologyUri\": \"https://w3id.org/okn/o/sd\"}"
 ```
 
-As a result, you should see a JSON in your console, such as the one in sample.json.
+As a result, you should see a JSON in your console, such as the one in sample.json in the root of this repository.
+
+### Swagger OpenAPI
+When you run the server, FOOPS! will set up a Swagger UI describing the endpoints available in the API. This API is available at `http://localhost:PORT/swagger-ui/index.html#/`
+
 
 ## Running the JAR in local
 To create the JAR, just run:
@@ -80,3 +82,30 @@ As a result, you should see a JSON in your folder, such as the one in sample.jso
 
 
 If you want to change the out file path you can use the flag -out
+
+## Documentation
+
+### Metrics and tests
+The metrics (i.e., conceptual description of what is being assessed) and tests (i.e., implementation of a metric) supported by the tool are available at [https://w3id.org/foops/catalog](https://w3id.org/foops/catalog), along with a detail description of their rationale and means of verification.
+
+### API result specification
+FOOPS! supports two result specifications, due to legacy development. The endpoints:
+* [POST] /assessOntology and
+* [POST] /assessOntologyFile
+
+Follow the classic FOOPS! JSON format. To see an example, please see the [sample json file](./sample.json) in the code repository. This JSON is simple, but may be harder to debug.
+
+The endpoints:
+* [GET] /benchmarks/{identifier}
+* [GET] /tests
+* [GET] /tests/{identifier}
+* [GET] /metrics
+* [GET] /metrics/{identifier}
+* [POST] /assess/resultset/{identifier}
+* [POST] /assess/test/{test_identifier}
+
+Follow the [FAIR test resource specification](https://w3id.org/ftr/), providing machine-readable metadata (JSON-LD) on all tests, metrics and groups of tests supported by FOOPS!
+
+## Expanding the list of supported persistent registries
+Test [FIND3](https://w3id.org/foops/test/FIND3) assesses whether an ontology complies to a certain URI scheme, based on persistent identifier registries like w3id.org or purl.org. However, your organization may issue persistent URIs too. If you would like us to add your registry scheme into the supported URI schemes, please [open an issue](https://github.com/oeg-upm/fair_ontologies/issues) describing the URI scheme you want to support in FOOPS! and a link to a policy page describing the intention of the organization to support the resources in the long term. A reviewer will check and add it into the tool.
+

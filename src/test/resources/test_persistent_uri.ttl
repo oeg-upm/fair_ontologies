@@ -1,0 +1,11 @@
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://purl.something.org/some_ontology> a owl:Ontology; 
+  rdfs:label "sample ontology";
+  dcterms:creator [
+    schema:name "John Doe" ;
+    schema:url <http://example.org/john-doe>
+  ] . 

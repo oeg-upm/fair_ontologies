@@ -14,24 +14,27 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology/vocabulary prefix is found in prefix.cc or LOV"@en ;
-	rdfs:label "FIND2 test: Ontology/vocabulary prefix is found in prefix.cc or LOV"^^xsd:string ;
+	dcterms:title "Ontology prefix is found in prefix.cc or LOV"@en ;
+	rdfs:label "FIND2 test: Ontology prefix is found in prefix.cc or LOV"^^xsd:string ;
 	vivo:abbreviation "FIND2-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F4> ;
-	dcterms:description """ This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. 
-	The test will pass if: 
-	* 1) there is a prefix declared in the assessed ontology, 
-	* 2) the prefix is found in LOV or prefix.cc 
-	* 3) if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
-	Otherwise, the test will fail. 
+	dcterms:description """
+This test verifies whether the ontology prefix is available in [prefix.cc]((https://prefix.cc/)) or the [Linked Open Vocabularies (LOV)]((https://lov.linkeddata.es/)) registries. 
+The test will pass if: 
+
+ 1. there is a prefix declared in the assessed ontology, 
+ 2. the prefix is found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) 
+ 3. if found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) , the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)
+
+Otherwise, the test will fail. 
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/FIND2> ;
 	dcat:keyword "Prefix"@en ,"LOV"@en ,"prefix.cc"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND2> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/FIND2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/FIND2> ;

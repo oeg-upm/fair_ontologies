@@ -13,7 +13,7 @@
 
 <https://w3id.org/foops/metric/URI2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/URI2> ;
-	dcterms:title "Consistent ontology IDs"@en ;
+	dcterms:title "Consistent ontology IDs are employed"@en ;
 	dcterms:description """ 
 This metric ensures alignment between the ontology’s URI and its ID.
 
@@ -33,7 +33,7 @@ An ontology URI.
 
 The ontology’s URI and ID are consistent.
 	"""@en ;
-	rdfs:label "URI2 metric: Consistent ontology IDs"^^xsd:string ;
+	rdfs:label "URI2 metric: Consistent ontology IDs are employed"^^xsd:string ;
 	vivo:abbreviation "URI2-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;

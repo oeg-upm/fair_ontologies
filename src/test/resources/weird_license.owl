@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://terminologies.gfbio.org/terms/RIVERS_DE/"
+	xml:base="http://terminologies.gfbio.org/terms/RIVERS_DE/"
+	xmlns:rivers_de="http://terminologies.gfbio.org/terms/rivers_de#"
+	xmlns:gfbio="http://terminologies.gfbio.org/terms/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+	xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	xmlns:gn="http://www.geonames.org/ontology#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:vann="http://purl.org/vocab/vann/"
+	xmlns:schema="https://schema.org/"
+	xmlns:mod="https://w3id.org/mod#"
+	xmlns:dct="http://purl.org/dc/terms/">
+	<owl:Ontology rdf:about="https://example.ontology#">
+		<dc:title>German River Names</dc:title>
+		<dc:creator>Umweltbundesamt der Bundesrepublik Deutschland (UBA)</dc:creator>
+		<dc:contributor>Botanic Garden and Botanical Museum Berlin (BGBM) </dc:contributor>
+		<dc:description xml:lang="en">A controlled vocabulary of the names of rivers in Germany and their connections, extracted from the Shape File provided by the environmental authority of the Federal Republic of Germany: Umweltbundesamt (UBA).</dc:description>
+		<dc:rights xml:lang="de">Die vom Umweltbundesamt angebotenen eigenen Geodienste und Metadaten stehen gemäß dem Geodatenzugangsgesetz (GeoZG, http://www.gesetze-im-internet.de/geozg/) geldleistungsfrei zur Online-Nutzung bzw. zum Download zur Verfügung. Die Nutzung der Geodaten und Geodatendienste wird durch die Verordnung zur Festlegung der Nutzungsbestimmungen für die Bereitstellung von Geodaten des Bundes (GeoNutzV, http://www.geodatenzentrum.de/docpdf/geonutzv.pdf) vom 19. März 2013 (Bundesgesetzblatt Jahrgang 2013 Teil I Nr. 14) geregelt.</dc:rights>
+		<schema:citation xml:lang="en">Cite as: Umweltbundesamt (UBA) German River Names Ontology 1.0.0.</schema:citation>
+		<dct:license rdf:resource="https://www.gesetze-im-internet.de/geonutzv/GeoNutzV.pdf"/>
+		<dct:publisher xml:lang="en">GFBio Terminology Service</dct:publisher>
+		<dct:modified>2023-10-31</dct:modified>
+		<dct:created>2017-03-29</dct:created>
+		<dct:issued>2017-03-29</dct:issued>	
+        <dc:language>de</dc:language>
+		<owl:versionInfo>1.1.0</owl:versionInfo>
+		<mod:status>production</mod:status>
+		<vann:preferredNamespaceUri rdf:resource="http://terminologies.gfbio.org/terms/RIVERS_DE/" />
+		<vann:preferredNamespacePrefix>rivers_de</vann:preferredNamespacePrefix>
+		<owl:versionIRI rdf:resource="http://terminologies.gfbio.org/terms/rivers_de/2023-10-31/rivers_de.owl"/>
+	</owl:Ontology>
+  
+</rdf:RDF>

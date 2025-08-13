@@ -25,6 +25,7 @@ import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.search.EntitySearcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.FileTooLargeException;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -75,7 +76,7 @@ public class Ontology {
      * @param isFromFile flag to indicate whether the ontology should be loaded from file or URL
      * @param tmpFolder temporary folder where to store the downloaded ontology
      */
-    public Ontology(String o, boolean isFromFile, Path tmpFolder){
+    public Ontology(String o, boolean isFromFile, Path tmpFolder) throws FileTooLargeException {
         supportedMetadata = new ArrayList<>();
         reusedMetadataVocabularies = new ArrayList<>();
         reusedVocabularies = new ArrayList<>();
@@ -86,7 +87,11 @@ public class Ontology {
         try {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
             this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
-        }catch(Exception e){
+            logger.info("Ontology URI to assess: "+ontologyURI);
+        }catch(FileTooLargeException e) {
+            throw e;
+        }
+        catch(Exception e){
             if(ontologyURI == null && ontologyModel !=null){
                 logger.error("Could load the ontology, but no owl:Ontology declared!");
                 //check if this is a SKOS vocabulary: skos:ConceptScheme
@@ -148,6 +153,28 @@ public class Ontology {
                 logger.info("No version IRI detected");
             }
             this.ontologyModel.annotations().forEach(this::completeMetadata);
+            // extension for those axioms that extend properties but are annotation properties.
+            // see https://github.com/dgarijo/Widoco/issues/530 for context
+            for (OWLAxiom axiom : ontologyModel.getAxioms()) {
+                String subject = "", predicate ="", object ="";
+                if (axiom instanceof OWLDataPropertyAssertionAxiom) {
+                    OWLDataPropertyAssertionAxiom dataPropertyAssertionAxiom = (OWLDataPropertyAssertionAxiom) axiom;
+                    subject = dataPropertyAssertionAxiom.getSubject().toStringID();
+                    predicate = dataPropertyAssertionAxiom.getProperty().asOWLDataProperty().toStringID();
+                    object = dataPropertyAssertionAxiom.getObject().getLiteral();
+                } else if (axiom instanceof OWLObjectPropertyAssertionAxiom) {
+                    OWLObjectPropertyAssertionAxiom objectPropertyAssertionAxiom = (OWLObjectPropertyAssertionAxiom) axiom;
+                    subject = objectPropertyAssertionAxiom.getSubject().toStringID();
+                    predicate = objectPropertyAssertionAxiom.getProperty().asOWLObjectProperty().toStringID();
+                    object = objectPropertyAssertionAxiom.getObject().toStringID();
+                }
+                if (subject.equals(this.ontologyURI)){
+                    OWLDataFactory dataFactory = this.ontologyModel.getOWLOntologyManager().getOWLDataFactory();
+                    OWLAnnotationProperty pAux = dataFactory.getOWLAnnotationProperty(IRI.create(predicate));
+                    OWLAnnotationValue oAux = dataFactory.getOWLLiteral(object);
+                    completeMetadata(dataFactory.getOWLAnnotation(pAux,oAux));
+                }
+            }
         }
     }
 
@@ -194,13 +221,6 @@ public class Ontology {
                 break;
             case Constants.PROP_OWL_VERSION_INFO:
             case Constants.PROP_SCHEMA_SCHEMA_VERSION:
-                try {
-                    this.versionInfo = a.getValue().asLiteral().get().getLiteral();
-                    this.supportedMetadata.add(Constants.FOOPS_VERSION_INFO);
-                } catch (Exception e) {
-                    logger.error("Error while getting ontology abstract. No literal provided");
-                }
-                break;
             case Constants.PROP_SCHEMA_SCHEMA_VERSION_HTTP:
                 try {
                     this.versionInfo = a.getValue().asLiteral().get().getLiteral();
@@ -235,6 +255,8 @@ public class Ontology {
                 }
                 break;
             case Constants.PROP_DC_RIGHTS:
+            case Constants.PROP_DCTERMS_RIGHTS:
+            case Constants.PROP_DCTERMS_ACCESS_RIGHTS:
                 try {
                     this.rights = Utils.getValueAsLiteralOrURI(a.getValue());
                     this.supportedMetadata.add(Constants.FOOPS_RIGHTS);
@@ -315,13 +337,6 @@ public class Ontology {
                 break;
             case Constants.PROP_DCTERMS_MODIFIED:
             case Constants.PROP_SCHEMA_DATE_MODIFIED:
-                try {
-                    this.modifiedDate = a.getValue().asLiteral().get().getLiteral();
-                    this.supportedMetadata.add(Constants.FOOPS_MODIFIED);
-                } catch (Exception e) {
-                    logger.error("Error while getting the date. No literal provided");
-                }
-                break;
             case Constants.PROP_SCHEMA_DATE_MODIFIED_HTTP:
                 try {
                     this.modifiedDate = a.getValue().asLiteral().get().getLiteral();
@@ -331,8 +346,8 @@ public class Ontology {
                 }
                 break;
             case Constants.PROP_DCTERMS_BIBLIOGRAPHIC_CIT:
-            case Constants.PROP_SCHEMA_CITATION:
-            case Constants.PROP_SCHEMA_CITATION_HTTP:
+//            case Constants.PROP_SCHEMA_CITATION: this refers to citing another work
+//            case Constants.PROP_SCHEMA_CITATION_HTTP:
                 this.citation = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_CITATION);
                 break;
@@ -348,6 +363,7 @@ public class Ontology {
                     this.supportedMetadata.add(Constants.FOOPS_DOI);
                 }
             case Constants.PROP_BIBO_STATUS:
+            case Constants.PROP_MOD_STATUS:
                 try {
                     if (a.getValue().isLiteral()) {
                         this.status = a.getValue().asLiteral().get().getLiteral();
@@ -365,8 +381,8 @@ public class Ontology {
                 this.supportedMetadata.add(Constants.FOOPS_B_COMPATIBILITY);
                 break;
             case Constants.PROP_FOAF_LOGO:
-            case Constants.PROP_SCHEMA_SCHEMA_LOGO:
-            case Constants.PROP_SCHEMA_SCHEMA_LOGO_HTTP:
+            case Constants.PROP_SCHEMA_LOGO:
+            case Constants.PROP_SCHEMA_LOGO_HTTP:
                 this.logo = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_LOGO);
                 break;
@@ -377,9 +393,17 @@ public class Ontology {
                 this.supportedMetadata.add(Constants.FOOPS_SOURCE);
                 break;
             case Constants.PROP_DCTERMS_ISSUED:
+            case Constants.PROP_DCTERMS_SUBMITTED:
+            case Constants.PROP_SCHEMA_DATE_RELEASED:
+            case Constants.PROP_SCHEMA_DATE_RELEASED_HTTP:
+            case Constants.PROP_SCHEMA_DATE_PUBLISHED:
+            case Constants.PROP_SCHEMA_DATE_PUBLISHED_HTTP:
                 this.issuedDate = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_ISSUED);
                 break;
+            case Constants.PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG_HTTP:
+            case Constants.PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG:
+                this.supportedMetadata.add(Constants.FOOPS_INCLUDED_IN_DATA_CATALOG);
             case Constants.PROP_RDFS_LABEL:
             case Constants.PROP_DOAP_NAME:
                 this.name = Utils.getValueAsLiteralOrURI(a.getValue());
@@ -645,5 +669,10 @@ public class Ontology {
 
     public String getSource() {
         return source;
+    }
+
+    public String getNamespaceUri(){
+        if (namespaceUri.isEmpty()) return "unknown";
+        else return namespaceUri;
     }
 }

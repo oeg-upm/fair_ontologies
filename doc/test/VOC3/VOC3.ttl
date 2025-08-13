@@ -21,7 +21,7 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
 	dcterms:description """ 
 This test verifies the extent to which all ontology terms have labels.
-The test will pass if all classes, properties and data properties have either an rdfs:label or skos:prefLabel.
+The test will pass if all classes, properties and data properties have either an [rdfs:label](http://www.w3.org/2000/01/rdf-schema#label) or [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel).
 For skos vocabularies, only the skos:Concepts are assessed.
 Otherwise, the test will fail, indicating the level of completeness found (i.e., percentage of documented terms) """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
@@ -29,7 +29,7 @@ Otherwise, the test will fail, indicating the level of completeness found (i.e.,
 	dcterms:identifier <https://w3id.org/foops/test/VOC3> ;
 	dcat:keyword "Labels"@en , "Documentation"@en, "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC3> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/VOC3> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/VOC3> ;

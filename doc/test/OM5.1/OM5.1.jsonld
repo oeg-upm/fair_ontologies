@@ -1,18 +1,53 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/foops/metric/OM5.1",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://ror.org/03n6nwv02",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "https://ror.org/02h3v0f81"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
+            {
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
+                "@value": "Maria Poveda"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -42,70 +77,19 @@
         ]
     },
     {
-        "@id": "https://ror.org/03n6nwv02",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://purl.org/dc/terms/identifier": [
-            {
-                "@value": "https://ror.org/02h3v0f81"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/metric/OM5.1",
-        "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Individual"
         ],
         "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@value": "Daniel Garijo"
             }
         ],
         "http://www.w3.org/2006/vcard/ns#hasEmail": [
             {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -126,7 +110,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis check verifies if basic provenance metadata is available for the ontology:  \n\n * creator: declared using dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator or doap:developer\n * creation date: declared using dcterms:created, schema:dateCreated, doap:created, prov:generatedAtTime or pav:createdOn\n * contributor (optional): declared using dc:contributor, dcterms:contributor, schema:contributor, doap:documenter, doap:maintainer, doap:helper, doap:translator or pav:contributedBy.\n * previous version (optional): declared using  dc:replaces, dcterms:replaces, prov:wasRevisionOf, owl:priorVersion, pav:previousVersion\n\nThe test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.\n\nNamespaces used:\n\n * dc: http://purl.org/dc/elements/1.1/\n * dcterms: http://purl.org/dc/terms/\n * schema: https://schema.org/ and http://schema.org/\n * doap: http://usefulinc.com/ns/doap#\n * owl: http://www.w3.org/2002/07/owl#\n * pav: http://purl.org/pav/\n * prov: http://www.w3.org/ns/prov#\n\n\t"
+                "@value": " \nThis check verifies if basic provenance metadata is available for the ontology:  \n\n * creator: declared using [dc:creator](http://purl.org/dc/elements/1.1/creator), [dcterms:creator](http://purl.org/dc/terms/creator), [pav:createdBy](http://purl.org/pav/createdBy), [pav:authoredBy](http://purl.org/pav/authoredBy), [schema:creator](https://schema.org/creator) or [doap:developer](http://usefulinc.com/ns/doap#developer)\n * creation date: declared using [dcterms:created](http://purl.org/dc/terms/created), [schema:dateCreated](https://schema.org/dateCreated), [doap:created](http://usefulinc.com/ns/doap#created), [prov:generatedAtTime](http://www.w3.org/ns/prov#generatedAtTime) or [pav:createdOn](http://purl.org/pav/createdOn)\n * contributor (optional): declared using [dc:contributor](http://purl.org/dc/elements/1.1/contributor), [dcterms:contributor](http://purl.org/dc/terms/contributor), [schema:contributor](https://schema.org/contributor), [doap:documenter](http://usefulinc.com/ns/doap#documenter), [doap:maintainer](http://usefulinc.com/ns/doap#maintainer), [doap:helper](http://usefulinc.com/ns/doap#helper), [doap:translator](http://usefulinc.com/ns/doap#translator) or [pav:contributedBy](http://purl.org/pav/contributedBy).\n * previous version (optional): declared using  [dc:replaces](http://purl.org/dc/elements/1.1/replaces), [dcterms:replaces](http://purl.org/dc/terms/replaces), [prov:wasRevisionOf](http://www.w3.org/ns/prov#wasRevisionOf), [owl:priorVersion](http://www.w3.org/2002/07/owl#previousVersion), [pav:previousVersion](http://purl.org/pav/previousVersion)\n\nThe test will pass if creator and creation date are present. The test will fail otherwise, indicating the properties that are missing.\n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -150,7 +134,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Ontology/vocabulary declares basic provenance metadata"
+                "@value": "Ontology declares basic provenance metadata"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -172,7 +156,7 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "OM5.1 test: Ontology/vocabulary declares basic provenance metadata"
+                "@value": "OM5.1 test: Ontology declares basic provenance metadata"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -187,7 +171,7 @@
         ],
         "http://www.w3.org/ns/dcat#endpointURL": [
             {
-                "@id": "https://w3id.org/foops/api/assess/test/OM5.1"
+                "@id": "https://foops.linkeddata.es/assess/test/OM5.1"
             }
         ],
         "http://www.w3.org/ns/dcat#keyword": [
@@ -227,6 +211,22 @@
         "https://w3id.org/ftr#supportedBy": [
             {
                 "@id": "https://w3id.org/foops/"
+            }
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     }

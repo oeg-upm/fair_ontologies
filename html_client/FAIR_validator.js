@@ -483,7 +483,7 @@ function loadInfo(result) {
 function loadCategory(category, result) {
   var checks_div = document.getElementById(category + "-checks");
   checks_div.innerHTML = getLineHTMLNoLine();
-  checks_div.style ="display: none";
+  // checks_div.style ="display: none";
   checks = getCategoryChecks(category, result);
   // console.log(result)
   //if a category does not have any results (depends on the benchmark, return a special body)
@@ -619,7 +619,7 @@ function getCheckHTML(check_info) {
    let score = (check_info.total_passed_tests / check_info.total_tests_run);
    let divTexto = "";
 
-   // DIV DEL CHECK
+   // DIV DEL CHECK style="display: none" -> add this in line 646 and 684 if you want to hide the text
    if (score == 1) {
     divTexto = `
         <div class="col-12 p-0 caja-blanca mt-2">
@@ -639,11 +639,11 @@ function getCheckHTML(check_info) {
             <div class="col-2 d-flex align-items-center justify-content-end ">
               <img
                      class="clickable-category"
-                     src="assets/down-arrow.svg"
+                     src="assets/up-arrow.svg"
                      onclick="arrowClicked(event, '${check_info.abbreviation}')">
             </div>
           </div>
-          <div class="row m-0" id="${check_info.abbreviation}" style="display: none">
+          <div class="row m-0" id="${check_info.abbreviation}" >
             ${getLineHTML()}
             <div class="row mx-0 mt-2 w-100">
               <dl>
@@ -677,11 +677,11 @@ function getCheckHTML(check_info) {
             <div class="col-2 d-flex align-items-center justify-content-end ">
               <img
                      class="clickable-category"
-                     src="assets/down-arrow.svg"
+                     src="assets/up-arrow.svg"
                      onclick="arrowClicked(event, '${check_info.abbreviation}')">
             </div>
           </div>
-          <div class="row m-0" id="${check_info.abbreviation}" style="display: none">
+          <div class="row m-0" id="${check_info.abbreviation}">
             ${getLineHTML()}
             <div class="row mx-0 mt-2 w-100">
               <dl>

@@ -31,6 +31,7 @@ import org.semanticweb.owlapi.formats.TurtleDocumentFormat;
 import org.semanticweb.owlapi.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.FileTooLargeException;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -44,29 +45,37 @@ import java.util.Date;
 public class FOOPS {
     private static final Logger logger = LoggerFactory.getLogger(FOOPS.class);
 
-    private Benchmark checksToRun;
+    private final Benchmark checksToRun;
     private Path tmpFolder;
-    private Ontology ontology;
+    private final Ontology ontology;
 
     /**
      * Constructor for running FOOPS! in a single test mode. Useful when invoking the API
      * @param o URI of
      * @param testsToRun arraylist with the ids of the tests to run. A new benchmark
      */
-    public FOOPS(String o, ArrayList<String> testsToRun){
+    public FOOPS(String o, ArrayList<String> testsToRun) throws FileTooLargeException {
         initTempFolder();
         this.ontology = new Ontology(o, false, tmpFolder);
         checksToRun = new CustomBenchmark(ontology,o,testsToRun);
     }
-    public FOOPS(String o, boolean isFromFile){
-        initTempFolder();
-        this.ontology = new Ontology(o, isFromFile, tmpFolder);
-        if(!isFromFile ){
-            checksToRun = new URIBenchmark(ontology,o);
+    public FOOPS(String o, boolean isFromFile)throws FileTooLargeException {
+        try {
+            initTempFolder();
+            this.ontology = new Ontology(o, isFromFile, tmpFolder);
+            if (!isFromFile) {
+                checksToRun = new URIBenchmark(ontology, o);
+            } else {
+                checksToRun = new FileBenchmark(ontology);
+            }
+        }catch(FileTooLargeException e){
+            this.removeTemporaryFolders();
+            throw e;
         }
-        else {
-            checksToRun = new FileBenchmark(ontology);
-        }
+    }
+
+    public Ontology getOntology(){
+        return this.ontology;
     }
 
     private void initTempFolder(){
@@ -109,7 +118,7 @@ public class FOOPS {
      * <a href="https://github.com/oeg-upm/fair_ontologies/blob/main/sample.json">here</a>
      */
     public String exportJSON(){
-        String license, title;
+        String license, title, isOntology = "ontology";
         if (this.ontology.getLicense()!=null && !"".equals(ontology.getLicense())){
             license = "\"ontology_license\": \""+this.ontology.getLicense()+"\",\n";
         }else{
@@ -120,9 +129,13 @@ public class FOOPS {
         }else{
             title = "\"ontology_title\": \"unknown\",\n";
         }
+        if (this.ontology.isSKOS()){
+            isOntology = "skos";
+        }
         String out = "{\n\"ontology_URI\": \""+this.ontology.getOntologyURI()+"\",\n" +
                 title +
                 license +
+                "\"resource_found\":\""+isOntology+"\",\n" +
                 "\"overall_score\":"+this.getTotalScore()+",\n" +
                 "\"checks\":";
         Gson gson = new GsonBuilder().
@@ -170,7 +183,7 @@ public class FOOPS {
         template = template.replace("$TEST_ID",check.getId());
         template = template.replace("$TEST_ABBRV",check.getAbbreviation());
         template = template.replace("$RESULT_ID",resultId);
-        template = template.replace("$RESULT_DESCRIPTION",check.getExplanation());
+        template = template.replace("$RESULT_DESCRIPTION",Utils.escapeJson(check.getExplanation()));
         template = template.replace("$RESULT_TITLE",
                 "Output from running test: "+check.getAbbreviation()+" ("+ check.getId()+")");
         template = template.replace("$RESULT_DATE",""+new Date().toString());
@@ -186,7 +199,7 @@ public class FOOPS {
             }
         }
         template = template.replace("$RESULT_LOG",explanation.toString());
-        template = template.replace("$TEST_DESCRIPTION",check.getDescription());
+        template = template.replace("$TEST_DESCRIPTION",Utils.escapeJson(check.getDescription()));
         template = template.replace("$TEST_TITLE",check.getTitle());
         template = template.replace("$ORIGINAL_RESOURCE",ontology.getOntologyURI());
         return template;
@@ -290,7 +303,7 @@ public class FOOPS {
                 Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_BIBO_DOI, ontology.getDoi());
             }
             if(this.ontology.getLogo()!=null){
-                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_SCHEMA_LOGO, ontology.getLogo());
+                Utils.addAnnotationToOntology(df,onto,ontoURI,Constants.PROP_SCHEMA_LOGO, ontology.getLogo());
             }
             if(this.ontology.getAuthors()!=null && !this.ontology.getAuthors().isEmpty()){
                 for(String author: this.ontology.getAuthors()) {

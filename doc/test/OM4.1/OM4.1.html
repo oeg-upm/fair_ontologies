@@ -53,25 +53,17 @@
         <div class="container">
             <div class="row">
                 <div class="cell-title"> 
-                   <h1 class="miClase text-center">OM4.1 test: Ontology/vocabulary has a license available</h1>
+                   <h1 class="miClase text-center">OM4.1 test: Ontology has a license available</h1>
                 </div>
                 <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if a license (or rights) are associated with the ontology.</p>
-<p>The test will pass if a license is declared using any of the following properties: dcterms:license, schema:license, doap:license or cc:license.
-If a license is not found, but rights are declared (dc:rights), the test will pass as well.
-Otherwise, the test will fail (i.e., no license or rights are declared).</p>
-<p>Namespaces:</p>
-<ul>
-<li>dc: http://purl.org/dc/elements/1.1/</li>
-<li>dcterms: http://purl.org/dc/terms/</li>
-<li>schema: https://schema.org/ and http://schema.org/</li>
-<li>doap: http://usefulinc.com/ns/doap#</li>
-<li>cc: http://creativecommons.org/ns#</li>
-</ul></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if a license (or rights) are associated with the ontology.
+The test will pass if a license is declared using any of the following properties: <a href="http://purl.org/dc/terms/license">dcterms:license</a>, <a href="https://schema.org/license">schema:license</a>, <a href="http://usefulinc.com/ns/doap#license">doap:license</a> or <a href="http://creativecommons.org/ns#license">cc:license</a>.</p>
+<p>If a license is not found, but rights are declared (using <a href="http://purl.org/dc/elements/1.1/rights">dc:rights</a>, <a href="http://purl.org/dc/terms/rights">dcterms:rights</a> or <a href="http://purl.org/dc/terms/accessRights">dcterms:accessRights</a>), the test will pass as well.</p>
+<p>Otherwise, the test will fail (i.e., no license or rights are declared).</p></div>
             </div>
 
             <div class="row flex-space-between"> 
@@ -84,7 +76,7 @@ Otherwise, the test will fail (i.e., no license or rights are declared).</p>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> Ontology/vocabulary has a license available </div>
+                <div class="col-md-9 well"> Ontology has a license available </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
@@ -138,7 +130,7 @@ Otherwise, the test will fail (i.e., no license or rights are declared).</p>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Endpoint URL</strong></div>
-                <div class="col-md-9 well"> <a href="https://w3id.org/foops/api/assess/test/OM1" target="_blank"> https://w3id.org/foops/api/assess/test/OM1 </a> </div>
+                <div class="col-md-9 well"> <a href="https://foops.linkeddata.es/assess/test/OM1" target="_blank"> https://foops.linkeddata.es/assess/test/OM1 </a> </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Applicable for</strong></div>
@@ -156,7 +148,7 @@ Otherwise, the test will fail (i.e., no license or rights are declared).</p>
 
         <div id="pie" class="row" style="margin-top: 20px;">
             <div class="col-md-12 text-center"">
-              Ontology Engineer Group
+              Ontology Engineering Group
               <a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a>
             </div>
         </div>

@@ -27,7 +27,7 @@ public class Check_HTTP1_AccessProtocol extends Check {
     public Check_HTTP1_AccessProtocol(Ontology o) {
         super(o);
         this.id = Constants.HTTP1_URL;
-        this.title = Constants.HTTP_1_TITLE;
+        this.title = Constants.HTTP1_TITLE;
         this.description = Constants.HTTP1_DESC;
         this.category_id = Constants.ACCESSIBLE;
         this.principle_id = "A1.1";

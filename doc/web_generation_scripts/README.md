@@ -56,3 +56,7 @@ path_url_register = "https://tools.ostrails.eu/fdp-index-proxy/proxy"
 ```
 
 The script will register all the TTL files located in the configured path. If the test already exists in the registry, it will be modified.
+
+### Generating a full ttl catalog and a .properties file for java descriptions
+The script `test_ttl_to_single_file.py` transforms all the tests into a single turtel format (in case you want to query tests).
+It also generates a `.properties` file for the main FOOPS! Java program to read test descriptions. If any description is updated, this script should be run.

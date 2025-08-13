@@ -14,20 +14,22 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology metadata are accessible, even when ontology is not"@en ;
-	rdfs:label "FIND_3_BIS test: Ontology metadata are accessible, even when ontology is not"^^xsd:string ;
+	dcterms:title "Ontology metadata are accessible, even when the ontology is not"@en ;
+	rdfs:label "FIND_3_BIS test: Ontology metadata are accessible, even when the ontology is not"^^xsd:string ;
 	vivo:abbreviation "FIND_3_BIS-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/A2> ;
-	dcterms:description """ Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
-	The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
-	The test will fail otherwise. """@en ; 
+	dcterms:description """
+Metadata are accessible even when the ontology is no longer available. Since the metadata is usually included in the ontology, this test verifies if the ontology can be found in the [Linked Open Vocabularies (LOV) public registry](https://lov.linkeddata.es).
+The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
+Alternatively, if there is a [schema:includedInDataCatalog](https://schema.org/includedInDataCatalog) annotation, the test will pass.
+The test will fail otherwise. """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/FIND_3_BIS> ;
 	dcat:keyword "Metadata accesible"@en , "Test"@en , "Accesible"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/FIND_3_BIS> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/FIND_3_BIS> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/FIND_3_BIS> ;

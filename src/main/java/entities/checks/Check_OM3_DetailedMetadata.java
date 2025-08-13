@@ -48,7 +48,7 @@ public class Check_OM3_DetailedMetadata extends Check {
             }
         }
         //remove last comma
-        if("".equals(exp.toString())){
+        if(exp.toString().isEmpty()){
             explanation = "All optional metadata found!";
             this.status = Constants.OK;
         }else {
@@ -62,7 +62,7 @@ public class Check_OM3_DetailedMetadata extends Check {
                 optional.append(m).append(", ");
             }
         }
-        if (!"".equals(optional.toString())){
+        if (!optional.toString().isEmpty()){
             explanation += ". Warning: The following OPTIONAL detailed metadata could not be found: "+
                     optional.substring(0,optional.length() -2) + ". Please consider adding them if appropriate.";
         }

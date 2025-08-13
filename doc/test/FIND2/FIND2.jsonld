@@ -1,18 +1,9 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "@id": "https://w3id.org/foops/repository",
+        "http://xmlns.com/foaf/0.1/homePage": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
+                "@id": "https://github.com/oeg-upm/fair_ontologies"
             }
         ]
     },
@@ -55,32 +46,27 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/metric/FIND2",
+        "@id": "https://w3id.org/fair/principles/terms/F4",
         "@type": [
-            "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://oeg.fi.upm.es",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/ns/dqv#Dimension",
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "(meta)data are registered or indexed in a searchable resource"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F4"
+            }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Ontology Engineering Group"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/repository",
-        "http://xmlns.com/foaf/0.1/homePage": [
-            {
-                "@id": "https://github.com/oeg-upm/fair_ontologies"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "F4"
             }
         ]
     },
@@ -101,7 +87,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " This test verifies whether the ontology prefix is available in prefix.cc or the Linked Open Vocabularies (LOV) registries. \n\tThe test will pass if: \n\t* 1) there is a prefix declared in the assessed ontology, \n\t* 2) the prefix is found in LOV or prefix.cc \n\t* 3) if found in LOV or prefix.cc, the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)\n\tOtherwise, the test will fail. \n\t"
+                "@value": "\nThis test verifies whether the ontology prefix is available in [prefix.cc]((https://prefix.cc/)) or the [Linked Open Vocabularies (LOV)]((https://lov.linkeddata.es/)) registries. \nThe test will pass if: \n\n 1. there is a prefix declared in the assessed ontology, \n 2. the prefix is found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) \n 3. if found in [LOV](https://lov.linkeddata.es/) or [prefix.cc](https://prefix.cc/) , the namespace URI associated with the prefix is the same as the assessed ontology URI (or preferred namespace URI)\n\nOtherwise, the test will fail. \n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -125,7 +111,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Ontology/vocabulary prefix is found in prefix.cc or LOV"
+                "@value": "Ontology prefix is found in prefix.cc or LOV"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -147,7 +133,7 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "FIND2 test: Ontology/vocabulary prefix is found in prefix.cc or LOV"
+                "@value": "FIND2 test: Ontology prefix is found in prefix.cc or LOV"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -162,7 +148,7 @@
         ],
         "http://www.w3.org/ns/dcat#endpointURL": [
             {
-                "@id": "https://w3id.org/foops/api/assess/test/FIND2"
+                "@id": "https://foops.linkeddata.es/assess/test/FIND2"
             }
         ],
         "http://www.w3.org/ns/dcat#keyword": [
@@ -210,27 +196,41 @@
         ]
     },
     {
-        "@id": "https://w3id.org/fair/principles/terms/F4",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/ns/dqv#Dimension",
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "(meta)data are registered or indexed in a searchable resource"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F4"
+                "@value": "Daniel Garijo"
             }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/metric/FIND2",
+        "@type": [
+            "http://www.w3.org/ns/dqv#Metric"
+        ]
+    },
+    {
+        "@id": "https://oeg.fi.upm.es",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "F4"
+                "@value": "Ontology Engineering Group"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     }

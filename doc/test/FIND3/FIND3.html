@@ -53,16 +53,17 @@
         <div class="container">
             <div class="row">
                 <div class="cell-title"> 
-                   <h1 class="miClase text-center">FIND3 test: Ontology/vocabulary found in community registry</h1>
+                   <h1 class="miClase text-center">FIND3 test: Ontology found in community registry</h1>
                 </div>
                 <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology can be found in the Linked Open Vocabularies (LOV) public registry.
-    The test will pass if the assessed ontology/vocabulary URI is found in the LOV list of vocabularies.
-    The test will fail otherwise.   </p></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies if the ontology can be found in a public registry like the Linked Open Vocabularies (LOV) public registry.
+The test will pass if the assessed ontology URI is found in the list of vocabularies returned by LOV.
+Alternatively, if there is a <a href="https://schema.org/includedInDataCatalog">schema:includedInDataCatalog</a> annotation, the test will pass.
+The test will fail otherwise.   </p></div>
             </div>
 
             <div class="row flex-space-between"> 
@@ -75,7 +76,7 @@
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> Ontology/vocabulary found in community registry </div>
+                <div class="col-md-9 well"> Ontology found in community registry </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
@@ -129,7 +130,7 @@
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Endpoint URL</strong></div>
-                <div class="col-md-9 well"> <a href="https://w3id.org/foops/api/assess/test/FIND3" target="_blank"> https://w3id.org/foops/api/assess/test/FIND3 </a> </div>
+                <div class="col-md-9 well"> <a href="https://foops.linkeddata.es/assess/test/FIND3" target="_blank"> https://foops.linkeddata.es/assess/test/FIND3 </a> </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Applicable for</strong></div>
@@ -147,7 +148,7 @@
 
         <div id="pie" class="row" style="margin-top: 20px;">
             <div class="col-md-12 text-center"">
-              Ontology Engineer Group
+              Ontology Engineering Group
               <a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a>
             </div>
         </div>

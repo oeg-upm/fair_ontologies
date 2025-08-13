@@ -12,7 +12,7 @@
 
 <https://w3id.org/foops/metric/CN1> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/CN1> ;
-	dcterms:title "Ontology/vocabulary enables content negotiation for RDF"@en ;
+	dcterms:title "Ontology has content negotiation for RDF"@en ;
 	dcterms:description """ 
 This metric ensures that the vocabulary is accessible in HTML and recognized RDF serialization formats.
 
@@ -32,7 +32,7 @@ An ontology URI.
 
 Valid results occur if the ontology is accessible in HTML and at least one specified RDF serialization. The test fails if no recognized serialization is returned or no HTML representation could be retrieved.
 	"""@en ;
-	rdfs:label "CN1 metric: Ontology/vocabulary enables content negotiation for RDF"^^xsd:string ;
+	rdfs:label "CN1 metric: Ontology has content negotiation for RDF"^^xsd:string ;
 	vivo:abbreviation "CN1-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;

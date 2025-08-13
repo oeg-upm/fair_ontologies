@@ -12,8 +12,8 @@
 
 <https://w3id.org/foops/metric/OM3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM3> ;
-	dcterms:title "Ontology/vocabulary declares detailed metadata"@en ;
-	dcterms:description """ 	
+	dcterms:title "Ontology declares detailed metadata"@en ;
+	dcterms:description """
 This metric assesses whether an ontology/vocabulary includes a comprehensive set of metadata elements that provide in-depth information for improved usability and provenance tracking.
 
 **What is being measured?**
@@ -45,7 +45,7 @@ An ontology URI or file.
 
 The ontology should include all mandatory fields. Optional fields like previous version, backward compatibility, and modified date are recommended.
 	"""@en ;
-	rdfs:label "OM3 metric: Ontology/vocabulary declares detailed metadata"^^xsd:string ;
+	rdfs:label "OM3 metric: Ontology declares detailed metadata"^^xsd:string ;
 	vivo:abbreviation "OM3-M"^^xsd:string ;	
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;

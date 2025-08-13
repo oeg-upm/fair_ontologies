@@ -1,25 +1,26 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
+                "@value": "R1"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:dgarijo@upm.es"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1"
             }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/test/DOC1",
-        "@type": [
-            "https://w3id.org/ftr#Test"
         ]
     },
     {
@@ -40,6 +41,64 @@
         "http://www.w3.org/2006/vcard/ns#url": [
             {
                 "@id": "https://www.upm.es/"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/test/DOC1",
+        "@type": [
+            "https://w3id.org/ftr#Test"
+        ]
+    },
+    {
+        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
             }
         ]
     },
@@ -83,7 +142,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Ontology/vocabulary has HTML documentation"
+                "@value": "Ontology has HTML documentation"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -100,7 +159,7 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "DOC1 metric: Ontology/vocabulary has HTML documentation"
+                "@value": "DOC1 metric: Ontology has HTML documentation"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -165,23 +224,6 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:m.poveda@upm.es"
-            }
-        ]
-    },
-    {
         "@id": "https://oeg.fi.upm.es",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -194,48 +236,6 @@
         "http://www.w3.org/2006/vcard/ns#url": [
             {
                 "@id": "https://oeg.fi.upm.es/"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/fair/principles/terms/R1",
-        "@type": [
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes."
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     }

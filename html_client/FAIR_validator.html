@@ -72,10 +72,14 @@
                     var file = fileInput.files[0];
                     if(!file){
                         alert('A file has not been selected');
+                        $('#loader').hide();
+                        $('#run_button').show();
                         return;
                     }
                     if (file.size > MAX_FILE_SIZE) {
-                        alert('The file is too big');
+                        alert('File to assess is too big');
+                        $('#loader').hide();
+                        $('#run_button').show();
                         return;
                     }
                     var formData = new FormData();
@@ -162,6 +166,9 @@
           <ul class="navbar-nav ml-auto flex-nowrap">
               <li class="nav-item">
                   <a href="#" class="nav-link m-2 menu-item nav-active">Validator</a>
+              </li>
+              <li class="nav-item">
+                  <a href="https://w3id.org/foops/catalogue"  target="_blank" class="nav-link m-2 menu-item nav-active">Tests</a>
               </li>
               <li class="nav-item">
                   <a href="about.html" class="nav-link m-2 menu-item">About</a>
@@ -380,7 +387,8 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img id="Findable-arrow" src="assets/down-arrow.svg">
+                        <!-- To show displayed or non displayed, just change the arrow figure-->
+                        <img id="Findable-arrow" src="assets/up-arrow.svg">
                     </div>
                 </div>
                 <div id="Findable-checks" class="col-12 p-0 caja-principles">
@@ -397,7 +405,7 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img id="Accessible-arrow" src="assets/down-arrow.svg">
+                        <img id="Accessible-arrow" src="assets/up-arrow.svg">
                     </div>
                 </div>
                 <div id="Accessible-checks" class="col-12 p-0 caja-principles">
@@ -414,7 +422,7 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img id="Interoperable-arrow" src="assets/down-arrow.svg">
+                        <img id="Interoperable-arrow" src="assets/up-arrow.svg">
                     </div>
                 </div>
                 <div id="Interoperable-checks" class="col-12 p-0 caja-principles">
@@ -431,7 +439,7 @@
                         </span>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <img id="Reusable-arrow" src="assets/down-arrow.svg">
+                        <img id="Reusable-arrow" src="assets/up-arrow.svg">
                     </div>
                 </div>
                 <div id="Reusable-checks" class="col-12 p-0 caja-principles">
@@ -459,7 +467,7 @@
                 <br>
                 Built with <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
                 <br>
-                Latest revision June, 2025
+                Latest revision August, 2025
                 <br>
                 Licensed under the <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
             </div>

@@ -1,40 +1,5 @@
 [
     {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
-        ]
-    },
-    {
-        "@id": "https://w3id.org/foops/benchmark/PRE",
-        "@type": [
-            "https://w3id.org/ftr#Benchmark"
-        ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
-            }
-        ],
-        "http://purl.org/dc/terms/title": [
-            {
-                "@language": "en",
-                "@value": "General Benchmark PRE for FAIR Principles"
-            }
-        ]
-    },
-    {
         "@id": "https://ror.org/03n6nwv02",
         "@type": [
             "http://www.w3.org/2006/vcard/ns#Organization"
@@ -73,18 +38,20 @@
         ]
     },
     {
-        "@id": "https://oeg.fi.upm.es",
+        "@id": "https://w3id.org/foops/benchmark/ALL",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "https://w3id.org/ftr#Benchmark"
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "Ontology Engineering Group"
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#url": [
+        "http://purl.org/dc/terms/title": [
             {
-                "@id": "https://oeg.fi.upm.es/"
+                "@language": "en",
+                "@value": "General Benchmark ALL for FAIR Principles"
             }
         ]
     },
@@ -104,7 +71,7 @@
         "http://purl.org/dc/terms/description": [
             {
                 "@language": "en",
-                "@value": " \nThis metric evaluates whether an ontology clearly defines its licensing terms, ensuring that users are informed about how the ontology can be used and shared.\n\n**What is being measured?**\n\nThe presence of a clearly defined license for the ontology within the ontology metadata.\n\n**Why should we measure it?**\n\nMeasuring license availability ensures that the ontology can be legally used and shared within a community, supporting the FAIR principles by making its usage terms clear.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nThe ontology must include a license, such as Creative Commons. \n\t"
+                "@value": " \nThis metric evaluates whether an ontology clearly defines its licensing terms or rights, ensuring that users are informed about how the ontology can be used and shared.\n\n**What is being measured?**\n\nThe presence of a clearly defined license (or rights) for the ontology within the ontology metadata.\n\n**Why should we measure it?**\n\nMeasuring license availability ensures that the ontology can be legally used and shared within a community, supporting the FAIR principles by making its usage terms clear.\n\n**What must be provided for the measurement?**\n\nAn ontology URI or file.\n\n**What are considered valid results?**\n\nThe ontology must include a license, such as Creative Commons. \n\t"
             }
         ],
         "http://purl.org/dc/terms/identifier": [
@@ -128,7 +95,7 @@
         "http://purl.org/dc/terms/title": [
             {
                 "@language": "en",
-                "@value": "Ontology/vocabulary has a license available"
+                "@value": "Ontology has a license available"
             }
         ],
         "http://semanticscience.org/resource/SIO_000233": [
@@ -145,7 +112,7 @@
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "OM4.1 metric: "
+                "@value": "OM4.1 metric: Ontology has a license available"
             }
         ],
         "http://www.w3.org/ns/dcat#contactPoint": [
@@ -213,6 +180,41 @@
         ]
     },
     {
+        "@id": "https://w3id.org/foops/benchmark/PRE",
+        "@type": [
+            "https://w3id.org/ftr#Benchmark"
+        ],
+        "http://purl.org/dc/terms/description": [
+            {
+                "@language": "en",
+                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics."
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@language": "en",
+                "@value": "General Benchmark PRE for FAIR Principles"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-0454-7145",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "Daniel Garijo"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
         "@id": "https://w3id.org/foops/test/OM4.1",
         "@type": [
             "https://w3id.org/ftr#Test"
@@ -243,20 +245,18 @@
         ]
     },
     {
-        "@id": "https://w3id.org/foops/benchmark/ALL",
+        "@id": "https://oeg.fi.upm.es",
         "@type": [
-            "https://w3id.org/ftr#Benchmark"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://purl.org/dc/terms/description": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@language": "en",
-                "@value": "This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics."
+                "@value": "Ontology Engineering Group"
             }
         ],
-        "http://purl.org/dc/terms/title": [
+        "http://www.w3.org/2006/vcard/ns#url": [
             {
-                "@language": "en",
-                "@value": "General Benchmark ALL for FAIR Principles"
+                "@id": "https://oeg.fi.upm.es/"
             }
         ]
     }

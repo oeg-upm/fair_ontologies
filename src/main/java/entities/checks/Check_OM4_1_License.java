@@ -41,7 +41,7 @@ public class Check_OM4_1_License extends Check {
     public void check() {
         super.check();
         String license = this.ontology.getLicense();
-        if (license !=null && !"".equals(license)){
+        if (license !=null && !license.isEmpty()){
             this.status = Constants.OK;
             this.explanation = Constants.OM4_1_EXPLANATION_OK;
             this.explanation += " "+license;
@@ -49,10 +49,10 @@ public class Check_OM4_1_License extends Check {
         }
         else {
             String rights = this.ontology.getRights();
-            if (rights!= null && !rights.equals("")){
+            if (rights!= null && !rights.isEmpty()){
                 this.status = Constants.OK;
                 this.explanation = Constants.OM4_1_EXPLANATION_OK_RIGHTS;
-                this.explanation += " "+license;
+                this.explanation += " "+rights;
                 this.total_passed_tests += 1;
             }else{
                 this.status = Constants.ERROR;

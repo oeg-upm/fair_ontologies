@@ -14,18 +14,19 @@
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-	dcterms:title "Ontology/vocabulary has HTML documentation"@en ;
-	rdfs:label "DOC1 test: Ontology/vocabulary has HTML documentation"^^xsd:string ;
+	dcterms:title "Ontology has HTML documentation"@en ;
+	rdfs:label "DOC1 test: Ontology has HTML documentation"^^xsd:string ;
 	vivo:abbreviation "DOC1-T"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
-	dcterms:description """ This test verifies if the ontology has an HTML documentation. The test will attempt to download an HTML representation using the ontology URI, with content negotiation """@en ; 
+	dcterms:description """
+This test verifies if the ontology has an HTML documentation. The test will attempt to download an HTML representation using the ontology URI, with content negotiation """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:identifier <https://w3id.org/foops/test/DOC1> ;
 	dcat:keyword "HTML availability"@en , "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/DOC1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/DOC1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/DOC1> ;

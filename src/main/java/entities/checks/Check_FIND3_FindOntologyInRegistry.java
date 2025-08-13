@@ -46,11 +46,6 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F4";
         this.abbreviation = Constants.FIND3;
-
-       // if(total_passed_tests/total_tests_run<1){
-        //this.recommendedDoc = Constants.URI1_DOC;
-        //this.action = Constants.URI1_SUG;
-        //System.out.println("Document");}
     }
 
 
@@ -61,10 +56,21 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
             //this check has already been checked, return
             return;
         }
+        if(this.getOntology().getSupportedMetadata().contains(Constants.FOOPS_INCLUDED_IN_DATA_CATALOG)){
+            this.total_passed_tests ++;
+            this.status = Constants.OK;
+            this.explanation = Constants.FIND3_EXPLANATION_OK_ANN;
+            return;
+        }
         String ontoURI = this.ontology_URI;
+        String namespaceURI = this.ontology.getNamespaceUri();
         // remove trailing slash/hash for making comparisons easier.
         if (ontoURI.endsWith("/") || ontoURI.endsWith("#")){
             ontoURI = ontoURI.substring(0, ontoURI.length()-1);
+        }
+        //in case the ns URI is different from the URI of the ontology
+        if (namespaceURI.endsWith("/") || namespaceURI.endsWith("#")){
+            namespaceURI = namespaceURI.substring(0, namespaceURI.length()-1);
         }
         try {
             URL url = new URL(Constants.LOV_ALL_VOCABS);
@@ -81,7 +87,7 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
                     if (voc_ns.endsWith("/") || voc_ns.endsWith("#")){
                         voc_ns = voc_ns.substring(0, voc_ns.length()-1);
                     }
-                    if (voc_ns.equals((ontoURI))){
+                    if (voc_ns.equals((ontoURI)) || voc_ns.equals((namespaceURI))){
                         found = true;
                         break;
                     }

@@ -12,7 +12,7 @@
 
 <https://w3id.org/foops/metric/FIND2> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/FIND2> ;
-	dcterms:title "Ontology/vocabulary prefix is found in registry"@en ;
+	dcterms:title "Ontology prefix is found in community registry"@en ;
 	dcterms:description """ 
 This metric ensures that ontology prefixes are discoverable and consistently aligned with recognized registries. 
 
@@ -32,7 +32,7 @@ An ontology URI or file.
 
 The ontology prefix should be available in a community registry and resolve to the ontology URI.
 	"""@en ;
-	rdfs:label "FIND2 metric: Ontology/vocabulary prefix is found in registry"^^xsd:string ;
+	rdfs:label "FIND2 metric: Ontology prefix is found in community registry"^^xsd:string ;
 	vivo:abbreviation "FIND2-M"^^xsd:string ;
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;

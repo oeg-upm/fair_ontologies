@@ -21,8 +21,9 @@
 	dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ;
 	dcterms:description """
 This check verifies whether all ontology terms have descriptions. 
-The test will pass if all classes, properties and data properties have at least one rdfs:comment, skos:definition or obo:IAO_0000118 annotation.
+The test will pass if all classes, properties and data properties have at least one [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment), [skos:definition](http://www.w3.org/2004/02/skos/core#definition) or [obo:IAO_0000118](http://purl.obolibrary.org/obo/IAO_0000118) annotation.
 For skos vocabularies, only the skos:Concepts are assessed.
+
 The test will fail otherwise, showing the level of completeness obtained (i.e. the percentage of documented terms).
 	"""@en ;
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
@@ -30,7 +31,7 @@ The test will fail otherwise, showing the level of completeness obtained (i.e. t
 	dcterms:identifier <https://w3id.org/foops/test/VOC4> ;
 	dcat:keyword "Documentation definitions"@en , "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/VOC4> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/VOC4> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/VOC4> ;

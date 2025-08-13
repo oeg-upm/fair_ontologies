@@ -19,8 +19,8 @@ package server;
 
 
 import com.google.gson.Gson;
-import entities.Response;
-import entities.ResponseResource;
+//import entities.Response;
+//import entities.ResponseResource;
 import fair.Constants;
 import fair.FOOPS;
 import org.slf4j.Logger;
@@ -65,11 +65,11 @@ public class FOOPSController {
      */
     @ApiOperation( 
         value = "Assess an ontology against a set of FOOPS! tests. This is the original FOOPS! call for assessment",
-        notes = "This call returns a JSON response obtained by FOOPS. To see an example, please see use the following JSON "
+        notes = "This call returns a JSON response obtained by FOOPS. To see an example, please see use the following JSON. "
         + "Example request JSON:\n" 
         + "```\n" 
         + "{\n" 
-        + " \"ontologyUri\": \"https://w3id.org/okn/o/sd#\"\n" 
+        + " \"ontologyUri\": \"https://w3id.org/example#\"\n"
         + "}\n" 
         + "```"
         )
@@ -77,34 +77,40 @@ public class FOOPSController {
     @PostMapping(path = "/assessOntology", consumes = "application/json", produces = "application/json")
     public String assessPOST(
         @ApiParam(value = "Ontology request object", required = true)
-        @RequestBody String body) {
-        Response r = null;
+        @RequestBody OntologyAssessmentRequestLegacy body) {
         FOOPS f = null;
         Path ontologyPath = null;
         
         try{
             try { //has an onto URI been provided?
-                Gson gson = new Gson();
-                r = gson.fromJson(body, Response.class);
-                if (r.getOntologyUri() != null) {
-                    f = new FOOPS(r.getOntologyUri(), false);
+                if (body.getOntologyUri() != null) {
+                    f = new FOOPS(body.getOntologyUri(), false);
                 }
-            }catch(Exception e){
+            }catch(FileTooLargeException el){
+                logger.error("Error "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
+            }
+            catch(Exception e){
                 logger.error("Error "+ e.getMessage());
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
             }
             try{ //is there content?
-                if (f == null && body!=null && !"".equals(body)){
-                    ontologyPath = Path.of("ontology");
-                    try (PrintWriter out = new PrintWriter(String.valueOf(ontologyPath))) {
-                        out.println(body);
+                if (f == null){// && body!=null && !"".equals(body)){
+                    try {
+                        ontologyPath = Path.of("ontology");
+                        f = new FOOPS(String.valueOf(ontologyPath), true);
+                    }catch(FileTooLargeException el){
+                        logger.error("Error "+ el.getMessage());
+                        throw new ResponseStatusException(
+                                HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                                new Exception("File sent for assessment is too big (max 50MB)"));
+                    }catch(Exception e){
+                        throw new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
                     }
-                    f = new FOOPS(String.valueOf(ontologyPath), true);
-                }
-                if (f == null){ //no ontology or content could be loaded
-                    throw new ResponseStatusException(
-                            HttpStatus.BAD_REQUEST, "Could not load ontology", new Exception("Ontology URI or ontology content not provided"));
                 }
                 f.fairTest();
                 return f.exportJSON();
@@ -136,7 +142,7 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Get test metadata (in JSON-LD)",
-            notes = "return test description following the FTR specification."
+            notes = "Returns all tests supported by FOOPS!."
     )
     @GetMapping(path = "/tests",  produces = "application/ld+json")
     public String getTests() {
@@ -145,7 +151,7 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Get test metadata (in JSON-LD)",
-            notes = "return test description following the FTR specification."
+            notes = "Returns test description following the FTR specification."
     )
     @GetMapping(path = "/tests/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getTestMetadata(@PathVariable String identifier) {
@@ -160,11 +166,10 @@ public class FOOPSController {
 
 
     @ApiOperation(
-            value = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/)",
+            value = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/). ",
             notes = "This call returns a JSON response obtained by FOOPS. \n"
-                    + "To see all available FOOPS! tests, see https://w3id.org/foops/catalogue"
-                    + "To see an example, please see use the following JSON: "
-                    + "Example request JSON:\n"
+                    + "To see all available FOOPS! tests, see https://w3id.org/foops/catalogue. \n"
+                    + "To see an example, please see use the following JSON: \n"
                     + "```\n"
                     + "{\n"
                     + " \"resource_identifier\": \"https://w3id.org/example#\"\n"
@@ -173,20 +178,24 @@ public class FOOPSController {
     )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "assess/test/{test_identifier}", consumes = "application/json", produces = "application/json")
-    public String postTestAssessment(@PathVariable String test_identifier, @RequestBody String body) {
+    public String postTestAssessment(@PathVariable String test_identifier,
+                                     @RequestBody OntologyAssessmentRequest body) {
         String targetResource = "";
         FOOPS f = null;
         try{
             try { //has an onto URI been provided?
                 Gson gson = new Gson();
-                ResponseResource r = gson.fromJson(body, ResponseResource.class);
-                targetResource = r.getResourceIdentifier();
+                targetResource = body.getResourceIdentifier();
                 ArrayList<String> testIDs = new ArrayList<>();
                 testIDs.add(test_identifier);
                 f = new FOOPS(targetResource, testIDs);
                 f.fairTest();
-                //return f.exportJSON();
                 return f.exportJSONLD();
+            }catch(FileTooLargeException el){
+                logger.error("Error: ontology is too big! "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
             }catch(Exception e){
                 logger.error("Error "+ e.getMessage());
                 throw new ResponseStatusException(
@@ -206,10 +215,10 @@ public class FOOPSController {
     }
 
     @ApiOperation(
-            value = "Runs a set of tests on a resource, according to the metrics defined in a benchmark",
-            notes = "Returns a set of test results according to the FTR specification. The result sets that may be run" +
-                    "are ALL and PRE, according to the benchmark information in " +
-                    "https://w3id.org/foops/benchmark/"
+            value = "Runs a set of tests on a resource, according to the metrics defined in a benchmark.",
+            notes = "Returns a set of test results according to the FTR specification. The result sets that may be run " +
+                    "have identifiers ALL and PRE, according to the benchmark information in " +
+                    "https://w3id.org/foops/benchmark/ \n"
                     + "Example request JSON:\n"
                     + "```\n"
                     + "{\n"
@@ -218,20 +227,23 @@ public class FOOPSController {
                     + "```"
     )
     @PostMapping(path = "assess/resultset/{identifier}",  consumes = "application/json", produces = "application/json")
-    public String postResultSetAssessment(@PathVariable String identifier, @RequestBody String body) {
-        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
-        //return ("TO DO assessment of test result set "+ url);
+    public String postResultSetAssessment(@PathVariable String identifier,
+                                          @RequestBody OntologyAssessmentRequest body) {
         String targetResource = "";
         FOOPS f = null;
         try{
             try {
-                Gson gson = new Gson();
-                ResponseResource r = gson.fromJson(body, ResponseResource.class);
-                targetResource = r.getResourceIdentifier();
+                targetResource = body.getResourceIdentifier();
                 f = new FOOPS(targetResource, false);
                 f.fairTest();
                 return f.exportJSONLD();
-            }catch(Exception e){
+            }catch(FileTooLargeException el){
+                logger.error("Error: ontology too big! "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
+            }
+            catch(Exception e){
                 logger.error("Error "+ e.getMessage());
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST, "Malformed JSON request", new Exception("Malformed JSON request"));
@@ -249,19 +261,19 @@ public class FOOPSController {
         }
     }
 
-    @ApiOperation(
-            value = "Run an algorithm on a resource",
-            notes = "Returns the results of an algorithm for a given resource "
-    )
-    @PostMapping(path = "assess/algorithm/{identifier}",  produces = "text/plain")
-    public String postAlgorithmAssessment(@PathVariable String identifier) {
-        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
-        return ("TO DO assessment of algorithm");// "+ url);
-    }
+//    @ApiOperation(
+//            value = "Run an algorithm on a resource",
+//            notes = "Returns the results of an algorithm for a given resource "
+//    )
+//    @PostMapping(path = "assess/algorithm/{identifier}",  produces = "text/plain")
+//    public String postAlgorithmAssessment(@PathVariable String identifier) {
+//        //String url = "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/"+ identifier +"/"+ identifier +".jsonld" ;
+//        return ("TO DO assessment of algorithm");// "+ url);
+//    }
 
     @ApiOperation(
             value = "Get metric metadata (in JSON-LD)",
-            notes = "return metric description following the FTR specification."
+            notes = "Returns metric metadata following the FTR specification."
     )
     @GetMapping(path = "/metrics/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getMetricMetadata(@PathVariable String identifier) {
@@ -275,7 +287,7 @@ public class FOOPSController {
 
     @ApiOperation(
             value = "Get benchmark metadata (in JSON-LD)",
-            notes = "return benchmark descriptions following the FTR specification."
+            notes = "Returns benchmark metadata following the FTR specification."
     )
     @GetMapping(path = "/benchmarks/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getBenchmarkMetadata(@PathVariable String identifier) {
@@ -293,6 +305,11 @@ public class FOOPSController {
      * @param otherData String other data sent.
      * @return JSON with FOOPS! response.
      */
+    @ApiOperation(
+            value = "Assess an ontology against a set of FOOPS! tests for pre-assessment. This is the original FOOPS! call for assessment.",
+            notes = "This call returns a JSON response obtained by FOOPS. " +
+                    "The ontology for assessment is in the body of the POST request"
+    )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntologyFile",consumes = "multipart/form-data", produces = "application/json")
     public String assessPOST(
@@ -309,7 +326,12 @@ public class FOOPSController {
                 f.fairTest();
                 tempFile.delete();
                 return f.exportJSON();
-            } catch (Exception e) {
+            } catch(FileTooLargeException el){
+                logger.error("Error: ontology is too big! "+ el.getMessage());
+                throw new ResponseStatusException(
+                        HttpStatus.INTERNAL_SERVER_ERROR, "File sent for assessment is too big (max 50MB)",
+                        new Exception("File sent for assessment is too big (max 50MB)"));
+            }catch (Exception e) {
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST, "Error while processing the file", e);
             }

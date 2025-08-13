@@ -25,11 +25,9 @@ import org.semanticweb.owlapi.io.FileDocumentSource;
 import org.semanticweb.owlapi.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.FileTooLargeException;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
@@ -44,7 +42,6 @@ public class Utils {
      * Method that will download the ontology to document with Widoco.
      *
      * @param isFromFile boolean to indicate whether the ontology is from file or from URI.
-     * @throws java.lang.Exception
      */
     public static OWLOntology loadModelToDocument(String pathOrURI,boolean isFromFile, String downloadFolder) throws Exception {
         String ontologyPath = pathOrURI;
@@ -53,11 +50,16 @@ public class Utils {
             downloadOntology(pathOrURI, ontologyPath);
         }
         logger.info("Loading ontology ");
+        File ontologyFile = new File(ontologyPath);
+        // if ontology is bigger than 50 MB, we do not process it
+        if (ontologyFile.length() > Constants.MAX_ONTOLOGY_SIZE) {
+            throw new FileTooLargeException("File is larger than maximum allowed (50 MB): " );
+        }
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         OWLOntologyLoaderConfiguration loadingConfig = new OWLOntologyLoaderConfiguration();
         loadingConfig = loadingConfig.setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT);
         logger.info("Parsing type: "+loadingConfig.isStrict());
-        return manager.loadOntologyFromOntologyDocument(new FileDocumentSource(new File(ontologyPath)), loadingConfig);
+        return manager.loadOntologyFromOntologyDocument(new FileDocumentSource(ontologyFile), loadingConfig);
     }
 
     public static void addAnnotationToOntology(OWLDataFactory df, OWLOntology o,IRI ontoURI, String propertyURI, String value){
@@ -107,7 +109,12 @@ public class Utils {
             return v.asIRI().get().getIRIString();
         } catch (Exception e) {
             // instead of a resource, it was added as a String
-            return v.asLiteral().get().getLiteral();
+            try {
+                return v.asLiteral().get().getLiteral();
+            }catch (Exception e2){
+                // the value is a blank node
+                return v.annotationValue().toString();
+            }
         }
     }
 
@@ -211,5 +218,16 @@ public class Utils {
             return false;
         }
         return false;
+    }
+
+    public static String escapeJson(String str) {
+        if (str == null) return "";
+        return str.replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\b", "\\b")
+                .replace("\f", "\\f")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t");
     }
 }

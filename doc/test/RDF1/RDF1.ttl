@@ -14,8 +14,8 @@
     dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
     dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;
     dcterms:creator <https://orcid.org/0000-0003-3587-0367> ;
-    dcterms:title "Ontology/vocabulary is available in RDF (TTL, N3, RDF/XML or JSON-LD)"@en ;
-    rdfs:label "RDF1 test: Ontology/vocabulary is available in RDF (TTL, N3, RDF/XML or JSON-LD)"^^xsd:string ;
+    dcterms:title "Ontology is available in RDF (TTL, N3, RDF/XML or JSON-LD)"@en ;
+    rdfs:label "RDF1 test: Ontology is available in RDF (TTL, N3, RDF/XML or JSON-LD)"^^xsd:string ;
 	vivo:abbreviation "RDF1-T"^^xsd:string ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     dqv:inDimension <https://w3id.org/fair/principles/terms/I1> ;
@@ -29,7 +29,7 @@ The test uses the OWLAPI to load ontologies or vocabularies.
     dcterms:identifier <https://w3id.org/foops/test/RDF1> ;
     dcat:keyword "RDF serialization"@en , "RDF"@en, "Test"@en ;
     dcat:endpointDescription <https://w3id.org/foops/api> ;
-    dcat:endpointURL <https://w3id.org/foops/api/assess/test/RDF1> ;
+    dcat:endpointURL <https://foops.linkeddata.es/assess/test/RDF1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ; 
     <http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/RDF1> ; 

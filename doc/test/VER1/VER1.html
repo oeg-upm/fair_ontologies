@@ -53,14 +53,19 @@
         <div class="container">
             <div class="row">
                 <div class="cell-title"> 
-                   <h1 class="miClase text-center">VER1 test: A version IRI is declared in the ontology/vocabulary metadata</h1>
+                   <h1 class="miClase text-center">VER1 test: A version IRI is declared in the ontology metadata</h1>
                 </div>
                 <div class="cell-button"> 
                     <button type="button" class="btn btn-primary" onclick="window.location.href='https://oeg-upm.github.io/fair_ontologies/doc/catalog.html#test'" style="position: absolute; top: 10px; right: 10px;">Back</button>
                 </div>
             </div>
             <div class="row">
-                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if 1) the ontology has a versionIRI (owl:versionIRI) and 2) the versionIRI used is different from the ontology URI.Otherwise the test will fail.</p></div>
+                    <div class="col-md-12 well" style="font-size: 18px;"> <p>This test verifies whether there is an id for this ontology version, and whether the id is unique (i.e., different from the ontology URI). The test will pass if: </p>
+<ol>
+<li>The ontology has a versionIRI (<a href="http://www.w3.org/2002/07/owl#versionIRI">owl:versionIRI</a>) and </li>
+<li>The versionIRI used is different from the ontology URI.</li>
+</ol>
+<p>Otherwise the test will fail. The test will also verify whether version information is present (through <a href="http://www.w3.org/2002/07/owl#versionInfo">owl:versionInfo</a>), but this is optional.</p></div>
             </div>
 
             <div class="row flex-space-between"> 
@@ -73,7 +78,7 @@
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Title</strong></div>
-                <div class="col-md-9 well"> A version IRI is declared in the ontology/vocabulary metadata </div>
+                <div class="col-md-9 well"> A version IRI is declared in the ontology metadata </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Identifier</strong></div>
@@ -127,7 +132,7 @@
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Endpoint URL</strong></div>
-                <div class="col-md-9 well"> <a href="https://w3id.org/foops/api/assess/test/VER1" target="_blank"> https://w3id.org/foops/api/assess/test/VER1 </a> </div>
+                <div class="col-md-9 well"> <a href="https://foops.linkeddata.es/assess/test/VER1" target="_blank"> https://foops.linkeddata.es/assess/test/VER1 </a> </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Applicable for</strong></div>
@@ -145,7 +150,7 @@
 
         <div id="pie" class="row" style="margin-top: 20px;">
             <div class="col-md-12 text-center"">
-              Ontology Engineer Group
+              Ontology Engineering Group
               <a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a>
             </div>
         </div>
