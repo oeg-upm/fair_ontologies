@@ -618,7 +618,7 @@ public class Constants {
             "                   \"@id\": \"https://w3id.org/foops/api\"\n" +
             "               },\n" +
             "               \"endpointURL\": {\n" +
-            "                   \"@id\": \"https://w3id.org/foops/api/assess/test/$TEST_ABBRV\"\n" +
+            "                   \"@id\": \"https://foops.linkeddata.es/assess/test/$TEST_ABBRV\"\n" +
             "               }\n" +
             "        }\n" +
             "      }\n";
