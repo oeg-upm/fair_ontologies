@@ -470,9 +470,15 @@ def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
             result.append(f'<a href="{orcid}" target="_blank">{nombre}</a>')
 
         result_metrics = []
+        # for name_metric, uri_metric in zip(metrics, metrics_uri):
+        #     result_metrics.append(
+        #         f'<a href="{uri_metric}" target="_blank">{name_metric}</a>')
+
         for name_metric, uri_metric in zip(metrics, metrics_uri):
-            result_metrics.append(
-                f'<a href="{uri_metric}" target="_blank">{name_metric}</a>')
+            result_metrics.append({
+                "name": name_metric,
+                "uri": uri_metric
+            })
 
         result_contacts = []
         for nombre, mail, orcid in zip(contacts, contacts_mail, contacts_orcid):
@@ -481,12 +487,13 @@ def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
                 f'<a href="{orcid}" target="_blank">{nombre}</a> at <a href="https://www.upm.es" target="_blank">upm.es</a>')
 
         all_creators = ', '.join(result)
-        all_metrics = ', '.join(result_metrics)
+        # all_metrics = ', '.join(result_metrics)
         all_contacts = ', '.join(result_contacts)
 
     data['benchmark_keywords'] = all_keywords
     data['benchmark_creators'] = all_creators
-    data['benchmark_metrics'] = all_metrics
+    # data['benchmark_metrics'] = all_metrics
+    data['benchmark_metrics'] = result_metrics
     data['benchmark_contactPoint'] = all_contacts
 
     # Cargar la plantilla mustache
