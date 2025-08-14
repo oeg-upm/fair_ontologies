@@ -166,6 +166,18 @@ public class FOOPSController {
 
 
     @ApiOperation(
+            value = "Method that returns how to do a POST request to /assess/test/{id}",
+            notes = "Returns an indication stating how to do a post request."
+    )
+    @GetMapping(path = "assess/test/{test_identifier}")
+    public String getAssessTest(@PathVariable String test_identifier) {
+        String response = "curl -X POST \"https://foops.linkeddata.es/assess/test/"+test_identifier+"\""+
+                " -H  \"accept: application/json\" -H  \"Content-Type: application/json\" " +
+                " -d \"{  \\\"resource_identifier\\\": \\\"https://w3id.org/example#\\\"}\"";
+        return "Please send a POST request. Example: \n" + response;
+    }
+
+    @ApiOperation(
             value = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/). ",
             notes = "This call returns a JSON response obtained by FOOPS. \n"
                     + "To see all available FOOPS! tests, see https://w3id.org/foops/catalogue. \n"
@@ -212,6 +224,18 @@ public class FOOPSController {
                 f.removeTemporaryFolders();
             }
         }
+    }
+
+    @ApiOperation(
+            value = "Method that returns how to do a POST request to /assess/resultSet/{id}",
+            notes = "Returns an indication stating how to do a post request."
+    )
+    @GetMapping(path = "assess/resultset/{identifier}")
+    public String getAssessResultSet(@PathVariable String identifier) {
+        String response = "curl -X POST \"https://foops.linkeddata.es/assess/resultset/" + identifier +"\""+
+                " -H  \"accept: application/json\" -H  \"Content-Type: application/json\" " +
+                " -d \"{  \\\"resource_identifier\\\": \\\"https://w3id.org/example#\\\"}\"";
+        return "Please send a POST request. Example: \n" + response;
     }
 
     @ApiOperation(
