@@ -13,7 +13,7 @@
 	dcterms:identifier <https://w3id.org/foops/benchmark/PRE> ;
 	dcterms:title "General Benchmark for FAIR Principles"@en ;
     rdfs:label "Benchmark PRE"^^xsd:string ;
-    vivo:abbreviation "Benchmark ALL"^^xsd:string ;
+    vivo:abbreviation "Benchmark PRE"^^xsd:string ;
 	dcterms:description """ Benchmark that includes tests for files and ontology code. No accessibility tests are performed, since this is meant for aiding researchers that have not made their ontologies available online yet. """@en ; 
 	dcat:contactPoint <https://orcid.org/0000-0003-0454-7145> ;
 	dcterms:creator <https://orcid.org/0000-0003-0454-7145> ;

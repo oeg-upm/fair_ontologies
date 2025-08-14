@@ -76,7 +76,7 @@
             </div>
             <div class="row flex-space-between"> 
                 <div class="col-md-12 align-items-center"> 
-                    <h4 class="miClase text-left text-separation">BENCHMARK INFORMATION</h4> 
+                    <h4 class="miClase text-left text-separation">Benchmark information</h4> 
                     <a href="{{benchmark_turtle}}" title="RDF Resource Description
                     Framework"> <img border="0" src="http://www.w3.org/RDF/icons/rdf_flyer.24"
                     alt="RDF Resource Description Framework Flyer Icon"/></a>
@@ -121,9 +121,17 @@
             </div>
             {{/benchmark_same_as}}
             <div class="row row-equal">
-                <div class="col-md-3 well tag_div"> <strong>Metric</strong></div>
-                <div class="col-md-9 well">  {{{benchmark_metrics}}}</div>
-            </div>
+                <!-- <div class="col-md-3 well tag_div"> <strong>Metric</strong></div>
+                <div class="col-md-9 well">  {{{benchmark_metrics}}}</div> -->
+                <div class="col-md-3 well tag_div"><strong>Metric</strong></div>
+                    <div class="col-md-9 well">
+                        <ul>
+                            {{#benchmark_metrics}}
+                            <li><a href="{{uri}}" target="_blank">{{name}}</a></li>
+                            {{/benchmark_metrics}}
+                        </ul>
+                    </div>
+                </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Benchmark Status</strong></div>
                 <div class="col-md-2 well"> 
