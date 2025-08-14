@@ -48,7 +48,7 @@
                 "@value": "Ontology documentation: all terms have labels"
             }
         ],
-        "http://semanticscience.org/resource/SIO_000233": [
+        "http://semanticscience.org/resource/SIO_000234": [
             {
                 "@id": "https://w3id.org/foops/test/VOC3"
             }

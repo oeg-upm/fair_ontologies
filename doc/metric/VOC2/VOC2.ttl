@@ -44,7 +44,7 @@ The ontology imports or extends one or more vocabularies in addition to RDF, OWL
 	dcat:keyword "Vocabulary reuse"@en , "Metric"@en , "Interoperable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC2> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/VOC2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VOC2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE> ; 
 	ftr:status "Active"@en .

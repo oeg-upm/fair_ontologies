@@ -143,7 +143,7 @@
                 "@value": "Ontology has content negotiation for RDF"
             }
         ],
-        "http://semanticscience.org/resource/SIO_000233": [
+        "http://semanticscience.org/resource/SIO_000234": [
             {
                 "@id": "https://w3id.org/foops/test/CN1"
             }

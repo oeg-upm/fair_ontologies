@@ -44,7 +44,7 @@ The metric is considered successful if the ontology has any the specified RDF se
 	dcat:keyword "Interoperable"@en , "Metric"@en, "FAIR"@en;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/RDF1> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/RDF1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/RDF1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:status "Active"@en .

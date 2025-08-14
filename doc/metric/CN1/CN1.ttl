@@ -44,7 +44,7 @@ Valid results occur if the ontology is accessible in HTML and at least one speci
 	dcat:keyword "Content negotiation"@en , "Metric"@en, "FAIR", "RDF"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/CN1> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/CN1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/CN1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:status "Active"@en .

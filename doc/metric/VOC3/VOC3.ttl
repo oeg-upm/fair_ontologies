@@ -44,7 +44,7 @@ All ontology terms have labels defined.
 	dcat:keyword "Labels"@en , "Documentation"@en, "Metric"@en , "Reusable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC3> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/VOC3> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VOC3> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE> ; 
 	ftr:status "Active"@en .

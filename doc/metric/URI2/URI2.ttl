@@ -45,7 +45,7 @@ The ontology’s URI and ID are consistent.
 	dcat:keyword "Consistent ontology ID"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/URI2> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/URI2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/URI2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:status "Active"@en ;

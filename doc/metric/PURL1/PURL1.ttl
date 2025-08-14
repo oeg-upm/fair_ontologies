@@ -45,7 +45,7 @@ Valid results are ontologies with a registered persistent URL. Examples include 
 	dcat:keyword "Persistent URL"@en , "Metric"@en , "purl"@en,  "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/PURL1> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/PURL1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/PURL1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE>  ; 
 	ftr:status "Active"@en ;

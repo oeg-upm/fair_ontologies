@@ -44,7 +44,7 @@ The ontology URI provides accessible content in recognized RDF serialization for
 	dcat:keyword "URI resolvable"@en , "Metric"@en , "Resolvable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/URI1> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/URI1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/URI1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:status "Active"@en .

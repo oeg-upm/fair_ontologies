@@ -48,7 +48,7 @@ Ontologies that explicitly state an author and a creation date satisfy the metri
 	dcat:keyword "Metadata"@en ,"Provenance"@en, "Metric"@en , "Reusable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM5.1> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/OM5.1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM5.1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL>, <https://w3id.org/foops/benchmark/PRE> ; 
 	ftr:status "Active"@en .

@@ -57,7 +57,7 @@ The ontology should include all mandatory fields. Optional fields like previous 
 	dcat:keyword "Detailed metadata"@en, "Metric"@en, "Reusable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM3> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/OM3> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM3> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL>, <https://w3id.org/foops/benchmark/PRE> ; 
 	ftr:status "Active"@en .
@@ -68,7 +68,7 @@ The ontology should include all mandatory fields. Optional fields like previous 
 	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail <mailto:m.poveda@upm.es> .
 <https://w3id.org/fair/principles/terms/R1> a <https://w3id.org/fair/principles/terms/FAIR-SubPrinciple> ;
-	rdfs:label "R1"^xsd:string;
+	rdfs:label "R1"^^xsd:string;
 	vivo:abbreviation "R1"^^xsd:string ;
 	dcterms:description "meta(data) are richly described with a plurality of accurate and relevant attributes"@en .
 <https://oeg.fi.upm.es> a vcard:Organization ;
