@@ -51,7 +51,7 @@ The ontology should include all recommended fields except the contributor field,
 	dcat:keyword "Recommended metadata"@en , "Metric"@en , "Reusable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/OM2> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/OM2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE> ; 
 	ftr:status "Active"@en .

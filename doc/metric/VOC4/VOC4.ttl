@@ -44,7 +44,7 @@ All ontology terms have clear and detailed definitions.
 	dcat:keyword "Documentation definitions"@en , "Metric"@en , "Reusable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC4> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/VOC4> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VOC4> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE>; 
 	ftr:status "Active"@en .

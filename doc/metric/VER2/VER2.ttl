@@ -44,7 +44,7 @@ An ontology including a distinct version IRI, resolvable to its corresponding on
 	dcat:keyword "Version IRI"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VER2> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/VER2> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VER2> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:status "Active"@en .

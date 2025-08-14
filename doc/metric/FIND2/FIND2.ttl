@@ -45,7 +45,7 @@ The ontology prefix should be available in a community registry and resolve to t
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	dcat:landingPage <https://w3id.org/foops/metric/FIND2> ; 
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/FIND2> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/FIND2> ;
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> ; 
 	ftr:status "Active"@en .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;

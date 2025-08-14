@@ -44,7 +44,7 @@ An ontology reusing established vocabularies for metadata annotations.
 	dcat:keyword "Vocabulary reuse"@en , "Metric"@en , "Interoperable"@en, "FAIR"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
-	<http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/test/VOC1> ;
+	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/VOC1> ;
 	dcat:landingPage <https://w3id.org/foops/metric/VOC1> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL> , <https://w3id.org/foops/benchmark/PRE>  ; 
 	ftr:status "Active"@en .
