@@ -9,6 +9,7 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> . 
 @prefix dpv: <https://w3id.org/dpv#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/OM3> a dqv:Metric ;
 	dcterms:identifier <https://w3id.org/foops/metric/OM3> ;
@@ -60,7 +61,8 @@ The ontology should include all mandatory fields. Optional fields like previous 
 	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/OM3> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM3> ; 
 	ftr:hasBenchmark <https://w3id.org/foops/benchmark/ALL>, <https://w3id.org/foops/benchmark/PRE> ; 
-	ftr:status "Active"@en .
+	ftr:status "Active"@en ;
+	owl:sameAs <https://doi.org/10.25504/FAIRsharing.735393> .
 <https://orcid.org/0000-0003-0454-7145> a vcard:Individual;
 	vcard:fn "Daniel Garijo"^^xsd:string ;
 	vcard:hasEmail <mailto:dgarijo@upm.es> .

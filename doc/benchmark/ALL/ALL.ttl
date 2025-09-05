@@ -12,7 +12,7 @@
 
 <https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark ;
 	dcterms:identifier <https://w3id.org/foops/benchmark/ALL> ;
-	dcterms:title "General Benchmark for FAIR Principles"@en ;
+	dcterms:title "General Ontology Benchmark for FAIR Principles"@en ;
     rdfs:label "Benchmark ALL"^^xsd:string ;
     vivo:abbreviation "Benchmark ALL"^^xsd:string ;
 	dcterms:description """ Benchmark that includes all tests included in FOOPS! for FAIR assessment of ontologies."""@en ; 
