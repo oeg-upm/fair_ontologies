@@ -25,7 +25,9 @@ If you are interested in more information, check [our slides](https://www.slides
 The client application has been integrated from the work in https://github.com/jacobomata/FairValidator. The client would not have been possible without the work from @jacobomata
 
 ## Demo
-A public demo of FOOPS! is available here: [https://w3id.org/foops/](https://w3id.org/foops/)
+A public demo of FOOPS! is available here: [https://w3id.org/foops/](https://w3id.org/foops/). 
+
+If you want to use the API directly, you may do so at [https://w3id.org/foops/api](https://w3id.org/foops/api) (see the POST `/assessOntology` endpoint).
 
 
 ## Installation instructions
