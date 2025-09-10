@@ -31,8 +31,8 @@ Otherwise, the test will fail.
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/FIND2> ;
-	dcat:keyword "Prefix"@en ,"LOV"@en ,"prefix.cc"@en , "Test"@en , "Findable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/FIND2" ;
+    dcat:keyword "Prefix"@en ,"LOV"@en ,"prefix.cc"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/FIND2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

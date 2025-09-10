@@ -26,8 +26,8 @@ For skos vocabularies, only the skos:Concepts are assessed.
 Otherwise, the test will fail, indicating the level of completeness found (i.e., percentage of documented terms) """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/VOC3> ;
-	dcat:keyword "Labels"@en , "Documentation"@en, "Test"@en , "Reusable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/VOC3" ;
+    dcat:keyword "Labels"@en , "Documentation"@en, "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/VOC3> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

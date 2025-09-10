@@ -29,8 +29,8 @@ Otherwise the test will fail. The test will also verify whether version informat
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/VER1> ;
-	dcat:keyword "Version IRI"@en , "Test"@en , "Findable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/VER1" ;
+    dcat:keyword "Version IRI"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/VER1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/RDF1> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/RDF1> ;
+	dcterms:identifier "https://w3id.org/foops/metric/RDF1" ;
 	dcterms:title "Ontology is available in RDF"@en ;
 	dcterms:description """ 
 This metric evaluates whether an ontology is available in at least one recognized valid RDF serialization format.
@@ -42,7 +42,7 @@ The metric is considered successful if the ontology has any the specified RDF se
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Interoperable"@en , "Metric"@en, "FAIR"@en;
+	dcat:keyword "Interoperable"@en , "Metric"@en;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/RDF1> ;

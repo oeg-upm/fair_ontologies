@@ -25,8 +25,8 @@ The test will pass if a [vann:preferredNamespacePrefix](http://purl.org/vocab/va
 Otherwise, the test will fail. """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/FIND1> ;
-	dcat:keyword "prefix"@en , "Test"@en , "Findable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/FIND1" ;
+    dcat:keyword "prefix"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/FIND1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

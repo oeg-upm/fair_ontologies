@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/OM4.1> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/OM4.1> ;
+	dcterms:identifier "https://w3id.org/foops/metric/OM4.1" ;
 	dcterms:title "Ontology has a license available"@en ;
 	dcterms:description """ 
 This metric evaluates whether an ontology clearly defines its licensing terms or rights, ensuring that users are informed about how the ontology can be used and shared.
@@ -42,7 +42,7 @@ The ontology must include a license, such as Creative Commons.
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "License availability"@en , "Metric"@en , "Reusable"@en, "FAIR"@en ;
+	dcat:keyword "License availability"@en , "Metric"@en , "Reusable"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/OM4.1> ;

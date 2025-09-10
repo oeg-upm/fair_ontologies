@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/OM5.2> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/OM5.2> ;
+	dcterms:identifier "https://w3id.org/foops/metric/OM5.2" ;
 	dcterms:title "Ontology declares detailed provenance metadata"@en ;
 	dcterms:description """ 
 This metric evaluates whether detailed provenance information about an ontology is provided, enabling users to understand its creation context.
@@ -42,7 +42,7 @@ Ontologies that include the issued date and publisher meet the metric’s requir
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Provenance"@en, "Metadata"@en, "Metric"@en, "Reusable"@en, "FAIR"@en ;
+	dcat:keyword "Provenance"@en, "Metadata"@en, "Metric"@en, "Reusable"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/OM5.2> ;

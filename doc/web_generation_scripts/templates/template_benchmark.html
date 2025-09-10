@@ -138,7 +138,7 @@
                     <span class="status-indicator {{benchmark_status}}"></span>
                     <span>{{benchmark_status}} </span>
                 </div>
-                <div class="col-md-7">
+                <!-- <div class="col-md-7">
                     <div class="legend">
                         <ul>
                             <li><span class="status-indicator Active"></span> <strong>Active:</strong> The benchmark is actively used and maintained.</li>
@@ -146,6 +146,14 @@
                             <li><span class="status-indicator Inactive"></span> <strong>Inactive:</strong> The benchmark is not currently in use but remains available for reference.</li>
                             <li><span class="status-indicator Deprecated"></span> <strong>Deprecated:</strong> The benchmark has been retired and should no longer be used.</li>
                         </ul>
+                    </div>
+                </div> -->
+            <div class="col-md-7 d-flex align-items-center flex-wrap">
+                    <div class="legend-inline">
+                        <span class="status-indicator Active" title="The metric is actively used and maintained."></span> <strong>Active</strong>
+                        <span class="status-indicator Proposed" title="The metric is under review or consideration for adoption."></span> <strong>Proposed</strong>
+                        <span class="status-indicator Inactive" title="The metric is not currently in use but remains available for reference."></span> <strong>Inactive</strong>
+                        <span class="status-indicator Deprecated" title="The metric has been retired and should no longer be used."></span> <strong>Deprecated</strong>
                     </div>
                 </div>
             </div>

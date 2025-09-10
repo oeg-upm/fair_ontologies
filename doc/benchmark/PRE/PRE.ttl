@@ -8,9 +8,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/benchmark/PRE> a ftr:Benchmark ;
-	dcterms:identifier <https://w3id.org/foops/benchmark/PRE> ;
+	dcterms:identifier "https://w3id.org/foops/benchmark/PRE" ;
 	dcterms:title "Pre-assessment Ontology Benchmark for FAIR principles"@en ;
     rdfs:label "Benchmark PRE"^^xsd:string ;
     vivo:abbreviation "Benchmark PRE"^^xsd:string ;
@@ -23,6 +24,7 @@
     dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
 	ftr:status "Active"@en ;
+	owl:sameAs <https://doi.org/10.25504/FAIRsharing.9f98e7> ;
     ftr:hasAssociatedMetric 
         <https://w3id.org/foops/metric/FIND1> ,
         <https://w3id.org/foops/metric/OM1> ,

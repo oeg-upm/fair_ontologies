@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/FIND1> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/FIND1> ;
+	dcterms:identifier "https://w3id.org/foops/metric/FIND1" ;
 	dcterms:title "Ontology prefix is declared"@en ;
 	dcterms:description """ 
 This metric verifies that an ontology prefix is declared in the ontology metadata.
@@ -42,7 +42,7 @@ Declaring an ontology prefix in the ontology metadata.
 	dqv:inDimension <https://w3id.org/fair/principles/terms/F3> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Ontology prefix"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
+	dcat:keyword "Ontology prefix"@en , "Metric"@en , "Findable"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	dcat:landingPage <https://w3id.org/foops/metric/FIND1> ; 
