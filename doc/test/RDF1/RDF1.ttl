@@ -26,7 +26,7 @@ The test uses the OWLAPI to load ontologies or vocabularies.
     """@en ;
     dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
     dcat:version "0.0.1"^^xsd:string ;
-    dcterms:identifier <https://w3id.org/foops/test/RDF1> ;
+    dcterms:identifier "https://w3id.org/foops/test/RDF1" ;
     dcat:keyword "RDF serialization"@en , "RDF"@en, "Test"@en ;
     dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/RDF1> ;

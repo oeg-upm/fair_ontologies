@@ -36,8 +36,8 @@ The test will pass if all the detailed metadata properties are available in the 
  """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/OM3> ;
-	dcat:keyword "Detailed metadata"@en , "metadata"@en, "Test"@en , "Reusable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/OM3" ;
+    dcat:keyword "Detailed metadata"@en , "metadata"@en, "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/OM3> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

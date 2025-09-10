@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/OM1> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/OM1> ;
+	dcterms:identifier "https://w3id.org/foops/metric/OM1" ;
 	dcterms:title "Ontology minimum metadata is declared"@en ;
 	dcterms:description """ 
 This metric verifies whether the ontology includes a set of required metadata fields to ease findability and reusability.
@@ -49,7 +49,7 @@ The ontology must contain all specified metadata fields.
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Minimum metadata"@en , "Metric"@en , "Findable"@en, "FAIR"@en ;
+	dcat:keyword "Minimum metadata"@en , "Metric"@en , "Findable"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	dcat:landingPage <https://w3id.org/foops/metric/OM1> ; 

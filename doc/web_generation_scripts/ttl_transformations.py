@@ -145,8 +145,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ftr: <https://w3id.org/ftr#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#> 
 PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
 
-SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label
+SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label ?dimension ?label_dimension ?desc_dimension
 WHERE {
     ?s a ftr:Test .
     ?s dcterms:title ?title .
@@ -154,6 +155,10 @@ WHERE {
     ?s dcat:version ?version .
     ?s dcat:keyword ?keywords .
     ?s dcterms:license ?license .
+    ?s dqv:inDimension ?dimension .
+    ?dimension rdfs:label ?label_dimension .
+    ?dimension dcterms:description ?desc_dimension .
+
 }
 """
 
@@ -163,8 +168,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#> 
 PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
 
-SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label
+SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label ?dimension ?label_dimension ?desc_dimension
 WHERE {
     ?s a dqv:Metric .
     ?s dcterms:title ?title .
@@ -172,6 +178,10 @@ WHERE {
     ?s dcat:version ?version .
     ?s dcat:keyword ?keywords .
     ?s dcterms:license ?license .
+    ?s dqv:inDimension ?dimension .
+    ?dimension rdfs:label ?label_dimension .
+    ?dimension dcterms:description ?desc_dimension .
+    
 
 }
 """
@@ -183,8 +193,9 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#> 
 PREFIX ftr: <https://w3id.org/ftr#>
 PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
 
-SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label
+SELECT DISTINCT ?s ?title ?abbreviation ?version ?keywords ?license ?license_label ?dimension ?label_dimension ?desc_dimension
 WHERE {
     ?s a ftr:Benchmark .
     ?s dcterms:title ?title .
@@ -192,6 +203,9 @@ WHERE {
     ?s dcat:version ?version .
     ?s dcat:keyword ?keywords .
     ?s dcterms:license ?license .
+     OPTIONAL { ?s dqv:inDimension ?dimension .
+    ?dimension rdfs:label ?label_dimension .
+    ?dimension dcterms:description ?desc_dimension .}
 
 }
 """
@@ -240,15 +254,17 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
     contacts_orcid = []
     contacts_mail = []
 
+    dimension_map = {}
+
     for row in results:
         data['test_identifier'] = row.s
         data['test_title'] = row.title
         data['test_name'] = row.label
         data['test_description'] = markdown.markdown(row.description)
         data['test_version'] = row.version
-        data['test_uri_dimension'] = row.dimension
-        data['test_dimension'] = row.label_dimension
-        data['test_desc_dimension'] = row.desc_dimension
+        # data['test_uri_dimension'] = row.dimension
+        # data['test_dimension'] = row.label_dimension
+        # data['test_desc_dimension'] = row.desc_dimension
         data['test_license'] = row.license
         # data['test_publisher'] = row.publisher
         data['test_metric'] = row.metric
@@ -287,6 +303,17 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
         if str(row.publisher_uri) not in publishers_link:
             publishers_link.append(str(row.publisher_uri))
 
+        if row.dimension:
+            uri = str(row.dimension)
+            label = str(row.label_dimension) if row.label_dimension else ""
+            desc = str(row.desc_dimension) if row.desc_dimension else ""
+
+            if uri not in dimension_map:
+                dimension_map[uri] = {
+                    "name": label,
+                    "description": desc
+                }
+
     all_keywords = ", ".join(keywords)
 
     # hay que hacer una transformación porque ahora tenemos dos arrays con los nombres
@@ -306,6 +333,10 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
     for name, uri in zip(publishers, publishers_link):
         result_publishers.append(f'<a href="{uri}" target="_blank">{name}</a>')
 
+    result_dimensions = [
+        {"uri": uri, "name": data["name"], "description": data["description"]}
+        for uri, data in dimension_map.items()
+    ]
 
     all_creators = ', '.join(result)
     all_contacts = ', '.join(result_contacts)
@@ -315,6 +346,7 @@ def ttl_to_html(path_ttl, path_mustache, pquery):
     data['test_creators'] = all_creators
     data['test_contactPoint'] = all_contacts
     data['test_publishers'] = all_publishers
+    data['dimensions_test'] = result_dimensions
 
     # Cargar la plantilla mustache
     with open(path_mustache, 'r', encoding="utf-8") as template_file:
@@ -344,41 +376,6 @@ def ttl_to_jsonld(path_ttl):
         f.write(jsonld_data)
 
     print(f'Archivo jsonld creado: {path_jsonld}')
-
-
-
-# def ttl_to_jsonld(path_ttl):
-#     """Transforma un archivo TTL en JSON-LD sin estructura de grafo y maneja listas automáticamente."""
-#     g = Graph()
-#     g.parse(path_ttl, format="turtle")
-
-#     jsonld_data = {
-#         "@context": "https://w3id.org/ftr/context"
-#     }
-
-#     entities = {}
-
-#     for s, p, o in g:
-#         s_str, p_str, o_str = str(s), str(p), str(o)
-
-#         if s_str not in entities:
-#             entities[s_str] = {"@id": s_str}
-
-#         # Si la propiedad ya existe, convertir en lista si es necesario
-#         if p_str in entities[s_str]:
-#             if not isinstance(entities[s_str][p_str], list):
-#                 entities[s_str][p_str] = [entities[s_str][p_str]]  # Convertir en lista si hay más de un valor
-#             entities[s_str][p_str].append(o_str)
-#         else:
-#             entities[s_str][p_str] = o_str  # Primer valor como string
-
-#     jsonld_data.update(entities)
-
-#     path_jsonld = os.path.splitext(path_ttl)[0] + '.jsonld'
-#     with open(path_jsonld, "w", encoding="utf-8") as f:
-#         json.dump(jsonld_data, f, indent=4)
-
-#     print(f'Archivo JSON-LD creado: {path_jsonld}')
 
 
 def ttl_to_html_benchmarks(path_ttl, path_mustache, pquery):
@@ -564,6 +561,8 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
     contacts_orcid = []
     contacts_mail = []
 
+    dimension_map = {}
+
     for row in results:
 
         data['metric_identifier'] = row.s
@@ -572,9 +571,9 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         data['metric_description'] = markdown.markdown(row.description)
         data['metric_version'] = row.version
         data['metric_license'] = row.license
-        data['metric_uri_inDimension'] = row.indimension
-        data['metric_inDimension'] = row.label_dimension
-        data['metric_desc_dimension'] = row.desc_indimension
+        # data['metric_uri_inDimension'] = row.indimension
+        # data['metric_inDimension'] = row.label_dimension
+        # data['metric_desc_dimension'] = row.desc_indimension
         # data['metric_publisher'] = row.publisher
         data['metric_test'] = row.test
         data['metric_landing_page'] = row.landing_page
@@ -615,6 +614,17 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
         if str(row.publisher_uri) not in publishers_link:
             publishers_link.append(str(row.publisher_uri))
 
+        if row.indimension:
+            uri = str(row.indimension)
+            label = str(row.label_dimension) if row.label_dimension else ""
+            desc = str(row.desc_indimension) if row.desc_indimension else ""
+
+            if uri not in dimension_map:
+                dimension_map[uri] = {
+                    "name": label,
+                    "description": desc
+                }
+
     all_keywords = ", ".join(keywords)
 
     result = []
@@ -637,6 +647,11 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
     for name, uri in zip(publishers, publishers_link):
         result_publishers.append(f'<a href="{uri}" target="_blank">{name}</a>')
 
+    result_dimensions = [
+        {"uri": uri, "name": data["name"], "description": data["description"]}
+        for uri, data in dimension_map.items()
+    ]
+
     all_creators = ', '.join(result)
     all_benchmarks = '<br>'.join(result_benchmarks)
     all_contacts = ', '.join(result_contacts)
@@ -647,6 +662,7 @@ def ttl_to_html_metrics(path_ttl, path_mustache, pquery):
     data['metric_benchmarks'] = all_benchmarks
     data['metric_contactPoint'] = all_contacts
     data['metric_publishers'] = all_publishers
+    data['dimensions_metric'] = result_dimensions
     # Cargar la plantilla mustache
     with open(path_mustache, 'r', encoding="utf-8") as template_file:
         template_content = template_file.read()
@@ -726,7 +742,7 @@ def iterate_paths(path_source, path_destination, template, pquery, type_doc):
                 ttl_to_jsonld(path_ttl)
 
 
-def catalog_process(path_mustache_catalog, path_source):
+def catalog_process(path_mustache_catalog, path_mustache_index, path_source):
     ''' 
         init process to create catalog.html
     '''
@@ -747,17 +763,39 @@ def catalog_process(path_mustache_catalog, path_source):
     with open(path_mustache_catalog, 'r', encoding="utf-8") as template_file:
         template_content = template_file.read()
 
+    with open(path_mustache_index, 'r', encoding="utf-8") as template_file:
+        template_content_index = template_file.read()
+
     # sustituir la plantilla con los datos del diccionario
     renderer = pystache.Renderer()
     rendered_output = renderer.render(
         template_content, {'tests': tests_sorted,
-                           'metrics': metrics_sorted, 'benchmarks': benchmarks_sorted})
-
+                           'metrics': metrics_sorted, 
+                           'benchmarks': benchmarks_sorted
+                        #    ,
+                        #    'label_test_button': f"{len(tests_sorted)} Test",
+                        #    'label_metric_button': f"{len(metrics_sorted)} Metric",
+                        #    'label_benchmark_button': f"{len(benchmarks_sorted)} Benchmark"
+                            }
+                        )
+    
+    rendered_index = renderer.render(
+        template_content_index, {
+                           'number_test': f"{len(tests_sorted)} Test",
+                           'number_metric': f"{len(metrics_sorted)} Metric",
+                           'number_benchmark': f"{len(benchmarks_sorted)} Benchmark"
+                            }
+                        )
     # path_catalog = os.path.join(path_source, 'doc', 'catalog.html')
     path_catalog = os.path.join(path_source, 'catalog.html')
     print("Path catalog: " + path_catalog)
     with open(path_catalog, 'w', encoding="utf-8") as output_file:
         output_file.write(rendered_output)
+
+    path_index = os.path.join(path_source, 'index.html')
+    print("Path index " + path_index)
+    with open(path_index, 'w', encoding="utf-8") as output_file:
+        output_file.write(rendered_index)
 
 
 def item_to_list(path, plist, pquery, type_doc):
@@ -790,6 +828,7 @@ def ttl_to_item_catalogue(path_ttl, pquery):
 
     data = {}
     keywords = []
+    dimension_map = {}
 
     for row in results:
 
@@ -815,10 +854,47 @@ def ttl_to_item_catalogue(path_ttl, pquery):
         if str(row.keywords) not in keywords:
             keywords.append(str(row.keywords))
 
+        if row.dimension:
+            uri = str(row.dimension)
+            label = str(row.label_dimension) if row.label_dimension else ""
+            desc = str(row.desc_dimension) if row.desc_dimension else ""
+
+            if uri not in dimension_map:
+                dimension_map[uri] = {
+                    "name": label,
+                    "description": desc
+                }
+
+    result_dimensions = [
+        {"uri": uri, "name": data["name"], "description": data["description"], "category": extract_fair_group(data["name"])}
+        for uri, data in dimension_map.items()
+    ]
+
+    principle_links = [
+        f'<a href="{p["uri"]}" target="_blank">{p["name"]}</a>'
+        for p in result_dimensions
+    ]
+    categories =  [p["category"]
+        for p in result_dimensions]
+    
     all_keywords = ", ".join(keywords)
     data['keywords'] = all_keywords
+    data['principle'] = ', '.join(principle_links)
+    data['category'] = ', '.join(categories)
 
     return data
+
+
+def extract_fair_group(name):
+    fair_groups = {
+    "F": "Findable",
+    "A": "Accessible",
+    "I": "Interoperable",
+    "R": "Reusable"
+    }   
+
+    initial = name[0] if name else ""
+    return fair_groups.get(initial, "")
 
 
 def main():
@@ -855,6 +931,8 @@ def main():
         current_dir, "templates" + os.sep + "template_benchmark.html")
     path_mustache_catalogo = os.path.join(
         current_dir, "templates" + os.sep + "template_catalog.html")
+    path_mustache_index = os.path.join(
+        current_dir, "templates" + os.sep + "template_index.html")
 
     iterate_paths(path_source, path_destination,
                   path_mustache_metrics, QUERY_METRICS, 'M')
@@ -867,7 +945,7 @@ def main():
     # lugar de hacerlo en dos scripts diferentes
     # enviamos el path_destino porque ya se deberían haber creado allí todos los documentos.
 
-    catalog_process(path_mustache_catalogo, path_destination)
+    catalog_process(path_mustache_catalogo, path_mustache_index, path_destination)
 
 
 if __name__ == "__main__":

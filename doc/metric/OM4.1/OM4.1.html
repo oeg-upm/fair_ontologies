@@ -64,6 +64,19 @@
             .legend li strong {
                 color: #000; /* Negrita negra para el texto */
             }  
+            .legend-inline span.status-indicator {
+                display: inline-block;
+                margin-right: 4px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                vertical-align: middle;
+            }
+
+            .legend-inline strong {
+                margin-right: 12px;
+                vertical-align: middle;
+            }
         </style>
         <div class="container">
             <div class="row">
@@ -106,7 +119,7 @@
             </div>
             <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Keywords</strong></div>
-                <div class="col-md-9 well"> License availability, Metric, Reusable, FAIR </div>
+                <div class="col-md-9 well"> License availability, Metric, Reusable </div>
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Contact Point</strong></div>
@@ -125,22 +138,28 @@
                 <div class="col-md-3 well tag_div"> <strong>License</strong></div>
                 <div class="col-md-9 well"> <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"> http://creativecommons.org/licenses/by/4.0/ </a></div>
             </div>
-            <div class="row row-equal" >
+            <!-- <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Landing Page</strong></div>
                 <div class="col-md-9 well"><a href="https://w3id.org/foops/metric/OM4.1" target="_blank">https://w3id.org/foops/metric/OM4.1</a></div>
-            </div>
+            </div> -->
             <div class="row row-equal" >
-                <div class="col-md-3 well tag_div"> <strong>Dimension</strong></div>
-                <div class="col-md-9 well"><a href="https://w3id.org/fair/principles/terms/R1.1" target="_blank"> R1.1</a>: (meta)data are released with a clear and accessible data usage license  </div>
+                <div class="col-md-3 well tag_div"> <strong>Principle</strong></div>
+                <!-- <div class="col-md-9 well"><a href="" target="_blank"> </a>:   </div> -->
+                    <div class="col-md-9 well">
+                        <ul>
+                            <li>
+                                <a href="https://w3id.org/fair/principles/terms/R1.1" target="_blank">R1.1</a>: (meta)data are released with a clear and accessible data usage license
+                            </li>
+                        </ul>
+                    </div>
             </div>
             <!-- <div class="row">
                 <div class="col-md-3 well tag_div"> <strong>Desc. Dimension</strong></div>
-                <div class="col-md-9 well"> (meta)data are released with a clear and accessible data usage license </div>
+                <div class="col-md-9 well">  </div>
             </div> -->
             <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Benchmark</strong></div>
                 <div class="col-md-9 well"> <a href="https://w3id.org/foops/benchmark/ALL" target="_blank">General Benchmark ALL for FAIR Principles</a>: This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to all metrics.<br><a href="https://w3id.org/foops/benchmark/PRE" target="_blank">General Benchmark PRE for FAIR Principles</a>: This benchmark specifies the criteria for evaluating aspects of data quality according to the FAIR principle. Apply to some metrics. </div>
-                <!-- <div class="col-md-9 well"> <a href="" target="_blank">  </a>:   </div> -->
             </div>
             <div class="row row-equal">
                 <div class="col-md-3 well tag_div"> <strong>Applicable for</strong></div>
@@ -154,21 +173,13 @@
                 <div class="col-md-3 well tag_div"> <strong>Same as</strong></div>
                 <div class="col-md-9 well"> <a href="https://doi.org/10.25504/FAIRsharing.64b709" target="_blank"> https://doi.org/10.25504/FAIRsharing.64b709 </a> </div>
             </div>
-            <!-- <div class="row">
-                <div class="col-md-3 well tag_div"> <strong>Benchmark Title</strong></div>
-                <div class="col-md-9 well">   </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 well tag_div"> <strong>Benchmark Desc</strong></div>
-                <div class="col-md-9 well">   </div>
-            </div> -->
             <div class="row row-equal" >
                 <div class="col-md-3 well tag_div"> <strong>Metric Status</strong></div>
                 <div class="col-md-2 well">                   
                     <span class="status-indicator Active"></span>
                     <span>Active </span>
                 </div>
-                <div class="col-md-7">
+                <!-- <div class="col-md-7">
                     <div class="legend">
                         <ul>
                             <li><span class="status-indicator Active"></span> <strong>Active:</strong> The metric is actively used and maintained.</li>
@@ -177,10 +188,19 @@
                             <li><span class="status-indicator Deprecated"></span> <strong>Deprecated:</strong> The metric has been retired and should no longer be used.</li>
                         </ul>
                     </div>
+                </div> -->
+
+                <div class="col-md-7 d-flex align-items-center flex-wrap">
+                    <div class="legend-inline">
+                        <span class="status-indicator Active" title="The metric is actively used and maintained."></span> <strong>Active</strong>
+                        <span class="status-indicator Proposed" title="The metric is under review or consideration for adoption."></span> <strong>Proposed</strong>
+                        <span class="status-indicator Inactive" title="The metric is not currently in use but remains available for reference."></span> <strong>Inactive</strong>
+                        <span class="status-indicator Deprecated" title="The metric has been retired and should no longer be used."></span> <strong>Deprecated</strong>
+                    </div>
                 </div>
             </div>
             <div class="row row-equal" >
-                <div class="col-md-3 well tag_div"> <strong>Test</strong></div>
+                <div class="col-md-3 well tag_div"> <strong>Used in Test</strong></div>
                 <div class="col-md-9 well"> <a href="https://w3id.org/foops/test/OM4.1" target="_blank"> https://w3id.org/foops/test/OM4.1 </a> </div>
             </div>
         </div>

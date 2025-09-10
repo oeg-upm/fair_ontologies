@@ -26,8 +26,8 @@ Alternatively, if there is a [schema:includedInDataCatalog](https://schema.org/i
 The test will fail otherwise. """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/FIND_3_BIS> ;
-	dcat:keyword "Metadata accesible"@en , "Test"@en , "Accesible"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/FIND_3_BIS" ;
+    dcat:keyword "Metadata accesible"@en , "Test"@en , "Accesible"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/FIND_3_BIS> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

@@ -23,8 +23,8 @@
 This test verifies if the ontology has an HTML documentation. The test will attempt to download an HTML representation using the ontology URI, with content negotiation """@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/DOC1> ;
-	dcat:keyword "HTML availability"@en , "Test"@en , "Reusable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/DOC1" ;
+    dcat:keyword "HTML availability"@en , "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/DOC1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

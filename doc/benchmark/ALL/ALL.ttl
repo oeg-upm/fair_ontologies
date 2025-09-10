@@ -11,7 +11,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/benchmark/ALL> a ftr:Benchmark ;
-	dcterms:identifier <https://w3id.org/foops/benchmark/ALL> ;
+	dcterms:identifier "https://w3id.org/foops/benchmark/ALL" ;
 	dcterms:title "General Ontology Benchmark for FAIR Principles"@en ;
     rdfs:label "Benchmark ALL"^^xsd:string ;
     vivo:abbreviation "Benchmark ALL"^^xsd:string ;

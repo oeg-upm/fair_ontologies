@@ -29,8 +29,8 @@ Otherwise, the test will fail (i.e., no license or rights are declared).
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/OM4.1> ;
-	dcat:keyword "License"@en , "Test"@en , "Reusable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/OM4.1" ;
+    dcat:keyword "License"@en , "Test"@en , "Reusable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/OM1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

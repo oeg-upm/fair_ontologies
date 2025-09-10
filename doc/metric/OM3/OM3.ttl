@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/OM3> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/OM3> ;
+	dcterms:identifier "https://w3id.org/foops/metric/OM3" ;
 	dcterms:title "Ontology declares detailed metadata"@en ;
 	dcterms:description """
 This metric assesses whether an ontology/vocabulary includes a comprehensive set of metadata elements that provide in-depth information for improved usability and provenance tracking.
@@ -55,7 +55,7 @@ The ontology should include all mandatory fields. Optional fields like previous 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Detailed metadata"@en, "Metric"@en, "Reusable"@en, "FAIR"@en ;
+	dcat:keyword "Detailed metadata"@en, "Metric"@en, "Reusable"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/OM3> ;

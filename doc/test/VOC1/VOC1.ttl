@@ -39,8 +39,8 @@ The test will also return the vocabularies that were found. If none are found, t
 	"""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/VOC1> ;
-	dcat:keyword "Vocabulary reuse"@en , "Test"@en , "Interoperable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/VOC1" ;
+    dcat:keyword "Vocabulary reuse"@en , "Test"@en , "Interoperable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/VOC1> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

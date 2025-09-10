@@ -26,6 +26,110 @@
             .label.label-success {
                 font-size: 12px;
             }
+            button.btn-active,
+            .btn.btn-active {
+                font-weight: bold;
+                color: white !important;
+                background-color: green !important;
+                border: 4px solid darkgreen !important;
+                /* transform: scale(1.05);  */
+                /* transition: all 0.2s ease-in-out; */
+            }
+            .btn-active-t {
+                font-weight: bold;
+                color: white !important;
+                background-color: #FAAD5C !important;
+                border: 4px solid #e6953e !important;
+            }
+
+            .btn-active-m {
+                font-weight: bold;
+                color: white !important;
+                background-color: #83d2f7 !important;
+                border: 4px solid #5bbbe3 !important;
+            }
+
+            .btn-active-b {
+                font-weight: bold;
+                color: white !important;
+                background-color: #bb8fc3 !important;
+                border: 4px solid #a06aa9 !important;
+            }
+            .btn-active-d {
+                font-weight: bold;
+                color: white !important;
+                background-color: #81FC81 !important;
+                border: 4px solid #28d428 !important;
+            }
+   
+            .table td.short-name,
+            .table th.short-name {
+                width: 180px; 
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .btn-deactivate {
+                background-color: #9c9b9b;    
+                border: 4px solid #7a7979;       
+                color: white !important;         
+                font-weight: bold;
+                padding: 6px 12px;
+                border-radius: 4px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .btn-deactivate:hover {
+                background-color: #9e9e9e;       
+                border-color: #5d5c5c;           
+            }
+
+            .btn-primary-m {
+                background-color: #BDBDBD;    
+                border: 4px solid #5bbbe3;       
+                color: white !important;         
+                font-weight: bold;
+                padding: 6px 12px;
+                border-radius: 4px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .btn-primary-m:hover {
+                background-color: #9e9e9e;       
+                border-color: #4795b7;           
+            }
+
+            .btn-primary-b {
+                background-color: #BDBDBD;    
+                border: 4px solid #a06aa9;       
+                color: white !important;         
+                font-weight: bold;
+                padding: 6px 12px;
+                border-radius: 4px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .btn-primary-b:hover {
+                background-color: #9e9e9e;       
+                border-color: #724b79;           
+            }
+
+            .btn-primary-d {
+                background-color: #BDBDBD;    
+                border: 4px solid #28d428;       
+                color: white !important;         
+                font-weight: bold;
+                padding: 6px 12px;
+                border-radius: 4px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .btn-primary-d:hover {
+                background-color: #9e9e9e;       
+                border-color: #1a871a;           
+            }
+
             h1 {
                 margin-bottom: 25px; 
             }
@@ -33,6 +137,7 @@
                 font-weight: 300; 
                 margin-top: 0; 
             }
+
         </style>
         <script>
             $(document).ready(function(){
@@ -59,27 +164,57 @@
                     window.location.hash = sectionId;
                 } 
 
+                // function highlightButton(buttonId) {
+                //     $("#btn_test, #btn_metric, #btn_benchmark").removeClass("btn-active");
+                //     $(buttonId).addClass("btn-active");
+                // }
+                function highlightButton(buttonId) {
+        
+                    $("#btn_test").removeClass("btn-active-t");
+                    $("#btn_metric").removeClass("btn-active-m");
+                    $("#btn_benchmark").removeClass("btn-active-b");
+
+                
+                    if (buttonId === "#btn_test") {
+                        $(buttonId).addClass("btn-active-t");
+                    } else if (buttonId === "#btn_metric") {
+                        $(buttonId).addClass("btn-active-m");
+                    } else if (buttonId === "#btn_benchmark") {
+                        $(buttonId).addClass("btn-active-b");
+                    }
+                }
+
                 const currentHash = window.location.hash; 
-                if (!currentHash) { 
-                    // Si no hay marcador en la URL, actualizar a #test 
-                    updateURL("test"); 
-                } 
-                showSection(currentHash || "#test");
+
+                // showSection(currentHash || "#test");
+                let sectionToShow = "#test"; // Por defecto, mostrar el test
+                let buttonToHighlight = "#btn_test";
+
+                if (currentHash === "#metric" || currentHash === "#benchmark") {
+                    sectionToShow = currentHash;
+                    buttonToHighlight = "#btn_" + currentHash.substring(1);
+                }
+
+                showSection(sectionToShow);
+                highlightButton(buttonToHighlight);
 
 
                 $("#btn_metric").click(function(){
                     updateURL("metric"); 
                     showSection("#metric");
+                    highlightButton("#btn_metric");
                 });
                 
                 $("#btn_test").click(function(){
                     updateURL("test"); 
                     showSection("#test");
+                    highlightButton("#btn_test");
                 });
 
                 $("#btn_benchmark").click(function(){
                     updateURL("benchmark"); 
                     showSection("#benchmark");
+                    highlightButton("#btn_benchmark");
                 });
 
                 $("#btn_demo").click(function(){
@@ -92,11 +227,18 @@
     <body>
         <div style="margin-top: 20px;">
             <div class="row">
-                <div class="col-md-12" style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-                    <button id="btn_test" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Test</button>
-                    <button id="btn_metric" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Metric</button>
-                    <button id="btn_benchmark" type="button" class="btn btn-primary" style="margin-right: 10px;"">Benchmark</button>
-                    <button id="btn_demo" type="button" class="btn btn-primary" style="margin-right: 10px;"">Demo</button>
+                <div class="col-md-12" style="display: flex; justify-content: flex-end; margin-right: 10px;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="margin-bottom: 10px;">
+                            <!-- <button id="btn_test" type="button" class="btn btn-primary" style="margin-right: 10px;"></button>
+                            <button id="btn_metric" type="button" class="btn btn-primary" style="margin-right: 10px;"></button>
+                            <button id="btn_benchmark" type="button" class="btn btn-primary" style="margin-right: 10px;"></button> -->
+                            <button id="btn_test" type="button" class="btn btn-deactivate" style="margin-right: 10px;">Test</button>
+                            <button id="btn_metric" type="button" class="btn btn-deactivate" style="margin-right: 10px;">Metric</button>
+                            <button id="btn_benchmark" type="button" class="btn btn-deactivate" style="margin-right: 10px;">Benchmark</button>
+                            <button id="btn_demo" type="button" class="btn btn-deactivate" style="margin-right: 10px;">Go to Demo <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id = "test" class="container">
@@ -127,204 +269,254 @@
                 <table class="table" style="margin-top: 30px;">
                     <thead>
                         <tr>
-                            <th>Short Name</th>
+                            <th class="short-name">Short Name</th>
                             <th>Title</th>
-                            <th>License</th>
-                            <th>Version</th>
+                            <th>Category</th>
+                            <th>Principle</th>
+                            <!-- <th>License</th>
+                            <th>Version</th> -->
                             <th>Keywords</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/CN1">https://w3id.org/foops/test/CN1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/CN1"><strong>CN1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/CN1"><strong>CN1-T</strong></a></td>
                             <td class="titles">Ontology has content negotiation for RDF in RDF/XML, TTL, NTriples or JSON-LD serializations</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Accessible</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/A1" target="_blank">A1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Content negotiation, Test, RDF, serialization</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/DOC1">https://w3id.org/foops/test/DOC1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/DOC1"><strong>DOC1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/DOC1"><strong>DOC1-T</strong></a></td>
                             <td class="titles">Ontology has HTML documentation</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">HTML availability, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/FIND1">https://w3id.org/foops/test/FIND1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/FIND1"><strong>FIND1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/FIND1"><strong>FIND1-T</strong></a></td>
                             <td class="titles">Ontology prefix is declared</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F3" target="_blank">F3</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">prefix, Test, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/FIND2">https://w3id.org/foops/test/FIND2</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/FIND2"><strong>FIND2-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/FIND2"><strong>FIND2-T</strong></a></td>
                             <td class="titles">Ontology prefix is found in prefix.cc or LOV</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F4" target="_blank">F4</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Prefix, LOV, prefix.cc, Test, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/FIND3">https://w3id.org/foops/test/FIND3</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/FIND3"><strong>FIND3-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/FIND3"><strong>FIND3-T</strong></a></td>
                             <td class="titles">Ontology found in community registry</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F4" target="_blank">F4</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">registry, LOV, Test, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/FIND_3_BIS">https://w3id.org/foops/test/FIND_3_BIS</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/FIND_3_BIS"><strong>FIND_3_BIS-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/FIND_3_BIS"><strong>FIND_3_BIS-T</strong></a></td>
                             <td class="titles">Ontology metadata are accessible, even when the ontology is not</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Accessible</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/A2" target="_blank">A2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Metadata accesible, Test, Accesible</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/HTTP1">https://w3id.org/foops/test/HTTP1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/HTTP1"><strong>HTTP1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/HTTP1"><strong>HTTP1-T</strong></a></td>
                             <td class="titles">Ontology uses an open protocol</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Accessible</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/A1.1" target="_blank">A1.1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Open protocol, Test, Accesible</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/OM1">https://w3id.org/foops/test/OM1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/OM1"><strong>OM1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/OM1"><strong>OM1-T</strong></a></td>
                             <td class="titles">Ontology minimum metadata is declared</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F2" target="_blank">F2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Minimum metadata, Test, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/OM2">https://w3id.org/foops/test/OM2</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/OM2"><strong>OM2-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/OM2"><strong>OM2-T</strong></a></td>
                             <td class="titles">Ontology declares recommended metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Recommended metadata, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/OM3">https://w3id.org/foops/test/OM3</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/OM3"><strong>OM3-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/OM3"><strong>OM3-T</strong></a></td>
                             <td class="titles">Ontology declares detailed metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Detailed metadata, metadata, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/OM4.1">https://w3id.org/foops/test/OM4.1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/OM4.1"><strong>OM4.1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/OM4.1"><strong>OM4.1-T</strong></a></td>
                             <td class="titles">Ontology has a license available</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.1" target="_blank">R1.1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">License, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/OM4.2">https://w3id.org/foops/test/OM4.2</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/OM4.2"><strong>OM4.2-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/OM4.2"><strong>OM4.2-T</strong></a></td>
                             <td class="titles">Ontology license is resolvable</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.1" target="_blank">R1.1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">License resolvable, License, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/OM5.1">https://w3id.org/foops/test/OM5.1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/OM5.1"><strong>OM5.1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/OM5.1"><strong>OM5.1-T</strong></a></td>
                             <td class="titles">Ontology declares basic provenance metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.2" target="_blank">R1.2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Provenance, Metadata, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/OM5.2">https://w3id.org/foops/test/OM5.2</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/OM5.2"><strong>OM5.2-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/OM5.2"><strong>OM5.2-T</strong></a></td>
                             <td class="titles">Ontology declares detailed provenance metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.2" target="_blank">R1.2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Provenance, Metadata, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/PURL1">https://w3id.org/foops/test/PURL1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/PURL1"><strong>PURL1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/PURL1"><strong>PURL1-T</strong></a></td>
                             <td class="titles">Ontology has a persistent URL</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Persistent URL, Test, purl</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/RDF1">https://w3id.org/foops/test/RDF1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/RDF1"><strong>RDF1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/RDF1"><strong>RDF1-T</strong></a></td>
                             <td class="titles">Ontology is available in RDF (TTL, N3, RDF/XML or JSON-LD)</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Interoperable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/I1" target="_blank">I1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">RDF serialization, RDF, Test</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/URI1">https://w3id.org/foops/test/URI1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/URI1"><strong>URI1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/URI1"><strong>URI1-T</strong></a></td>
                             <td class="titles">Ontology URI is resolvable</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">URI resolvable, Test, Resolvable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/URI2">https://w3id.org/foops/test/URI2</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/URI2"><strong>URI2-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/URI2"><strong>URI2-T</strong></a></td>
                             <td class="titles">Consistent ontology IDs are employed</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Consistent ontology ID, Test, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/VER1">https://w3id.org/foops/test/VER1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/VER1"><strong>VER1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/VER1"><strong>VER1-T</strong></a></td>
                             <td class="titles">A version IRI is declared in the ontology metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Version IRI, Test, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/VER2">https://w3id.org/foops/test/VER2</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/VER2"><strong>VER2-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/VER2"><strong>VER2-T</strong></a></td>
                             <td class="titles">Ontology version IRI resolves</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Version IRI, Test, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/VOC1">https://w3id.org/foops/test/VOC1</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/VOC1"><strong>VOC1-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/VOC1"><strong>VOC1-T</strong></a></td>
                             <td class="titles"> Ontology reuses existing vocabularies for metadata annotations</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Interoperable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/I2" target="_blank">I2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Vocabulary reuse, Test, Interoperable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/VOC2">https://w3id.org/foops/test/VOC2</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/VOC2"><strong>VOC2-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/VOC2"><strong>VOC2-T</strong></a></td>
                             <td class="titles">Ontology imports or reuses well established vocabularies</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Interoperable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/I2" target="_blank">I2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Vocabulary reuse, Test, Interoperable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/VOC3">https://w3id.org/foops/test/VOC3</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/VOC3"><strong>VOC3-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/VOC3"><strong>VOC3-T</strong></a></td>
                             <td class="titles">Ontology documentation: all terms have labels</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Labels, Documentation, Test, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/test/VOC4">https://w3id.org/foops/test/VOC4</a></td> -->
-                            <td><a href="https://w3id.org/foops/test/VOC4"><strong>VOC4-T</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/test/VOC4"><strong>VOC4-T</strong></a></td>
                             <td class="titles">Ontology documentation: all terms have definitions</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Documentation definitions, Test, Reusable</td>
                         </tr>
                     </tbody>
@@ -355,205 +547,255 @@
                 <table class="table" style="margin-top: 30px;">
                     <thead>
                         <tr>
-                            <th>Short Name</th>
+                            <th class="short-name">Short Name</th>
                             <th>Title</th>
-                            <th>License</th>
-                            <th>Version</th>
+                            <th>Category</th>
+                            <th>Principle</th>
+                            <!-- <th>License</th>
+                            <th>Version</th> -->
                             <th>Keywords</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/CN1">https://w3id.org/foops/metric/CN1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/CN1"><strong>CN1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/CN1"><strong>CN1-M</strong></a></td>
                             <td class="titles">Ontology has content negotiation for RDF</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Content negotiation, Metric, FAIR, RDF</td>
+                            <td>Accessible</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/A1" target="_blank">A1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Content negotiation, Metric, RDF</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/DOC1">https://w3id.org/foops/metric/DOC1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/DOC1"><strong>DOC1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/DOC1"><strong>DOC1-M</strong></a></td>
                             <td class="titles">Ontology has HTML documentation</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">HTML availability, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">HTML availability, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/FIND1">https://w3id.org/foops/metric/FIND1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/FIND1"><strong>FIND1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/FIND1"><strong>FIND1-M</strong></a></td>
                             <td class="titles">Ontology prefix is declared</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Ontology prefix, Metric, Findable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F3" target="_blank">F3</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Ontology prefix, Metric, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/FIND2">https://w3id.org/foops/metric/FIND2</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/FIND2"><strong>FIND2-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/FIND2"><strong>FIND2-M</strong></a></td>
                             <td class="titles">Ontology prefix is found in community registry</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Prefix, Registry, Metric, Findable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F4" target="_blank">F4</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Prefix, Registry, Metric, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/FIND3">https://w3id.org/foops/metric/FIND3</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/FIND3"><strong>FIND3-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/FIND3"><strong>FIND3-M</strong></a></td>
                             <td class="titles">Ontology in metadata registry</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">registry, Metric, Findable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F4" target="_blank">F4</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">registry, Metric, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/FIND_3_BIS">https://w3id.org/foops/metric/FIND_3_BIS</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/FIND_3_BIS"><strong>FIND_3_BIS-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/FIND_3_BIS"><strong>FIND_3_BIS-M</strong></a></td>
                             <td class="titles">Ontology metadata are accessible, even when the ontology is not</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Metadata accesible, Metric, Accesible, FAIR</td>
+                            <td>Accessible</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/A2" target="_blank">A2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Metadata accesible, Metric, Accesible</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/HTTP1">https://w3id.org/foops/metric/HTTP1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/HTTP1"><strong>HTTP1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/HTTP1"><strong>HTTP1-M</strong></a></td>
                             <td class="titles">Ontology uses an open protocol</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Open protocol, Metric, Accesible, FAIR</td>
+                            <td>Accessible</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/A1.1" target="_blank">A1.1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Open protocol, Metric, Accesible</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/OM1">https://w3id.org/foops/metric/OM1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/OM1"><strong>OM1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/OM1"><strong>OM1-M</strong></a></td>
                             <td class="titles">Ontology minimum metadata is declared</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Minimum metadata, Metric, Findable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F2" target="_blank">F2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Minimum metadata, Metric, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/OM2">https://w3id.org/foops/metric/OM2</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/OM2"><strong>OM2-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/OM2"><strong>OM2-M</strong></a></td>
                             <td class="titles">Ontology declares recommended metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Recommended metadata, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Recommended metadata, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/OM3">https://w3id.org/foops/metric/OM3</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/OM3"><strong>OM3-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/OM3"><strong>OM3-M</strong></a></td>
                             <td class="titles">Ontology declares detailed metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Detailed metadata, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Detailed metadata, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/OM4.1">https://w3id.org/foops/metric/OM4.1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/OM4.1"><strong>OM4.1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/OM4.1"><strong>OM4.1-M</strong></a></td>
                             <td class="titles">Ontology has a license available</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">License availability, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.1" target="_blank">R1.1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">License availability, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/OM4.2">https://w3id.org/foops/metric/OM4.2</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/OM4.2"><strong>OM4.2-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/OM4.2"><strong>OM4.2-M</strong></a></td>
                             <td class="titles">Ontology license is resolvable</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">License resolvable, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.1" target="_blank">R1.1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">License resolvable, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/OM5.1">https://w3id.org/foops/metric/OM5.1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/OM5.1"><strong>OM5.1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/OM5.1"><strong>OM5.1-M</strong></a></td>
                             <td class="titles">Ontology declares basic provenance metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Metadata, Provenance, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.2" target="_blank">R1.2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Metadata, Provenance, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/OM5.2">https://w3id.org/foops/metric/OM5.2</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/OM5.2"><strong>OM5.2-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/OM5.2"><strong>OM5.2-M</strong></a></td>
                             <td class="titles">Ontology declares detailed provenance metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Provenance, Metadata, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1.2" target="_blank">R1.2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Provenance, Metadata, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/PURL1">https://w3id.org/foops/metric/PURL1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/PURL1"><strong>PURL1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/PURL1"><strong>PURL1-M</strong></a></td>
                             <td class="titles">Ontology has a persistent URL</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Persistent URL, Metric, purl, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Persistent URL, Metric, purl</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/RDF1">https://w3id.org/foops/metric/RDF1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/RDF1"><strong>RDF1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/RDF1"><strong>RDF1-M</strong></a></td>
                             <td class="titles">Ontology is available in RDF</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Interoperable, Metric, FAIR</td>
+                            <td>Interoperable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/I1" target="_blank">I1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Interoperable, Metric</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/URI1">https://w3id.org/foops/metric/URI1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/URI1"><strong>URI1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/URI1"><strong>URI1-M</strong></a></td>
                             <td class="titles">Ontology URI is resolvable</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">URI resolvable, Metric, Resolvable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">URI resolvable, Metric, Resolvable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/URI2">https://w3id.org/foops/metric/URI2</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/URI2"><strong>URI2-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/URI2"><strong>URI2-M</strong></a></td>
                             <td class="titles">Consistent ontology IDs are employed</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Consistent ontology ID, Metric, Findable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Consistent ontology ID, Metric, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/VER1">https://w3id.org/foops/metric/VER1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/VER1"><strong>VER1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/VER1"><strong>VER1-M</strong></a></td>
                             <td class="titles">A version IRI is declared in the ontology metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Version IRI, Metric, Findable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Version IRI, Metric, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/VER2">https://w3id.org/foops/metric/VER2</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/VER2"><strong>VER2-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/VER2"><strong>VER2-M</strong></a></td>
                             <td class="titles">Ontology version IRI resolves</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Version IRI, Metric, Findable, FAIR</td>
+                            <td>Findable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/F1" target="_blank">F1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Version IRI, Metric, Findable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/VOC1">https://w3id.org/foops/metric/VOC1</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/VOC1"><strong>VOC1-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/VOC1"><strong>VOC1-M</strong></a></td>
                             <td class="titles">Ontology reuses existing vocabularies for metadata annotations</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Vocabulary reuse, Metric, Interoperable, FAIR</td>
+                            <td>Interoperable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/I2" target="_blank">I2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Vocabulary reuse, Metric, Interoperable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/VOC2">https://w3id.org/foops/metric/VOC2</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/VOC2"><strong>VOC2-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/VOC2"><strong>VOC2-M</strong></a></td>
                             <td class="titles">Ontology imports or reuses well established vocabularies</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Vocabulary reuse, Metric, Interoperable, FAIR</td>
+                            <td>Interoperable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/I2" target="_blank">I2</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Vocabulary reuse, Metric, Interoperable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/VOC3">https://w3id.org/foops/metric/VOC3</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/VOC3"><strong>VOC3-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/VOC3"><strong>VOC3-M</strong></a></td>
                             <td class="titles">Ontology documentation: all terms have labels</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Labels, Documentation, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Labels, Documentation, Metric, Reusable</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/foops/metric/VOC4">https://w3id.org/foops/metric/VOC4</a></td> -->
-                            <td><a href="https://w3id.org/foops/metric/VOC4"><strong>VOC4-M</strong></a></td>
+                            <td class="short-name"><a href="https://w3id.org/foops/metric/VOC4"><strong>VOC4-M</strong></a></td>
                             <td class="titles">Ontology documentation: all terms have definitions</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
-                            <td class="keywords">Documentation definitions, Metric, Reusable, FAIR</td>
+                            <td>Reusable</td>
+                            <td><a href="https://w3id.org/fair/principles/terms/R1" target="_blank">R1</a></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">Documentation definitions, Metric, Reusable</td>
                         </tr>
                     </tbody>
                 </table>
@@ -585,8 +827,8 @@
                         <tr>
                             <th>Short Name</th>
                             <th>Title</th>
-                            <th>License</th>
-                            <th>Version</th>
+                            <!-- <th>License</th>
+                            <th>Version</th> -->
                             <th>Keywords</th>
                         </tr>
                     </thead>
@@ -594,15 +836,15 @@
                         <tr>
                             <td><a href="https://w3id.org/foops/benchmark/ALL"><strong>Benchmark ALL</strong></a></td>
                             <td class="titles">General Ontology Benchmark for FAIR Principles</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">General Benchmark, Benchmark, All</td>
                         </tr>
                         <tr>
                             <td><a href="https://w3id.org/foops/benchmark/PRE"><strong>Benchmark PRE</strong></a></td>
                             <td class="titles">Pre-assessment Ontology Benchmark for FAIR principles</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Pre-assessment, Benchmark, Pre</td>
                         </tr>
                     </tbody>

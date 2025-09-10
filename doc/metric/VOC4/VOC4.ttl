@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://w3id.org/foops/metric/VOC4> a dqv:Metric ;
-	dcterms:identifier <https://w3id.org/foops/metric/VOC4> ;
+	dcterms:identifier "https://w3id.org/foops/metric/VOC4" ;
 	dcterms:title "Ontology documentation: all terms have definitions"@en ;
 	dcterms:description """ 
 This metric verifies that ontology terms provide a definition for each term.
@@ -42,7 +42,7 @@ All ontology terms have clear and detailed definitions.
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-	dcat:keyword "Documentation definitions"@en , "Metric"@en , "Reusable"@en, "FAIR"@en ;
+	dcat:keyword "Documentation definitions"@en , "Metric"@en , "Reusable"@en ;
 	dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
     ftr:supportedBy <https://w3id.org/foops/> ;
 	<http://semanticscience.org/resource/SIO_000234> <https://w3id.org/foops/test/VOC4> ;

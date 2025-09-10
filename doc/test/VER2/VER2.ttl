@@ -24,8 +24,8 @@ This test verifies if the version IRI resolves. The test will pass if there is a
 The test will fail if the resource is not found (404 response) or returns an error."""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/VER2> ;
-	dcat:keyword "Version IRI"@en , "Test"@en , "Findable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/VER2" ;
+    dcat:keyword "Version IRI"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/VER2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;

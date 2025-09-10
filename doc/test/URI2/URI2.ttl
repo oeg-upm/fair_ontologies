@@ -23,8 +23,8 @@
 This check verifies if the ontology URI is equal to the ontology ID. The test passes if the ontology URI used to load the ontology document is the same as the ontology id found in the document itself. Otherwise the test will fail."""@en ; 
 	dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
 	dcat:version "0.0.1"^^xsd:string ;
-	dcterms:identifier <https://w3id.org/foops/test/URI2> ;
-	dcat:keyword "Consistent ontology ID"@en , "Test"@en , "Findable"@en ;
+	dcterms:identifier "https://w3id.org/foops/test/URI2" ;
+    dcat:keyword "Consistent ontology ID"@en , "Test"@en , "Findable"@en ;
 	dcat:endpointDescription <https://w3id.org/foops/api> ;
     dcat:endpointURL <https://foops.linkeddata.es/assess/test/URL2> ;
     dpv:isApplicableFor <https://schema.org/DefinedTermSet> ;
