@@ -36,7 +36,7 @@ dqv:inDimension <https://w3id.org/fair/principles/terms/R1> ; --> INDICATOR
 dcterms:description """ Description New1 """@en ; --> TEST DESCRIPCION
 dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ; --> PUBLISHER
 dcat:version "0.0.1"^^xsd:string ; --> VERSION
-dcterms:identifier <https://w3id.org/foops/test/NEW1> ; --> IDENTIFIER
+dcterms:identifier "https://w3id.org/foops/test/NEW1" ; --> IDENTIFIER
 dcat:keyword "tags"@en ; --> KEYWORDS
 <http://semanticscience.org/resource/SIO_000233> <https://w3id.org/foops/metric/NEW1> ; --> METRIC RELATE
 doap:repository <https://w3id.org/foops/repository> .
@@ -62,7 +62,7 @@ Metrics has a very similar structure:
 ---
 
 <https://w3id.org/foops/metric/NEW1> a dqv:Metric ; --> ID
-dcterms:identifier <https://w3id.org/foops/metric/NEW1> ; --> IDENTIFIER
+dcterms:identifier "https://w3id.org/foops/metric/NEW1" ; --> IDENTIFIER
 dcterms:title "TITLE"@en ; --> TITLE
 dcterms:description """ Descripction metric """@en ; --> DESCRIPTION
 rdfs:label "Metric NEW1"; --> LABEL
