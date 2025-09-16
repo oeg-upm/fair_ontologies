@@ -772,10 +772,6 @@ def catalog_process(path_mustache_catalog, path_mustache_index, path_source):
         template_content, {'tests': tests_sorted,
                            'metrics': metrics_sorted, 
                            'benchmarks': benchmarks_sorted
-                        #    ,
-                        #    'label_test_button': f"{len(tests_sorted)} Test",
-                        #    'label_metric_button': f"{len(metrics_sorted)} Metric",
-                        #    'label_benchmark_button': f"{len(benchmarks_sorted)} Benchmark"
                             }
                         )
     
@@ -871,7 +867,8 @@ def ttl_to_item_catalogue(path_ttl, pquery):
     ]
 
     principle_links = [
-        f'<a href="{p["uri"]}" target="_blank">{p["name"]}</a>'
+        # f'<a href="{p["uri"]}" target="_blank">{p["name"]}</a>'
+        f'<span class="label label-success" onclick="window.open(\'{p["uri"]}\', \'_blank\')" style="cursor:pointer;">{p["name"]}</span>'
         for p in result_dimensions
     ]
     categories =  [p["category"]
@@ -879,7 +876,7 @@ def ttl_to_item_catalogue(path_ttl, pquery):
     
     all_keywords = ", ".join(keywords)
     data['keywords'] = all_keywords
-    data['principle'] = ', '.join(principle_links)
+    data['principle'] = " ".join(principle_links)
     data['category'] = ', '.join(categories)
 
     return data
