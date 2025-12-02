@@ -257,7 +257,6 @@
                         <div class="col-md-8"> 
                           <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
                           <div id="active-filters" style="margin-top: 10px;"> 
-                            <!-- Aquí se mostrarán los filtros activos --> 
                           </div>
                           <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
@@ -309,6 +308,9 @@
                         </div>
                         <div class="col-md-8"> 
                             <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                            <div id="active-filters" style="margin-top: 10px;">
+                            <!-- Aquí se mostrarán los filtros activos -->
+                            </div>
                             <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
                             </button>
@@ -359,6 +361,8 @@
                         </div>
                         <div class="col-md-8"> 
                             <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
+                            <div id="active-filters" style="margin-top: 10px;">
+                            </div>
                             <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
                             </button>
@@ -399,82 +403,87 @@
         </div>
         <script>
 
-            let activeFilters = [];
-            let temporaryFilter = '';
+            let activeFilters = { test: [], metric: [], benchmark: [] };
+            let temporaryFilter = { test: '', metric: '', benchmark: '' };
 
             function showRows() {
-                var input = document.getElementById("tags").value.toLowerCase().trim();
-                temporaryFilter = input;
+                ["test","metric","benchmark"].forEach(sectionId => {
+                    var inputEl = document.querySelector(`#${sectionId} #tags`);
+                    if (!inputEl) return;
+                    var input = inputEl.value.toLowerCase().trim();
+                    temporaryFilter[sectionId] = input;
 
-                var rows = document.querySelectorAll("tbody tr");
-
-                rows.forEach(function(row) {
-                    var keywordCell = row.querySelector(".keywords");
-                    var titleCell = row.querySelector(".titles");
-              
-                    if (keywordCell || titleCell) {
-                        var keywords = keywordCell.textContent.toLowerCase();
-                        var titles = titleCell.textContent.toLowerCase();
-                        var match = activeFilters.every(function(filter) { 
-                            return keywords.includes(filter) || titles.includes(filter); 
-                        }); 
-
-                        if (input.length >= 3) { 
-                            match = match && (keywords.includes(input) || titles.includes(input));
+                    var rows = document.querySelectorAll(`#${sectionId} tbody tr`);
+                    rows.forEach(function(row) {
+                        var keywordCell = row.querySelector(".keywords");
+                        var titleCell = row.querySelector(".titles");
+                        if (keywordCell || titleCell) {
+                            var keywords = keywordCell ? keywordCell.textContent.toLowerCase() : "";
+                            var titles = titleCell ? titleCell.textContent.toLowerCase() : "";
+                            var match = activeFilters[sectionId].every(function(filter) {
+                                return keywords.includes(filter) || titles.includes(filter);
+                            });
+                            if (input.length >= 3) {
+                                match = match && (keywords.includes(input) || titles.includes(input));
+                            }
+                            row.style.display = match ? "" : "none";
                         }
+                    });
 
-                        row.style.display = match ? "" : "none";
+                    var removeButton = document.querySelector(`#${sectionId} #remButt`);
+                    if (removeButton) {
+                        removeButton.style.display = activeFilters[sectionId].length > 0 ? "inline" : "none";
                     }
                 });
-                
-                var removeButton = document.getElementById("remButt");
-                removeButton.style.display = activeFilters.length > 0 ? "inline" : "none";
             }
 
-            function removeFilter(filter) { 
-                activeFilters = activeFilters.filter(function(f) { 
-                    return f !== filter; 
-                }); 
-
-                updateActiveFilters(); 
+            function removeFilter(sectionId, filter) {
+                activeFilters[sectionId] = activeFilters[sectionId].filter(f => f !== filter);
+                updateActiveFilters(sectionId);
                 showRows();
             }
 
             function clearFilter() {
-                activeFilters = []; 
-                temporaryFilterm= '';
-                document.getElementById("active-filters").innerHTML = ""; 
-                document.getElementById("tags").value = ""; 
-                var removeButton = document.getElementById("remButt"); 
-                removeButton.style.display = "none"; 
+                ["test","metric","benchmark"].forEach(sectionId => {
+                    activeFilters[sectionId] = [];
+                    temporaryFilter[sectionId] = '';
+                    var filterContainer = document.querySelector(`#${sectionId} #active-filters`);
+                    if (filterContainer) filterContainer.innerHTML = "";
+                    var inputEl = document.querySelector(`#${sectionId} #tags`);
+                    if (inputEl) inputEl.value = "";
+                    var removeButton = document.querySelector(`#${sectionId} #remButt`);
+                    if (removeButton) removeButton.style.display = "none";
+                });
                 showRows();
             }
 
             function handleEnter(event) {
                 if (event.key === "Enter") {
-                    var input = temporaryFilter;
-                    if (input.length >= 3 && !activeFilters.includes(input)) { 
-                        activeFilters.push(input); 
-                        updateActiveFilters(); 
-                        document.getElementById("tags").value = ""; 
+                    var sectionId = event.target.closest(".container").id;
+                    var input = temporaryFilter[sectionId];
+                    if (input.length >= 3 && !activeFilters[sectionId].includes(input)) {
+                        activeFilters[sectionId].push(input);
+                        updateActiveFilters(sectionId);
+                        event.target.value = "";
                         showRows();
                     }
                 }
             }
 
-            function updateActiveFilters() { 
-                var filterContainer = document.getElementById("active-filters"); 
-                filterContainer.innerHTML = ""; 
-                activeFilters.forEach(function(filter) { 
-                    var filterLabel = document.createElement("span"); 
-                    filterLabel.className = "label label-info"; 
-                    filterLabel.style.marginRight = "5px"; 
-                    filterLabel.textContent = filter; 
-                    filterLabel.onclick = function() { 
-                        removeFilter(filter); 
+            function updateActiveFilters(sectionId) {
+                var filterContainer = document.querySelector(`#${sectionId} #active-filters`);
+                if (!filterContainer) return;
+                filterContainer.innerHTML = "";
+                activeFilters[sectionId].forEach(function(filter) {
+                    var filterLabel = document.createElement("span");
+                    filterLabel.className = "label label-info";
+                    filterLabel.style.marginRight = "5px";
+                    filterLabel.textContent = filter;
+                    filterLabel.onclick = function() {
+                        removeFilter(sectionId, filter);
                     };
-                    filterContainer.appendChild(filterLabel); 
-                }); 
+                    filterContainer.appendChild(filterLabel);
+                });
             }
         </script>
      </body>
