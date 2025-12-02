@@ -257,7 +257,6 @@
                         <div class="col-md-8"> 
                           <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
                           <div id="active-filters" style="margin-top: 10px;"> 
-                            <!-- Aquí se mostrarán los filtros activos --> 
                           </div>
                           <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
@@ -537,7 +536,8 @@
                         </div>
                         <div class="col-md-8"> 
                             <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
-                            <div id="active-filters" style="margin-top: 10px;"> 
+                            <div id="active-filters" style="margin-top: 10px;">
+                            <!-- Aquí se mostrarán los filtros activos -->
                             </div>
                             <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
@@ -817,7 +817,7 @@
                         </div>
                         <div class="col-md-8"> 
                             <input class="form-control ui-autocomplete-input" id="tags" autocomplete="off" placeholder="At least three letters to filter" onkeyup="showRows()" onkeypress="handleEnter(event)">
-                            <div id="active-filters" style="margin-top: 10px;"> 
+                            <div id="active-filters" style="margin-top: 10px;">
                             </div>
                             <button id="remButt" class="label label-default" onclick="clearFilter();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;">
                             <span class="submit glyphicon glyphicon-remove"></span>  Remove filter
@@ -862,7 +862,6 @@
               <a href="https://oeg.fi.upm.es" target="_blank">https://oeg.fi.upm.es</a>
             </div>
         </div>
-
         <script>
 
             let activeFilters = { test: [], metric: [], benchmark: [] };
