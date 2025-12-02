@@ -1,26 +1,35 @@
 [
     {
-        "@id": "https://w3id.org/fair/principles/terms/R1",
+        "@id": "https://orcid.org/0000-0003-0454-7145",
         "@type": [
-            "http://www.w3.org/ns/dqv#Dimension",
-            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
+            "http://www.w3.org/2006/vcard/ns#Individual"
         ],
-        "http://purl.org/dc/terms/description": [
-            {
-                "@language": "en",
-                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes"
-            }
-        ],
-        "http://vivoweb.org/ontology/core#abbreviation": [
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1"
+                "@value": "Daniel Garijo"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:dgarijo@upm.es"
+            }
+        ]
+    },
+    {
+        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@type": [
+            "http://www.w3.org/2006/vcard/ns#Individual"
+        ],
+        "http://www.w3.org/2006/vcard/ns#fn": [
             {
                 "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "R1"
+                "@value": "Maria Poveda"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+            {
+                "@id": "mailto:m.poveda@upm.es"
             }
         ]
     },
@@ -41,19 +50,23 @@
         ]
     },
     {
-        "@id": "https://orcid.org/0000-0003-3587-0367",
+        "@id": "https://ror.org/03n6nwv02",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
+            "http://www.w3.org/2006/vcard/ns#Organization"
         ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
+        "http://purl.org/dc/terms/identifier": [
             {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Maria Poveda"
+                "@value": "https://ror.org/02h3v0f81"
             }
         ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@id": "mailto:m.poveda@upm.es"
+                "@value": "Universidad Politécnica de Madrid"
+            }
+        ],
+        "http://www.w3.org/2006/vcard/ns#url": [
+            {
+                "@id": "https://www.upm.es/"
             }
         ]
     },
@@ -183,23 +196,27 @@
         ]
     },
     {
-        "@id": "https://ror.org/03n6nwv02",
+        "@id": "https://w3id.org/fair/principles/terms/R1",
         "@type": [
-            "http://www.w3.org/2006/vcard/ns#Organization"
+            "http://www.w3.org/ns/dqv#Dimension",
+            "https://w3id.org/fair/principles/terms/FAIR-SubPrinciple"
         ],
-        "http://purl.org/dc/terms/identifier": [
+        "http://purl.org/dc/terms/description": [
             {
-                "@value": "https://ror.org/02h3v0f81"
+                "@language": "en",
+                "@value": "meta(data) are richly described with a plurality of accurate and relevant attributes"
+            }
+        ],
+        "http://vivoweb.org/ontology/core#abbreviation": [
+            {
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1"
             }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
             {
-                "@value": "Universidad Politécnica de Madrid"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#url": [
-            {
-                "@id": "https://www.upm.es/"
+                "@type": "http://www.w3.org/2001/XMLSchema#string",
+                "@value": "R1"
             }
         ]
     },
@@ -207,23 +224,6 @@
         "@id": "https://w3id.org/foops/metric/VOC4",
         "@type": [
             "http://www.w3.org/ns/dqv#Metric"
-        ]
-    },
-    {
-        "@id": "https://orcid.org/0000-0003-0454-7145",
-        "@type": [
-            "http://www.w3.org/2006/vcard/ns#Individual"
-        ],
-        "http://www.w3.org/2006/vcard/ns#fn": [
-            {
-                "@type": "http://www.w3.org/2001/XMLSchema#string",
-                "@value": "Daniel Garijo"
-            }
-        ],
-        "http://www.w3.org/2006/vcard/ns#hasEmail": [
-            {
-                "@id": "mailto:dgarijo@upm.es"
-            }
         ]
     }
 ]
