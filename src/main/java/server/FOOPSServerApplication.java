@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @OpenAPIDefinition(
     info = @Info(
         title = "FOOPS! API Documentation",
-        version = "1.0",
+        version = "1.0.0",
         description = "FAIR Ontologies Assessment API",
 		license = @License(
             name = "Apache 2.0",
