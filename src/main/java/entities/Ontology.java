@@ -177,7 +177,7 @@ public class Ontology {
 
             // extension for those axioms that extend properties but are annotation properties.
             // see https://github.com/dgarijo/Widoco/issues/530 for context
-            logger.info("Extracting axioms (Widoco extension)");
+            logger.info("Extracting axioms");
             for (OWLAxiom axiom : ontologyModel.getAxioms()) {
                 String subject = "", predicate ="", object ="";
                 try {
