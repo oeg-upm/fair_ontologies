@@ -1,10 +1,12 @@
 package server;
 
-import io.swagger.annotations.ApiModelProperty;
+// import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 
 public class OntologyAssessmentRequestLegacy {
-    @ApiModelProperty(
-            value = "Ontology URI to assess",
+    @Schema(
+            description = "Ontology URI to assess",
             example = "https://w3id.org/example#",
             required = true
     )

@@ -19,6 +19,8 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX dpv: <https://w3id.org/dpv#> 
 PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT DISTINCT ?s ?title ?label ?abbreviation ?description ?keywords ?version ?dimension ?label_dimension ?desc_dimension ?license
 ?publisher_uri ?publisher_label ?metric ?creator_name ?creator_orcid ?contact_orcid ?contact_name ?contact_mail ?endpoint_desc ?endpoint_url 
@@ -65,6 +67,7 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX dpv: <https://w3id.org/dpv#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 
 SELECT DISTINCT ?s ?title ?label ?abbreviation ?description ?keywords ?version ?license ?indimension ?label_dimension ?desc_indimension
 ?publisher_uri ?publisher_label ?test ?creator_name ?creator_orcid ?landing_page ?benchmark ?bm_title ?bm_desc ?metric_status ?contact_orcid ?contact_name 
@@ -109,9 +112,10 @@ PREFIX ftr: <https://w3id.org/ftr#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
-PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+
 
 SELECT DISTINCT ?s ?title ?label ?abbreviation ?description ?keywords ?version ?license
  ?creator_name ?creator_orcid ?landing_page ?benchmark_status ?hasAssociatedMetric ?metricIdentifier ?metricLabel ?contact_orcid ?contact_name ?contact_mail

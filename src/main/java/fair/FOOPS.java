@@ -92,15 +92,27 @@ public class FOOPS {
     /**
      * Method for passing all the checks.
      */
-    public void fairTest(){
-        try {
-            this.checksToRun.getChecks().forEach(Check::check);
-        }catch(Exception e){
-            logger.error("Error with check");
-        }
+    // public void fairTest(){
+    //     try {
+    //         this.checksToRun.getChecks().forEach(Check::check);
+    //     }catch(Exception e){
+    //         logger.error("Error with check");
+    //     }
 
-    }
+    // }
     
+    public void fairTest(){
+        for (Check c : this.checksToRun.getChecks()) {
+            try {
+                c.check();
+            } catch (Exception e) {
+                c.setStatus(Constants.ERROR);
+                c.setExplanation("Unexpected error while running the test: " + e.getMessage());
+                logger.error("Error running test " + c.getId() + ": " + e.getMessage());
+            }
+        }
+    }
+
     private float getTotalScore(){
         float totalNum = 0;
         ArrayList<Check> checks = this.checksToRun.getChecks();

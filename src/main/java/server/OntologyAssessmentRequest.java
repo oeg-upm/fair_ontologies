@@ -1,11 +1,11 @@
 package server;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class OntologyAssessmentRequest {
-    @ApiModelProperty(
-            value = "Ontology URI to assess",
+    @Schema(
+            description = "Ontology URI to assess",
             example = "https://w3id.org/example#",
             required = true
     )

@@ -37,9 +37,8 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.util.ArrayList;
-
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
 public class FOOPSController {
@@ -47,7 +46,7 @@ public class FOOPSController {
     Logger logger = LoggerFactory.getLogger(FOOPSController.class);
     private final RestTemplate restTemplate = new RestTemplate();
 
-    @ApiOperation(value = "Assess GET ontology (")
+    @Operation(summary = "Assess GET ontology (")
     @CrossOrigin(origins = "*")
     @GetMapping("/assessOntology")
     public String assessGET() {
@@ -63,9 +62,9 @@ public class FOOPSController {
      * @param body String body with the JSON to parse as a request.
      * @return JSON response obtained by FOOPS
      */
-    @ApiOperation( 
-        value = "Assess an ontology against a set of FOOPS! tests. This is the original FOOPS! call for assessment",
-        notes = "This call returns a JSON response obtained by FOOPS. To see an example, please see use the following JSON. "
+    @Operation( 
+        summary = "Assess an ontology against a set of FOOPS! tests. This is the original FOOPS! call for assessment",
+        description = "This call returns a JSON response obtained by FOOPS. To see an example, please see use the following JSON. "
         + "Example request JSON:\n" 
         + "```\n" 
         + "{\n" 
@@ -76,7 +75,7 @@ public class FOOPSController {
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntology", consumes = "application/json", produces = "application/json")
     public String assessPOST(
-        @ApiParam(value = "Ontology request object", required = true)
+        @Parameter(description = "Ontology request object", required = true)
         @RequestBody OntologyAssessmentRequestLegacy body) {
         FOOPS f = null;
         Path ontologyPath = null;
@@ -140,18 +139,17 @@ public class FOOPSController {
     }
 
 
-    @ApiOperation(
-            value = "Get test metadata (in JSON-LD)",
-            notes = "Returns all tests supported by FOOPS!."
+    @Operation(
+            summary = "Get test metadata (in JSON-LD)",
+            description = "Returns all tests supported by FOOPS!."
     )
     @GetMapping(path = "/tests",  produces = "application/ld+json")
     public String getTests() {
         return Constants.FULL_LIST_OF_TESTS;
     }
 
-    @ApiOperation(
-            value = "Get test metadata (in JSON-LD)",
-            notes = "Returns test description following the FTR specification."
+    @Operation(
+            summary = "Get test metadata (in JSON-LD)"
     )
     @GetMapping(path = "/tests/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getTestMetadata(@PathVariable String identifier) {
@@ -165,9 +163,9 @@ public class FOOPSController {
     }
 
 
-    @ApiOperation(
-            value = "Method that returns how to do a POST request to /assess/test/{id}",
-            notes = "Returns an indication stating how to do a post request."
+    @Operation(
+            summary = "Method that returns how to do a POST request to /assess/test/{id}",
+            description = "Returns an indication stating how to do a post request."
     )
     @GetMapping(path = "assess/test/{test_identifier}")
     public String getAssessTest(@PathVariable String test_identifier) {
@@ -177,9 +175,9 @@ public class FOOPSController {
         return "Please send a POST request. Example: \n" + response;
     }
 
-    @ApiOperation(
-            value = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/). ",
-            notes = "This call returns a JSON response obtained by FOOPS. \n"
+    @Operation(
+            summary = "Runs a FOOPS! test on a resource following the FTR specification (see https://w3id.org/ftr/). ",
+            description = "This call returns a JSON response obtained by FOOPS. \n"
                     + "To see all available FOOPS! tests, see https://w3id.org/foops/catalogue. \n"
                     + "To see an example, please see use the following JSON: \n"
                     + "```\n"
@@ -202,7 +200,10 @@ public class FOOPSController {
                 testIDs.add(test_identifier);
                 f = new FOOPS(targetResource, testIDs);
                 f.fairTest();
-                return f.exportJSONLD();
+                // return f.exportJSONLD();
+                return applyOstrailsStatusMapping(f.exportJSONLD());
+
+
             }catch(FileTooLargeException el){
                 logger.error("Error: ontology is too big! "+ el.getMessage());
                 throw new ResponseStatusException(
@@ -226,9 +227,9 @@ public class FOOPSController {
         }
     }
 
-    @ApiOperation(
-            value = "Method that returns how to do a POST request to /assess/resultSet/{id}",
-            notes = "Returns an indication stating how to do a post request."
+    @Operation(
+            summary = "Method that returns how to do a POST request to /assess/resultSet/{id}",
+            description = "Returns an indication stating how to do a post request."
     )
     @GetMapping(path = "assess/resultset/{identifier}")
     public String getAssessResultSet(@PathVariable String identifier) {
@@ -238,9 +239,9 @@ public class FOOPSController {
         return "Please send a POST request. Example: \n" + response;
     }
 
-    @ApiOperation(
-            value = "Runs a set of tests on a resource, according to the metrics defined in a benchmark.",
-            notes = "Returns a set of test results according to the FTR specification. The result sets that may be run " +
+    @Operation(
+            summary = "Runs a set of tests on a resource, according to the metrics defined in a benchmark.",
+            description = "Returns a set of test results according to the FTR specification. The result sets that may be run " +
                     "have identifiers ALL and PRE, according to the benchmark information in " +
                     "https://w3id.org/foops/benchmark/ \n"
                     + "Example request JSON:\n"
@@ -260,7 +261,9 @@ public class FOOPSController {
                 targetResource = body.getResourceIdentifier();
                 f = new FOOPS(targetResource, false);
                 f.fairTest();
-                return f.exportJSONLD();
+                // return f.exportJSONLD();
+                return applyOstrailsStatusMapping(f.exportJSONLD());
+
             }catch(FileTooLargeException el){
                 logger.error("Error: ontology too big! "+ el.getMessage());
                 throw new ResponseStatusException(
@@ -285,7 +288,7 @@ public class FOOPSController {
         }
     }
 
-//    @ApiOperation(
+//    @Operation(
 //            value = "Run an algorithm on a resource",
 //            notes = "Returns the results of an algorithm for a given resource "
 //    )
@@ -295,9 +298,9 @@ public class FOOPSController {
 //        return ("TO DO assessment of algorithm");// "+ url);
 //    }
 
-    @ApiOperation(
-            value = "Get metric metadata (in JSON-LD)",
-            notes = "Returns metric metadata following the FTR specification."
+    @Operation(
+            summary = "Get metric metadata (in JSON-LD)",
+            description = "Returns metric metadata following the FTR specification."
     )
     @GetMapping(path = "/metrics/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getMetricMetadata(@PathVariable String identifier) {
@@ -309,9 +312,9 @@ public class FOOPSController {
                 .body(response.getBody());
     }
 
-    @ApiOperation(
-            value = "Get benchmark metadata (in JSON-LD)",
-            notes = "Returns benchmark metadata following the FTR specification."
+    @Operation(
+            summary = "Get benchmark metadata (in JSON-LD)",
+            description = "Returns benchmark metadata following the FTR specification."
     )
     @GetMapping(path = "/benchmarks/{identifier}",  produces = "application/ld+json")
     public ResponseEntity<String> getBenchmarkMetadata(@PathVariable String identifier) {
@@ -329,9 +332,9 @@ public class FOOPSController {
      * @param otherData String other data sent.
      * @return JSON with FOOPS! response.
      */
-    @ApiOperation(
-            value = "Assess an ontology against a set of FOOPS! tests for pre-assessment. This is the original FOOPS! call for assessment.",
-            notes = "This call returns a JSON response obtained by FOOPS. " +
+    @Operation(
+            summary = "Assess an ontology against a set of FOOPS! tests for pre-assessment. This is the original FOOPS! call for assessment.",
+            description = "This call returns a JSON response obtained by FOOPS. " +
                     "The ontology for assessment is in the body of the POST request"
     )
     @CrossOrigin(origins = "*")
@@ -373,4 +376,13 @@ public class FOOPSController {
         }
 
     }
+
+    private String applyOstrailsStatusMapping(String jsonLD) {
+        return jsonLD
+                .replace("\"value\": \"ok\"", "\"value\": \"pass\"")
+                .replace("\"value\": \"error\"", "\"value\": \"fail\"")
+                .replace("\"value\": \"fail\", \"explanation\": \"Unexpected error", "\"value\": \"error\", \"explanation\": \"Unexpected error"
+                );
+    }
+
 }

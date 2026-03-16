@@ -59,6 +59,8 @@ public class Utils {
         OWLOntologyLoaderConfiguration loadingConfig = new OWLOntologyLoaderConfiguration();
         loadingConfig = loadingConfig.setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT);
         logger.info("Parsing type: "+loadingConfig.isStrict());
+        
+        // return manager.loadOntologyFromOntologyDocument(ontologyFile);
         return manager.loadOntologyFromOntologyDocument(new FileDocumentSource(ontologyFile), loadingConfig);
     }
 
