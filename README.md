@@ -44,18 +44,23 @@ on the server folder, or download the JAR from the releases page.
 Run the following command
 
 ```
-java -jar -Dserver.port=PORT fair_ontologies-0.0.1.jar
+java -jar -Dserver.port=PORT fair_ontologies-x.y.z.jar
 ```
 
-Where PORT is the port you want to run the server
+Where PORT is the port you want to run the server, and `x.y.z` is the version you want to build (usually the latest release).
 
-to test the installation, just do a curl command (if the application was run in the port 8083):
+To test the installation, just do a curl command (if the application was run in the port 8083):
 
 ```
 curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json;charset=UTF-8" -H "Content-Type: application/json;charset=UTF-8" -d "{ \"ontologyUri\": \"https://w3id.org/okn/o/sd\"}"
 ```
 
-As a result, you should see a JSON in your console, such as the one in sample.json in the root of this repository.
+As a result, you should see a JSON in your console, such as the one in `sample.json` in the root of this repository.
+
+If you'd like to generate the output in a file, then run:
+```
+curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json;charset=UTF-8" -H "Content-Type: application/json;charset=UTF-8" -d "{ \"ontologyUri\": \"https://w3id.org/okn/o/sd\"}" -o sample.json
+```
 
 ### Swagger OpenAPI
 When you run the server, FOOPS! will set up a Swagger UI describing the endpoints available in the API. This API is available at `http://localhost:PORT/swagger-ui/index.html#/`
