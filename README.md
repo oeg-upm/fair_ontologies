@@ -76,19 +76,19 @@ mvn install -f pom_jar.xml
 Then run the following command to test a URI: 
 
 ```
-java -jar target/fair_ontologies-0.1.0.jar -ontURI https://w3id.org/example
+java -jar target/fair_ontologies-x.y.z.jar -ontURI https://w3id.org/example
 ```
 
 You can also test one ontology from a file:
 
 ```
-java -jar target/fair_ontologies-0.1.0.jar -ontFile filePath
+java -jar target/fair_ontologies-x.y.z.jar -ontFile filePath
 ```
 
-As a result, you should see a JSON in your folder, such as the one in sample.json.
+As a result, you should see a JSON in your folder (validation.json).
 
 
-If you want to change the out file path you can use the flag -out
+If you want to change the out file path you can use the flag `-out`
 
 ## Documentation
 
