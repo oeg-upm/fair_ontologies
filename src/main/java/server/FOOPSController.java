@@ -46,7 +46,7 @@ public class FOOPSController {
     Logger logger = LoggerFactory.getLogger(FOOPSController.class);
     private final RestTemplate restTemplate = new RestTemplate();
 
-    @Operation(summary = "Assess GET ontology (")
+    @Operation(summary = "Assess GET ontology")
     @CrossOrigin(origins = "*")
     @GetMapping("/assessOntology")
     public String assessGET() {
