@@ -27,8 +27,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import server.FileTooLargeException;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,12 +66,9 @@ public class Ontology {
     private final ArrayList<String> reusedMetadataVocabularies;
     private final ArrayList<String> reusedVocabularies;
     List<OWLImportsDeclaration> importedVocabularies;
-    // private final ArrayList<String> termsWithLabel;
-    // private final ArrayList<String> terms; // all terms
-    // private final ArrayList<String> termsWithDescription;
-    private Set<String> terms;
-    private Set<String> termsWithLabel;
-    private Set<String> termsWithDescription;
+    private final ArrayList<String> termsWithLabel;
+    private final ArrayList<String> terms; // all terms
+    private final ArrayList<String> termsWithDescription;
     private boolean isSKOS = false;
 
     /**
@@ -86,13 +81,10 @@ public class Ontology {
         supportedMetadata = new ArrayList<>();
         reusedMetadataVocabularies = new ArrayList<>();
         reusedVocabularies = new ArrayList<>();
-        // termsWithLabel = new ArrayList<>();
-        // termsWithDescription = new ArrayList<>();
-        // terms = new ArrayList<>();
+        termsWithLabel = new ArrayList<>();
+        termsWithDescription = new ArrayList<>();
+        terms = new ArrayList<>();
         //Download ontology (any serialization)
-        terms = new HashSet<>();
-        termsWithLabel = new HashSet<>();
-        termsWithDescription = new HashSet<>();
         this.namespaceUri = "";
         if (!isFromFile && o != null) { 
             this.ontologyURI = o.strip(); 
@@ -660,28 +652,16 @@ public class Ontology {
         return reusedVocabularies;
     }
 
-    // public ArrayList<String> getTermsWithLabel() {
-    //     return termsWithLabel;
-    // }
-
-    // public ArrayList<String> getTermsWithDescription() {
-    //     return termsWithDescription;
-    // }
-
-    // public ArrayList<String> getTerms() {
-    //     return terms;
-    // }
-
-    public ArrayList<String> getTerms() {
-        return new ArrayList<>(terms);
-    }
-
     public ArrayList<String> getTermsWithLabel() {
-        return new ArrayList<>(termsWithLabel);
+        return termsWithLabel;
     }
 
     public ArrayList<String> getTermsWithDescription() {
-        return new ArrayList<>(termsWithDescription);
+        return termsWithDescription;
+    }
+
+    public ArrayList<String> getTerms() {
+        return terms;
     }
 
     public boolean isSKOS() {
