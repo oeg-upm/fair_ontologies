@@ -119,15 +119,16 @@ public class FOOPSController {
                 logger.error("Error while processing ontology." +e.getMessage());
                 throw new ResponseStatusException(
                         HttpStatus.INTERNAL_SERVER_ERROR, "Error while processing the ontology", e);
-            }finally{
-                if (f != null){
-                    f.removeTemporaryFolders();
-                }
-                if(ontologyPath != null){
-                    File aux = new File(String.valueOf(ontologyPath));
-                    aux.delete();
-                }
             }
+            // finally{
+            //     if (f != null){
+            //         f.removeTemporaryFolders();
+            //     }
+            //     if(ontologyPath != null){
+            //         File aux = new File(String.valueOf(ontologyPath));
+            //         aux.delete();
+            //     }
+            // }
         }catch(ResponseStatusException e){
             throw e;
         }
@@ -135,6 +136,15 @@ public class FOOPSController {
             logger.error(e.getMessage());
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Error while processing the request", e);
+        }
+        finally{
+            if (f != null){
+                f.removeTemporaryFolders();
+            }
+            if(ontologyPath != null){
+                File aux = new File(String.valueOf(ontologyPath));
+                aux.delete();
+            }
         }
     }
 
@@ -191,7 +201,7 @@ public class FOOPSController {
     public String postTestAssessment(@PathVariable String test_identifier,
                                      @RequestBody OntologyAssessmentRequest body) {
         String targetResource = "";
-        FOOPS f = null;
+        fops f = null;
         try{
             try { //has an onto URI been provided?
                 Gson gson = new Gson();
@@ -343,15 +353,16 @@ public class FOOPSController {
             @RequestParam("file") MultipartFile file,
             @RequestParam(value = "otherData", required = false) String otherData) {
         FOOPS f = null;
+        File tempFile = null;
         logger.info("Received request!");
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
             try {
-                File tempFile = File.createTempFile("uploaded_onto_", "_" + fileName);
+                tempFile = File.createTempFile("uploaded_onto_", "_" + fileName);
                 file.transferTo(tempFile);
                 f = new FOOPS(tempFile.getAbsolutePath(), true);
                 f.fairTest();
-                tempFile.delete();
+                // tempFile.delete();
                 return f.exportJSON();
             } catch(FileTooLargeException el){
                 logger.error("Error: ontology is too big! "+ el.getMessage());
@@ -366,8 +377,13 @@ public class FOOPSController {
                 if (f != null){
                     f.removeTemporaryFolders();
                 }
-
-            }
+                if (tempFile != null && tempFile.exists()) {
+                    boolean deleted = tempFile.delete();
+                    if (!deleted) {
+                        logger.warn("Could not delete temporary file: " + tempFile.getAbsolutePath());
+                    }
+                }
+            } 
         }
         else {
             throw new ResponseStatusException(

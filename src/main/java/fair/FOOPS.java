@@ -341,11 +341,35 @@ public class FOOPS {
 
     }
 
+    // public void removeTemporaryFolders(){
+    //     try {
+    //         FileUtils.deleteDirectory(new File(this.tmpFolder.toString()));
+    //         logger.info("Ontology resources released (RAM and Disk).");
+    //     }catch(Exception e){
+    //         logger.error("Could not delete tmp folder");
+    //     }
+    // }
+
     public void removeTemporaryFolders(){
         try {
-            FileUtils.deleteDirectory(new File(this.tmpFolder.toString()));
-        }catch(Exception e){
-            logger.error("Could not delete tmp folder");
+            // RELEASE MEMORY (RAM)
+            if (this.ontology != null && this.ontology.getOntologyModel() != null) {
+                OWLOntology model = this.ontology.getOntologyModel();
+                OWLOntologyManager manager = model.getOWLOntologyManager();
+
+                if (manager != null) {
+                    manager.removeOntology(model);
+                }
+                this.ontology = null;
+            }
+            // release disk space. Same old removeTemporaryFolders
+            if (this.tmpFolder != null) {
+                FileUtils.deleteDirectory(new File(this.tmpFolder.toString()));
+            }
+  
+            logger.info("Ontology resources released (RAM and Disk).");
+        } catch(Exception e){
+            logger.error("Could not delete tmp folder or release memory: " + e.getMessage());
         }
     }
 
