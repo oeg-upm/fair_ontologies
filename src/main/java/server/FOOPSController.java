@@ -201,7 +201,7 @@ public class FOOPSController {
     public String postTestAssessment(@PathVariable String test_identifier,
                                      @RequestBody OntologyAssessmentRequest body) {
         String targetResource = "";
-        FOOPS f = null
+        FOOPS f = null;
         try{
             try { //has an onto URI been provided?
                 Gson gson = new Gson();

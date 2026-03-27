@@ -360,7 +360,6 @@ public class FOOPS {
                 if (manager != null) {
                     manager.removeOntology(model);
                 }
-                this.ontology = null;
             }
             // release disk space. Same old removeTemporaryFolders
             if (this.tmpFolder != null) {
