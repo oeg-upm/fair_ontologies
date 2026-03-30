@@ -22,6 +22,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.FileDocumentSource;
+import org.semanticweb.owlapi.io.StreamDocumentSource;
 import org.semanticweb.owlapi.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,7 +62,9 @@ public class Utils {
         logger.info("Parsing type: "+loadingConfig.isStrict());
         
         // return manager.loadOntologyFromOntologyDocument(ontologyFile);
-        return manager.loadOntologyFromOntologyDocument(new FileDocumentSource(ontologyFile), loadingConfig);
+        // return manager.loadOntologyFromOntologyDocument(new FileDocumentSource(ontologyFile), loadingConfig);
+        return manager.loadOntologyFromOntologyDocument(new StreamDocumentSource(new FileInputStream(ontologyFile), IRI.create(pathOrURI)), 
+        loadingConfig );
     }
 
     public static void addAnnotationToOntology(OWLDataFactory df, OWLOntology o,IRI ontoURI, String propertyURI, String value){
@@ -146,6 +149,7 @@ public class Utils {
     public static HttpURLConnection doNegotiation(String uri, String serialization) throws Exception{
         URL url = new URL(uri);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
         connection.setRequestMethod("GET");
         connection.setInstanceFollowRedirects(true);
         if(serialization!=null) {
@@ -163,6 +167,7 @@ public class Utils {
         while (redirect) {
             String newUrl = connection.getHeaderField("Location");
             connection = (HttpURLConnection) new URL(newUrl).openConnection();
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0...");
             if(serialization!=null) {
                 connection.setRequestProperty("Accept", serialization);
             }
