@@ -114,7 +114,7 @@ public class Ontology {
 
         if (this.ontologyURI == null || this.ontologyURI.isEmpty()) {
             if (!isFromFile) {
-                this.ontologyURI = o.strip(); // Solo si es una URL
+                this.ontologyURI = o.strip();
             } else {
                 this.ontologyURI = o.strip(); 
             }
@@ -393,7 +393,7 @@ public class Ontology {
                 if (identifier.contains("doi.")){
                     this.supportedMetadata.add(Constants.FOOPS_DOI);
                 }
-                // break;
+                break;
             case Constants.PROP_BIBO_STATUS:
             case Constants.PROP_MOD_STATUS:
                 try {
@@ -436,7 +436,7 @@ public class Ontology {
             case Constants.PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG_HTTP:
             case Constants.PROP_SCHEMA_INCLUDED_IN_DATA_CATALOG:
                 this.supportedMetadata.add(Constants.FOOPS_INCLUDED_IN_DATA_CATALOG);
-                // break;
+                break;
             case Constants.PROP_RDFS_LABEL:
             case Constants.PROP_DOAP_NAME:
                 this.name = Utils.getValueAsLiteralOrURI(a.getValue());

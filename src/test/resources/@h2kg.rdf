@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:vann="http://purl.org/vocab/vann/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:h2kg="https://w3id.org/h2kg/hydrogen-ontology#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <owl:Ontology rdf:about="https://w3id.org/h2kg/hydrogen-ontology">
+    <dcterms:title>H2KG: Ontology for Proton Exchange Membrane Fuel Cell Materials, Components, and Experiments</dcterms:title>
+    <dcterms:description>Ontology for representing proton exchange membrane fuel cell materials, components, devices, processes, measurements, and experiments.</dcterms:description>
+    <dcterms:creator>Electrochemistry Research Group</dcterms:creator>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo/domain/pemfc"/>
+    <dcterms:references rdf:resource="http://purl.org/holy/ns#"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo/domain/manufacturing#"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo/domain/coating#"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo/domain/equivalent-circuit-model#"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo/domain/characterisation-methodology/chameo#"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo/domain/microscopy#"/>
+    <dcterms:references rdf:resource="https://w3id.org/emmo/domain/electrochemistry"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_01f7c538_3de2_4028_92c1_8cc93832dd76"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_099d5163_117a_4176_ba48_af54a61c4c8d"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_143d21b5_d044_4af3_a9f9_22928f2516c1"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_2ffda0a1_a5fc_4a55_aad8_d91d7cbb101d"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_6da0e770_9dcf_43ff_865f_21121a53ca67"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_9d51634d_db42_4697_8dda_58e74a8df826"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_e072436a_2656_4e03_b600_a7f41c486339"/>
+   <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_abe17c61_6a3d_4ec6_b4db_450b5654dbc6"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/pemfc#EMMO_b24401b7_35e4_40be_8c8b_36ee8869cc1a"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#FuelCellStack"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#Gasket"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#CatalystLayer"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#Membrane"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#BipolarPlate"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#MembraneElectrodeAssembly"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#GasDiffusionLayer"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/holy/ns#PolymerElectrolyteMembraneFuelCell"/>
+    <rdfs:seeAlso rdf:resource="https://www.fz-juelich.de/en/iet/iet-3/divisions-1/artificial-material-intelligence"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_a9fc3f77_e48e_4bce_b118_044d608722f6"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_7729c34e_1ae9_403d_b933_1765885e7f29"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_80263f65_7f6c_477a_8818_a85080f74c24"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_31f4498b_aeb1_47b9_8bb8_8b0f55ed6a56"/>
+<rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_03a0ccc9_21fe_46a1_a143_50147fbe3200"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_4edc0d47_1f7e_4cb2_b710_7f76b76742bc"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_f3345489_17f2_4a8e_a74b_6e81f19180a7"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/emmo/domain/electrochemistry#electrochemistry_c6605d77_6b8c_42ce_9f7d_befeddb5d5f2"/>
+    <dcterms:contributor>Institute of Energy Technologies (IET), Theory and Computation of Energy Materials (IET-3), Forschungszentrum Juelich GmbH, 52428 Juelich, Germany</dcterms:contributor>
+    <dcterms:publisher>Forschungszentrum Juelich GmbH</dcterms:publisher>
+    <owl:imports rdf:resource="https://w3id.org/emmo/domain/pemfc"/>
+    <owl:imports rdf:resource="http://purl.org/holy/ns#"/>
+    <owl:imports rdf:resource="https://w3id.org/emmo"/>
+    <owl:imports rdf:resource="https://w3id.org/emmo/domain/manufacturing#"/>
+    <owl:imports rdf:resource="https://w3id.org/emmo/domain/coating#"/>
+    <owl:imports rdf:resource="https://w3id.org/emmo/domain/equivalent-circuit-model#"/>
+    <owl:imports rdf:resource="https://w3id.org/emmo/domain/characterisation-methodology/chameo#"/>
+<owl:imports rdf:resource="https://w3id.org/emmo/domain/microscopy#"/>
+    <owl:imports rdf:resource="https://w3id.org/emmo/domain/electrochemistry"/>
+    <foaf:homepage rdf:resource="https://www.fz-juelich.de/en/iet/iet-3/divisions-1/artificial-material-intelligence"/>
+    <owl:versionInfo xml:lang="en">1.0.0</owl:versionInfo>
+    <dcterms:abstract xml:lang="en">Application ontology for representing low-Pt PEMFC cathod e catalyst layer experiments, materials, manufacturing conditions, measurements, quantities, and release metadata with conservative alignment to EMMO, ECHO, QUDT, ChEBI, PROV-O, and Dublin Core Terms.
+</dcterms:abstract>
+    <dcterms:created>2026-03-19</dcterms:created>
+    <dcterms:modified>2026-03-19</dcterms:modified>
+    <owl:versionIRI rdf:resource="https://w3id.org/h2kg/hydrogen-ontology/releases/1.0.0"/>
+    <owl:priorVersion rdf:resource="https://w3id.org/h2kg/hydrogen-ontology"/>
+    <vann:preferredNamespacePrefix>h2kg</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri rdf:resource="https://w3id.org/h2kg/hydrogen-ontology#"/>
+    <rdfs:comment xml:lang="en">The ontology captures PEMFC catalyst-layer experimental concepts, parameters, properties, measurements, instruments, materials, and related FAIR provenance. It preserves the historic h2kg namespace while improving metadata quality, release readiness, and public documentation.
+</rdfs:comment>
+  </owl:Ontology>
+  <owl:ObjectProperty rdf:about="https://w3id.org/h2kg/hydrogen-ontology#hasParameter">
+    <rdfs:domain rdf:resource="https://w3id.org/h2kg/hydrogen-ontology#Process"/>
+    <rdfs:range rdf:resource="https://w3id.org/h2kg/hydrogen-ontology#Parameter"/>
+    <rdfs:label xml:lang="en">hasParameter</rdfs:label>
+    <skos:definition xml:lang="en">Object property used to relate two resources within the H2 KG PEMFC catalyst-layer application ontology.</skos:definition>
+    <rdfs:comment xml:lang="en">hasParameter is a local H2KG relation preserved for backward-compatible release preparation.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/h2kg/hydrogen-ontology"/>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://w3id.org/h2kg/hydrogen-ontology#Parameter">
+    <rdfs:label xml:lang="en">Parameter</rdfs:label>
+    <skos:definition xml:lang="en">Class representing parameter in the H2KG PEMFC catalyst-layer application ontology.</skos:definition>
+    <rdfs:comment xml:lang="en">Parameter is a local H2KG concept preserved for PEMFC catalyst-layer domain modelling.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/h2kg/hydrogen-ontology"/>
+  </owl:Class>
+</rdf:RDF>
