@@ -258,4 +258,47 @@ public class FOOPSTest {
             }
         }
     }
+
+    /**
+     * This test verifies that imports are skipped thanks to the lazy loading.
+     * The ontology @h2kg.rdf (issue 237) contains remote imports that should not be loaded.
+     */
+    @Test
+    public void testLazyLoadingSkipsImports() {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("@h2kg.rdf").getFile());
+
+            long start = System.currentTimeMillis();
+            FOOPS f = new FOOPS(is.toString(), true);
+            long end = System.currentTimeMillis();
+
+            // Ontology must load successfully
+            assertNotNull(f.getOntology().getOntologyModel());
+
+            // Only the main ontology should be loaded (imports blocked). We convert into dev/null
+            int loadedOntologies = f.getOntology().getOntologyModel()
+                    .getOWLOntologyManager()
+                    .getOntologies()
+                    .size();
+
+            assertEquals(
+                "Lazy loading failed: more than one ontology was loaded (imports were not blocked)",
+                1,
+                loadedOntologies
+            );
+
+            assertTrue(
+                "Ontology loading took too long; imports may not be blocked",
+                (end - start) < 2000
+            );
+
+            f.removeTemporaryFolders();
+
+        } catch (Exception e) {
+            logger.error("Could not load the resource file for lazy loading test", e);
+            fail();
+        }
+    }
+
 }

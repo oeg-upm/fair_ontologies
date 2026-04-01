@@ -85,48 +85,46 @@ public class Ontology {
         termsWithDescription = new ArrayList<>();
         terms = new ArrayList<>();
         //Download ontology (any serialization)
-        this.namespaceUri = "";
-        if (!isFromFile && o != null) { 
-            this.ontologyURI = o.strip(); 
-        } else { 
-            this.ontologyURI = null; 
-        }
         try {
             this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
-            Optional<IRI> optionalIRI = this.ontologyModel.getOntologyID().getOntologyIRI();
-            if (optionalIRI.isPresent()) {
-                this.ontologyURI = optionalIRI.get().toString();
-                logger.info("Ontology URI to assess (from ontology IRI): " + this.ontologyURI);
-            } else {
-                logger.warn("Ontology has no explicit owl:Ontology IRI. " + 
-                "This often happens when the ontology uses <> as subject. " 
-                + "Using existing ontologyURI: " + this.ontologyURI);
-            }
-            // this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
-            // logger.info("Ontology URI to assess: "+ontologyURI);
+            if (this.ontologyModel != null && this.ontologyModel.getOntologyID().getOntologyIRI().isPresent()) {
+                this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
+            } 
+            logger.info("Ontology URI to assess: "+ontologyURI);
         }catch(FileTooLargeException e) {
             throw e;
         }
         catch(Exception e){
-            if(ontologyURI == null && ontologyModel !=null){
-                logger.error("Could load the ontology, but no owl:Ontology declared!");
-                //check if this is a SKOS vocabulary: skos:ConceptScheme
-                List<OWLIndividual> cs = EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass("http://www.w3.org/2004/02/skos/core#ConceptScheme"), ontologyModel).collect(Collectors.toList());
-                if(!cs.isEmpty()){
-                    //we retrieve the first concept scheme
-                    if(cs.size()>1){
-                        logger.warn("More than one concept scheme detected! Running foops only for the first one detected");
+            logger.error("Could not load the ontology: " + e.getMessage());
+        }
+        if (this.ontologyURI == null && this.ontologyModel != null) {
+                List<OWLIndividual> cs = EntitySearcher.getInstances(
+                    ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass("http://www.w3.org/2004/02/skos/core#ConceptScheme"), 
+                    ontologyModel).collect(Collectors.toList());
+                
+                if (!cs.isEmpty()) {
+                    if (cs.size() > 1) {
+                        logger.warn("More than one concept scheme detected!");
                     }
-                    this.ontologyURI = cs.get(0).toStringID();//this is a little brittle.
+                    this.ontologyURI = cs.get(0).toStringID();
                     this.isSKOS = true;
+                    logger.info("SKOS ConceptScheme detected: " + ontologyURI);
                 }
+        }
+
+        if (this.ontologyURI == null || this.ontologyURI.isEmpty()) {
+            if (!isFromFile) {
+                this.ontologyURI = o.strip();
+            } else {
+                this.ontologyURI = o.strip(); 
             }
-            else{
-                logger.error("Could not load the ontology");
-                if(!isFromFile){
-                    ontologyURI = o.strip();
-                }
-            }
+        }
+
+        if (this.ontologyURI == null || this.ontologyURI.isEmpty()) {
+            this.ontologyURI = o.strip();
+        }
+        if (this.namespaceUri == null || this.namespaceUri.isEmpty()) {
+            this.namespaceUri = this.ontologyURI;
         }
         //Download HTML of the onto (if available)
         try{
@@ -143,6 +141,7 @@ public class Ontology {
             logger.error("Error when extracting metadata or annotations");
         }
     }
+
 
     /**
      * Method that loads all available ontology metadata, using a series of common vocabularies as reference
