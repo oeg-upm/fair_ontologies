@@ -21,6 +21,7 @@ import entities.Check;
 import entities.Ontology;
 import fair.Constants;
 import org.apache.tomcat.util.bcel.Const;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 
 import java.util.ArrayList;
@@ -46,11 +47,11 @@ public class Check_VOC2_VocabReuse extends Check {
         super.check();
         try{
             //first, if there are imports, we are done.
-            List<OWLImportsDeclaration> imports = this.ontology.getImportedVocabularies();
+            List<IRI> imports = this.ontology.getImportedVocabularies();
             this.reference_resources = new ArrayList<>();
             if (!imports.isEmpty()) {
-                for (OWLImportsDeclaration imp:imports){
-                    reference_resources.add(imp.getIRI().getIRIString());
+                for (IRI imp:imports){
+                    reference_resources.add(imp.getIRIString());
                 }
                 total_passed_tests ++;
                 status = Constants.OK;

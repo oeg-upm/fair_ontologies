@@ -44,7 +44,7 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
         super.check();
         this.reference_resources = new ArrayList<>();
         reference_resources = ontology.getReusedMetadataVocabularies();
-        if(reference_resources.size()>0){
+        if(!reference_resources.isEmpty()){
             this.total_passed_tests++;
             status = Constants.OK;
             explanation = Constants.VOC1_EXPLANATION_OK;
@@ -53,7 +53,7 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
             explanation = Constants.VOC1_EXPLANATION_ERROR;
         }
         //to avoid returning empty lists
-        if(reference_resources.size() == 0){
+        if(reference_resources.isEmpty()){
             reference_resources = null;
         }
     }

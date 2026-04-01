@@ -21,12 +21,16 @@ package entities;
 import fair.Constants;
 import fair.Utils;
 import org.jsoup.nodes.Document;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.io.StreamDocumentSource;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.search.EntitySearcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import server.FileTooLargeException;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,20 +69,21 @@ public class Ontology {
     private final ArrayList<String> supportedMetadata;
     private final ArrayList<String> reusedMetadataVocabularies;
     private final ArrayList<String> reusedVocabularies;
-    List<OWLImportsDeclaration> importedVocabularies;
+    List<IRI> importedVocabularies;
     private final ArrayList<String> termsWithLabel;
     private final ArrayList<String> terms; // all terms
     private final ArrayList<String> termsWithDescription;
     private boolean isSKOS = false;
 
     /**
-     *
+     * Ontology class constructor
      * @param o ontology path or URI
      * @param isFromFile flag to indicate whether the ontology should be loaded from file or URL
      * @param tmpFolder temporary folder where to store the downloaded ontology
      */
     public Ontology(String o, boolean isFromFile, Path tmpFolder) throws FileTooLargeException {
         supportedMetadata = new ArrayList<>();
+        importedVocabularies = new ArrayList<>();
         reusedMetadataVocabularies = new ArrayList<>();
         reusedVocabularies = new ArrayList<>();
         termsWithLabel = new ArrayList<>();
@@ -86,7 +91,7 @@ public class Ontology {
         terms = new ArrayList<>();
         //Download ontology (any serialization)
         try {
-            this.ontologyModel = Utils.loadModelToDocument(o, isFromFile, tmpFolder.toString());
+            this.loadModelToDocument(o, isFromFile, tmpFolder.toString());
             if (this.ontologyModel != null && this.ontologyModel.getOntologyID().getOntologyIRI().isPresent()) {
                 this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
             } 
@@ -456,8 +461,10 @@ public class Ontology {
     private void getOntologyCoverage(){
         //metadata vocabularies
         this.ontologyModel.annotations().forEach(this::checkNamespaces);
-        //imports
-        this.importedVocabularies = this.ontologyModel.importsDeclarations().collect(Collectors.toList());
+        // imports -> they are loaded when the ontology is loaded.
+        // due to slow imports, we have disabled loading of imports
+        //this.importedVocabularies = this.ontologyModel.importsDeclarations().collect(Collectors.toList());
+
         //vocabulary reuse
         logger.info("Extracting namespaces, labels, descriptions");
         if(isSKOS) {
@@ -643,7 +650,7 @@ public class Ontology {
         return reusedMetadataVocabularies;
     }
 
-    public List<OWLImportsDeclaration> getImportedVocabularies() {
+    public List<IRI> getImportedVocabularies() {
         return importedVocabularies;
     }
 
@@ -726,5 +733,72 @@ public class Ontology {
     public String getNamespaceUri(){
         if (namespaceUri.isEmpty()) return "unknown";
         else return namespaceUri;
+    }
+
+    /**
+     * Method that will download the ontology to process with FOOPS!
+     * Note: lazy loading of imports is implemented (making them fail).
+     *
+     * @param isFromFile boolean to indicate whether the ontology is from file or from URI.
+     */
+    private void loadModelToDocument(String pathOrURI,boolean isFromFile, String downloadFolder) throws Exception {
+        String ontologyPath = pathOrURI;
+        if (!isFromFile) {
+            ontologyPath = downloadFolder + File.separator + "ontology";
+            Utils.downloadOntology(pathOrURI, ontologyPath);
+        }
+        logger.info("Loading ontology ");
+        File ontologyFile = new File(ontologyPath);
+        // if ontology is bigger than 50 MB, we do not process it
+        if (ontologyFile.length() > Constants.MAX_ONTOLOGY_SIZE) {
+            throw new FileTooLargeException("File is larger than maximum allowed (50 MB): " );
+        }
+        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+
+        // --- BLOCK TO PREVENT IMPORTS IN OWLAPI 5.5.0 ---
+        manager.getIRIMappers().add(iri -> {
+            if (!iri.equals(IRI.create(pathOrURI))) {
+                logger.warn("Blocking import: " + iri);
+                //record the imported vocabulary for later purposes
+                this.importedVocabularies.add(iri);
+                return IRI.create("file:///dev/null");
+                // we make the import fail along with MissingImportHandlingStrategy.SILENT
+                // and follow redirects set to false
+            }
+            ////return IRI.create("urn:dummy:" + iri);
+            return null;
+        });
+
+        // -----------------------------------------------------
+
+        //this is for debugging purposes, to check that the imports are being blocked.
+        // but add helped information about the loading process
+        manager.addOntologyLoaderListener(new OWLOntologyLoaderListener() {
+            @Override
+            public void startedLoadingOntology(OWLOntologyLoaderListener.LoadingStartedEvent event) {
+                if (!event.getDocumentIRI().equals(IRI.create(pathOrURI))) {
+                    logger.debug("Skipping import: " + event.getDocumentIRI());
+                } else {
+                    logger.debug("Loading main ontology: " + event.getDocumentIRI());
+                }
+            }
+
+            @Override
+            public void finishedLoadingOntology(OWLOntologyLoaderListener.LoadingFinishedEvent event) {
+                logger.info("Finished loading: " + event.getDocumentIRI());
+            }
+        });
+
+
+        OWLOntologyLoaderConfiguration loadingConfig = new OWLOntologyLoaderConfiguration();
+        loadingConfig = loadingConfig.setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT);
+        loadingConfig = loadingConfig.setFollowRedirects(false);
+
+        logger.info("Parsing type: "+loadingConfig.isStrict());
+
+        this.ontologyModel = manager.loadOntologyFromOntologyDocument(
+                new StreamDocumentSource(new FileInputStream(ontologyFile), IRI.create(pathOrURI)),
+                loadingConfig
+        );
     }
 }

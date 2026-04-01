@@ -34,78 +34,12 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.Optional;
 
 public class Utils {
 
     private static final Logger logger = LoggerFactory.getLogger(Utils.class);
-
-    /**
-     * Method that will download the ontology to document with Widoco.
-     *
-     * @param isFromFile boolean to indicate whether the ontology is from file or from URI.
-     */
-    public static OWLOntology loadModelToDocument(String pathOrURI,boolean isFromFile, String downloadFolder) throws Exception {
-        String ontologyPath = pathOrURI;
-        if (!isFromFile) {
-            ontologyPath = downloadFolder + File.separator + "ontology";
-            downloadOntology(pathOrURI, ontologyPath);
-        }
-        logger.info("Loading ontology ");
-        File ontologyFile = new File(ontologyPath);
-        // if ontology is bigger than 50 MB, we do not process it
-        if (ontologyFile.length() > Constants.MAX_ONTOLOGY_SIZE) {
-            throw new FileTooLargeException("File is larger than maximum allowed (50 MB): " );
-        }
-        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-
-        // --- BLOCK TO PREVENT IMPORTS IN OWLAPI 5.1.14 ---
-        manager.getIRIMappers().add(iri -> {
-            if (!iri.equals(IRI.create(pathOrURI))) {
-                System.out.println("Blocking import: " + iri);
-                return IRI.create("file:///dev/null"); 
-                // we make the import fail along with MissingImportHandlingStrategy.SILENT
-                // and follow redirects set to false
-            }
-            return null;
-        });
-        // -----------------------------------------------------
-
-        //this is for debugging purposes, to check that the imports are being blocked.
-        // but add helped information about the loading process
-        manager.addOntologyLoaderListener(new OWLOntologyLoaderListener() {
-            @Override
-            public void startedLoadingOntology(OWLOntologyLoaderListener.LoadingStartedEvent event) {
-                if (!event.getDocumentIRI().equals(IRI.create(pathOrURI))) {
-                    System.out.println("Skipping import: " + event.getDocumentIRI());
-                } else {
-                    System.out.println("Loading main ontology: " + event.getDocumentIRI());
-                }
-            }
-
-            @Override
-            public void finishedLoadingOntology(OWLOntologyLoaderListener.LoadingFinishedEvent event) {
-                System.out.println("Finished loading: " + event.getDocumentIRI());
-            }
-        });
-
-
-        OWLOntologyLoaderConfiguration loadingConfig = new OWLOntologyLoaderConfiguration();
-        loadingConfig = loadingConfig.setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT);
-        loadingConfig = loadingConfig.setFollowRedirects(false);
-
-        // only works for owlpai 6.x, but not for 5.1.14, which is the one we are using in the tests
-        // loadingConfig = loadingConfig.setLoadImports(false);
-        // loadingConfig = loadingConfig.setProcessImports(false); 
-
-        logger.info("Parsing type: "+loadingConfig.isStrict());
-        
-        OWLOntology ontology = manager.loadOntologyFromOntologyDocument(
-            new StreamDocumentSource(new FileInputStream(ontologyFile), IRI.create(pathOrURI)), 
-            loadingConfig
-        );
-
-        return ontology;
-    }
 
     public static void addAnnotationToOntology(OWLDataFactory df, OWLOntology o,IRI ontoURI, String propertyURI, String value){
         OWLAnnotationProperty predicate = df.getOWLAnnotationProperty(IRI.create(propertyURI));
