@@ -25,7 +25,7 @@ This test verifies whether HTML and an RDF representation is available for the t
  * RDF/XML (application/rdf+xml), 
  * TTL (text/turtle), 
  * N-Triples (text/n3), 
- * JSON-LD (application/ld+json) 
+ * JSON-LD (application/ld+json)
  
 The test will fail if no HTML is returned, if no known RDF serialization is returned, or the serialization returned is not among one of the aforementioned."""@en ;
     dcterms:publisher <https://oeg.fi.upm.es> , <https://ror.org/03n6nwv02>;
