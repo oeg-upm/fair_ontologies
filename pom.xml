@@ -10,7 +10,7 @@
     </parent>
     <groupId>es.oeg</groupId>
     <artifactId>fair_ontologies</artifactId>
-    <version>0.3.1</version>
+    <version>0.3.2</version>
     <packaging>jar</packaging>
     <name>fair_ontologies</name>
     <description>FOOPS!: An Ontology Pitfall scanner for the FAIR principles</description>
@@ -79,10 +79,15 @@
         </dependency>
 
         <!-- OWL API-->
-        <dependency>
+        <!--<dependency>
             <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>owlapi-distribution</artifactId>
             <version>5.1.14</version>
+        </dependency>-->
+        <dependency>
+            <groupId>net.sourceforge.owlapi</groupId>
+            <artifactId>owlapi-apibinding</artifactId>
+            <version>5.5.0</version>
         </dependency>
 
     </dependencies>
