@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: clon repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: set Python
         uses: actions/setup-python@v5
@@ -36,9 +36,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit changes
-        if: github.repository != 'juanjemdios/foops'
+        # if: github.repository != 'juanjemdios/foops'
+        if: always()
         run: |
           git add doc/**/*.html || true
           git add doc/**/*.jsonld || true
           git add doc/catalog.html || true
-          git diff --staged --quiet || (git commit -m "Auto-generate HTML and JSON-LD from TTL changes" && git push)
+          git diff --staged --quiet || (git commit -m "Auto-generate HTML and JSON-LD from TTL changes" && git push origin HEAD:main)
