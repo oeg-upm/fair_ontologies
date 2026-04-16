@@ -36,8 +36,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit changes
-        # if: github.repository != 'juanjemdios/foops'
-        if: always()
+        if: github.repository == 'oeg-upm/fair_ontologies'
         run: |
           git add doc/**/*.html || true
           git add doc/**/*.jsonld || true
