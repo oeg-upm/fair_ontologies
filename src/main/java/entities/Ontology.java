@@ -24,7 +24,10 @@ import org.jsoup.nodes.Document;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.StreamDocumentSource;
 import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.model.parameters.ChangeApplied;
 import org.semanticweb.owlapi.search.EntitySearcher;
+import uk.ac.manchester.cs.owl.owlapi.OWLOntologyFactoryImpl;
+import uk.ac.manchester.cs.owl.owlapi.OWLOntologyImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import server.FileTooLargeException;
@@ -753,25 +756,54 @@ public class Ontology {
         if (ontologyFile.length() > Constants.MAX_ONTOLOGY_SIZE) {
             throw new FileTooLargeException("File is larger than maximum allowed (50 MB): " );
         }
+        // OWL API 5.5.0 bug (TripleHandlers.java:1549): TPImportsHandler adds BOTH the subject
+        // and object of owl:imports to the ontologyIRIs candidate set. chooseAndSetOntologyIRI
+        // then filters out any candidate whose IRI appears as an annotation value on the ontology.
+        // An ontology that annotates itself with its own IRI (e.g. dcat:accessURL <pizza/>) has
+        // that IRI removed from candidates, leaving only the imported IRI wrongly selected.
+        //
+        // Fix: replace the default OWLOntologyFactory with one whose builder creates a custom
+        // OWLOntologyImpl that suppresses AddOntologyAnnotation changes where the value equals
+        // expectedIRI. This keeps expectedIRI in the candidate set so chooseAndSetOntologyIRI
+        // selects it, and ontologyVersions.get(expectedIRI) (OWLRDFConsumer line 1488) then
+        // returns the version IRI correctly — no post-load patching needed. The suppressed
+        // annotations are re-added after loading completes.
+        final IRI expectedIRI = IRI.create(pathOrURI);
+        final List<OWLAnnotation> suppressedAnnotations = new ArrayList<>();
+        final java.util.concurrent.atomic.AtomicBoolean loadComplete =
+                new java.util.concurrent.atomic.AtomicBoolean(false);
+
+        OWLOntologyBuilder patchedBuilder = (m, id) -> new OWLOntologyImpl(m, id) {
+            @Override
+            public ChangeApplied applyDirectChange(OWLOntologyChange change) {
+                if (!loadComplete.get() && change instanceof AddOntologyAnnotation) {
+                    OWLAnnotation ann = ((AddOntologyAnnotation) change).getAnnotation();
+                    // Suppress any IRI-valued ontology annotation: only these can cause
+                    // chooseAndSetOntologyIRI to filter out the correct ontology IRI from
+                    // the candidate set. Literal-valued annotations are passed through.
+                    if (ann.getValue().asIRI().isPresent()) {
+                        suppressedAnnotations.add(ann);
+                        return ChangeApplied.NO_OPERATION;
+                    }
+                }
+                return super.applyDirectChange(change);
+            }
+        };
+
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+        manager.getOntologyFactories().clear();
+        manager.getOntologyFactories().add(new OWLOntologyFactoryImpl(patchedBuilder));
 
         // Intercept import resolution: record each imported IRI and redirect the load to a
         // minimal anonymous stub file so OWL API does not fetch imports from the network.
         //
-        // Two subtleties in OWL API 5.5.0 require care:
-        //
-        // 1. The mapper is called twice per import (initial parse + post-parse ID-change pass).
-        //    On the second call the stub is already in the manager; returning its document IRI
-        //    prevents OWLOntologyAlreadyExistsException.
-        //
-        // 2. The stub must be ANONYMOUS (no <iri> a owl:Ontology declaration). If named stubs
-        //    are used, TripleHandlers.java:1550 adds the imported IRI to the candidate ontology-
-        //    IRI set, which can cause the main ontology to be mis-identified as the import
-        //    (especially when the main ontology's own IRI appears as an annotation value and is
-        //    therefore filtered out of the candidate set by OWLRDFConsumer). Fixes issue #254.
+        // The stub must be ANONYMOUS (no <iri> a owl:Ontology declaration). If named stubs
+        // are used, TripleHandlers.java:1549 adds the imported IRI to ontologyIRIs a second time
+        // (the first time is the imports bug itself). The mapper is called twice per import; on
+        // the second call the stub is already in the manager, so we return its document IRI.
         java.util.Map<IRI, IRI> stubCache = new java.util.HashMap<>();
         manager.getIRIMappers().add(iri -> {
-            if (!iri.equals(IRI.create(pathOrURI))) {
+            if (!iri.equals(expectedIRI)) {
                 OWLOntology alreadyLoaded = manager.getOntology(iri);
                 if (alreadyLoaded != null) {
                     return manager.getOntologyDocumentIRI(alreadyLoaded);
@@ -797,63 +829,22 @@ public class Ontology {
             return null;
         });
 
-
         OWLOntologyLoaderConfiguration loadingConfig = new OWLOntologyLoaderConfiguration();
         loadingConfig = loadingConfig.setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT);
         loadingConfig = loadingConfig.setFollowRedirects(false);
 
         this.ontologyModel = manager.loadOntologyFromOntologyDocument(
-                new StreamDocumentSource(new FileInputStream(ontologyFile), IRI.create(pathOrURI)),
+                new StreamDocumentSource(new FileInputStream(ontologyFile), expectedIRI),
                 loadingConfig
         );
 
-        // Post-load safety net: if OWL API assigned the wrong IRI to the main ontology
-        // (an imported IRI rather than the requested one), correct it. This can happen due
-        // to the OWL API 5.5.0 bug described above when both conditions hold: the main
-        // ontology's IRI appears as an annotation value (causing OWLRDFConsumer to filter
-        // it out of candidates) AND an imported IRI ends up as the sole remaining candidate.
-        if (this.ontologyModel != null) {
-            java.util.Optional<IRI> loadedIRI = this.ontologyModel.getOntologyID().getOntologyIRI();
-            IRI expectedIRI = IRI.create(pathOrURI);
-            if (loadedIRI.isPresent() && !loadedIRI.get().equals(expectedIRI)
-                    && this.importedVocabularies.contains(loadedIRI.get())) {
-                // Version IRI recovery: OWL API 5.5.0 stores the version IRI in the private
-                // OWLRDFConsumer.ontologyVersions map keyed by the *actual* ontology IRI.
-                // Because the wrong IRI was selected, ontologyVersions.get(wrongIRI) returns
-                // null, and the version IRI is silently discarded. It is NOT accessible via
-                // annotationAssertionAxioms() or ontology.annotations() because the streaming
-                // handler (TPVersionIRIHandler) consumes the triple before the second-pass
-                // annotation handler can store it.
-                //
-                // The only practical recovery path (without modifying OWL API) is to re-read
-                // the triple from the already-downloaded ontology file. Three serializations
-                // are tried: Turtle prefixed form, RDF/XML, and full-URI Turtle form.
-                java.util.Optional<IRI> recoveredVersionIRI = java.util.Optional.empty();
-                try {
-                    String content = new String(java.nio.file.Files.readAllBytes(ontologyFile.toPath()),
-                            java.nio.charset.StandardCharsets.UTF_8);
-                    String[] patternsToTry = {
-                        // Turtle: owl:versionIRI <https://...>
-                        "owl:versionIRI\\s+<([^>]+)>",
-                        // RDF/XML: <owl:versionIRI rdf:resource="https://..."/>
-                        "owl:versionIRI[^\"]*rdf:resource=\"([^\"]+)\"",
-                        // Full URI form (Turtle): <owl#versionIRI> <https://...>
-                        "<http://www\\.w3\\.org/2002/07/owl#versionIRI>\\s+<([^>]+)>"
-                    };
-                    for (String pattern : patternsToTry) {
-                        java.util.regex.Matcher m = java.util.regex.Pattern.compile(pattern).matcher(content);
-                        if (m.find()) {
-                            recoveredVersionIRI = java.util.Optional.of(IRI.create(m.group(1)));
-                            break;
-                        }
-                    }
-                } catch (Exception ex) {
-                    logger.warn("Could not recover version IRI from ontology file: " + ex.getMessage());
-                }
-                logger.warn("Correcting misassigned ontology IRI: " + loadedIRI.get() + " -> " + expectedIRI
-                        + " (recovered versionIRI=" + recoveredVersionIRI + ")");
-                manager.applyChange(new SetOntologyID(this.ontologyModel,
-                        new OWLOntologyID(java.util.Optional.of(expectedIRI), recoveredVersionIRI)));
+        loadComplete.set(true);
+
+        // Re-add annotations that were suppressed during IRI candidate selection.
+        // loadComplete is true now so the override passes them through.
+        if (this.ontologyModel != null && !suppressedAnnotations.isEmpty()) {
+            for (OWLAnnotation ann : suppressedAnnotations) {
+                manager.applyChange(new AddOntologyAnnotation(this.ontologyModel, ann));
             }
         }
     }
