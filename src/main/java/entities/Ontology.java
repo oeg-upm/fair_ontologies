@@ -817,9 +817,36 @@ public class Ontology {
             IRI expectedIRI = IRI.create(pathOrURI);
             if (loadedIRI.isPresent() && !loadedIRI.get().equals(expectedIRI)
                     && this.importedVocabularies.contains(loadedIRI.get())) {
-                logger.warn("Correcting misassigned ontology IRI: " + loadedIRI.get() + " -> " + expectedIRI);
+                // OWL API 5.5.0 stores the version IRI in ontologyVersions keyed by the
+                // *actual* ontology IRI (pizza/), but since the wrong IRI was selected (pro),
+                // ontologyVersions.get(pro) returns null and the version IRI is lost.
+                // Recover by scanning the ontology file directly.
+                java.util.Optional<IRI> recoveredVersionIRI = java.util.Optional.empty();
+                try {
+                    String fileContent = new String(java.nio.file.Files.readAllBytes(ontologyFile.toPath()),
+                            java.nio.charset.StandardCharsets.UTF_8);
+                    // Turtle: owl:versionIRI <...>
+                    java.util.regex.Matcher m = java.util.regex.Pattern
+                            .compile("owl:versionIRI\\s+<([^>]+)>")
+                            .matcher(fileContent);
+                    if (m.find()) {
+                        recoveredVersionIRI = java.util.Optional.of(IRI.create(m.group(1)));
+                    } else {
+                        // RDF/XML: <owl:versionIRI rdf:resource="..."/> or owl:versionIRI rdf:resource="..."
+                        m = java.util.regex.Pattern
+                                .compile("owl:versionIRI[^\"]*rdf:resource=\"([^\"]+)\"")
+                                .matcher(fileContent);
+                        if (m.find()) {
+                            recoveredVersionIRI = java.util.Optional.of(IRI.create(m.group(1)));
+                        }
+                    }
+                } catch (Exception ex) {
+                    logger.warn("Could not scan ontology file for version IRI: " + ex.getMessage());
+                }
+                logger.warn("Correcting misassigned ontology IRI: " + loadedIRI.get() + " -> " + expectedIRI
+                        + " (recovered versionIRI=" + recoveredVersionIRI + ")");
                 manager.applyChange(new SetOntologyID(this.ontologyModel,
-                        new OWLOntologyID(java.util.Optional.of(expectedIRI), java.util.Optional.empty())));
+                        new OWLOntologyID(java.util.Optional.of(expectedIRI), recoveredVersionIRI)));
             }
         }
     }
