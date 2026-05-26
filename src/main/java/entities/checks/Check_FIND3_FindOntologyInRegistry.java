@@ -75,6 +75,8 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
         try {
             URL url = new URL(Constants.LOV_ALL_VOCABS);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(10000);
             connection.setRequestMethod("GET");
             InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();

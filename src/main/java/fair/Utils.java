@@ -36,10 +36,18 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import org.apache.commons.io.IOUtils;
 
 public class Utils {
 
     private static final Logger logger = LoggerFactory.getLogger(Utils.class);
+    private static final Map<String, String> PREFIX_CC_MAP = new HashMap<>();
 
     public static void addAnnotationToOntology(OWLDataFactory df, OWLOntology o,IRI ontoURI, String propertyURI, String value){
         OWLAnnotationProperty predicate = df.getOWLAnnotationProperty(IRI.create(propertyURI));
@@ -213,5 +221,34 @@ public class Utils {
                 .replace("\n", "\\n")
                 .replace("\r", "\\r")
                 .replace("\t", "\\t");
+    }
+
+
+
+    public static String getLocalPrefix(String prefix) {
+        if (PREFIX_CC_MAP.isEmpty()) {
+            try (InputStream in = Utils.class.getResourceAsStream("/prefixcc.json")) {
+                if (in != null) {
+                    StringWriter writer = new StringWriter();
+                    IOUtils.copy(in, writer, "UTF-8");
+                    JsonObject ctx = JsonParser.parseString(writer.toString()).getAsJsonObject();
+                    ctx.keySet().forEach(k -> PREFIX_CC_MAP.put(k, ctx.get(k).getAsString()));
+                    logger.info("Loaded " + PREFIX_CC_MAP.size() + " prefixes from local prefixcc.json");
+                }
+            } catch (Exception e) {
+                logger.error("Could not load local prefixcc.json", e);
+            }
+        }
+        return PREFIX_CC_MAP.get(prefix);
+    }
+
+    public static void updateLocalPrefix(String prefix, String namespace) {
+        if (prefix != null && namespace != null) {
+            String current = PREFIX_CC_MAP.get(prefix);
+            if (current == null || !current.equals(namespace)) {
+                PREFIX_CC_MAP.put(prefix, namespace);
+                logger.info("Updated local prefix.cc cache: " + prefix + " → " + namespace);
+            }
+        }
     }
 }
