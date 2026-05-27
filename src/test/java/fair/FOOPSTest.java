@@ -12,7 +12,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
+import java.nio.file.Path;
+import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class FOOPSTest {
@@ -408,6 +409,30 @@ public class FOOPSTest {
             f.removeTemporaryFolders();
         } catch (Exception e) {
             logger.error("Could not load the resource file", e);
+            fail();
+        }
+    }
+
+    /**
+     * This test verifies that FIND_3_BIS produces valid JSON-LD with a non-null benchmark name,
+     * fixing the Ostrails "Result parsing failed" error caused by CustomBenchmark not setting
+     * its name and description.
+     */
+    @Test
+    public void testFind3BisBenchmarkNameNotNull(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("ontology_included_in_catalog.ttl").getFile());
+            ArrayList<String> testIDs = new ArrayList<>();
+            testIDs.add(Constants.FIND3_BIS);
+            FOOPS f = new FOOPS(is.toString(), testIDs);
+            f.fairTest();
+            String jsonld = f.exportJSONLD();
+            assertTrue("FIND_3_BIS JSON-LD must contain the benchmark name (was null before fix)",
+                jsonld.contains(Constants.BENCHMARK_ALL_NAME));
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not run FIND_3_BIS benchmark name test", e);
             fail();
         }
     }
