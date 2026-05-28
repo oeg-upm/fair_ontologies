@@ -1,0 +1,11 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<http://example.org/test_void>
+  a owl:Ontology ;
+  dc:title "Test void:uriSpace" ;
+  dc:description "Test ontology" ;
+  void:uriSpace "http://example.org/test_void#" ;
+  rdfs:comment "Void URI Space" .

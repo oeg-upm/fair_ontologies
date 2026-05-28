@@ -412,4 +412,23 @@ public class FOOPSTest {
         }
     }
 
+    /**
+     * This test verifies that void:uriSpace is recognized
+     * as an alternative to vann:preferredNamespaceUri for the namespace URI.
+     */
+    @Test
+    public void testVoidUriSpaceRecognized(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("test_void_urispace.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            assertEquals("http://example.org/test_void#", f.getOntology().getNamespaceUri());
+            assertTrue(f.getOntology().getSupportedMetadata().contains(Constants.FOOPS_NS_URI));
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file", e);
+            fail();
+        }
+    }
+
 }

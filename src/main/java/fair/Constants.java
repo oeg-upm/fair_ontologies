@@ -342,8 +342,6 @@ public class Constants {
     public static final String PREFIX_CC = "http://prefix.cc/";
 
     //to do: ontobee (http://www.ontobee.org/sparql), bioportal,
-
-
     /* FAIR Categories*/
     public static final String FINDABLE = "Findable";
     public static final String ACCESSIBLE = "Accessible";
@@ -371,6 +369,7 @@ public class Constants {
     public static final String NS_DCTERMS = "http://purl.org/dc/terms/";
     public static final String NS_OWL = "http://www.w3.org/2002/07/owl#";
     public static final String NS_VANN = "http://purl.org/vocab/vann/";
+    public static final String NS_VOID = "http://rdfs.org/ns/void#";
     // public static final String NS_VAEM =
     // "http://www.linkedmodel.org/schema/vaem#";
     public static final String NS_PROV = "http://www.w3.org/ns/prov#";
@@ -492,7 +491,7 @@ public class Constants {
 
     public static final String PROP_VANN_PREFIX = NS_VANN + "preferredNamespacePrefix";
     public static final String PROP_VANN_URI = NS_VANN + "preferredNamespaceUri";
-
+    public static final String PROP_VOID_URI_SPACE = NS_VOID + "uriSpace";
     public static final String PROP_SKOS_NOTE = NS_SKOS + "note";
 
     public static final String PROP_PAV_CREATED_BY = NS_PAV + "createdBy";
