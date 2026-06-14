@@ -416,3 +416,12 @@ p#suggest {
     overflow-wrap: break-word;
     word-break: break-word;
 }
+
+#run_button {
+    float: right;
+    margin-left: 10px;
+}
+
+#run_button:disabled {
+    opacity: 0.7;
+}

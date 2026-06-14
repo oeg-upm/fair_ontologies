@@ -1,3 +1,8 @@
+const SERVER_URL = (window.location.hostname === 'localhost' || window.location.hostname === '')
+    ? 'http://localhost:8080' 
+    : 'https://foops.linkeddata.es';
+
+
 var typeInputSelected = "URI";
 
 
