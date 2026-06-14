@@ -1,0 +1,28 @@
+# Build output
+target/
+JAR/
+jar/
+lib/
+
+# VCS / CI
+.git/
+.github/
+
+# IDE
+.idea/
+.settings/
+*.iml
+.classpath
+.project
+
+# Docs and static client (the server only exposes the API)
+doc/
+html_client/
+
+# OS junk
+.DS_Store
+
+# Local samples / scratch
+sample.json
+*.log
+test.ttl
