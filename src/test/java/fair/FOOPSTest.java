@@ -412,4 +412,18 @@ public class FOOPSTest {
         }
     }
 
+
+    /**
+     * This test verifies that an ontology using @base instead of an explicit ontology URI is correctly recognized by FOOPS! (Issue 214).
+     * But OWLAPI resolves the @base directive automatically during loading,
+     */
+    @Test
+    public void testOntologyWithBaseURI() throws Exception {
+        ClassLoader cl = getClass().getClassLoader();
+        File f = new File(cl.getResource("ontology_100_base_uri.ttl").getFile());
+        FOOPS foops = new FOOPS(f.toString(), true);
+        assertEquals("https://w3id.org/sri", foops.getOntology().getOntologyURI());
+        foops.removeTemporaryFolders();
+    }
+
 }
