@@ -127,6 +127,8 @@ public class Utils {
         URL url = new URL(uri);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         // connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+        connection.setConnectTimeout(5000);
+        connection.setReadTimeout(5000);
         connection.setRequestMethod("GET");
         connection.setInstanceFollowRedirects(true);
         if(serialization!=null) {
@@ -145,6 +147,8 @@ public class Utils {
             String newUrl = connection.getHeaderField("Location");
             connection = (HttpURLConnection) new URL(newUrl).openConnection();
             // connection.setRequestProperty("User-Agent", "Mozilla/5.0...");
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             if(serialization!=null) {
                 connection.setRequestProperty("Accept", serialization);
             }

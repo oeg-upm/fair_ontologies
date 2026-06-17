@@ -24,7 +24,10 @@ import org.jsoup.nodes.Document;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.StreamDocumentSource;
 import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.model.parameters.ChangeApplied;
 import org.semanticweb.owlapi.search.EntitySearcher;
+import uk.ac.manchester.cs.owl.owlapi.OWLOntologyFactoryImpl;
+import uk.ac.manchester.cs.owl.owlapi.OWLOntologyImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import server.FileTooLargeException;
@@ -753,52 +756,96 @@ public class Ontology {
         if (ontologyFile.length() > Constants.MAX_ONTOLOGY_SIZE) {
             throw new FileTooLargeException("File is larger than maximum allowed (50 MB): " );
         }
-        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+        // OWL API 5.5.0 bug (TripleHandlers.java:1549): TPImportsHandler adds BOTH the subject
+        // and object of owl:imports to the ontologyIRIs candidate set. chooseAndSetOntologyIRI
+        // then filters out any candidate whose IRI appears as an annotation value on the ontology.
+        // An ontology that annotates itself with its own IRI (e.g. dcat:accessURL <pizza/>) has
+        // that IRI removed from candidates, leaving only the imported IRI wrongly selected.
+        //
+        // Fix: replace the default OWLOntologyFactory with one whose builder creates a custom
+        // OWLOntologyImpl that suppresses AddOntologyAnnotation changes where the value equals
+        // expectedIRI. This keeps expectedIRI in the candidate set so chooseAndSetOntologyIRI
+        // selects it, and ontologyVersions.get(expectedIRI) (OWLRDFConsumer line 1488) then
+        // returns the version IRI correctly — no post-load patching needed. The suppressed
+        // annotations are re-added after loading completes.
+        final IRI expectedIRI = IRI.create(pathOrURI);
+        final List<OWLAnnotation> suppressedAnnotations = new ArrayList<>();
+        final java.util.concurrent.atomic.AtomicBoolean loadComplete =
+                new java.util.concurrent.atomic.AtomicBoolean(false);
 
-        // --- BLOCK TO PREVENT IMPORTS IN OWLAPI 5.5.0 ---
-        manager.getIRIMappers().add(iri -> {
-            if (!iri.equals(IRI.create(pathOrURI))) {
-                logger.warn("Blocking import: " + iri);
-                //record the imported vocabulary for later purposes
-                this.importedVocabularies.add(iri);
-                return IRI.create("file:///dev/null");
-                // we make the import fail along with MissingImportHandlingStrategy.SILENT
-                // and follow redirects set to false
+        OWLOntologyBuilder patchedBuilder = (m, id) -> new OWLOntologyImpl(m, id) {
+            @Override
+            public ChangeApplied applyDirectChange(OWLOntologyChange change) {
+                if (!loadComplete.get() && change instanceof AddOntologyAnnotation) {
+                    OWLAnnotation ann = ((AddOntologyAnnotation) change).getAnnotation();
+                    // Suppress any IRI-valued ontology annotation: only these can cause
+                    // chooseAndSetOntologyIRI to filter out the correct ontology IRI from
+                    // the candidate set. Literal-valued annotations are passed through.
+                    if (ann.getValue().asIRI().isPresent()) {
+                        suppressedAnnotations.add(ann);
+                        return ChangeApplied.NO_OPERATION;
+                    }
+                }
+                return super.applyDirectChange(change);
             }
-            ////return IRI.create("urn:dummy:" + iri);
+        };
+
+        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+        manager.getOntologyFactories().clear();
+        manager.getOntologyFactories().add(new OWLOntologyFactoryImpl(patchedBuilder));
+
+        // Intercept import resolution: record each imported IRI and redirect the load to a
+        // minimal anonymous stub file so OWL API does not fetch imports from the network.
+        //
+        // The stub must be ANONYMOUS (no <iri> a owl:Ontology declaration). If named stubs
+        // are used, TripleHandlers.java:1549 adds the imported IRI to ontologyIRIs a second time
+        // (the first time is the imports bug itself). The mapper is called twice per import; on
+        // the second call the stub is already in the manager, so we return its document IRI.
+        java.util.Map<IRI, IRI> stubCache = new java.util.HashMap<>();
+        manager.getIRIMappers().add(iri -> {
+            if (!iri.equals(expectedIRI)) {
+                OWLOntology alreadyLoaded = manager.getOntology(iri);
+                if (alreadyLoaded != null) {
+                    return manager.getOntologyDocumentIRI(alreadyLoaded);
+                }
+                if (!stubCache.containsKey(iri)) {
+                    logger.info("Blocking import: " + iri);
+                    this.importedVocabularies.add(iri);
+                    IRI stubIRI;
+                    try {
+                        java.io.File stub = java.io.File.createTempFile("blocked_import_", ".ttl");
+                        stub.deleteOnExit();
+                        java.nio.file.Files.writeString(stub.toPath(),
+                                "@prefix owl: <http://www.w3.org/2002/07/owl#> .\n");
+                        stubIRI = IRI.create(stub.toURI());
+                    } catch (Exception ex) {
+                        logger.warn("Could not create stub for blocked import: " + ex.getMessage());
+                        stubIRI = IRI.create("file:///dev/null");
+                    }
+                    stubCache.put(iri, stubIRI);
+                }
+                return stubCache.get(iri);
+            }
             return null;
         });
-
-        // -----------------------------------------------------
-
-        //this is for debugging purposes, to check that the imports are being blocked.
-        // but add helped information about the loading process
-        manager.addOntologyLoaderListener(new OWLOntologyLoaderListener() {
-            @Override
-            public void startedLoadingOntology(OWLOntologyLoaderListener.LoadingStartedEvent event) {
-                if (!event.getDocumentIRI().equals(IRI.create(pathOrURI))) {
-                    logger.debug("Skipping import: " + event.getDocumentIRI());
-                } else {
-                    logger.debug("Loading main ontology: " + event.getDocumentIRI());
-                }
-            }
-
-            @Override
-            public void finishedLoadingOntology(OWLOntologyLoaderListener.LoadingFinishedEvent event) {
-                logger.info("Finished loading: " + event.getDocumentIRI());
-            }
-        });
-
 
         OWLOntologyLoaderConfiguration loadingConfig = new OWLOntologyLoaderConfiguration();
         loadingConfig = loadingConfig.setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT);
         loadingConfig = loadingConfig.setFollowRedirects(false);
 
-        logger.info("Parsing type: "+loadingConfig.isStrict());
-
         this.ontologyModel = manager.loadOntologyFromOntologyDocument(
-                new StreamDocumentSource(new FileInputStream(ontologyFile), IRI.create(pathOrURI)),
+                new StreamDocumentSource(new FileInputStream(ontologyFile), expectedIRI),
                 loadingConfig
         );
+
+        loadComplete.set(true);
+
+        // Re-add annotations that were suppressed during IRI candidate selection.
+        // loadComplete is true now so the override passes them through.
+        if (this.ontologyModel != null && !suppressedAnnotations.isEmpty()) {
+            for (OWLAnnotation ann : suppressedAnnotations) {
+                manager.applyChange(new AddOntologyAnnotation(this.ontologyModel, ann));
+            }
+        }
     }
 }

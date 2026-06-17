@@ -285,15 +285,52 @@ public class FOOPSTest {
                 loadedOntologies
             );
 
+            // Allow up to 12s: import loading is fast (<1s) but HTML fetching for the
+            // ontology URI may use the 5s read timeout from Utils.doNegotiation.
+            // If imports were NOT blocked, 9 imports × 5s timeout each = 45s >> 12s.
             assertTrue(
                 "Ontology loading took too long; imports may not be blocked",
-                (end - start) < 2000
+                (end - start) < 12000
             );
 
             f.removeTemporaryFolders();
 
         } catch (Exception e) {
             logger.error("Could not load the resource file for lazy loading test", e);
+            fail();
+        }
+    }
+
+    /**
+     * Regression test for issue #254: when an ontology uses owl:imports AND annotates itself with
+     * its own IRI (e.g. dcat:accessURL <main/>), OWL API 5.5.0 incorrectly selects the imported
+     * IRI as the ontology IRI. FOOPS must report the correct ontology IRI and version IRI.
+     */
+    @Test
+    public void testOntologyIRINotCorruptedByImport() {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("test_import_iri_mismatch.ttl").getFile());
+
+            FOOPS f = new FOOPS(is.toString(), true);
+
+            String ontologyURI = f.getOntology().getOntologyURI();
+            assertEquals(
+                "Issue #254: ontology IRI should be the main ontology, not the imported one",
+                "https://w3id.org/foops/test/main/",
+                ontologyURI
+            );
+
+            String versionIRI = f.getOntology().getVersionIRI();
+            assertEquals(
+                "Issue #254: version IRI should be recovered after IRI fix",
+                "https://w3id.org/foops/test/main/1.0.0",
+                versionIRI
+            );
+
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load test_import_iri_mismatch.ttl", e);
             fail();
         }
     }
