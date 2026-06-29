@@ -40,11 +40,14 @@ public class Check_URI1_URIResolvable extends Check {
         this.principle_id ="F1";
         this.description = Constants.URI1_DESC;
         this.abbreviation = Constants.URI1;
+        this.guidance = Constants.URI1_GUIDANCE;
+        this.recommendedDoc= Constants.URI1_REC_DOC;
     }
 
     @Override
     public void check() {
         super.check();
+        // this.action = fillAction(this.action);
         // need to check (again) if the ontology resolves, but this time we do not download it
         for (String serialization : Constants.POSSIBLE_VOCAB_SERIALIZATIONS) {
             try {
@@ -61,5 +64,6 @@ public class Check_URI1_URIResolvable extends Check {
         }
         status = Constants.ERROR;
         explanation = Constants.URI1_EXPLANATION_ERROR;
+        this.guidance = fillAction(Constants.URI1_GUIDANCE); 
     }
 }

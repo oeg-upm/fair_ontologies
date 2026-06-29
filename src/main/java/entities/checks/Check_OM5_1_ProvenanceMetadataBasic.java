@@ -32,6 +32,8 @@ public class Check_OM5_1_ProvenanceMetadataBasic extends Check {
         this.principle_id = "R1.2";
         this.total_tests_run = Constants.PROVENANCE_METADATA_BASIC.length;
         this.abbreviation = Constants.OM5_1;
+        this.guidance = Constants.OM5_1_GUIDANCE;
+        this.recommendedDoc= Constants.OM5_1_REC_DOC;
     }
 
     @Override
@@ -58,10 +60,12 @@ public class Check_OM5_1_ProvenanceMetadataBasic extends Check {
         } else {
             this.status = Constants.ERROR;
             explanation = Constants.OM5_1_EXPLANATION + exp.substring(0, exp.length() - 2);
+            this.guidance = Constants.OM5_1_GUIDANCE;
         }
         if (!"".equals(optional.toString())){
             explanation += ". Warning: The following OPTIONAL provenance metadata could not be found: "+
                     optional.substring(0,optional.length() -2) + ". Please consider adding them if appropriate.";
+            this.guidance = Constants.OM5_1_GUIDANCE;
         }
 
     }

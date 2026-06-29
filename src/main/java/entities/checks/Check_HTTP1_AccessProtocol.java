@@ -32,6 +32,8 @@ public class Check_HTTP1_AccessProtocol extends Check {
         this.category_id = Constants.ACCESSIBLE;
         this.principle_id = "A1.1";
         this.abbreviation = Constants.HTTP1;
+        this.guidance = Constants.HTTP1_GUIDANCE    ;
+        this.recommendedDoc= Constants.HTTP1_REC_DOC;
     }
 
     /**
@@ -48,10 +50,12 @@ public class Check_HTTP1_AccessProtocol extends Check {
             }else{
                 this.status = Constants.ERROR;
                 this.explanation = Constants.HTTP1_EXPLANATION_ERROR;
+                this.guidance = Constants.HTTP1_GUIDANCE;   
             }
         }catch(Exception e){
             this.status = Constants.ERROR;
             this.explanation = Constants.HTTP1_EXPLANATION_ERROR;
+            this.guidance = Constants.HTTP1_GUIDANCE;
         }
     }
 }

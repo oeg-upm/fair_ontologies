@@ -40,11 +40,14 @@ public class Check_URI2_OntologyURIEqualToID extends Check {
         this.description = Constants.URI2_DESC;
         this.originalURI = originalURI;
         this.abbreviation = Constants.URI2;
+        this.guidance = Constants.URI2_GUIDANCE;
+        this.recommendedDoc= Constants.URI2_REC_DOC;
     }
 
     @Override
     public void check() {
         super.check();
+        // this.action = fillAction(this.action);
         try {
             String originalOntology = this.ontology.getOntologyURI().strip();
             if (originalOntology.endsWith("/") || originalOntology.endsWith("#")) {
@@ -60,17 +63,21 @@ public class Check_URI2_OntologyURIEqualToID extends Check {
                     status = Constants.OK;
                     explanation = Constants.URI2_EXPLANATION_OK;
                 } else {
+                    // this.action = fillAction(this.action);
                     status = Constants.ERROR;
                     explanation = Constants.URI2_EXPLANATION_ERROR + ". Ontology URI: " + originalOntology
                             + ". Provided URI: " + originalURI;
+                    this.guidance = fillAction(Constants.URI2_GUIDANCE);
                 }
             }else{
                 status = Constants.ERROR;
                 explanation = Constants.URI2_EXPLANATION_ERROR_LOAD ;
+                this.guidance = fillAction(Constants.URI2_GUIDANCE);
             }
         }catch(Exception e){
             status = Constants.ERROR;
             explanation = Constants.ERROR_METADATA;
+            this.guidance = fillAction(Constants.URI2_GUIDANCE);  
         }
     }
 }

@@ -37,6 +37,8 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
         this.principle_id ="I2";
         this.description = Constants.VOC1_DESC;
         this.abbreviation = Constants.VOC1;
+        this.guidance = Constants.VOC1_GUIDANCE;
+        this.recommendedDoc = Constants.VOC1_REC_DOC;
     }
 
     @Override
@@ -51,6 +53,13 @@ public class Check_VOC1_VocabReuseMetadata extends Check {
         }else{
             status = Constants.ERROR;
             explanation = Constants.VOC1_EXPLANATION_ERROR;
+            ArrayList<String> allNS = ontology.getAllAnnotationNamespaces();
+            if (allNS != null && !allNS.isEmpty()) {
+                this.guidance = "Consider using well-known vocabularies like Dublin Core, PROV-O, etc. " +
+                                "See Widoco best practices or use MOD (https://w3id.org/mod#).";
+            } else {
+                this.guidance = Constants.VOC1_GUIDANCE;
+            }
         }
         //to avoid returning empty lists
         if(reference_resources.isEmpty()){

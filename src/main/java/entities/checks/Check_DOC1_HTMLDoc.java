@@ -35,6 +35,8 @@ public class Check_DOC1_HTMLDoc extends Check {
         this.principle_id ="R1";
         this.description = Constants.DOC1_DESC;
         this.abbreviation = Constants.DOC1;
+        this.guidance = Constants.DOC1_GUIDANCE;
+        this.recommendedDoc= Constants.DOC1_REC_DOC;
     }
 
     @Override
@@ -47,6 +49,7 @@ public class Check_DOC1_HTMLDoc extends Check {
         }else{
             this.explanation = Constants.DOC1_EXPLANATION_ERROR;
             this.status = Constants.ERROR;
+            this.guidance = Constants.DOC1_GUIDANCE;
         }
     }
 }

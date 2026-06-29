@@ -35,6 +35,8 @@ public class Check_RDF1_RDFAvailability extends Check {
         this.principle_id ="I1";
         this.description = Constants.RDF1_DESC;
         this.abbreviation = Constants.RDF1;
+        this.guidance = Constants.RDF1_GUIDANCE;
+        this.recommendedDoc= Constants.RDF1_REC_DOC;
     }
 
     @Override
@@ -47,6 +49,7 @@ public class Check_RDF1_RDFAvailability extends Check {
         }else{
             this.explanation = Constants.RDF1_EXPLANATION_ERROR;
             this.status = Constants.ERROR;
+            this.guidance = Constants.RDF1_GUIDANCE;
         }
     }
 }

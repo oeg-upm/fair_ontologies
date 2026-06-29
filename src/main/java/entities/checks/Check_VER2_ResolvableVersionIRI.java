@@ -36,11 +36,14 @@ public class Check_VER2_ResolvableVersionIRI extends Check {
         this.description = Constants.VER2_DESC;
         this.category_id = Constants.FINDABLE;
         this.abbreviation = Constants.VER2;
+        this.guidance = Constants.VER2_GUIDANCE;
+        this.recommendedDoc= Constants.VER2_REC_DOC;
     }
 
     @Override
     public void check() {
         super.check();
+        // this.action = fillAction(this.action);
         try {
             String versionIRI = this.ontology.getVersionIRI();
             if (versionIRI != null && !"".equals(versionIRI)) {
@@ -51,14 +54,17 @@ public class Check_VER2_ResolvableVersionIRI extends Check {
                 } else {
                     this.status = Constants.ERROR;
                     this.explanation = Constants.VER2_EXPLANATION_ERROR;
+                    this.guidance = fillAction(Constants.VER2_GUIDANCE);
                 }
             } else {
                 this.status = Constants.ERROR;
                 this.explanation = Constants.VER2_EXPLANATION_ERROR_NOT_AVAILABLE;
+                this.guidance = fillAction(Constants.VER2_GUIDANCE);
             }
         }catch(Exception e){
             status = Constants.ERROR;
             explanation = Constants.ERROR_METADATA;
+            this.guidance = fillAction(Constants.VER2_GUIDANCE);
         }
     }
 }

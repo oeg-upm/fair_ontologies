@@ -20,6 +20,8 @@ public class Check_FIND3_BIS_MetadataAccessible extends Check {
         this.principle_id = "A2";
         this.category_id = Constants.ACCESSIBLE;
         this.abbreviation = Constants.FIND3_BIS;
+        this.recommendedDoc= Constants.FIND3_BIS_REC_DOC;
+        this.guidance = Constants.FIND3_BIS_GUIDANCE;
     }
 
     @Override
@@ -31,3 +33,4 @@ public class Check_FIND3_BIS_MetadataAccessible extends Check {
         this.total_passed_tests = find.getTotal_passed_tests();
     }
 }
+    

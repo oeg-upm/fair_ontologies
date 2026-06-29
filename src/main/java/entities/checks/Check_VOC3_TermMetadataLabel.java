@@ -38,6 +38,8 @@ public class Check_VOC3_TermMetadataLabel extends Check {
         this.principle_id ="R1";
         this.description = Constants.VOC3_DESC;
         this.abbreviation = Constants.VOC3;
+        this.guidance = Constants.VOC3_GUIDANCE;
+        this.recommendedDoc= Constants.VOC3_REC_DOC;
     }
 
     @Override
@@ -66,6 +68,7 @@ public class Check_VOC3_TermMetadataLabel extends Check {
                         affected_elements.add(term);
                     }
                 }
+                this.guidance = Constants.VOC3_GUIDANCE;
             }
         }catch(Exception e){
             status = Constants.ERROR;

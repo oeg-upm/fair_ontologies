@@ -33,12 +33,15 @@ public class Check_CN1_ContentNegotiation extends Check {
         this.total_tests_run = 2;
         this.description = Constants.CN1_DESC;
         this.abbreviation = Constants.CN1;
+        this.guidance = Constants.CN1_GUIDANCE;
+        this.recommendedDoc= Constants.CN1_REC_DOC;
     }
 
 
     @Override
     public void check() {
         super.check();
+        // this.action = fillAction(this.action);
         String exp = "";
         if (this.ontology.getHtmlDocumentation() != null){
             exp = "HTML, ";
@@ -54,6 +57,7 @@ public class Check_CN1_ContentNegotiation extends Check {
         }else{
             this.explanation = Constants.CN1_DESC_EXPLANATION_ERROR;
             this.status = Constants.ERROR;
+            this.guidance = fillAction(Constants.CN1_GUIDANCE);
         }
     }
 

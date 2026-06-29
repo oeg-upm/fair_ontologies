@@ -226,6 +226,11 @@ public class FOOPS {
         template = template.replace("$TEST_DESCRIPTION",Utils.escapeJson(check.getDescription()));
         template = template.replace("$TEST_TITLE",check.getTitle());
         template = template.replace("$ORIGINAL_RESOURCE",ontology.getOntologyURI());
+        if (Constants.ERROR.equals(check.getStatus()) || check.getStatus().contains("WARNING")) {
+            template = template.replace("$RESULT_GUIDANCE", check.getGuidance());
+        } else {
+            template = template.replace("$RESULT_GUIDANCE", "");
+        }
         return template;
     }
 
