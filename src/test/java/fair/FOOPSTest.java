@@ -412,4 +412,31 @@ public class FOOPSTest {
         }
     }
 
+    /**
+     * This test verifies that the benchmark score endpoint returns a valid
+     * BenchmarkScore JSON-LD with the required fields (scoring algorithm feature)
+     */
+    @Test
+    public void testExportBenchmarkScore() {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("ontology_100.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            f.fairTest();
+            String result = f.exportBenchmarkScore("ALL");
+            assertNotNull(result);
+            assertTrue("Result must contain BenchmarkScore type", result.contains("ftr#BenchmarkScore"));
+            assertTrue("Result must contain outputFromAlgorithm", result.contains("outputFromAlgorithm"));
+            assertTrue("Result must contain algorithm ALL", result.contains("https://w3id.org/foops/algorithm/ALL"));
+            assertTrue("Result must contain value", result.contains("\"value\""));
+            assertTrue("Result must contain log", result.contains("\"log\""));
+            assertTrue("Result must contain scoredTestResults", result.contains("scoredTestResults"));
+            assertTrue("Result must contain TestResultSet", result.contains("ftr#TestResultSet"));
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
+
 }

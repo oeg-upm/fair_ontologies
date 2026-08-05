@@ -755,6 +755,22 @@ public class Constants {
 //                "  {\"@id\": \""+URI2_URL+"\", \"title\": \""+URI2_TITLE+"\", \"description\": \""+URI2_DESC+"\", \"endpointURL:\"" + FOOPS_TESTS_ENDPOINT + URI2 + "\", \"isDefinedBy: {\"@id:\"" + URI2_URL + "\"}, \"landingPage: {\"@id:\"" + FOOPS_DOC_BASE_URL + URI2 + "/" + URI2 + ".html\"}}\n" +
 //                "]";
         }
+
+    public static String JSON_LD_BENCHMARK_SCORE_TEMPLATE =
+        "{\n" + FTR_CONTEXT +
+        "    \"@id\": \"$SCORE_ID\",\n" +
+        "    \"@type\": \"https://w3id.org/ftr#BenchmarkScore\",\n" +
+        "    \"outputFromAlgorithm\": {\n" +
+        "        \"@id\": \"https://w3id.org/foops/algorithm/$BENCHMARK_ID\",\n" +
+        "        \"@type\": \"https://w3id.org/ftr#ScoringAlgorithm\",\n" +
+        "        \"title\": \"$BENCHMARK_TITLE\",\n" +
+        "        \"description\": \"$BENCHMARK_DESCRIPTION\"\n" +
+        "    },\n" +
+        "    \"value\": \"$SCORE_VALUE\",\n" +
+        "    \"log\": \"$SCORE_LOG\",\n" +
+        "    \"scoredTestResults\": $TEST_RESULT_SET_LIST \n" +
+        "}\n";
+
   
 }
 
