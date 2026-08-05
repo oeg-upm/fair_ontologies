@@ -70,7 +70,10 @@ public class FOOPSController {
         + "{\n" 
         + " \"ontologyUri\": \"https://w3id.org/example#\"\n"
         + "}\n" 
-        + "```"
+        + "```\n"
+        + "Note: Tests may fail if the ontology is too large (max 50MB)\n" 
+        + "or if the URI is not valid or not resolvable."
+
         )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntology", consumes = "application/json", produces = "application/json")
@@ -216,6 +219,7 @@ public class FOOPSController {
                     + " \"resource_identifier\": \"https://w3id.org/example#\"\n"
                     + "}\n"
                     + "```"
+                    + "Note: Tests may fail if the ontology is too large (max 50MB)."
     )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "assess/test/{test_identifier}", consumes = "application/json", produces = "application/json")
@@ -289,6 +293,7 @@ public class FOOPSController {
                     + " \"resource_identifier\": \"https://w3id.org/example#\"\n"
                     + "}\n"
                     + "```"
+                    + "Note: Tests may fail if the ontology is too large (max 50MB)."
     )
     @PostMapping(path = "assess/resultset/{identifier}",  consumes = "application/json", produces = "application/json")
     public String postResultSetAssessment(@PathVariable String identifier,
@@ -389,7 +394,8 @@ public class FOOPSController {
     @Operation(
             summary = "Assess an ontology against a set of FOOPS! tests for pre-assessment. This is the original FOOPS! call for assessment.",
             description = "This call returns a JSON response obtained by FOOPS. " +
-                    "The ontology for assessment is in the body of the POST request"
+                        "The ontology for assessment is in the body of the POST request.\n\n" +
+                        "Note: Tests may fail if the ontology is too large for complete analysis (max 50MB)."
     )
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/assessOntologyFile",consumes = "multipart/form-data", produces = "application/json")

@@ -692,12 +692,9 @@ function getCheckHTML(check_info) {
               </dl>
             </div>
 
-
-
-
             <div class="row m-0" id="${check_info.abbreviation}_SUG" style="display: none">
                 ${getLineHTML()}
-             <div class="row mx-0 mt-2 w-100">
+              <div class="row mx-0 mt-2 w-100">
                     <dl>
                         <dt class="titleSuggest">Recommended Action </dt>
                         <dd>${'Try this curl command: curl -sH Accept:text/turtle -L https://w3id.org/example'}</dd>
@@ -705,11 +702,11 @@ function getCheckHTML(check_info) {
                         <dd>${'https://w3id.org/example'}</dd>
                         <dt class="titleSuggest">Affected Elements </dt>
                     </dl>
+              </div>
             </div>
-
-            ${affected_URIs_HTML}
-            ${reference_URIs_HTML}
           </div>
+          ${affected_URIs_HTML}
+          ${reference_URIs_HTML}
         </div>
       `;
                  // <p id = "suggest" showSuggest('RI1', 'Try this curl command: curl -sH Accept:text/turtle -L https://w3id.org/example', 'URI1, URI2')>Suggestion</p>
