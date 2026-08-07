@@ -393,6 +393,8 @@ public class Constants {
     public static final String PROP_SKOS_PREF_LABEL = NS_SKOS +  "prefLabel";
     public static final String PROP_SKOS_PREF_DEFINITION = NS_SKOS +  "definition";
 
+    public static final String PROP_SKOS_IN_SCHEME = NS_SKOS + "inScheme";
+
     public static final String PROP_OBO_ALT_LABEL = "http://purl.obolibrary.org/obo/IAO_0000118";
 
     public static final String PROP_FOAF_LOGO = NS_FOAF + "logo";
