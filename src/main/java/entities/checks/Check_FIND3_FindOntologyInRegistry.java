@@ -77,6 +77,8 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
         try {
             URL url = new URL(Constants.LOV_ALL_VOCABS);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(10000);
             connection.setRequestMethod("GET");
             InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
@@ -138,6 +140,8 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
             String query = "ASK WHERE { GRAPH ?g { <" + uri + "> ?p ?o } }";
             URL url = new URL(Constants.ONTOBEE_SPARQL_ENDPOINT);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(5000);
+            conn.setReadTimeout(10000);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestProperty("Accept", "application/sparql-results+json");

@@ -93,6 +93,8 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                 platform = "LOV";
             }
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(10000);
             connection.setRequestMethod("GET");
             InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
