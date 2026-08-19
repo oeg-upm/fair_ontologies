@@ -86,15 +86,18 @@ public class Check_FIND2_PrefixInRegistry extends Check {
     private void getPrefix(String urlAPI, String fieldToRetrieveNs, String ontoURI){
         try {
             URL url = new URL(urlAPI);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             String platform;
             if (urlAPI.contains("prefix.cc")){
                 platform = "prefix.cc";
+                connection.setConnectTimeout(Constants.PREFIX_CC_CONNECT_TIMEOUT_MS);
+                connection.setReadTimeout(Constants.PREFIX_CC_READ_TIMEOUT_MS);
             }else{
                 platform = "LOV";
+                connection.setConnectTimeout(Constants.LOV_CONNECT_TIMEOUT_MS);
+                connection.setReadTimeout(Constants.LOV_READ_TIMEOUT_MS);
             }
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(10000);
+            
             connection.setRequestMethod("GET");
             InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
