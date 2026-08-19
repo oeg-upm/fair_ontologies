@@ -342,7 +342,19 @@ public class Constants {
     public static final String PREFIX_CC = "http://prefix.cc/";
 
     //to do: ontobee (http://www.ontobee.org/sparql), bioportal,
+    public static final String ONTOBEE_SPARQL_ENDPOINT = "https://sparql.hegroup.org/sparql/";
+    public static final String BIOPORTAL_BASE_URL = "https://data.bioontology.org";
+    public static final String BIOPORTAL_API_KEY = ""; // TODO:not sure about this. Doc bioportal says : "An API Key is required to access any API call"
 
+    /* timeouts platforms*/
+    public static final int LOV_CONNECT_TIMEOUT_MS = 5000;
+    public static final int LOV_READ_TIMEOUT_MS = 10000;
+    public static final int PREFIX_CC_CONNECT_TIMEOUT_MS = 5000;
+    public static final int PREFIX_CC_READ_TIMEOUT_MS = 10000;
+    public static final int ONTOBEE_CONNECT_TIMEOUT_MS = 5000;
+    public static final int ONTOBEE_READ_TIMEOUT_MS = 10000;
+    public static final int BIOPORTAL_CONNECT_TIMEOUT_MS = 5000; //TODO: API KEY needed for this. 
+    public static final int BIOPORTAL_READ_TIMEOUT_MS = 10000;
 
     /* FAIR Categories*/
     public static final String FINDABLE = "Findable";

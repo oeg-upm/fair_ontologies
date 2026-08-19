@@ -30,6 +30,8 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 
 /**
  * This check looks if the ontology can be found in LOV.
@@ -75,6 +77,8 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
         try {
             URL url = new URL(Constants.LOV_ALL_VOCABS);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(Constants.LOV_CONNECT_TIMEOUT_MS);
+            connection.setReadTimeout(Constants.LOV_READ_TIMEOUT_MS);
             connection.setRequestMethod("GET");
             InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
@@ -97,20 +101,63 @@ public class Check_FIND3_FindOntologyInRegistry extends Check {
                     this.status = Constants.OK;
                     this.explanation = Constants.FIND3_EXPLANATION_OK + " LOV repository";
                 }else{
-                    // TO DO: Try ontobee, bioportal. For now we just report error
-                    this.status = Constants.ERROR;
-                    this.explanation = Constants.FIND3_EXPLANATION_ERROR;
+                    boolean foundInOntobee = checkOntobee(ontoURI) || checkOntobee(namespaceURI);
+                    if (foundInOntobee) {
+                        this.total_passed_tests++;
+                        this.status = Constants.OK;
+                        this.explanation = Constants.FIND3_EXPLANATION_OK + " ontobee";
+                    } else {
+                        this.status = Constants.ERROR;
+                        this.explanation = Constants.FIND3_EXPLANATION_ERROR;
+                    }
                 }
             }catch(Exception e){
+                if (checkOntobee(ontoURI) || checkOntobee(namespaceURI)) {
+                    this.total_passed_tests++;
+                    this.status = Constants.OK;
+                    this.explanation = Constants.FIND3_EXPLANATION_OK + " ontobee";
+                    return;
+                }
                 this.status = Constants.ERROR;
                 this.explanation = Constants.FIND3_EXPLANATION_ERROR;
-                // TO DO: Try ontobee, bioportal. For now we just report error
             }
 
             in.close();
         }catch(Exception e){
-            this.status = Constants.ERROR;
-            this.explanation = Constants.FIND3_EXPLANATION_ERROR;
+            if (checkOntobee(ontoURI) || checkOntobee(namespaceURI)) {
+                this.total_passed_tests++;
+                this.status = Constants.OK;
+                this.explanation = Constants.FIND3_EXPLANATION_OK + " ontobee";
+            } else {
+                this.status = Constants.ERROR;
+                this.explanation = Constants.FIND3_EXPLANATION_ERROR;
+            }
+        }
+    }
+
+    private boolean checkOntobee(String uri) {
+        try {
+            String query = "ASK WHERE { GRAPH ?g { <" + uri + "> ?p ?o } }";
+            URL url = new URL(Constants.ONTOBEE_SPARQL_ENDPOINT);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(Constants.ONTOBEE_CONNECT_TIMEOUT_MS);
+            conn.setReadTimeout(Constants.ONTOBEE_READ_TIMEOUT_MS);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty("Accept", "application/sparql-results+json");
+            conn.setDoOutput(true);
+            String body = "query=" + URLEncoder.encode(query, "UTF-8");
+            try (OutputStream os = conn.getOutputStream()) {
+                os.write(body.getBytes("UTF-8"));
+            }
+            try (InputStream in = conn.getInputStream()) {
+                StringWriter writer = new StringWriter();
+                IOUtils.copy(in, writer, "UTF-8");
+                JsonObject result = JsonParser.parseString(writer.toString()).getAsJsonObject();
+                return result.get("boolean").getAsBoolean();
+            }
+        } catch (Exception e) {
+            return false; 
         }
     }
 }
