@@ -365,6 +365,26 @@ public class FOOPSTest {
     }
 
     /**
+     * This test verifies that OM3 passes when doi, logo and source are absent,
+     * confirming they are treated as optional (warning only).
+     */
+    @Test
+    public void om3PassesWithoutDoiLogoSource() {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("ontology_om3_no_doi_logo_source.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_OM3_DetailedMetadata ch3 = new Check_OM3_DetailedMetadata(f.getOntology());
+            ch3.check();
+            assertEquals("OM3 should pass even without doi, logo and source", Constants.OK, ch3.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
+
+    /**
      * This test verifies that the test version is included in the JSON-LD output (issue 214).
      */
     @Test

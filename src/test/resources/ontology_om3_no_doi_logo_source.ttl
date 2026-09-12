@@ -1,0 +1,25 @@
+@prefix : <https://example.org/test-om3#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix schema: <https://schema.org/> .
+@base <https://example.org/test-om3#> .
+
+<https://example.org/test-om3> rdf:type owl:Ontology ;
+    owl:versionIRI <https://example.org/test-om3/1.0.0> ;
+    dcterms:title "Test OM3 Ontology (no doi, logo, source)"@en ;
+    dcterms:description "An ontology for testing that doi, logo and source are optional in OM3."@en ;
+    dcterms:created "2024-01-01"^^xsd:date ;
+    dcterms:issued "2024-01-01"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0000-0000-0001> ;
+    dcterms:publisher <https://example.org/org> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights "Copyright 2024 Example Org" ;
+    bibo:status <http://purl.org/ontology/bibo/status/published> ;
+    vann:preferredNamespacePrefix "test-om3" ;
+    vann:preferredNamespaceUri "https://example.org/test-om3#" ;
+    owl:versionInfo "1.0.0" .
