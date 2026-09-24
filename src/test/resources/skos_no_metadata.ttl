@@ -1,0 +1,9 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://example.org/kos/no-metadata> a skos:ConceptScheme ;
+    skos:prefLabel "Scheme without reusable metadata" ;
+    skos:hasTopConcept <http://example.org/kos/no-metadata/a> .
+
+<http://example.org/kos/no-metadata/a> a skos:Concept ;
+    skos:inScheme <http://example.org/kos/no-metadata> ;
+    skos:prefLabel "a" .
