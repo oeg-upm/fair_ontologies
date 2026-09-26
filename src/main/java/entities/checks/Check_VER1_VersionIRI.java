@@ -36,11 +36,14 @@ public class Check_VER1_VersionIRI extends Check {
         this.category_id = Constants.FINDABLE;
         this.total_tests_run = 2; // one for URI version availability, the second one for equivalence check
         this.abbreviation = Constants.VER1;
+        this.guidance = Constants.VER1_GUIDANCE;
+        this.recommendedDoc= Constants.VER1_REC_DOC;
     }
 
     @Override
     public void check() {
         super.check();
+        // this.action = fillAction(this.action);
         try {
             String versionIRI = this.ontology.getVersionIRI();
             String versionInfo = this.ontology.getVersionInfo();
@@ -65,9 +68,11 @@ public class Check_VER1_VersionIRI extends Check {
             }
             this.status = Constants.ERROR;
             this.explanation = Constants.VER1_EXPLANATION_ERROR + explanation + versionInfoExplanation;
+            this.guidance = fillAction(Constants.VER1_GUIDANCE); 
         }catch(Exception e){
             status = Constants.ERROR;
             explanation = Constants.ERROR_METADATA;
+            this.guidance = fillAction(Constants.VER1_GUIDANCE); 
         }
     }
 }

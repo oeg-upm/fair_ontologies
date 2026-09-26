@@ -689,29 +689,38 @@ function getCheckHTML(check_info) {
                 <dd>${check_info.description}</dd>
                 <dt>Explanation</dt>
                 <dd>${check_info.explanation}</dd>
+                ${check_info.status !== 'OK' ? `
+                <dt class="suggestion-dt">Suggestion</dt>
+                <dd>${renderGuidance(check_info.guidance)}
+                ${check_info.recommendedDoc ? `<br>For more information, see <a href="${check_info.recommendedDoc}" target="_blank">${check_info.recommendedDoc}</a>` : ''}</dd>
+                ` : ''}
               </dl>
             </div>
 
-            <div class="row m-0" id="${check_info.abbreviation}_SUG" style="display: none">
-                ${getLineHTML()}
-              <div class="row mx-0 mt-2 w-100">
-                    <dl>
-                        <dt class="titleSuggest">Recommended Action </dt>
-                        <dd>${'Try this curl command: curl -sH Accept:text/turtle -L https://w3id.org/example'}</dd>
-                        <dt class="titleSuggest">Recommended Documentation </dt>
-                        <dd>${'https://w3id.org/example'}</dd>
-                        <dt class="titleSuggest">Affected Elements </dt>
-                    </dl>
-              </div>
-            </div>
+              ${affected_URIs_HTML}
+              ${reference_URIs_HTML}
           </div>
-          ${affected_URIs_HTML}
-          ${reference_URIs_HTML}
         </div>
       `;
                  // <p id = "suggest" showSuggest('RI1', 'Try this curl command: curl -sH Accept:text/turtle -L https://w3id.org/example', 'URI1, URI2')>Suggestion</p>
 
    }
+
+
+               // <div class="row mx-0 mt-2 w-100">
+            //     <a href="javascript:void(0)" onclick="toggleSuggestion('${check_info.abbreviation}')">
+            //       <i>Show suggestion</i>
+            //     </a>
+            // </div>
+
+              //           <div class="row m-0" id="${check_info.abbreviation}_SUG" style="display: none">
+              //   ${getLineHTML()}
+              // <div class="row mx-0 mt-2 w-100">
+              //   <p>
+              //       ${(check_info.guidance || 'No action suggested').replace(/\n/g, '<br>')}
+              //       ${check_info.recommendedDoc ? `<br><br>For more information, see <a href="${check_info.recommendedDoc}" target="_blank">${check_info.recommendedDoc}</a>` : ''}
+              //   </p>
+              // </div>
 
    return divTexto;
 
@@ -840,6 +849,16 @@ function categoryClicked(event, categoryName){
 
 }
 
+
+function toggleSuggestion(id) {
+  var sugDiv = document.querySelector("#"+id+"_SUG");
+  if (sugDiv.style.display === "none" || sugDiv.style.display === "") {
+    sugDiv.style.display = "block";
+  } else {
+    sugDiv.style.display = "none";
+  }
+}
+
 function arrowClicked(event, id){
     //console.log(event);
   status = getArrowStatus(event)
@@ -940,6 +959,14 @@ function showSuggest(titulo, contenido, ey) {
       */
 
 
+}
+function renderGuidance(guidance) {
+  if (!guidance) return 'No action suggested';
+  const parts = guidance.split(/(<pre>[\s\S]*?<\/pre>)/g);
+  return parts.map(part => {
+    if (part.startsWith('<pre>')) return part;
+    return part.replace(/\n/g, '<br>');
+  }).join('');
 }
 
   /**********/

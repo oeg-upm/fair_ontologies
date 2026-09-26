@@ -36,6 +36,8 @@ public class Check_OM4_2_LicenseIsResolvable extends Check {
         this.category_id = Constants.REUSABLE;
         this.principle_id ="R1.1";
         this.abbreviation = Constants.OM4_2;
+        this.guidance = Constants.OM4_2_GUIDANCE;
+        this.recommendedDoc= Constants.OM4_2_REC_DOC;
     }
 
     @Override
@@ -50,10 +52,12 @@ public class Check_OM4_2_LicenseIsResolvable extends Check {
             }else{
                 this.status = Constants.ERROR;
                 this.explanation = Constants.OM4_2_EXPLANATION_ERROR;
+                this.guidance = fillAction(Constants.OM4_2_GUIDANCE);  
             }
         }else{
             this.status = Constants.ERROR;
-            this.explanation = Constants.OM4_1_EXPLANATION_ERROR;
+            this.explanation = Constants.OM4_2_EXPLANATION_ERROR;
+            this.guidance = fillAction(Constants.OM4_2_GUIDANCE);
         }
 
     }

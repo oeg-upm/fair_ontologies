@@ -32,6 +32,8 @@ public class Check_OM2_RecommendedMetadata extends Check {
         this.principle_id = "R1";
         this.total_tests_run = Constants.RECOMMENDED_METADATA.length;
         this.abbreviation = Constants.OM2;
+        this.recommendedDoc= Constants.OM2_REC_DOC;
+        this.guidance = Constants.OM2_GUIDANCE;
     }
     /**
      * This check verifies whether the detected metadata is the recommended one
@@ -55,6 +57,8 @@ public class Check_OM2_RecommendedMetadata extends Check {
         }else {
             this.status = Constants.ERROR;
             explanation = Constants.OM2_EXPLANATION + exp.substring(0, exp.length() - 2);
+            this.guidance = "Add the recommended and optional recommended metadata. For minimum metadata requirements, see the OM1 check results. The Turtle code below shows an example:<br>"
+            + buildMetadataSnippet(Constants.RECOMMENDED_METADATA, Constants.RECOMMENDED_METADATA_OPTIONAL);
         }
 
         StringBuilder optional = new StringBuilder();
@@ -66,6 +70,8 @@ public class Check_OM2_RecommendedMetadata extends Check {
         if (!"".equals(optional.toString())){
             explanation += ". Warning: The following OPTIONAL recommended metadata could not be found: "+
                     optional.substring(0,optional.length() -2) + ". Please consider adding them if appropriate.";
+           this.guidance = "Add the recommended and optional recommended metadata. For minimum metadata requirements, see the OM1 check results. The Turtle code below shows an example:<br>"
+            + buildMetadataSnippet(Constants.RECOMMENDED_METADATA, Constants.RECOMMENDED_METADATA_OPTIONAL);
         }
 
     }

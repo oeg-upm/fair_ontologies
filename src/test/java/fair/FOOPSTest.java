@@ -412,4 +412,38 @@ public class FOOPSTest {
         }
     }
 
+    @Test
+    public void testUri1ActionContainsOntologyUri() {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("ontology_100.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_URI1_URIResolvable check = new Check_URI1_URIResolvable(f.getOntology());
+            check.check();
+            assertNotNull("Guidance should not be null", check.getGuidance());
+            assertTrue("Guidance should mention curl", check.getGuidance().contains("curl -sH"));
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file", e);
+            fail();
+        }
+    }
+
+    @Test
+    public void testVer2ActionContainsVersionIri() {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("ontology_100.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_VER2_ResolvableVersionIRI check = new Check_VER2_ResolvableVersionIRI(f.getOntology());
+            check.check();
+            assertNotNull("Guidance should not be null", check.getGuidance());
+            assertTrue("Guidance should mention curl", check.getGuidance().contains("curl -sH"));
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file", e);
+            fail();
+        }
+    }
+
 }

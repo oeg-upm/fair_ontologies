@@ -49,6 +49,8 @@ public class Check_FIND2_PrefixInRegistry extends Check {
         this.total_tests_run = 2;
         //one test to see if the onto is there, another one to check if the namespace is the right one
         this.abbreviation = Constants.FIND2;
+        this.guidance = Constants.FIND2_GUIDANCE;
+        this.recommendedDoc= Constants.FIND2_REC_DOC;
     }
 
     @Override
@@ -63,6 +65,7 @@ public class Check_FIND2_PrefixInRegistry extends Check {
         if ("".equals(ontoPrefix) || ontoPrefix == null){
             this.status = Constants.ERROR;
             this.explanation = "No prefix declared in the ontology";
+            this.guidance = Constants.FIND2_GUIDANCE;
             return;
         }
         // Prefix.cc
@@ -112,20 +115,24 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                     }else{
                         this.status = Constants.ERROR;
                         this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST+". Prefix found in "+platform+": "+ns;
+                        this.guidance = Constants.FIND2_GUIDANCE;
                     }
                 }else {
                     this.status = Constants.ERROR;
                     this.explanation = Constants.FIND2_EXPLANATION_ERROR;
+                    this.guidance = Constants.FIND2_GUIDANCE;
                 }
             }catch(Exception e){
                 this.status = Constants.ERROR;
                 this.explanation = Constants.FIND2_EXPLANATION_ERROR;//prefix not found!
+                this.guidance = Constants.FIND2_GUIDANCE;
             }
 
             in.close();
         }catch(Exception e){
             this.status = Constants.ERROR;
             this.explanation = "Error when retrieving prefix";
+            this.guidance = Constants.FIND2_GUIDANCE;
         }
     }
 }

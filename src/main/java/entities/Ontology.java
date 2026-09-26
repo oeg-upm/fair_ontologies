@@ -74,6 +74,7 @@ public class Ontology {
     private final ArrayList<String> terms; // all terms
     private final ArrayList<String> termsWithDescription;
     private boolean isSKOS = false;
+    private final ArrayList<String> allAnnotationNamespaces;
 
     /**
      * Ontology class constructor
@@ -89,6 +90,7 @@ public class Ontology {
         termsWithLabel = new ArrayList<>();
         termsWithDescription = new ArrayList<>();
         terms = new ArrayList<>();
+        allAnnotationNamespaces = new ArrayList<>();
         //Download ontology (any serialization)
         try {
             this.loadModelToDocument(o, isFromFile, tmpFolder.toString());
@@ -516,11 +518,21 @@ public class Ontology {
      * @param a annotation to analyze
      */
     private void checkNamespaces(OWLAnnotation a){
+        boolean found = false;
+
         for (String vocab: Constants.VOCS_REUSE_METADATA){
             if (a.getProperty().getIRI().getIRIString().contains(vocab)){
                 if(!reusedMetadataVocabularies.contains(vocab)) {
                     reusedMetadataVocabularies.add(vocab);
                 }
+                found = true;
+            }
+        }
+
+        if (!found) {
+            String ns = a.getProperty().getIRI().getNamespace();
+            if (ns != null && !allAnnotationNamespaces.contains(ns)) {
+                allAnnotationNamespaces.add(ns);
             }
         }
     }
@@ -638,6 +650,10 @@ public class Ontology {
         return namespacePrefix;
     }
 
+    public ArrayList<String> getAllAnnotationNamespaces() {
+        return allAnnotationNamespaces;
+    }
+    
     public String getVersionIRI() {
         return versionIRI;
     }
@@ -800,5 +816,6 @@ public class Ontology {
                 new StreamDocumentSource(new FileInputStream(ontologyFile), IRI.create(pathOrURI)),
                 loadingConfig
         );
+       
     }
 }

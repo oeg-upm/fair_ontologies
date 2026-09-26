@@ -35,6 +35,8 @@ public class Check_FIND1_Prefix extends Check {
         this.category_id = Constants.FINDABLE;
         this.principle_id = "F3";
         this.abbreviation = Constants.FIND1;
+        this.guidance = Constants.FIND1_GUIDANCE;
+        this.recommendedDoc= Constants.FIND1_REC_DOC;
 
     }
 
@@ -49,6 +51,7 @@ public class Check_FIND1_Prefix extends Check {
         }else{
             this.status = Constants.ERROR;
             this.explanation = Constants.FIND1_EXPLANATION_ERROR;
+            this.guidance = Constants.FIND1_GUIDANCE;
         }
     }
 }
