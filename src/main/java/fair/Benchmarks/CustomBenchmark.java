@@ -98,5 +98,7 @@ public class CustomBenchmark extends Benchmark {
             }
         }
         this.setChecks(checks);
+        this.setName(Constants.BENCHMARK_ALL_NAME);
+        this.setDescription(Constants.BENCHMARK_ALL_DESCRIPTION);
     }
 }

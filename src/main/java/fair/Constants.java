@@ -139,7 +139,7 @@ public class Constants {
     public static final String OM3_EXPLANATION = OM1_EXPLANATION_ERROR;
 
     //license
-    public static final String OM4_1 = "OM4_1";
+    public static final String OM4_1 = "OM4.1";
     public static String OM4_1_TITLE; // = "License availability";
     public static String OM4_1_DESC; // = "This check verifies if a license associated with the ontology";
     public static final String OM4_1_EXPLANATION_OK = "A license was found";
@@ -147,21 +147,21 @@ public class Constants {
     public static final String OM4_1_EXPLANATION_ERROR = "License or rights not found";
 
     //license_resolvable
-    public static final String OM4_2 = "OM4_2";
+    public static final String OM4_2 = "OM4.2";
     public static String OM4_2_TITLE; // = "License is resolvable";
     public static String OM4_2_DESC; // = "This check verifies if the ontology license is resolvable";
     public static final String OM4_2_EXPLANATION_OK = "License could be resolved";
     public static final String OM4_2_EXPLANATION_ERROR = "The license used could not be resolved";
 
     //provenance
-    public static final String OM5_1 = "OM5_1";
+    public static final String OM5_1 = "OM5.1";
     public static String OM5_1_TITLE; // = "Basic provenance metadata";
     public static String OM5_1_DESC; // = "This check verifies if basic provenance is available for the ontology: " +
     // "[author, creation date]. This check also verifies whether [contributor, previous version] are present" +
     //         ", but with no penalty (as no all ontologies may have a previous version or a contributor)";
     public static final String OM5_1_EXPLANATION = "The following provenance information was not found: ";
 
-    public static final String OM5_2 = "OM5_2";
+    public static final String OM5_2 = "OM5.2";
     public static String OM5_2_TITLE; // = "Detailed provenance metadata";
     public static String OM5_2_DESC; // = "This check verifies if detailed provenance information is available " +
     // "for the ontology: [issued date, publisher]";
