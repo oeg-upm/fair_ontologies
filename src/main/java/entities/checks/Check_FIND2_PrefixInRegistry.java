@@ -32,13 +32,18 @@ import com.google.gson.JsonParser;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-
+import fair.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * This check verifies whether the ontology can be found in prefix.cc or not.
  * Note: A cache could help avoid doing this request.
  */
 
 public class Check_FIND2_PrefixInRegistry extends Check {
+
+    private static final Logger logger = LoggerFactory.getLogger(Check_FIND2_PrefixInRegistry.class);
+    
     public Check_FIND2_PrefixInRegistry(Ontology o) {
         super(o);
         this.id = Constants.FIND2_URL;
@@ -93,6 +98,8 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                 platform = "LOV";
             }
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(10000);
             connection.setRequestMethod("GET");
             InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
@@ -113,6 +120,9 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                         this.status = Constants.ERROR;
                         this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST+". Prefix found in "+platform+": "+ns;
                     }
+                    if (urlAPI.contains("prefix.cc")) {
+                        Utils.updateLocalPrefix(fieldToRetrieveNs, ns);
+                    }
                 }else {
                     this.status = Constants.ERROR;
                     this.explanation = Constants.FIND2_EXPLANATION_ERROR;
@@ -124,6 +134,25 @@ public class Check_FIND2_PrefixInRegistry extends Check {
 
             in.close();
         }catch(Exception e){
+            //local prefix.cc
+             if (urlAPI.contains("prefix.cc")) {
+                String localNs = Utils.getLocalPrefix(fieldToRetrieveNs);
+                if (localNs != null) {
+                    if (localNs.endsWith("/") || localNs.endsWith("#"))
+                        localNs = localNs.substring(0, localNs.length() - 1);
+                    this.total_passed_tests++;
+                    if (localNs.equals(ontoURI)) {
+                        this.total_passed_tests++;
+                        this.status = Constants.OK;
+                        this.explanation = Constants.FIND2_EXPLANATION_OK + " (in local prefix.cc)";
+                    } else {
+                        this.status = Constants.ERROR;
+                        this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST + ". Prefix found in local prefix.cc: " + localNs;
+                    }
+                    logger.info("Prefix found in local prefix.cc map: " + fieldToRetrieveNs + " → " + localNs);
+                    return; 
+                }
+            } 
             this.status = Constants.ERROR;
             this.explanation = "Error when retrieving prefix";
         }

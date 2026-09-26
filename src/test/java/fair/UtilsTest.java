@@ -53,7 +53,11 @@ public class UtilsTest {
         assertFalse(Utils.isURIResolvable(random_string));
     }
 
-
+    @Test
+    public void testGetLocalPrefixKnown() {
+        String ns = Utils.getLocalPrefix("foaf");
+        assertEquals("http://xmlns.com/foaf/0.1/", ns);
+    }
     // additional tests are needed:
     // example: for sulo (https://w3id.org/sulo/sulo.ttl) the namespace URI is declared through the annotation.
     // do the example to load from a local file
