@@ -32,6 +32,7 @@ import server.FileTooLargeException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.nio.file.Path;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -74,6 +75,7 @@ public class Ontology {
     private final ArrayList<String> terms; // all terms
     private final ArrayList<String> termsWithDescription;
     private boolean isSKOS = false;
+    private String ontologyFilePath;
 
     /**
      * Ontology class constructor
@@ -96,6 +98,14 @@ public class Ontology {
                 this.ontologyURI = this.ontologyModel.getOntologyID().getOntologyIRI().get().toString();
             } 
             logger.info("Ontology URI to assess: "+ontologyURI);
+
+            if (this.ontologyURI == null || this.ontologyURI.isEmpty()) {
+                String baseIRI = extractBaseFromFile(this.ontologyFilePath);
+                if (baseIRI != null) {
+                    this.ontologyURI = baseIRI;
+                    logger.info("Ontology URI extracted from @base: " + ontologyURI);
+                }
+            }
         }catch(FileTooLargeException e) {
             throw e;
         }
@@ -795,10 +805,30 @@ public class Ontology {
         loadingConfig = loadingConfig.setFollowRedirects(false);
 
         logger.info("Parsing type: "+loadingConfig.isStrict());
-
+        this.ontologyFilePath = ontologyPath;
         this.ontologyModel = manager.loadOntologyFromOntologyDocument(
                 new StreamDocumentSource(new FileInputStream(ontologyFile), IRI.create(pathOrURI)),
                 loadingConfig
         );
+    }
+
+    /**
+     * method to extract the base URI from an ontology file when OWLAPI cannot determine the ontology URI automatically.
+     */
+    private String extractBaseFromFile(String filePath) {
+        try {
+            String content = Files.readString(Path.of(filePath));
+            // Turtle
+            java.util.regex.Matcher turtle = 
+                java.util.regex.Pattern.compile("@base\\s+<([^>]+)>").matcher(content);
+            if (turtle.find()) return turtle.group(1);
+            // JSON-LD
+            java.util.regex.Matcher jsonld = 
+                java.util.regex.Pattern.compile("\"@base\"\\s*:\\s*\"([^\"]+)\"").matcher(content);
+            if (jsonld.find()) return jsonld.group(1);
+        } catch (Exception e) {
+            logger.warn("Could not extract @base from file: " + e.getMessage());
+        }
+        return null;
     }
 }
