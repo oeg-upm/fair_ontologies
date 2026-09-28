@@ -320,6 +320,7 @@ public class Ontology {
                 this.namespacePrefix = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.supportedMetadata.add(Constants.FOOPS_NS_PREFIX);
                 break;
+            case Constants.PROP_VOID_URI_SPACE:
             case Constants.PROP_VANN_URI:
                 value = Utils.getValueAsLiteralOrURI(a.getValue());
                 this.namespaceUri = value;
