@@ -85,7 +85,7 @@
         ],
         "http://www.w3.org/ns/dcat#endpointURL": [
             {
-                "@id": "https://foops.linkeddata.es/assess/test/URL2"
+                "@id": "https://foops.linkeddata.es/assess/test/URI2"
             }
         ],
         "http://www.w3.org/ns/dcat#keyword": [
