@@ -1,0 +1,16 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<http://vocab.example.org/my-scheme> rdf:type owl:NamedIndividual ;
+    dc:title "Inferred scheme vocabulary"@en .
+
+<http://vocab.example.org/concept1> a skos:Concept ;
+    skos:inScheme <http://vocab.example.org/my-scheme> ;
+    skos:prefLabel "Concept 1"@en .
+
+<http://vocab.example.org/concept2> a skos:Concept ;
+    skos:inScheme <http://vocab.example.org/my-scheme> ;
+    skos:prefLabel "Concept 2"@en .

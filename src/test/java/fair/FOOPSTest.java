@@ -440,6 +440,24 @@ public class FOOPSTest {
     }
 
     /**
+     * This test verifies that a concept scheme is inferred when none is declared.
+     */
+    @Test
+    public void testSKOSInferredScheme(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("skos_inferred.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            assertTrue(f.getOntology().isSKOS());
+            assertEquals("http://vocab.example.org/my-scheme", f.getOntology().getOntologyURI());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
+  
+    /**
      * VOC1 must pass for a SKOS vocabulary whose metadata (dc) lives in the
      * skos:ConceptScheme and that has no owl:Ontology node. Dani detected in issue 274
      * with https://vocabs.ilc4clarin.ilc.cnr.it/vocabularies/echoes/

@@ -37,6 +37,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Optional;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Ontology {
     private OWLOntology ontologyModel;
     private Document htmlDocumentation;
@@ -114,6 +117,14 @@ public class Ontology {
                     this.ontologyURI = cs.get(0).toStringID();
                     this.isSKOS = true;
                     logger.info("SKOS ConceptScheme detected: " + ontologyURI);
+                } else {
+                    // No explicit concept scheme: try to infer it from skos:inScheme
+                    String inferredScheme = inferConceptScheme();
+                    if (inferredScheme != null) {
+                        this.ontologyURI = inferredScheme;
+                        this.isSKOS = true;
+                        logger.info("SKOS ConceptScheme inferred from skos:inScheme: " + ontologyURI);
+                    }
                 }
         }
 
@@ -163,8 +174,12 @@ public class Ontology {
         if (isSKOS){
             logger.info("Is a SKOS vocabulary, retrieving metadata from the concept scheme");
             // get annotations on the onto URI.
-            OWLIndividual cs = EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().
-                    getOWLClass(Constants.SKOS_CONCEPT_SCHEME), ontologyModel).collect(Collectors.toList()).get(0);
+            // OWLIndividual cs = EntitySearcher.getInstances(ontologyModel.getOWLOntologyManager().getOWLDataFactory().
+            //         getOWLClass(Constants.SKOS_CONCEPT_SCHEME), ontologyModel).collect(Collectors.toList()).get(0);
+
+            OWLNamedIndividual cs = ontologyModel.getOWLOntologyManager().getOWLDataFactory()
+                .getOWLNamedIndividual(IRI.create(this.ontologyURI));
+
             EntitySearcher.getAnnotations((OWLEntity) cs, this.getOntologyModel()).forEach(this::completeMetadata);
         } else {
             logger.info("NO SKOS vocabulary");
@@ -211,6 +226,42 @@ public class Ontology {
                
             }
         }
+    }
+
+    /**
+     * Infers a SKOS concept scheme by looking for resources with skos:inScheme
+     * whose object is an individual declared in the vocabulary.
+     * Handles skos:inScheme both as annotation property and as object property.
+     */
+    private String inferConceptScheme() {
+        Set<String> candidates = new HashSet<>();
+        String inSchemeIri = Constants.PROP_SKOS_IN_SCHEME;
+
+        for (OWLAxiom axiom : ontologyModel.getAxioms()) {
+            if (axiom instanceof OWLAnnotationAssertionAxiom) {
+                OWLAnnotationAssertionAxiom aa = (OWLAnnotationAssertionAxiom) axiom;
+                if (aa.getProperty().getIRI().getIRIString().equals(inSchemeIri) && aa.getValue().isIRI()) {
+                    candidates.add(aa.getValue().asIRI().get().toString());
+                }
+            } else if (axiom instanceof OWLObjectPropertyAssertionAxiom) {
+                OWLObjectPropertyAssertionAxiom opa = (OWLObjectPropertyAssertionAxiom) axiom;
+                if (opa.getProperty().asOWLObjectProperty().getIRI().getIRIString().equals(inSchemeIri)) {
+                    candidates.add(opa.getObject().toStringID());
+                }
+            }
+        }
+
+        // keep only candidates that are individuals in the vocabulary
+        Set<String> vocabularyIndividuals = new HashSet<>();
+        for (OWLNamedIndividual ind : ontologyModel.getIndividualsInSignature()) {
+            vocabularyIndividuals.add(ind.getIRI().toString());
+        }
+        candidates.retainAll(vocabularyIndividuals);
+
+        if (candidates.isEmpty()) {
+            return null;
+        }
+        return candidates.iterator().next();
     }
 
     private void completeMetadata(OWLAnnotation a) {
