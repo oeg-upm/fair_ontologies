@@ -337,8 +337,11 @@ public class Constants {
             + "        This option is incompatible with -ontFile\n" ;
 
     // registries
-    public static final String LOV_ALL_VOCABS = "https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/list";
-    public static final String LOV_PREFIX_VOCAB = "https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/info?vocab=";
+    // former api
+//     public static final String LOV_ALL_VOCABS = "https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/list";
+//     public static final String LOV_PREFIX_VOCAB = "https://lov.linkeddata.es/dataset/lov/api/v2/vocabulary/info?vocab=";
+    public static final String LOV_ALL_VOCABS = "https://lov.linkeddata.es/dataset/api/v2/vocabulary/list";
+    public static final String LOV_PREFIX_VOCAB = "https://lov.linkeddata.es/dataset/api/v2/vocabulary/info?vocab=";
     public static final String PREFIX_CC = "http://prefix.cc/";
 
     //to do: ontobee (http://www.ontobee.org/sparql), bioportal,
