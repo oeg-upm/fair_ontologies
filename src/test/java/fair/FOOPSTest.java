@@ -456,4 +456,47 @@ public class FOOPSTest {
             fail();
         }
     }
+  
+    /**
+     * VOC1 must pass for a SKOS vocabulary whose metadata (dc) lives in the
+     * skos:ConceptScheme and that has no owl:Ontology node. Dani detected in issue 274
+     * with https://vocabs.ilc4clarin.ilc.cnr.it/vocabularies/echoes/
+     */
+    @Test
+    public void testVOC1SkosConceptSchemeMetadata(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("skos_example.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_VOC1_VocabReuseMetadata c = new Check_VOC1_VocabReuseMetadata(f.getOntology());
+            c.check();
+            assertEquals(Constants.OK, c.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file", e);
+            fail();
+        }
+    }
+
+    /**
+     * VOC1 must still fail for a SKOS vocabulary whose concept scheme does not
+     * use any whitelisted metadata vocabulary. Dani detected in issue 274
+     * with https://vocabs.ilc4clarin.ilc.cnr.it/vocabularies/echoes/.
+     */
+    @Test
+    public void testVOC1SkosWithoutReusedMetadata(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("skos_no_metadata.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_VOC1_VocabReuseMetadata c = new Check_VOC1_VocabReuseMetadata(f.getOntology());
+            c.check();
+            assertEquals(Constants.ERROR, c.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file", e);
+            fail();
+        }
+    }
+
 }

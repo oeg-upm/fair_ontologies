@@ -511,6 +511,14 @@ public class Ontology {
      */
     private void getOntologyCoverage(){
         //metadata vocabularies
+        //skos has metadata in concepscheme not in owl:Ontology. Same as getOntologyMetadata()
+         if (isSKOS) {
+            OWLIndividual cs = EntitySearcher.getInstances(
+                    ontologyModel.getOWLOntologyManager().getOWLDataFactory().getOWLClass(Constants.SKOS_CONCEPT_SCHEME), ontologyModel)
+                    .collect(Collectors.toList()).get(0);
+            EntitySearcher.getAnnotations((OWLEntity) cs, this.getOntologyModel())
+                    .forEach(this::checkNamespaces);
+        }
         this.ontologyModel.annotations().forEach(this::checkNamespaces);
         // imports -> they are loaded when the ontology is loaded.
         // due to slow imports, we have disabled loading of imports
