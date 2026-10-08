@@ -21,6 +21,7 @@ package entities.checks;
 
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -32,13 +33,18 @@ import com.google.gson.JsonParser;
 import entities.Check;
 import entities.Ontology;
 import fair.Constants;
-
+import fair.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * This check verifies whether the ontology can be found in prefix.cc or not.
  * Note: A cache could help avoid doing this request.
  */
 
 public class Check_FIND2_PrefixInRegistry extends Check {
+
+    private static final Logger logger = LoggerFactory.getLogger(Check_FIND2_PrefixInRegistry.class);
+    
     public Check_FIND2_PrefixInRegistry(Ontology o) {
         super(o);
         this.id = Constants.FIND2_URL;
@@ -76,6 +82,11 @@ public class Check_FIND2_PrefixInRegistry extends Check {
             total_passed_tests = 0;
             explanation = "";
             getPrefix(Constants.LOV_PREFIX_VOCAB + ontoPrefix, "nsp", ontoURI);
+            String ontoPrefixLower = ontoPrefix.toLowerCase();
+            if (Constants.ERROR.equals(this.status) && this.total_passed_tests == 0
+                && !ontoPrefix.equals(ontoPrefixLower)) {
+                getPrefix(Constants.LOV_PREFIX_VOCAB + ontoPrefixLower, "nsp", ontoURI);
+            }
         }
         if (this.status.equals(Constants.ERROR) && total_passed_test_aux > 0){
             total_passed_tests = total_passed_test_aux;
@@ -84,16 +95,30 @@ public class Check_FIND2_PrefixInRegistry extends Check {
     }
 
     private void getPrefix(String urlAPI, String fieldToRetrieveNs, String ontoURI){
+        String platform = urlAPI.contains("prefix.cc") ? "prefix.cc" : "LOV";
         try {
             URL url = new URL(urlAPI);
-            String platform;
-            if (urlAPI.contains("prefix.cc")){
-                platform = "prefix.cc";
-            }else{
-                platform = "LOV";
-            }
+            // String platform;
+            // if (urlAPI.contains("prefix.cc")){
+            //     platform = "prefix.cc";
+            // }else{
+            //     platform = "LOV";
+            // }
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(10000);
             connection.setRequestMethod("GET");
+
+            int code = connection.getResponseCode();
+            if (code == HttpURLConnection.HTTP_NOT_FOUND) {
+                this.status = Constants.ERROR;
+                this.explanation = Constants.FIND2_EXPLANATION_ERROR; 
+                return;
+            }
+            if (code != HttpURLConnection.HTTP_OK) {
+                throw new IOException("HTTP " + code);
+            }
+
             InputStream in = connection.getInputStream();
             StringWriter writer = new StringWriter();
             IOUtils.copy(in, writer, "UTF-8");
@@ -113,6 +138,9 @@ public class Check_FIND2_PrefixInRegistry extends Check {
                         this.status = Constants.ERROR;
                         this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST+". Prefix found in "+platform+": "+ns;
                     }
+                    if (urlAPI.contains("prefix.cc")) {
+                        Utils.updateLocalPrefix(fieldToRetrieveNs, ns);
+                    }
                 }else {
                     this.status = Constants.ERROR;
                     this.explanation = Constants.FIND2_EXPLANATION_ERROR;
@@ -124,8 +152,28 @@ public class Check_FIND2_PrefixInRegistry extends Check {
 
             in.close();
         }catch(Exception e){
+            //local prefix.cc
+             if (urlAPI.contains("prefix.cc")) {
+                String localNs = Utils.getLocalPrefix(fieldToRetrieveNs);
+                if (localNs != null) {
+                    if (localNs.endsWith("/") || localNs.endsWith("#"))
+                        localNs = localNs.substring(0, localNs.length() - 1);
+                    this.total_passed_tests++;
+                    if (localNs.equals(ontoURI)) {
+                        this.total_passed_tests++;
+                        this.status = Constants.OK;
+                        this.explanation = Constants.FIND2_EXPLANATION_OK + " (in local prefix.cc)";
+                    } else {
+                        this.status = Constants.ERROR;
+                        this.explanation = Constants.FIND2_EXPLANATION_OK_ALMOST + ". Prefix found in local prefix.cc: " + localNs;
+                    }
+                    logger.info("Prefix found in local prefix.cc map: " + fieldToRetrieveNs + " → " + localNs);
+                    return; 
+                }
+            } 
             this.status = Constants.ERROR;
-            this.explanation = "Error when retrieving prefix";
+            // this.explanation = "Error when retrieving prefix";
+            this.explanation = "Could not query " + platform + " (service unavailable)";
         }
     }
 }

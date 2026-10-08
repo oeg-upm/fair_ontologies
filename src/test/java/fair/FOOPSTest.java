@@ -413,6 +413,26 @@ public class FOOPSTest {
     }
 
     /**
+     * Prefix declared in uppercase (OSO) but registered in LOV in lowercase (oso).
+     * FIND2 should retry with the lowercase prefix and pass.
+     */
+    @Test
+    public void prefixInRegistryUppercase(){
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File is = new File(classLoader.getResource("test_prefix_uppercase.ttl").getFile());
+            FOOPS f = new FOOPS(is.toString(), true);
+            Check_FIND2_PrefixInRegistry check = new Check_FIND2_PrefixInRegistry(f.getOntology());
+            check.check();
+            assertEquals(Constants.OK, check.getStatus());
+            f.removeTemporaryFolders();
+        } catch (Exception e) {
+            logger.error("Could not load the resource file");
+            fail();
+        }
+    }
+  
+    /**
      * This test verifies that the benchmark score endpoint returns a valid
      * BenchmarkScore JSON-LD with the required fields (scoring algorithm feature)
      */

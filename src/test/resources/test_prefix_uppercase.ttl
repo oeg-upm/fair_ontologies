@@ -1,0 +1,7 @@
+@prefix OSO: <https://w3id.org/earthsemantics/OSO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://w3id.org/earthsemantics/OSO> a owl:Ontology ;
+    vann:preferredNamespacePrefix "OSO" ;
+    vann:preferredNamespaceUri OSO: .
