@@ -1,0 +1,14 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcat:accessURL a owl:AnnotationProperty .
+
+<https://w3id.org/foops/test/main/> a owl:Ontology ;
+    owl:versionIRI <https://w3id.org/foops/test/main/1.0.0> ;
+    owl:imports <https://w3id.org/foops/test/dep> ;
+    dcat:accessURL <https://w3id.org/foops/test/main/> ;
+    dcterms:title "Test ontology for issue 254" ;
+    rdfs:comment "Reproduces the bug where owl:imports + dcat:accessURL causes wrong IRI selection." .
