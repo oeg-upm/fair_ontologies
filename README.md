@@ -65,6 +65,37 @@ curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json
 ### Swagger OpenAPI
 When you run the server, FOOPS! will set up a Swagger UI describing the endpoints available in the API. This API is available at `http://localhost:PORT/swagger-ui/index.html#/`
 
+## Running the server with Docker
+A `Dockerfile` is provided so you don't need a local JDK or Maven installation. The image is built in two stages: the first stage compiles the Spring Boot JAR, and the second stage runs it on a slim JRE.
+
+### Using Docker directly
+Build the image:
+
+```
+docker build -t foops .
+```
+
+Run the container (maps host port 8083 to the server's port 8080 inside the container):
+
+```
+docker run --rm -p 8083:8080 foops
+```
+
+### Using Docker Compose
+A `docker-compose.yml` is also included. To build and start the server:
+
+```
+docker compose up --build
+```
+
+The server will be available on `http://localhost:8083`. Test it with the same `curl` command shown above:
+
+```
+curl -X POST "http://localhost:8083/assessOntology" -H "accept: application/json;charset=UTF-8" -H "Content-Type: application/json;charset=UTF-8" -d "{ \"ontologyUri\": \"https://w3id.org/okn/o/sd\"}"
+```
+
+The port the server listens on inside the container can be changed with the `SERVER_PORT` environment variable, and extra JVM options can be passed with `JAVA_OPTS`.
+
 
 ## Running the JAR in local
 To create the JAR, just run:
